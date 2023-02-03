@@ -1005,6 +1005,7 @@ const config = {
         describe: true,
         expect: true,
         expectTypeOf: true,
+        faker: true,
         it: true,
         suite: true,
         test: true,

@@ -1137,6 +1137,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@faker-js/faker@npm:8.0.0-alpha.0":
+  version: 8.0.0-alpha.0
+  resolution: "@faker-js/faker@npm:8.0.0-alpha.0"
+  checksum: d803c4ac78d57e39c689271ad001d3136d502e5fc71fb7b517c5fd8b706194a96d3fbc0a08f6a5d5ed6ce474e644b6bff05a0df7e760d144510dcae839e6e252
+  languageName: node
+  linkType: hard
+
 "@flex-development/builtin-modules@npm:1.0.0":
   version: 1.0.0
   resolution: "@flex-development/builtin-modules@npm:1.0.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Fbuiltin-modules%2F1.0.0%2F7f6d30784550e9e03c3e93e9f846d958d016f1c9"
@@ -1295,6 +1302,8 @@ __metadata:
   dependencies:
     "@commitlint/cli": "npm:17.4.2"
     "@commitlint/config-conventional": "npm:17.4.2"
+    "@faker-js/faker": "npm:8.0.0-alpha.0"
+    "@flex-development/errnode": "npm:1.4.0"
     "@flex-development/mkbuild": "npm:1.0.0-alpha.9"
     "@flex-development/mlly": "npm:1.0.0-alpha.9"
     "@flex-development/pathe": "npm:1.0.3"

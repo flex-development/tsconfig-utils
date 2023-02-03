@@ -64,6 +64,7 @@
     "typecheck:watch": "vitest typecheck"
   },
   "dependencies": {
+    "@flex-development/errnode": "1.4.0",
     "@flex-development/mlly": "1.0.0-alpha.9",
     "@flex-development/pathe": "1.0.3",
     "@flex-development/tsconfig-types": "2.0.3",
@@ -74,6 +75,7 @@
   "devDependencies": {
     "@commitlint/cli": "17.4.2",
     "@commitlint/config-conventional": "17.4.2",
+    "@faker-js/faker": "8.0.0-alpha.0",
     "@flex-development/mkbuild": "1.0.0-alpha.9",
     "@graphql-eslint/eslint-plugin": "3.15.0",
     "@types/chai": "4.3.4",
