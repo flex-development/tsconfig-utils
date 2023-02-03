@@ -1,0 +1,52 @@
+{
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "allowCompoundWords": true,
+  "caseSensitive": false,
+  "dictionaries": ["@flex-development/tsconfig-utils"],
+  "dictionaryDefinitions": [
+    {
+      "name": "@flex-development/tsconfig-utils",
+      "path": "./.dictionary.txt"
+    }
+  ],
+  "enableGlobDot": true,
+  "failFast": false,
+  "flagWords": [],
+  "ignorePaths": [
+    "**/*.snap",
+    "**/.gitconfig",
+    "**/.gitignore",
+    "**/CHANGELOG.md",
+    "**/LICENSE.md",
+    "**/RELEASE_NOTES.md",
+    "**/dist/",
+    ".cspell.json",
+    ".env*",
+    ".eslintignore",
+    ".git/",
+    ".husky/_/",
+    ".prettierignore",
+    ".vercel/",
+    ".vscode/settings.json",
+    ".yarn/",
+    "__tests__/report.json",
+    "patches/",
+    "tsconfig*temp.json",
+    "vitest.config.*.timestamp-*.mjs",
+    "yarn.lock"
+  ],
+  "ignoreRegExpList": [
+    "/0x*/",
+    "/@flex-development\\/.*/",
+    "/from\\s+(['\"]).*\\1/",
+    "import\\(.*\\)"
+  ],
+  "ignoreWords": [],
+  "language": "en-US",
+  "patterns": [],
+  "readonly": true,
+  "useGitignore": true,
+  "usePnP": false,
+  "version": "0.2",
+  "words": ["fldv", "flexdevelopmentllc", "mkbuild", "mlly"]
+}

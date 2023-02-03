@@ -1,0 +1,27 @@
+# ESLINT IGNORE
+# https://eslint.org/docs/user-guide/configuring/ignoring-code#the-eslintignore-file
+
+# DIRECTORIES & FILES
+**/*.snap
+**/.DS_Store
+__tests__/report.json
+coverage/
+dist/
+node_modules/
+tsconfig*temp.json
+vitest.config.*.timestamp-*.mjs
+yarn.lock
+
+# NEGATED PATTERNS
+!.codecov.yml
+!.commitlintrc.json
+!.cspell.json
+!.eslintrc.base.cjs
+!.eslintrc.cjs
+!.github/
+!.graphqlrc.yml
+!.lintstagedrc.json
+!.markdownlint.jsonc
+!.prettierrc.json
+!.vscode/
+!.yarnrc.yml

@@ -1,0 +1,122 @@
+# Publish
+#
+# Cross-publish package to GitHub Package Registry and NPM when a GitHub release is published or on
+# workflow dispatch.
+#
+# References:
+#
+# - https://docs.github.com/actions/using-workflows/events-that-trigger-workflows#release
+# - https://docs.github.com/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch
+# - https://github.com/actions/checkout
+# - https://github.com/actions/setup-node
+# - https://github.com/hmarr/debug-action
+
+---
+name: publish
+on:
+  release:
+    types:
+      - published
+  workflow_dispatch:
+    inputs:
+      artifact:
+        description: release artifact download url
+        required: true
+      tag:
+        description: release tag
+        required: true
+env:
+  ARTIFACT: |
+    ${{ github.event.inputs.artifact || github.event.release.assets[0].browser_download_url }}
+  TAG: ${{ github.event.inputs.tag || github.event.release.tag_name }}
+jobs:
+  metadata:
+    runs-on: ubuntu-latest
+    outputs:
+      dist-tag: ${{ steps.dist-tag.outputs.flag }}
+      version: ${{ steps.version.outputs.result }}
+    steps:
+      - id: debug
+        name: Print environment variables and event payload
+        uses: hmarr/debug-action@v2.1.0
+      - id: checkout
+        name: Checkout ${{ env.TAG }}
+        uses: actions/checkout@v3.3.0
+        with:
+          ref: ${{ format('refs/tags/{0}', env.TAG) }}
+      - id: version
+        name: Get package version
+        run: echo "result=$(jq .version package.json -r)" >> $GITHUB_OUTPUT
+      - id: dist-tag
+        name: Get dist tag
+        uses: flex-development/dist-tag-action@1.1.2
+        with:
+          target: ${{ steps.version.outputs.result }}
+  gpr:
+    needs: metadata
+    permissions:
+      packages: write
+    runs-on: ubuntu-latest
+    environment:
+      name: gpr
+      url: |
+        ${{ format('{0}/{1}/pkgs/npm/{2}', github.server_url, github.repository,
+        github.event.repository.name) }}
+    steps:
+      - id: checkout
+        name: Checkout ${{ env.TAG }}
+        uses: actions/checkout@v3.3.0
+        with:
+          ref: ${{ format('refs/tags/{0}', env.TAG) }}
+      - id: npmrc-cleanup
+        name: Remove stale .npmrc file
+        run: rm .npmrc
+      - id: npmrc
+        name: Setup .npmrc file
+        uses: actions/setup-node@v3.6.0
+        with:
+          always-auth: true
+          node-version-file: .nvmrc
+          registry-url: https://npm.pkg.github.com
+          scope: ${{ github.repository_owner }}
+      - id: npmrc-print
+        name: Print contents of .npmrc file
+        run: cat $NPM_CONFIG_USERCONFIG
+      - id: publish
+        name: Publish package
+        run: npm publish $ARTIFACT ${{ needs.metadata.outputs.dist-tag }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  npm:
+    needs: [metadata, gpr]
+    runs-on: ubuntu-latest
+    environment:
+      name: npm
+      url: |
+        ${{ format('https://npmjs.com/package/@{0}/v/{1}', github.repository,
+        needs.metadata.outputs.version) }}
+    steps:
+      - id: checkout
+        name: Checkout ${{ env.TAG }}
+        uses: actions/checkout@v3.3.0
+        with:
+          ref: ${{ format('refs/tags/{0}', env.TAG) }}
+      - id: npmrc-cleanup
+        name: Remove stale .npmrc file
+        run: rm .npmrc
+      - id: npmrc
+        name: Setup .npmrc file
+        uses: actions/setup-node@v3.6.0
+        with:
+          always-auth: true
+          node-version-file: .nvmrc
+          registry-url: https://registry.npmjs.org
+          scope: ${{ github.repository_owner }}
+      - id: npmrc-print
+        name: Print contents of .npmrc file
+        run: cat $NPM_CONFIG_USERCONFIG
+      - id: publish
+        name: Publish package
+        run: npm publish $ARTIFACT ${{ needs.metadata.outputs.dist-tag }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

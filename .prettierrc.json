@@ -1,0 +1,31 @@
+{
+  "arrowParens": "avoid",
+  "bracketSpacing": true,
+  "proseWrap": "always",
+  "quoteProps": "as-needed",
+  "semi": false,
+  "trailingComma": "none",
+  "overrides": [
+    {
+      "files": [
+        "*.sh",
+        "*.txt",
+        ".editorconfig",
+        ".env*",
+        ".github/.gitconfig",
+        ".husky/commit-msg",
+        ".husky/pre-commit",
+        ".husky/pre-push"
+      ],
+      "options": {
+        "functionNextLine": true,
+        "keepComments": true,
+        "keepPadding": false,
+        "parser": "sh",
+        "spaceRedirects": true,
+        "switchCaseIndent": true,
+        "variant": 0
+      }
+    }
+  ]
+}

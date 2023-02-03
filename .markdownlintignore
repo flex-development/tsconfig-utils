@@ -1,0 +1,7 @@
+# MARKDOWNLINT IGNORE
+# https://github.com/DavidAnson/vscode-markdownlint#markdownlintignore
+
+# DIRECTORIES & FILES
+**/CHANGELOG.md
+**/LICENSE.md
+**/RELEASE_NOTES.md
