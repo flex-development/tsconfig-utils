@@ -147,6 +147,14 @@
     "vitest-github-actions-reporter": "0.9.0",
     "yaml-eslint-parser": "1.1.0"
   },
+  "peerDependencies": {
+    "@types/node": ">=14.18.36"
+  },
+  "peerDependenciesMeta": {
+    "@types/node": {
+      "optional": true
+    }
+  },
   "resolutions": {
     "@ardatan/sync-fetch": "larsgw/sync-fetch#head=worker_threads",
     "@flex-development/tutils": "6.0.0-alpha.10"

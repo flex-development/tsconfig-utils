@@ -1380,6 +1380,11 @@ __metadata:
     vitest: "npm:0.28.3"
     vitest-github-actions-reporter: "npm:0.9.0"
     yaml-eslint-parser: "npm:1.1.0"
+  peerDependencies:
+    "@types/node": ">=14.18.36"
+  peerDependenciesMeta:
+    "@types/node":
+      optional: true
   languageName: unknown
   linkType: soft
 
