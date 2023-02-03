@@ -1,8 +1,6 @@
 ardatan
 bdougie
 cefc
-CODECOV
-Codecov
 codecov
 commitlintrc
 dawidd
@@ -13,7 +11,7 @@ esbuild
 fbca
 gpgsign
 hmarr
-IIFE
+iife
 infile
 keyid
 larsgw
@@ -27,6 +25,6 @@ pathe
 pkgs
 pnpm
 preid
-Syncer
+syncer
 vates
 yarnrc
