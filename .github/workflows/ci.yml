@@ -16,6 +16,7 @@
 # - https://github.com/actions/checkout
 # - https://github.com/actions/setup-node
 # - https://github.com/actions/setup-node/blob/main/docs/advanced-usage.md#yarn2-configuration
+# - https://github.com/codecov/codecov-action
 # - https://github.com/hmarr/debug-action
 
 ---
@@ -246,6 +247,26 @@ jobs:
       - id: test
         name: Run tests
         run: yarn test:cov --segfault-retry=3
+      - id: codecov
+        name: Upload coverage report to Codecov
+        uses: codecov/codecov-action@v3.1.1
+        with:
+          env_vars: GITHUB_JOB,GITHUB_REF,GITHUB_REF_TYPE,GITHUB_RUN_ID,GITHUB_SHA,GITHUB_WORKSPACE
+          fail_ci_if_error: true
+          file: ./coverage/lcov.info
+          flags: ${{ format('node{0}', matrix.node-version) }}
+          override_branch: ${{ env.REF }}
+          override_build: ${{ github.run_id }}
+          override_commit: ${{ github.sha }}
+          token: ${{ secrets.CODECOV_TOKEN }}
+          verbose: true
+        env:
+          GITHUB_JOB: ${{ github.job }}
+          GITHUB_REF: ${{ github.ref }}
+          GITHUB_REF_TYPE: ${{ github.ref_type }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          GITHUB_SHA: ${{ github.sha }}
+          GITHUB_WORKSPACE: ${{ github.workspace }}
   build:
     needs: metadata
     runs-on: ubuntu-latest
