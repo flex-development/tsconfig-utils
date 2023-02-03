@@ -45,6 +45,8 @@
     "clean:modules": "trash ./.yarn/{cache,*.gz} ./node_modules",
     "clean:pack": "trash ./*.tgz",
     "clean:test": "yarn clean:coverage && trash ./__tests__/report.json",
+    "codecov": "yarn test:cov && yarn test:cov:upload",
+    "codecov:validate": "cat .codecov.yml | curl --data-binary @- https://codecov.io/validate",
     "fix:cg": "yarn fix:format && yarn fix:lint",
     "fix:dedupe": "yarn dedupe --strategy=highest",
     "fix:format": "prettier --cache --write .",
@@ -59,6 +61,7 @@
     "test": "vitest run",
     "test:cov": "yarn clean:coverage; yarn test --coverage",
     "test:cov:serve": "serve -l 5432 ./coverage/lcov-report",
+    "test:cov:upload": "./codecov -t $CODECOV_TOKEN -f ./coverage/lcov.info",
     "test:watch": "vitest",
     "typecheck": "vitest typecheck --run",
     "typecheck:watch": "vitest typecheck"
