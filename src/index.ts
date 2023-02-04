@@ -3,4 +3,4 @@
  * @module tsconfig-utils
  */
 
-export {}
+export * from './interfaces'
