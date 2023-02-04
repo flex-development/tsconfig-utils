@@ -9,6 +9,7 @@ dessant
 dohm
 esbuild
 fbca
+ggshield
 gpgsign
 hmarr
 iife
