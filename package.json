@@ -3,9 +3,11 @@
   "description": "Utilities for working with tsconfig files",
   "version": "0.0.0",
   "keywords": [
+    "programmatic",
     "tsconfig",
     "tsconfig.json",
-    "typescript"
+    "typescript",
+    "typescript-program"
   ],
   "license": "BSD-3-Clause",
   "homepage": "https://github.com/flex-development/tsconfig-utils",

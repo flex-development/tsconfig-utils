@@ -4,6 +4,7 @@
  */
 
 export { default as loadCompilerOptions } from './load-compiler-options'
+export { default as loadLibConfig } from './load-lib-config'
 export { default as loadPathAliases } from './load-path-aliases'
 export { default as loadPluginConfigs } from './load-plugin-configs'
 export { default as loadTsconfig } from './load-tsconfig'
