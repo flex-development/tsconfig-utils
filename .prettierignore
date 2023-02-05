@@ -17,6 +17,7 @@
 .prettierignore
 .yarn/
 Brewfile
+__fixtures__/tsconfig.invalid-json.json
 __tests__/report.json
 coverage/
 dist/

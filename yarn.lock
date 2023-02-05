@@ -1175,6 +1175,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@flex-development/errnode@npm:1.5.0":
+  version: 1.5.0
+  resolution: "@flex-development/errnode@npm:1.5.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Ferrnode%2F1.5.0%2F33dedbfaeb3139375e41d4382a8de53f9415a261"
+  dependencies:
+    "@flex-development/tutils": "npm:6.0.0-alpha.10"
+    node-inspect-extracted: "npm:2.0.0"
+  peerDependencies:
+    "@types/node": ">=14"
+  checksum: 884d5339afb245fdb3e635ba599e373ba1dd9f68e789c796817fe4fbe15317fb0192f49684b524c3baba1d4b70934799a5b353439543f29ee36b513d63e53bfa
+  languageName: node
+  linkType: hard
+
 "@flex-development/export-regex@npm:1.0.0":
   version: 1.0.0
   resolution: "@flex-development/export-regex@npm:1.0.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Fexport-regex%2F1.0.0%2Fee7486c94c3ecbb392ae3beff0c9ecc4f1ce7282"
@@ -1303,7 +1315,7 @@ __metadata:
     "@commitlint/cli": "npm:17.4.2"
     "@commitlint/config-conventional": "npm:17.4.2"
     "@faker-js/faker": "npm:8.0.0-alpha.0"
-    "@flex-development/errnode": "npm:1.4.0"
+    "@flex-development/errnode": "npm:1.5.0"
     "@flex-development/mkbuild": "npm:1.0.0-alpha.9"
     "@flex-development/mlly": "npm:1.0.0-alpha.9"
     "@flex-development/pathe": "npm:1.0.3"
@@ -1361,13 +1373,16 @@ __metadata:
     is-ci: "npm:3.0.1"
     jsonc-eslint-parser: "npm:2.1.0"
     lint-staged: "npm:13.1.0"
+    merge-anything: "npm:5.1.4"
     mri: "npm:1.2.0"
+    node-fetch: "npm:3.3.0"
     node-notifier: "npm:10.0.1"
     prettier: "npm:2.8.3"
     prettier-plugin-sh: "npm:0.12.8"
     sade: "npm:1.8.1"
     semver: "npm:7.3.8"
     serve: "npm:14.2.0"
+    sort-keys: "npm:5.0.0"
     strip-bom: "npm:5.0.0"
     strip-json-comments: "npm:5.0.0"
     tempfile: "npm:4.0.0"
@@ -3805,6 +3820,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"data-uri-to-buffer@npm:^4.0.0":
+  version: 4.0.1
+  resolution: "data-uri-to-buffer@npm:4.0.1"
+  checksum: 4398e0c9ca2073b89c0c6f90ffe5044e9193966f3f734b8492237d8dcd1305c77e08d964922da6e5bde9e380eddbde1c110340d7fbb34dcbdfeea35c45383211
+  languageName: node
+  linkType: hard
+
 "dataloader@npm:2.1.0":
   version: 2.1.0
   resolution: "dataloader@npm:2.1.0"
@@ -4715,6 +4737,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fetch-blob@npm:^3.1.2, fetch-blob@npm:^3.1.4":
+  version: 3.2.0
+  resolution: "fetch-blob@npm:3.2.0"
+  dependencies:
+    node-domexception: "npm:^1.0.0"
+    web-streams-polyfill: "npm:^3.0.3"
+  checksum: 114f3d29d46bf029fdc4753b3688295e9a917f37c81c124b3fcad7388ecffe234c29cd48259bed2319ca25aaf105ffd96a3e369c3ad1bcca5f94f410876f5b0d
+  languageName: node
+  linkType: hard
+
 "figures@npm:^3.0.0":
   version: 3.2.0
   resolution: "figures@npm:3.2.0"
@@ -4814,6 +4846,15 @@ __metadata:
     cross-spawn: "npm:^7.0.0"
     signal-exit: "npm:^3.0.2"
   checksum: 8187629907a23d158cc4be6bf6205e51907f00c2d7068e425caebb21cda84cfe07f2e4b4b2929a591f0e7f1694e0b3980b3ba5298723ff9eca828ab483098051
+  languageName: node
+  linkType: hard
+
+"formdata-polyfill@npm:^4.0.10":
+  version: 4.0.10
+  resolution: "formdata-polyfill@npm:4.0.10"
+  dependencies:
+    fetch-blob: "npm:^3.1.2"
+  checksum: 8954f9e756728f96239da0b07b2651193ebad3be58c7c9b114c3982982861d8bbd820497926b1d5018e5a57281af86693471672ed7c6c26860910c5597d5fc9d
   languageName: node
   linkType: hard
 
@@ -5637,6 +5678,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-plain-obj@npm:^4.0.0":
+  version: 4.1.0
+  resolution: "is-plain-obj@npm:4.1.0"
+  checksum: 9d6bfe46ad30eda62cc2f0caec2ee980257a84a0a003523588c8c0e5eb33b6e42e73910f42c323490bfdfdd1bf7fd7854e8f156c275da7c12bebebb1be11c73a
+  languageName: node
+  linkType: hard
+
 "is-port-reachable@npm:4.0.0":
   version: 4.0.0
   resolution: "is-port-reachable@npm:4.0.0"
@@ -5678,6 +5726,13 @@ __metadata:
   version: 0.1.0
   resolution: "is-unicode-supported@npm:0.1.0"
   checksum: 89a336ffc0aaf907bb1072bd5e8aa7187076620d0099607084911a733a055a52712257d619b2ab2031f6f0eb9ba886504384ebe218a6737d9bac734e6baaa736
+  languageName: node
+  linkType: hard
+
+"is-what@npm:^4.1.8":
+  version: 4.1.8
+  resolution: "is-what@npm:4.1.8"
+  checksum: c2e9f829658980ab7bc0d21be714e9683bef7a48b76e412792135f333105f940098a77258704d352d794f7766def0da36549ce6080d1cc3c8e1f3c45a728c8db
   languageName: node
   linkType: hard
 
@@ -6312,6 +6367,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"merge-anything@npm:5.1.4":
+  version: 5.1.4
+  resolution: "merge-anything@npm:5.1.4"
+  dependencies:
+    is-what: "npm:^4.1.8"
+  checksum: 489fbf11bb7455e397a59bb1ed46e577308d6822b26c81ca204974f251c1e30b0f8586910195a59769c3732b33d6026f254031c05f77d54c99dcc160b35cb9a4
+  languageName: node
+  linkType: hard
+
 "merge-stream@npm:^2.0.0":
   version: 2.0.0
   resolution: "merge-stream@npm:2.0.0"
@@ -6676,6 +6740,24 @@ __metadata:
   version: 2.6.2
   resolution: "neo-async@npm:2.6.2"
   checksum: 968ceb7350efb069a413eaa590b9ec2532023d6f4075c06ada75a57f86ff7ffbfc5b0b72760fadc1ccdc546b9c0bc346b69e9f5b03cdaa42f21e8063b880d305
+  languageName: node
+  linkType: hard
+
+"node-domexception@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "node-domexception@npm:1.0.0"
+  checksum: 7b65cf4b5e9545fbf17d8fd969952f71074048ff6f5c94d4ba9b98f1aee84ca9c5ec12e0eb7d5db0b6ad199c8c8c100056ef36c1145eabb542d910159c034bb7
+  languageName: node
+  linkType: hard
+
+"node-fetch@npm:3.3.0":
+  version: 3.3.0
+  resolution: "node-fetch@npm:3.3.0"
+  dependencies:
+    data-uri-to-buffer: "npm:^4.0.0"
+    fetch-blob: "npm:^3.1.4"
+    formdata-polyfill: "npm:^4.0.10"
+  checksum: 1a833a97b36f8646171409ca426a31b08a360a30f90f282c722cf7dce2f9c754ce687706cd6d76d110b7da7d1fe3d8530ba70640f0c23fa1a7e0b98fe59ecfbe
   languageName: node
   linkType: hard
 
@@ -8051,6 +8133,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"sort-keys@npm:5.0.0":
+  version: 5.0.0
+  resolution: "sort-keys@npm:5.0.0"
+  dependencies:
+    is-plain-obj: "npm:^4.0.0"
+  checksum: f8a0a3e63f2c1a30921b8693ac785f974dd496e9e849f39685c4ce9f5901fc0f597226130668f4d1b95cf4c5a1aab4744802713428ef4057fd5b9257f0c6dee8
+  languageName: node
+  linkType: hard
+
 "source-map-js@npm:^1.0.2":
   version: 1.0.2
   resolution: "source-map-js@npm:1.0.2"
@@ -9095,7 +9186,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"web-streams-polyfill@npm:^3.2.1":
+"web-streams-polyfill@npm:^3.0.3, web-streams-polyfill@npm:^3.2.1":
   version: 3.2.1
   resolution: "web-streams-polyfill@npm:3.2.1"
   checksum: d0b6246240d181d6e2d8de6ded04938581bc5807da33ccd6f6b4a431c1f3fa3c04ffe0dfb739c7172d1208141717b4c80e8df7b300998fa9287ddb69bbaa0c68

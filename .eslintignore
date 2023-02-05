@@ -4,6 +4,8 @@
 # DIRECTORIES & FILES
 **/*.snap
 **/.DS_Store
+__fixtures__/tsconfig.empty.json
+__fixtures__/tsconfig.invalid-json.json
 __tests__/report.json
 coverage/
 dist/

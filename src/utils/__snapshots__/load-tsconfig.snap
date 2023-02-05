@@ -1,9 +1,12 @@
+// Vitest Snapshot v1
+
+exports[`unit:utils/loadTsconfig > should return TSConfig object if tsconfig file is found 1`] = `
 {
   "compilerOptions": {
     "allowJs": true,
     "allowUnreachableCode": false,
     "alwaysStrict": false,
-    "baseUrl": ".",
+    "baseUrl": "..",
     "checkJs": false,
     "declaration": true,
     "declarationMap": true,
@@ -14,12 +17,15 @@
     "forceConsistentCasingInFileNames": true,
     "importsNotUsedAsValues": "error",
     "isolatedModules": true,
-    "lib": ["dom", "dom.iterable", "es2020"],
+    "lib": [
+      "es2020",
+    ],
     "module": "esnext",
     "moduleDetection": "force",
     "moduleResolution": "node",
     "newLine": "lf",
     "noEmit": true,
+    "noEmitOnError": true,
     "noErrorTruncation": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
@@ -28,27 +34,44 @@
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "outDir": "dist",
+    "outDir": "../dist",
     "paths": {
-      "#fixtures/*": ["__fixtures__/*"],
-      "#src": ["src/index"],
-      "#src/*": ["src/*"],
-      "#tests/*": ["__tests__/*"]
+      "#fixtures/*": [
+        "__fixtures__/*",
+      ],
+      "#src": [
+        "src/index",
+      ],
+      "#src/*": [
+        "src/*",
+      ],
+      "#tests/*": [
+        "__tests__/*",
+      ],
     },
     "preserveConstEnums": true,
     "preserveSymlinks": true,
     "pretty": true,
     "resolveJsonModule": true,
-    "rootDir": ".",
-    "skipLibCheck": true,
+    "rootDir": "..",
+    "skipLibCheck": false,
     "sourceMap": true,
     "strict": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
-    "target": "esnext",
+    "target": "es2020",
     "useDefineForClassFields": true,
-    "useUnknownInCatchVariables": true
+    "useUnknownInCatchVariables": true,
   },
-  "exclude": ["./coverage", "./dist", "./node_modules"],
-  "include": ["**/**.cjs", "**/**.mjs", "**/**.ts", "**/.*.cjs"]
+  "exclude": [
+    "**/__mocks__/**",
+    "**/__tests__/**",
+  ],
+  "extends": "../tsconfig",
+  "include": [
+    "../dist",
+    "../src",
+  ],
+  "references": [],
 }
+`;

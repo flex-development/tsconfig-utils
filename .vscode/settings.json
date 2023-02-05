@@ -301,7 +301,13 @@
       "icon": "graphql"
     },
     {
-      "extensions": ["build.json", "typecheck.json"],
+      "extensions": [
+        "build.json",
+        "empty.json",
+        "invalid-json.json",
+        "invalid-schema.json",
+        "typecheck.json"
+      ],
       "format": "svg",
       "icon": "tsconfig"
     },
