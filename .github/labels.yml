@@ -50,6 +50,10 @@
   description: typescript support
   color: 74cefc
 
+- name: scope:ts-next
+  description: typescript@next support
+  color: 74cefc
+
 - name: scope:utils
   description: tsconfig utilities
   color: 74cefc
