@@ -115,7 +115,7 @@
     "conventional-recommended-bump": "6.1.0",
     "cross-env": "7.0.3",
     "cspell": "6.20.1",
-    "esbuild": "0.17.5",
+    "esbuild": "0.17.6",
     "eslint": "8.33.0",
     "eslint-config-prettier": "8.6.0",
     "eslint-plugin-chai-expect": "3.0.0",
