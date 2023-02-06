@@ -27,5 +27,6 @@ pkgs
 pnpm
 preid
 syncer
+tsconfigs
 vates
 yarnrc

@@ -18,7 +18,7 @@ import type {
   TSConfig
 } from '@flex-development/tsconfig-types'
 import {
-  isEmptyString,
+  isNIL,
   isObjectPlain,
   isString,
   type Nilable,
@@ -102,8 +102,17 @@ const loadTsconfig = (
     throw new ERR_INVALID_RETURN_VALUE('a plain object', 'parseJSON', tsconfig)
   }
 
-  // try merging tsconfig and base tsconfig
-  if (isString(tsconfig.extends) && !isEmptyString(tsconfig.extends.trim())) {
+  /**
+   * Configuration files to inherit from.
+   *
+   * @const {string[]} bases
+   */
+  const bases: string[] = isNIL(tsconfig.extends)
+    ? []
+    : [tsconfig.extends].flat().filter(extend => !!extend.trim())
+
+  // try merging tsconfig and base tsconfigs
+  for (const extend of bases) {
     /**
      * Absolute path to base tsconfig file.
      *
@@ -111,7 +120,7 @@ const loadTsconfig = (
      */
     const basepath: string = pathe.join(
       pathe.dirname(id.pathname),
-      (tsconfig.extends + '.json').replace(/(\.json\.json)$/, '.json')
+      (extend + '.json').replace(/(\.json\.json)$/, '.json')
     )
 
     /**
@@ -124,13 +133,13 @@ const loadTsconfig = (
     // merge tsconfig objects if base tsconfig object was found
     if (base) {
       /**
-       * Compares values from a base tsconfig file and inheriting tsconfig file
-       * to determine how the values should be merged.
+       * Compares values from a base tsconfig file and inheriting tsconfig
+       * file to determine how the values should be merged.
        *
-       * @param {Nilable<CompilerOptions | CompilerOptionsValue>} b - Value from
-       * base tsconfig object, {@linkcode base}
-       * @param {Nilable<CompilerOptions | CompilerOptionsValue>} t - Value from
-       * inheriting tsconfig object, {@linkcode tsconfig}
+       * @param {Nilable<CompilerOptions | CompilerOptionsValue>} b - Value
+       * from base tsconfig object, {@linkcode base}
+       * @param {Nilable<CompilerOptions | CompilerOptionsValue>} t - Value
+       * from inheriting tsconfig object, {@linkcode tsconfig}
        * @param {string | symbol} key - Object key being evaluated
        * @return {Nilable<CompilerOptions | CompilerOptionsValue>} Merge value
        */
@@ -148,17 +157,17 @@ const loadTsconfig = (
 
         // determine how to merge values
         switch (true) {
-          // relative paths should be interpreted as relative to base tsconfig,
-          // but they need also need to be relative to inheriting tsconfig
+          // relative paths should be interpreted as relative to base, but
+          // they need also need to be relative to inheriting tsconfig
           case key === 'baseUrl' && isString(b):
           case key === 'outDir' && isString(b):
           case key === 'rootDir' && isString(b):
-            const { extends: extend = '' } = tsconfig!
             if (b === t) merged = pathe.join(pathe.dirname(extend), b as string)
             break
           // recursively merge compilerOptions
           case key === 'compilerOptions':
-            merged = sortKeys(mergeAndCompare(compare, b, t) as CompilerOptions)
+            merged = mergeAndCompare(compare, b, t) as CompilerOptions
+            merged = sortKeys(merged)
             break
           // exclude, files, and include properties from inheriting tsconfig
           // file should overwrite those from base tsconfig file.

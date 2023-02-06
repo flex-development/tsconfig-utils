@@ -1299,12 +1299,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@flex-development/tsconfig-types@npm:2.0.3":
-  version: 2.0.3
-  resolution: "@flex-development/tsconfig-types@npm:2.0.3::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Ftsconfig-types%2F2.0.3%2F7b5cdde69b2fa08162f254f97b49945271945b1d"
-  peerDependencies:
-    "@flex-development/tutils": ">=6.0.0-alpha.7"
-  checksum: a0c471bc5b9212d3228a3aa037d0acf51426aa6aa5a0e104b92e93329a05f16c7dab13c3c5cdb6a9af7d0f6004ad010de0a51e180f4261c1a9b818903d68c84d
+"@flex-development/tsconfig-types@npm:3.0.0":
+  version: 3.0.0
+  resolution: "@flex-development/tsconfig-types@npm:3.0.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Ftsconfig-types%2F3.0.0%2Ffcd2cf1f02f3377a624b44c74aad985ee804121c"
+  dependencies:
+    "@flex-development/pkg-types": "npm:2.0.0"
+    "@flex-development/tutils": "npm:6.0.0-alpha.10"
+  checksum: ad6d09fd4ac41349d928f10a77bf83d23c02215c0036a4794b49d825a693b310c043204440e47ac2bb3aa10a64c26f729a97ef6d1240d50daaa1a8f25af51fae
   languageName: node
   linkType: hard
 
@@ -1319,7 +1320,7 @@ __metadata:
     "@flex-development/mkbuild": "npm:1.0.0-alpha.9"
     "@flex-development/mlly": "npm:1.0.0-alpha.9"
     "@flex-development/pathe": "npm:1.0.3"
-    "@flex-development/tsconfig-types": "npm:2.0.3"
+    "@flex-development/tsconfig-types": "npm:3.0.0"
     "@flex-development/tutils": "npm:6.0.0-alpha.10"
     "@graphql-eslint/eslint-plugin": "npm:3.15.0"
     "@types/chai": "npm:4.3.4"
