@@ -3,6 +3,7 @@
  * @module tsconfig-utils/utils
  */
 
+export { default as COMPILER_OPTIONS } from './compiler-options'
 export { default as loadCompilerOptions } from './load-compiler-options'
 export { default as loadLibConfig } from './load-lib-config'
 export { default as loadPathAliases } from './load-path-aliases'

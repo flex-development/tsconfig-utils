@@ -329,9 +329,9 @@
   ],
   "vsicons.associations.folders": [
     {
-      "extensions": ["__fixtures__"],
+      "extensions": ["__fixtures__", "__tests__/baselines"],
       "format": "svg",
-      "icon": "data"
+      "icon": "db"
     },
     {
       "extensions": ["__snapshots__"],
