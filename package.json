@@ -40,7 +40,7 @@
     "check:lint": "eslint --exit-on-fatal-error --ext cjs,gql,json,jsonc,md,mjs,ts,yml --max-warnings 0 .",
     "check:spelling": "cspell lint --color --no-progress --relative $@ \"**\"",
     "check:types": "tsc -p tsconfig.typecheck.json",
-    "check:types:build": "tsc -p tsconfig.build.json",
+    "check:types:build": "bash ./scripts/typecheck-build.sh",
     "check:upgrades": "yarn upgrade-interactive",
     "clean:build": "trash ./{dist,*.tgz}",
     "clean:coverage": "trash ./coverage",
