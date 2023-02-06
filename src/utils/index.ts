@@ -14,3 +14,4 @@ export { default as normalizeImportsNotUsed } from './normalize-imports-not-used
 export { default as normalizeJsx } from './normalize-jsx'
 export { default as normalizeLib } from './normalize-lib'
 export { default as normalizeModule } from './normalize-module'
+export { default as normalizeModuleDetection } from './normalize-module-detection'
