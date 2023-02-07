@@ -1,6 +1,6 @@
 /**
- * @file Utilities - loadPluginConfigs
- * @module tsconfig-utils/utils/loadPluginConfigs
+ * @file Utilities - loadPlugins
+ * @module tsconfig-utils/utils/loadPlugins
  */
 
 import type { LoadTsconfigOptions } from '#src/interfaces'
@@ -18,9 +18,9 @@ import loadCompilerOptions from './load-compiler-options'
  * @param {LoadTsconfigOptions} [options={}] - Tsconfig loading options
  * @return {Plugin[]} Language service plugin configurations array
  */
-const loadPluginConfigs = (
+const loadPlugins = (
   id: mlly.ModuleId,
   options: LoadTsconfigOptions = {}
 ): Plugin[] => loadCompilerOptions(id, options).plugins ?? []
 
-export default loadPluginConfigs
+export default loadPlugins

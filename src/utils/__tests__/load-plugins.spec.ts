@@ -1,16 +1,16 @@
 /**
- * @file Unit Tests - loadPluginConfigs
- * @module tsconfig-utils/utils/tests/unit/loadPluginConfigs
+ * @file Unit Tests - loadPlugins
+ * @module tsconfig-utils/utils/tests/unit/loadPlugins
  */
 
 import type { Spy } from '#tests/interfaces'
 import type { Plugin } from '@flex-development/tsconfig-types'
 import loadCompilerOptions from '../load-compiler-options'
-import testSubject from '../load-plugin-configs'
+import testSubject from '../load-plugins'
 
 vi.mock('../load-compiler-options')
 
-describe('unit:utils/loadPluginConfigs', () => {
+describe('unit:utils/loadPlugins', () => {
   let id: string
   let loadCompilerOptionsMock: Spy<typeof loadCompilerOptions>
 
