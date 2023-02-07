@@ -3,7 +3,6 @@
  * @module tsconfig-utils/utils
  */
 
-export { resolveAlias } from '@flex-development/mlly'
 export { default as COMPILER_OPTIONS } from './compiler-options'
 export { default as LIB } from './lib'
 export { default as loadCompilerOptions } from './load-compiler-options'
