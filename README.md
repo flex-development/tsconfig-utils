@@ -42,7 +42,7 @@ Utilities for working with [`tsconfig`][1] files
 
 ## What is this?
 
-**TODO**: package overview.
+This package exports a set of utilities for working with [TypeScript configuration files][1].
 
 ## When should I use this?
 
