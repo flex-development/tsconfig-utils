@@ -8,11 +8,11 @@ import { isString, isUndefined } from '@flex-development/tutils'
 import LIB from './lib'
 
 /**
- * Converts the given `option` to an array containing **programmatic**
+ * Converts the given `option` into an array containing **programmatic**
  * [`lib`][1] options.
  *
- * TypeScript programs expect values defined in `compilerOptions.lib` to match
- * filenames in `node_modules/typescript/lib` exactly.
+ * TypeScript programs expect values in `compilerOptions.lib` to match filenames
+ * in `node_modules/typescript/lib` exactly.
  *
  * [1]: https://www.typescriptlang.org/tsconfig#lib
  *

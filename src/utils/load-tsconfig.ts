@@ -34,7 +34,7 @@ import sortKeys from 'sort-keys'
  * be removed before parsing. If successfully parsed, an object representation
  * of the tsconfig file will be returned.
  *
- * [Extending tsconfig files][3] is also supported. If not overwritten, the
+ * [Extending configuration files][3] is also supported. If not overwritten, the
  * [`baseUrl`][4], [`outDir`][5], and [`rootDir`][6] properties from the base
  * tsconfig file will be made relative to the tsconfig file being loaded.
  *
@@ -46,15 +46,16 @@ import sortKeys from 'sort-keys'
  * [6]: https://www.typescriptlang.org/tsconfig#rootDir
  *
  * @param {mlly.ModuleId} id - Module id of tsconfig file
- * @param {LoadTsconfigOptions} [options={}] - Load options
- * @return {Nullable<TSConfig>} `TSConfig` object or `null`
+ * @param {LoadTsconfigOptions?} [options] - Load options
+ * @return {Nullable<TSConfig>} User configuration object or `null` if tsconfig
+ * file is not found
  * @throws {NodeError<Error | TypeError>}
  */
 const loadTsconfig = (
   id: mlly.ModuleId,
-  options: LoadTsconfigOptions = {}
+  options?: LoadTsconfigOptions
 ): Nullable<TSConfig> => {
-  const { file = internal.isFile, read = internal.readFile } = options
+  const { file = internal.isFile, read = internal.readFile } = options ?? {}
 
   // ensure id is an instance of URL or a string
   internal.validateURLString(id, 'id')

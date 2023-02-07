@@ -8,7 +8,7 @@ import { JsxEmit } from '@flex-development/tsconfig-types'
 import ts from 'typescript'
 
 /**
- * Converts the given `option` to a **programmatic** [`jsx`][1] value.
+ * Converts the given `option` into a **programmatic** [`jsx`][1] value.
  *
  * TypeScript programs expect a {@linkcode ts.JsxEmit} value.
  *

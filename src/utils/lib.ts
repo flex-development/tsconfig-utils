@@ -6,8 +6,10 @@
 import type { Lib, LibFile } from '@flex-development/tsconfig-types'
 
 /**
- * Maps lowercase [lib names][1] to files in the `node_modules/typescript/lib`
- * directory.
+ * Map containing [type definition library names][1] that correspond to files in
+ * the `node_modules/typescript/lib` directory.
+ *
+ * All keys are lowercase.
  *
  * [1]: https://www.typescriptlang.org/tsconfig#lib
  *

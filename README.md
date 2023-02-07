@@ -18,6 +18,23 @@ Utilities for working with [`tsconfig`][1] files
 - [Install](#install)
 - [Use](#use)
 - [API](#api)
+  - [`COMPILER_OPTIONS`](#compiler_options)
+  - [`LIB`](#lib)
+  - [`loadCompilerOptions(tsconfig[, options])`](#loadcompileroptionstsconfig-options)
+  - [`loadLib(tsconfig[, options])`](#loadlibtsconfig-options)
+  - [`loadPaths(tsconfig[, options])`](#loadpathstsconfig-options)
+  - [`loadPlugins(tsconfig[, options])`](#loadpluginstsconfig-options)
+  - [`loadTsconfig(id[, options])`](#loadtsconfigid-options)
+  - [`normalizeCompilerOptions(option)`](#normalizecompileroptionscompileroptions)
+  - [`normalizeImportsNotUsed(option)`](#normalizeimportsnotusedoption)
+  - [`normalizeJsx(option)`](#normalizejsxoption)
+  - [`normalizeLib(option)`](#normalizeliboption)
+  - [`normalizeModule(option)`](#normalizemoduleoption)
+  - [`normalizeModuleDetection(option)`](#normalizemoduledetectionoption)
+  - [`normalizeModuleResolution(option)`](#normalizemoduleresolutionoption)
+  - [`normalizeNewLine(option)`](#normalizenewlineoption)
+  - [`normalizeTarget(option)`](#normalizetargetoption)
+  - [`resolvePaths(code, options)`](#resolvepathscode-options)
 - [Types](#types)
   - [Interfaces](#interfaces)
 - [Related](#related)
@@ -58,11 +75,342 @@ yarn add @flex-development/tsconfig-utils@flex-development/tsconfig-utils
 
 ## API
 
-**TODO**: api documentation.
+This package exports the following identifiers:
+
+- [`COMPILER_OPTIONS`](#compiler_options)
+- [`LIB`](#lib)
+- [`loadCompilerOptions`](#loadcompileroptionstsconfig-options)
+- [`loadLib`](#loadlibtsconfig-options)
+- [`loadPaths`](#loadpathstsconfig-options)
+- [`loadPlugins`](#loadpluginstsconfig-options)
+- [`loadTsconfig`](#loadtsconfigid-options)
+- [`normalizeCompilerOptions`](#normalizecompileroptionscompileroptions)
+- [`normalizeImportsNotUsed`](#normalizeimportsnotusedoption)
+- [`normalizeJsx`](#normalizejsxoption)
+- [`normalizeLib`](#normalizeliboption)
+- [`normalizeModule`](#normalizemoduleoption)
+- [`normalizeModuleDetection`](#normalizemoduledetectionoption)
+- [`normalizeModuleResolution`](#normalizemoduleresolutionoption)
+- [`normalizeNewLine`](#normalizenewlineoption)
+- [`normalizeTarget`](#normalizetargetoption)
+- [`resolvePaths`](#resolvepathscode-options)
+
+There is no default export.
+
+### `COMPILER_OPTIONS`
+
+Set containing [compiler option][3] names.
+
+#### Source
+
+> [`src/utils/compiler-options.ts`](src/utils/compiler-options.ts)
+
+### `LIB`
+
+Map containing [type definition library names][4] that correspond to files in the `**/node_modules/typescript/lib`
+directory.
+
+All keys are lowercase.
+
+#### Source
+
+> [`src/utils/lib.ts`](src/utils/lib.ts)
+
+### `loadCompilerOptions(tsconfig[, options])`
+
+Loads [`compilerOptions`][3] from a [tsconfig][1] file.
+
+#### Parameters
+
+- `{mlly.ModuleId}` **`tsconfig`** &mdash; Module id of tsconfig file
+- `{LoadTsconfigOptions?}` **`[options]`** &mdash; Tsconfig loading options
+
+#### Returns
+
+`{CompilerOptions}` Compiler options object.
+
+#### Source
+
+> [`src/utils/load-compiler-options.ts`](src/utils/load-compiler-options.ts)
+
+### `loadLib(tsconfig[, options])`
+
+Loads [type definition library names][4] from a [tsconfig][1] file.
+
+#### Parameters
+
+- `{mlly.ModuleId}` **`tsconfig`** &mdash; Module id of tsconfig file
+- `{LoadTsconfigOptions?}` **`[options]`** &mdash; Tsconfig loading options
+
+#### Returns
+
+`{Lib[]}` Type definition library names array.
+
+#### Source
+
+> [`src/utils/load-lib.ts`](src/utils/load-lib.ts)
+
+### `loadPaths(tsconfig[, options])`
+
+Loads a [path alias configuration][5] from a [tsconfig][1] file.
+
+#### Parameters
+
+- `{mlly.ModuleId}` **`tsconfig`** &mdash; Module id of tsconfig file
+- `{LoadTsconfigOptions?}` **`[options]`** &mdash; Tsconfig loading options
+
+#### Returns
+
+`{Paths}` Path alias configuration object.
+
+#### Source
+
+> [`src/utils/load-paths.ts`](src/utils/load-paths.ts)
+
+### `loadPlugins(tsconfig[, options])`
+
+Loads [language service plugin configurations][6] from a [tsconfig][1] file.
+
+#### Parameters
+
+- `{mlly.ModuleId}` **`tsconfig`** &mdash; Module id of tsconfig file
+- `{LoadTsconfigOptions?}` **`[options]`** &mdash; Tsconfig loading options
+
+#### Returns
+
+`{Plugin[]}` Language service plugin configurations array.
+
+#### Source
+
+> [`src/utils/load-plugins.ts`](src/utils/load-plugins.ts)
+
+### `loadTsconfig(id[, options])`
+
+Reads and parses the [tsconfig][1] file at the given module `id`.
+
+If the tsconfig file is found, comments and [byte order marks (BOMs)][7] will be removed before parsing. If successfully
+parsed, an object representation of the tsconfig file will be returned.
+
+[Extending configuration files][8] is also supported. If not overwritten, the [`baseUrl`][9], [`outDir`][10], and
+[`rootDir`][11] properties from the base tsconfig file will be made relative to the tsconfig file being loaded.
+
+#### Parameters
+
+- `{mlly.ModuleId}` **`id`** &mdash; Module id of tsconfig file
+- `{LoadTsconfigOptions?}` **`[options]`** &mdash; Load options
+
+#### Returns
+
+`{Nullable<TSConfig>}` User configuration object or `null` if tsconfig file is not found.
+
+#### Source
+
+> [`src/utils/load-tsconfig.ts`](src/utils/load-tsconfig.ts)
+
+### `normalizeCompilerOptions(compilerOptions)`
+
+Converts the given [`compilerOptions`][3] into **programmatic** compiler options.
+
+TypeScript programs expect compiler option objects to use enum values where appropriate.
+
+#### Parameters
+
+- `{unknown}` **`compilerOptions`** &mdash; User compiler options
+
+#### Returns
+
+`{ts.CompilerOptions}` Programmatic compiler options.
+
+#### Source
+
+> [`src/utils/normalize-compiler-options.ts`](src/utils/normalize-compiler-options.ts)
+
+### `normalizeImportsNotUsed(option)`
+
+Converts the given `option` into a **programmatic** [`importsNotUsedAsValues`][12] option.
+
+TypeScript programs expect a `ts.ImportsNotUsedAsValues` value.
+
+If the `option` is already programmatic, it will be returned unmodified. If it cannot be converted, `undefined` will be
+returned instead.
+
+#### Parameters
+
+- `{unknown}` **`option`** &mdash; Option to evaluate
+
+#### Returns
+
+`{ts.ImportsNotUsedAsValues | undefined}` `ts.ImportsNotUsedAsValues` value or `undefined`.
+
+#### Source
+
+> [`src/utils/normalize-imports-not-used.ts`](src/utils/normalize-imports-not-used.ts)
+
+### `normalizeJsx(option)`
+
+Converts the given `option` into a **programmatic** [`jsx`][13] option.
+
+TypeScript programs expect a `ts.JsxEmit` value.
+
+If the `option` is already programmatic, it will be returned unmodified. If it cannot be converted, `undefined` will be
+returned instead.
+
+#### Parameters
+
+- `{unknown}` **`option`** &mdash; Option to evaluate
+
+#### Returns
+
+`{ts.JsxEmit | undefined}` `ts.JsxEmit` value or `undefined`.
+
+#### Source
+
+> [`src/utils/normalize-jsx.ts`](src/utils/normalize-jsx.ts)
+
+### `normalizeLib(option)`
+
+Converts the given `option` into an array containing **programmatic** [`lib`][4] options.
+
+TypeScript programs expect values in `compilerOptions.lib` to match filenames in `**/node_modules/typescript/lib`
+exactly.
+
+#### Parameters
+
+- `{unknown}` **`option`** &mdash; Option to evaluate
+
+#### Returns
+
+`{LibFile[]}` Lib filename array.
+
+#### Source
+
+> [`src/utils/normalize-lib.ts`](src/utils/normalize-lib.ts)
+
+### `normalizeModule(option)`
+
+Converts the given `option` into a **programmatic** [`module`][14] option.
+
+TypeScript programs expect a `ts.ModuleKind` value.
+
+If the `option` is already programmatic, it will be returned unmodified. If it cannot be converted, `undefined` will be
+returned instead.
+
+#### Parameters
+
+- `{unknown}` **`option`** &mdash; Option to evaluate
+
+#### Returns
+
+`{ts.ModuleKind | undefined}` `ts.ModuleKind` value or `undefined`.
+
+#### Source
+
+> [`src/utils/normalize-module.ts`](src/utils/normalize-module.ts)
+
+### `normalizeModuleDetection(option)`
+
+Converts the given `option` into a **programmatic** [`moduleDetection`][15] option.
+
+TypeScript programs expect a `ts.ModuleDetectionKind` value.
+
+If the `option` is already programmatic, it will be returned unmodified. If it cannot be converted, `undefined` will be
+returned instead.
+
+#### Parameters
+
+- `{unknown}` **`option`** &mdash; Option to evaluate
+
+#### Returns
+
+`{ts.ModuleDetectionKind | undefined}` `ts.ModuleDetectionKind` value or `undefined`.
+
+#### Source
+
+> [`src/utils/normalize-module-detection.ts`](src/utils/normalize-module-detection.ts)
+
+### `normalizeModuleResolution(option)`
+
+Converts the given `option` into a **programmatic** [`moduleResolution`][16] option.
+
+TypeScript programs expect a `ts.ModuleResolutionKind` value.
+
+If the `option` is already programmatic, it will be returned unmodified. If it cannot be converted, `undefined` will be
+returned instead.
+
+#### Parameters
+
+- `{unknown}` **`option`** &mdash; Option to evaluate
+
+#### Returns
+
+`{ts.ModuleResolutionKind | undefined}` `ts.ModuleResolutionKind` value or `undefined`.
+
+#### Source
+
+> [`src/utils/normalize-module-resolution.ts`](src/utils/normalize-module-resolution.ts)
+
+### `normalizeNewLine(option)`
+
+Converts the given `option` into a **programmatic** [`newLine`][17] option.
+
+TypeScript programs expect a `ts.NewLineKind` value.
+
+If the `option` is already programmatic, it will be returned unmodified. If it cannot be converted, `undefined` will be
+returned instead.
+
+#### Parameters
+
+- `{unknown}` **`option`** &mdash; Option to evaluate
+
+#### Returns
+
+`{ts.NewLineKind | undefined}` `ts.NewLineKind` value or `undefined`.
+
+#### Source
+
+> [`src/utils/normalize-new-line.ts`](src/utils/normalize-new-line.ts)
+
+### `normalizeTarget(option)`
+
+Converts the given `option` into a **programmatic** [`target`][18] option.
+
+TypeScript programs expect a `ts.ScriptTarget` value.
+
+If the `option` is already programmatic, it will be returned unmodified. If it cannot be converted, `undefined` will be
+returned instead.
+
+#### Parameters
+
+- `{unknown}` **`option`** &mdash; Option to evaluate
+
+#### Returns
+
+`{ts.ScriptTarget | undefined}` `ts.ScriptTarget` value or `undefined`.
+
+#### Source
+
+> [`src/utils/normalize-target.ts`](src/utils/normalize-target.ts)
+
+### `resolvePaths(code, options)`
+
+Resolves path aliases in `export`, `import`, and `require` statements in the given piece of source `code`.
+
+#### Parameters
+
+- `{string}` **`code`** &mdash; Code to evaluate
+- `{ResolvePathsOptions}` **`options`** &mdash; Path alias resolution options
+
+#### Returns
+
+`{Promise<string>}` `code` with path aliases resolved and/or unmodified.
+
+#### Source
+
+> [`src/utils/resolve-paths.ts`](src/utils/resolve-paths.ts)
 
 ## Types
 
-This package is fully typed with [TypeScript][3].
+This package is fully typed with [TypeScript][19].
 
 ### Interfaces
 
@@ -71,7 +419,8 @@ This package is fully typed with [TypeScript][3].
 
 ## Related
 
-- [`tsconfig-types`][4] &mdash; [TypeScript][3] definitions for `tsconfig.json`
+- [`mlly`][20] &mdash; [ECMAScript module][21] utilities
+- [`tsconfig-types`][22] &mdash; [TypeScript][19] definitions for `tsconfig.json`
 
 ## Contribute
 
@@ -79,5 +428,23 @@ See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 [1]: https://www.typescriptlang.org/tsconfig
 [2]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
-[3]: https://www.typescriptlang.org
-[4]: https://github.com/flex-development/tsconfig-types
+[3]: https://www.typescriptlang.org/tsconfig#compilerOptions
+[4]: https://www.typescriptlang.org/tsconfig#lib
+[5]: https://www.typescriptlang.org/tsconfig#paths
+[6]: https://www.typescriptlang.org/tsconfig#plugins
+[7]: https://en.wikipedia.org/wiki/Byte_order_mark#UTF-8
+[8]: https://www.typescriptlang.org/tsconfig#extends
+[9]: https://www.typescriptlang.org/tsconfig#baseUrl
+[10]: https://www.typescriptlang.org/tsconfig#outDir
+[11]: https://www.typescriptlang.org/tsconfig#rootDir
+[12]: https://www.typescriptlang.org/tsconfig#importsNotUsedAsValues
+[13]: https://www.typescriptlang.org/tsconfig#jsx
+[14]: https://www.typescriptlang.org/tsconfig#module
+[15]: https://www.typescriptlang.org/tsconfig#moduleDetection
+[16]: https://www.typescriptlang.org/tsconfig#moduleResolution
+[17]: https://www.typescriptlang.org/tsconfig#newLine
+[18]: https://www.typescriptlang.org/tsconfig#target
+[19]: https://www.typescriptlang.org
+[20]: https://github.com/flex-development/mlly
+[21]: https://nodejs.org/api/esm.html
+[22]: https://github.com/flex-development/tsconfig-types

@@ -9,7 +9,7 @@ import { isString } from '@flex-development/tutils'
 import ts from 'typescript'
 
 /**
- * Converts the given `option` to a **programmatic** [`moduleResolution`][1]
+ * Converts the given `option` into a **programmatic** [`moduleResolution`][1]
  * option.
  *
  * TypeScript programs expect a {@linkcode ts.ModuleResolutionKind} value.

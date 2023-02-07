@@ -11,16 +11,20 @@ import loadTsconfig from '../load-tsconfig'
 vi.mock('../load-tsconfig')
 
 describe('unit:utils/loadCompilerOptions', () => {
-  let id: string
   let loadTsconfigMock: Spy<typeof loadTsconfig>
+  let tsconfig: string
 
   beforeAll(() => {
-    id = 'tsconfig.json'
     loadTsconfigMock = loadTsconfig as unknown as typeof loadTsconfigMock
+    tsconfig = 'tsconfig.json'
   })
 
   it('should return CompilerOptions object', () => {
-    expect(testSubject(id)).to.deep.equal(getTsconfigJson(id)!.compilerOptions)
+    // Arrange
+    const { compilerOptions } = getTsconfigJson(tsconfig)
+
+    // Act + Expect
+    expect(testSubject(tsconfig)).to.deep.equal(compilerOptions)
   })
 
   it('should return empty object if compilerOptions is NIL', () => {
@@ -28,7 +32,7 @@ describe('unit:utils/loadCompilerOptions', () => {
     loadTsconfigMock.mockReturnValueOnce({})
 
     // Act + Expect
-    expect(testSubject(id)).to.deep.equal({})
+    expect(testSubject(tsconfig)).to.deep.equal({})
   })
 
   it('should return empty object if tsconfig file does not exist', () => {

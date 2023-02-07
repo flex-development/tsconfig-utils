@@ -8,7 +8,7 @@ import { ModuleDetectionKind } from '@flex-development/tsconfig-types'
 import ts from 'typescript'
 
 /**
- * Converts the given `option` to a **programmatic** [`moduleDetection`][1]
+ * Converts the given `option` into a **programmatic** [`moduleDetection`][1]
  * option.
  *
  * TypeScript programs expect a {@linkcode ts.ModuleDetectionKind} value.

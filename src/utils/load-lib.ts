@@ -14,15 +14,13 @@ import loadCompilerOptions from './load-compiler-options'
  * [1]: https://www.typescriptlang.org/tsconfig#lib
  * [2]: https://www.typescriptlang.org/tsconfig
  *
- * @param {mlly.ModuleId} id - Module id of tsconfig file
- * @param {LoadTsconfigOptions} [options={}] - Tsconfig loading options
- * @return {Lib[]} Type definition library names
+ * @param {mlly.ModuleId} tsconfig - Module id of tsconfig file
+ * @param {LoadTsconfigOptions?} [options] - Tsconfig loading options
+ * @return {Lib[]} Type definition library names array
  */
 const loadLib = (
-  id: mlly.ModuleId,
-  options: LoadTsconfigOptions = {}
-): Lib[] => {
-  return loadCompilerOptions(id, options).lib ?? []
-}
+  tsconfig: mlly.ModuleId,
+  options?: LoadTsconfigOptions
+): Lib[] => loadCompilerOptions(tsconfig, options).lib ?? []
 
 export default loadLib

@@ -9,7 +9,7 @@ import { isString } from '@flex-development/tutils'
 import ts from 'typescript'
 
 /**
- * Converts the given `option` to a **programmatic** [`target`][1] option.
+ * Converts the given `option` into a **programmatic** [`target`][1] option.
  *
  * TypeScript programs expect a {@linkcode ts.ScriptTarget} value.
  *

@@ -5,28 +5,27 @@
 
 import type { Spy } from '#tests/interfaces'
 import getTsconfigJson from '#tests/utils/get-tsconfig-json'
-import type { Lib } from '@flex-development/tsconfig-types'
 import loadCompilerOptions from '../load-compiler-options'
 import testSubject from '../load-lib'
 
 vi.mock('../load-compiler-options')
 
 describe('unit:utils/loadLib', () => {
-  let id: string
   let loadCompilerOptionsMock: Spy<typeof loadCompilerOptions>
+  let tsconfig: string
 
   beforeAll(() => {
-    id = 'tsconfig.json'
     loadCompilerOptionsMock =
       loadCompilerOptions as unknown as typeof loadCompilerOptionsMock
+    tsconfig = 'tsconfig.json'
   })
 
   it('should return Lib array', () => {
     // Arrange
-    const lib: Lib[] = getTsconfigJson(id)!.compilerOptions!.lib!
+    const { lib } = getTsconfigJson(tsconfig)!.compilerOptions!
 
     // Act + Expect
-    expect(testSubject(id)).to.deep.equal(lib)
+    expect(testSubject(tsconfig)).to.deep.equal(lib)
   })
 
   it('should return empty array if compilerOptions.lib is NIL', () => {
@@ -34,6 +33,6 @@ describe('unit:utils/loadLib', () => {
     loadCompilerOptionsMock.mockReturnValueOnce({})
 
     // Act + Expect
-    expect(testSubject(id)).to.deep.equal([])
+    expect(testSubject(tsconfig)).to.deep.equal([])
   })
 })

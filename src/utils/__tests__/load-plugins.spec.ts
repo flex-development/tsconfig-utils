@@ -11,13 +11,13 @@ import testSubject from '../load-plugins'
 vi.mock('../load-compiler-options')
 
 describe('unit:utils/loadPlugins', () => {
-  let id: string
   let loadCompilerOptionsMock: Spy<typeof loadCompilerOptions>
+  let tsconfig: string
 
   beforeAll(() => {
-    id = 'tsconfig.json'
     loadCompilerOptionsMock =
       loadCompilerOptions as unknown as typeof loadCompilerOptionsMock
+    tsconfig = 'tsconfig.json'
   })
 
   it('should return Plugin object array', () => {
@@ -26,7 +26,7 @@ describe('unit:utils/loadPlugins', () => {
     loadCompilerOptionsMock.mockReturnValueOnce({ plugins })
 
     // Act + Expect
-    expect(testSubject(id)).to.deep.equal(plugins)
+    expect(testSubject(tsconfig)).to.deep.equal(plugins)
   })
 
   it('should return empty array if compilerOptions.plugins is NIL', () => {
@@ -34,6 +34,6 @@ describe('unit:utils/loadPlugins', () => {
     loadCompilerOptionsMock.mockReturnValueOnce({})
 
     // Act + Expect
-    expect(testSubject(id)).to.deep.equal([])
+    expect(testSubject(tsconfig)).to.deep.equal([])
   })
 })

@@ -21,16 +21,16 @@ import normalizeNewLine from './normalize-new-line'
 import normalizeTarget from './normalize-target'
 
 /**
- * Converts the given user [`compilerOptions`][1] into **programmatic** compiler
+ * Converts the given [`compilerOptions`][1] into **programmatic** compiler
  * options.
  *
- * The TypeScript program expects `compilerOptions` to use enum values where
+ * TypeScript programs expect compiler option objects to use enum values where
  * appropriate.
  *
  * [1]: https://www.typescriptlang.org/tsconfig#compilerOptions
  *
  * @param {unknown} compilerOptions - User compiler options
- * @return {ts.CompilerOptions} TypeScript program compiler options
+ * @return {ts.CompilerOptions} Programmatic compiler options
  */
 const normalizeCompilerOptions = (
   compilerOptions: unknown

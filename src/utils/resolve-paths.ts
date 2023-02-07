@@ -10,13 +10,14 @@ import type { CompilerOptions } from '@flex-development/tsconfig-types'
 import loadCompilerOptions from './load-compiler-options'
 
 /**
- * Resolves path aliases in the given piece of source `code`.
+ * Resolves path aliases in `export`, `import`, and `require` statements in the
+ * given piece of source `code`.
  *
  * @async
  *
  * @param {string} code - Code to evaluate
  * @param {ResolvePathsOptions} options - Path alias resolution options
- * @return {Promise<string>} `code` unmodified or with path aliases resolved
+ * @return {Promise<string>} `code` with path aliases resolved and/or unmodified
  */
 const resolvePaths = async (
   code: string,

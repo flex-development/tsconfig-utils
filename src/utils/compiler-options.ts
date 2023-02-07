@@ -6,7 +6,9 @@
 import type { CompilerOption } from '@flex-development/tsconfig-types'
 
 /**
- * Compiler option names.
+ * Set containing [compiler option][1] names.
+ *
+ * [1]: https://www.typescriptlang.org/tsconfig#compilerOptions
  *
  * @const {Set<CompilerOption>} COMPILER_OPTIONS
  */
