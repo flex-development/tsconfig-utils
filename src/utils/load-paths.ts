@@ -1,6 +1,6 @@
 /**
- * @file Utilities - loadPathAliases
- * @module tsconfig-utils/utils/loadPathAliases
+ * @file Utilities - loadPaths
+ * @module tsconfig-utils/utils/loadPaths
  */
 
 import type { LoadTsconfigOptions } from '#src/interfaces'
@@ -18,9 +18,9 @@ import loadCompilerOptions from './load-compiler-options'
  * @param {LoadTsconfigOptions} [options={}] - Tsconfig loading options
  * @return {Paths} Path alias configuration object
  */
-const loadPathAliases = (
+const loadPaths = (
   id: mlly.ModuleId,
   options: LoadTsconfigOptions = {}
 ): Paths => loadCompilerOptions(id, options).paths ?? {}
 
-export default loadPathAliases
+export default loadPaths
