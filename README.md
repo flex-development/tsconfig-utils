@@ -37,6 +37,7 @@ Utilities for working with [`tsconfig`][1] files
   - [`resolvePaths(code, options)`](#resolvepathscode-options)
 - [Types](#types)
   - [Interfaces](#interfaces)
+  - [`tsconfig-types`](#tsconfig-types)
 - [Related](#related)
 - [Contribute](#contribute)
 
@@ -418,10 +419,15 @@ This package is fully typed with [TypeScript][20].
 - [`LoadTsconfigOptions`](src/interfaces/options-load-tsconfig.ts)
 - [`ResolvePathsOptions`](src/interfaces/options-resolve-paths.ts)
 
+### `tsconfig-types`
+
+This package re-exports TypeScript definitions from [`tsconfig-types`][21]. This is primarily for the convenience of
+TypeScript users who do not hoist packages, but may need to `import` definitions used in this package.
+
 ## Related
 
-- [`mlly`][21] &mdash; [ECMAScript module][22] utilities
-- [`tsconfig-types`][23] &mdash; [TypeScript][20] definitions for `tsconfig.json`
+- [`mlly`][22] &mdash; [ECMAScript module][23] utilities
+- [`tsconfig-types`][21] &mdash; [TypeScript][20] definitions for `tsconfig.json`
 
 ## Contribute
 
@@ -447,6 +453,6 @@ See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 [18]: https://www.typescriptlang.org/tsconfig#newLine
 [19]: https://www.typescriptlang.org/tsconfig#target
 [20]: https://www.typescriptlang.org
-[21]: https://github.com/flex-development/mlly
-[22]: https://nodejs.org/api/esm.html
-[23]: https://github.com/flex-development/tsconfig-types
+[21]: https://github.com/flex-development/tsconfig-types
+[22]: https://github.com/flex-development/mlly
+[23]: https://nodejs.org/api/esm.html
