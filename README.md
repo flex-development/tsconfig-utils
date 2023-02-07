@@ -19,6 +19,7 @@ Utilities for working with [`tsconfig`][1] files
 - [Use](#use)
 - [API](#api)
 - [Types](#types)
+  - [Interfaces](#interfaces)
 - [Related](#related)
 - [Contribute](#contribute)
 
@@ -62,6 +63,11 @@ yarn add @flex-development/tsconfig-utils@flex-development/tsconfig-utils
 ## Types
 
 This package is fully typed with [TypeScript][3].
+
+### Interfaces
+
+- [`LoadTsconfigOptions`](src/interfaces/options-load-tsconfig.ts)
+- [`ResolvePathsOptions`](src/interfaces/options-resolve-paths.ts)
 
 ## Related
 
