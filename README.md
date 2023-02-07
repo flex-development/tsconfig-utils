@@ -65,7 +65,7 @@ This package is fully typed with [TypeScript][3].
 
 ## Related
 
-**TODO**: related packages.
+- [`tsconfig-types`][4] &mdash; [TypeScript][3] definitions for `tsconfig.json`
 
 ## Contribute
 
@@ -74,3 +74,4 @@ See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 [1]: https://www.typescriptlang.org/tsconfig
 [2]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
 [3]: https://www.typescriptlang.org
+[4]: https://github.com/flex-development/tsconfig-types
