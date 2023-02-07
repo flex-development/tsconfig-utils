@@ -1,17 +1,17 @@
 /**
- * @file Unit Tests - loadLibConfig
- * @module tsconfig-utils/utils/tests/unit/loadLibConfig
+ * @file Unit Tests - loadLib
+ * @module tsconfig-utils/utils/tests/unit/loadLib
  */
 
 import type { Spy } from '#tests/interfaces'
 import getTsconfigJson from '#tests/utils/get-tsconfig-json'
 import type { Lib } from '@flex-development/tsconfig-types'
 import loadCompilerOptions from '../load-compiler-options'
-import testSubject from '../load-lib-config'
+import testSubject from '../load-lib'
 
 vi.mock('../load-compiler-options')
 
-describe('unit:utils/loadLibConfig', () => {
+describe('unit:utils/loadLib', () => {
   let id: string
   let loadCompilerOptionsMock: Spy<typeof loadCompilerOptions>
 
