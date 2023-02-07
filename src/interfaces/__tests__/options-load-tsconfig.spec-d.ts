@@ -3,8 +3,8 @@
  * @module tsconfig-utils/interfaces/tests/unit-d/LoadTsconfigOptions
  */
 
+import type mlly from '@flex-development/mlly'
 import type { Fn, KeysRequired } from '@flex-development/tutils'
-import type { URL } from 'node:url'
 import type TestSubject from '../options-load-tsconfig'
 
 describe('unit-d:interfaces/LoadTsconfigOptions', () => {
@@ -12,15 +12,15 @@ describe('unit-d:interfaces/LoadTsconfigOptions', () => {
     expectTypeOf<KeysRequired<TestSubject>>().toBeNever()
   })
 
-  it('should match [file?: Fn<[URL | string], boolean>]', () => {
+  it('should match [file?: Fn<[mlly.ModuleId], boolean>]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('file')
-      .toEqualTypeOf<Fn<[URL | string], boolean> | undefined>()
+      .toEqualTypeOf<Fn<[mlly.ModuleId], boolean> | undefined>()
   })
 
-  it('should match [read?: Fn<[URL | string], string>]', () => {
+  it('should match [read?: Fn<[mlly.ModuleId], string>]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('read')
-      .toEqualTypeOf<Fn<[URL | string], string> | undefined>()
+      .toEqualTypeOf<Fn<[mlly.ModuleId], string> | undefined>()
   })
 })

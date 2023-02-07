@@ -4,8 +4,8 @@
  */
 
 import type { LoadTsconfigOptions } from '#src/interfaces'
+import type mlly from '@flex-development/mlly'
 import type { Lib } from '@flex-development/tsconfig-types'
-import type { URL } from 'node:url'
 import loadCompilerOptions from './load-compiler-options'
 
 /**
@@ -14,12 +14,12 @@ import loadCompilerOptions from './load-compiler-options'
  * [1]: https://www.typescriptlang.org/tsconfig#lib
  * [2]: https://www.typescriptlang.org/tsconfig
  *
- * @param {URL | string} id - Module id of tsconfig file
+ * @param {mlly.ModuleId} id - Module id of tsconfig file
  * @param {LoadTsconfigOptions} [options={}] - Tsconfig loading options
  * @return {Lib[]} Type definition configurations array
  */
 const loadLibConfig = (
-  id: URL | string,
+  id: mlly.ModuleId,
   options: LoadTsconfigOptions = {}
 ): Lib[] => loadCompilerOptions(id, options).lib ?? []
 

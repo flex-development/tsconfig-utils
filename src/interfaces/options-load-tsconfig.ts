@@ -3,8 +3,8 @@
  * @module tsconfig-utils/interfaces/LoadTsconfigOptions
  */
 
+import type mlly from '@flex-development/mlly'
 import type { Fn } from '@flex-development/tutils'
-import type { URL } from 'node:url'
 
 /**
  * Options for loading tsconfig files.
@@ -13,22 +13,26 @@ interface LoadTsconfigOptions {
   /**
    * Checks if a file exists at the given module `id`.
    *
+   * @see {@linkcode mlly.ModuleId}
+   *
    * @default internal.isFile
    *
-   * @param {URL | string} id - Module id to evaluate
+   * @param {mlly.ModuleId} id - Module id to evaluate
    * @return {boolean} `true` if file exists at `id`, `false` otherwise
    */
-  file?: Fn<[URL | string], boolean> | undefined
+  file?: Fn<[mlly.ModuleId], boolean> | undefined
 
   /**
    * Reads the file at the given module `id`.
    *
+   * @see {@linkcode mlly.ModuleId}
+   *
    * @default internal.readFile
    *
-   * @param {URL | string} id - Module id to evaluate
+   * @param {mlly.ModuleId} id - Module id to evaluate
    * @return {string} File content at `id`
    */
-  read?: Fn<[URL | string], string> | undefined
+  read?: Fn<[mlly.ModuleId], string> | undefined
 }
 
 export type { LoadTsconfigOptions as default }

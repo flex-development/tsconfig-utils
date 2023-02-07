@@ -25,7 +25,6 @@ import {
   type Nullable
 } from '@flex-development/tutils'
 import { mergeAndCompare } from 'merge-anything'
-import type { URL } from 'node:url'
 import sortKeys from 'sort-keys'
 
 /**
@@ -46,13 +45,13 @@ import sortKeys from 'sort-keys'
  * [5]: https://www.typescriptlang.org/tsconfig#outDir
  * [6]: https://www.typescriptlang.org/tsconfig#rootDir
  *
- * @param {URL | string} id - Module id of tsconfig file
+ * @param {mlly.ModuleId} id - Module id of tsconfig file
  * @param {LoadTsconfigOptions} [options={}] - Load options
  * @return {Nullable<TSConfig>} `TSConfig` object or `null`
  * @throws {NodeError<Error | TypeError>}
  */
 const loadTsconfig = (
-  id: URL | string,
+  id: mlly.ModuleId,
   options: LoadTsconfigOptions = {}
 ): Nullable<TSConfig> => {
   const { file = internal.isFile, read = internal.readFile } = options
