@@ -46,11 +46,12 @@ This package exports a set of utilities for working with [TypeScript configurati
 
 ## When should I use this?
 
-**TODO**: use cases.
+This package can be used to [load tsconfig files](#loadtsconfigid-options), [resolve path
+aliases](#resolvepathscode-options), and [normalize user options](#api) for the [TypeScript Compiler API][2].
 
 ## Install
 
-This package is [ESM only][2].
+This package is [ESM only][3].
 
 ```sh
 yarn add @flex-development/tsconfig-utils
@@ -99,7 +100,7 @@ There is no default export.
 
 ### `COMPILER_OPTIONS`
 
-Set containing [compiler option][3] names.
+Set containing [compiler option][4] names.
 
 #### Source
 
@@ -107,7 +108,7 @@ Set containing [compiler option][3] names.
 
 ### `LIB`
 
-Map containing [type definition library names][4] that correspond to files in the `**/node_modules/typescript/lib`
+Map containing [type definition library names][5] that correspond to files in the `**/node_modules/typescript/lib`
 directory.
 
 All keys are lowercase.
@@ -118,7 +119,7 @@ All keys are lowercase.
 
 ### `loadCompilerOptions(tsconfig[, options])`
 
-Loads [`compilerOptions`][3] from a [tsconfig][1] file.
+Loads [`compilerOptions`][4] from a [tsconfig][1] file.
 
 #### Parameters
 
@@ -135,7 +136,7 @@ Loads [`compilerOptions`][3] from a [tsconfig][1] file.
 
 ### `loadLib(tsconfig[, options])`
 
-Loads [type definition library names][4] from a [tsconfig][1] file.
+Loads [type definition library names][5] from a [tsconfig][1] file.
 
 #### Parameters
 
@@ -152,7 +153,7 @@ Loads [type definition library names][4] from a [tsconfig][1] file.
 
 ### `loadPaths(tsconfig[, options])`
 
-Loads a [path alias configuration][5] from a [tsconfig][1] file.
+Loads a [path alias configuration][6] from a [tsconfig][1] file.
 
 #### Parameters
 
@@ -169,7 +170,7 @@ Loads a [path alias configuration][5] from a [tsconfig][1] file.
 
 ### `loadPlugins(tsconfig[, options])`
 
-Loads [language service plugin configurations][6] from a [tsconfig][1] file.
+Loads [language service plugin configurations][7] from a [tsconfig][1] file.
 
 #### Parameters
 
@@ -188,11 +189,11 @@ Loads [language service plugin configurations][6] from a [tsconfig][1] file.
 
 Reads and parses the [tsconfig][1] file at the given module `id`.
 
-If the tsconfig file is found, comments and [byte order marks (BOMs)][7] will be removed before parsing. If successfully
+If the tsconfig file is found, comments and [byte order marks (BOMs)][8] will be removed before parsing. If successfully
 parsed, an object representation of the tsconfig file will be returned.
 
-[Extending configuration files][8] is also supported. If not overwritten, the [`baseUrl`][9], [`outDir`][10], and
-[`rootDir`][11] properties from the base tsconfig file will be made relative to the tsconfig file being loaded.
+[Extending configuration files][9] is also supported. If not overwritten, the [`baseUrl`][10], [`outDir`][11], and
+[`rootDir`][12] properties from the base tsconfig file will be made relative to the tsconfig file being loaded.
 
 #### Parameters
 
@@ -209,7 +210,7 @@ parsed, an object representation of the tsconfig file will be returned.
 
 ### `normalizeCompilerOptions(compilerOptions)`
 
-Converts the given [`compilerOptions`][3] into **programmatic** compiler options.
+Converts the given [`compilerOptions`][4] into **programmatic** compiler options.
 
 TypeScript programs expect compiler option objects to use enum values where appropriate.
 
@@ -227,7 +228,7 @@ TypeScript programs expect compiler option objects to use enum values where appr
 
 ### `normalizeImportsNotUsed(option)`
 
-Converts the given `option` into a **programmatic** [`importsNotUsedAsValues`][12] option.
+Converts the given `option` into a **programmatic** [`importsNotUsedAsValues`][13] option.
 
 TypeScript programs expect a `ts.ImportsNotUsedAsValues` value.
 
@@ -248,7 +249,7 @@ returned instead.
 
 ### `normalizeJsx(option)`
 
-Converts the given `option` into a **programmatic** [`jsx`][13] option.
+Converts the given `option` into a **programmatic** [`jsx`][14] option.
 
 TypeScript programs expect a `ts.JsxEmit` value.
 
@@ -269,7 +270,7 @@ returned instead.
 
 ### `normalizeLib(option)`
 
-Converts the given `option` into an array containing **programmatic** [`lib`][4] options.
+Converts the given `option` into an array containing **programmatic** [`lib`][5] options.
 
 TypeScript programs expect values in `compilerOptions.lib` to match filenames in `**/node_modules/typescript/lib`
 exactly.
@@ -288,7 +289,7 @@ exactly.
 
 ### `normalizeModule(option)`
 
-Converts the given `option` into a **programmatic** [`module`][14] option.
+Converts the given `option` into a **programmatic** [`module`][15] option.
 
 TypeScript programs expect a `ts.ModuleKind` value.
 
@@ -309,7 +310,7 @@ returned instead.
 
 ### `normalizeModuleDetection(option)`
 
-Converts the given `option` into a **programmatic** [`moduleDetection`][15] option.
+Converts the given `option` into a **programmatic** [`moduleDetection`][16] option.
 
 TypeScript programs expect a `ts.ModuleDetectionKind` value.
 
@@ -330,7 +331,7 @@ returned instead.
 
 ### `normalizeModuleResolution(option)`
 
-Converts the given `option` into a **programmatic** [`moduleResolution`][16] option.
+Converts the given `option` into a **programmatic** [`moduleResolution`][17] option.
 
 TypeScript programs expect a `ts.ModuleResolutionKind` value.
 
@@ -351,7 +352,7 @@ returned instead.
 
 ### `normalizeNewLine(option)`
 
-Converts the given `option` into a **programmatic** [`newLine`][17] option.
+Converts the given `option` into a **programmatic** [`newLine`][18] option.
 
 TypeScript programs expect a `ts.NewLineKind` value.
 
@@ -372,7 +373,7 @@ returned instead.
 
 ### `normalizeTarget(option)`
 
-Converts the given `option` into a **programmatic** [`target`][18] option.
+Converts the given `option` into a **programmatic** [`target`][19] option.
 
 TypeScript programs expect a `ts.ScriptTarget` value.
 
@@ -410,7 +411,7 @@ Resolves path aliases in `export`, `import`, and `require` statements in the giv
 
 ## Types
 
-This package is fully typed with [TypeScript][19].
+This package is fully typed with [TypeScript][20].
 
 ### Interfaces
 
@@ -419,32 +420,33 @@ This package is fully typed with [TypeScript][19].
 
 ## Related
 
-- [`mlly`][20] &mdash; [ECMAScript module][21] utilities
-- [`tsconfig-types`][22] &mdash; [TypeScript][19] definitions for `tsconfig.json`
+- [`mlly`][21] &mdash; [ECMAScript module][22] utilities
+- [`tsconfig-types`][23] &mdash; [TypeScript][20] definitions for `tsconfig.json`
 
 ## Contribute
 
 See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 [1]: https://www.typescriptlang.org/tsconfig
-[2]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
-[3]: https://www.typescriptlang.org/tsconfig#compilerOptions
-[4]: https://www.typescriptlang.org/tsconfig#lib
-[5]: https://www.typescriptlang.org/tsconfig#paths
-[6]: https://www.typescriptlang.org/tsconfig#plugins
-[7]: https://en.wikipedia.org/wiki/Byte_order_mark#UTF-8
-[8]: https://www.typescriptlang.org/tsconfig#extends
-[9]: https://www.typescriptlang.org/tsconfig#baseUrl
-[10]: https://www.typescriptlang.org/tsconfig#outDir
-[11]: https://www.typescriptlang.org/tsconfig#rootDir
-[12]: https://www.typescriptlang.org/tsconfig#importsNotUsedAsValues
-[13]: https://www.typescriptlang.org/tsconfig#jsx
-[14]: https://www.typescriptlang.org/tsconfig#module
-[15]: https://www.typescriptlang.org/tsconfig#moduleDetection
-[16]: https://www.typescriptlang.org/tsconfig#moduleResolution
-[17]: https://www.typescriptlang.org/tsconfig#newLine
-[18]: https://www.typescriptlang.org/tsconfig#target
-[19]: https://www.typescriptlang.org
-[20]: https://github.com/flex-development/mlly
-[21]: https://nodejs.org/api/esm.html
-[22]: https://github.com/flex-development/tsconfig-types
+[2]: https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API
+[3]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
+[4]: https://www.typescriptlang.org/tsconfig#compilerOptions
+[5]: https://www.typescriptlang.org/tsconfig#lib
+[6]: https://www.typescriptlang.org/tsconfig#paths
+[7]: https://www.typescriptlang.org/tsconfig#plugins
+[8]: https://en.wikipedia.org/wiki/Byte_order_mark#UTF-8
+[9]: https://www.typescriptlang.org/tsconfig#extends
+[10]: https://www.typescriptlang.org/tsconfig#baseUrl
+[11]: https://www.typescriptlang.org/tsconfig#outDir
+[12]: https://www.typescriptlang.org/tsconfig#rootDir
+[13]: https://www.typescriptlang.org/tsconfig#importsNotUsedAsValues
+[14]: https://www.typescriptlang.org/tsconfig#jsx
+[15]: https://www.typescriptlang.org/tsconfig#module
+[16]: https://www.typescriptlang.org/tsconfig#moduleDetection
+[17]: https://www.typescriptlang.org/tsconfig#moduleResolution
+[18]: https://www.typescriptlang.org/tsconfig#newLine
+[19]: https://www.typescriptlang.org/tsconfig#target
+[20]: https://www.typescriptlang.org
+[21]: https://github.com/flex-development/mlly
+[22]: https://nodejs.org/api/esm.html
+[23]: https://github.com/flex-development/tsconfig-types

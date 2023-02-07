@@ -3,10 +3,13 @@
   "description": "Utilities for working with tsconfig files",
   "version": "0.0.0",
   "keywords": [
+    "paths",
     "programmatic",
     "tsconfig",
+    "tsconfig-paths",
     "tsconfig.json",
     "typescript",
+    "typescript-compiler",
     "typescript-program"
   ],
   "license": "BSD-3-Clause",
