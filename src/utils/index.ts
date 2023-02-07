@@ -19,3 +19,4 @@ export { default as normalizeModuleDetection } from './normalize-module-detectio
 export { default as normalizeModuleResolution } from './normalize-module-resolution'
 export { default as normalizeNewLine } from './normalize-new-line'
 export { default as normalizeTarget } from './normalize-target'
+export { default as resolvePaths } from './resolve-paths'
