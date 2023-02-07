@@ -22,7 +22,7 @@ import LIB from './lib'
 const normalizeLib = (option: unknown): LibFile[] => {
   return (Array.isArray(option) ? option : [])
     .filter(item => isString(item))
-    .map((name: string) => LIB.get(name as Lowercase<Lib>))
+    .map((name: string) => LIB.get(name.toLowerCase() as Lowercase<Lib>))
     .filter(file => !isUndefined(file)) as LibFile[]
 }
 
