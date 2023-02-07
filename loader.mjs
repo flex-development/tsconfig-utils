@@ -1,31 +1,41 @@
 /**
- * @file Custom Loader
+ * @file Custom Loader Hooks
  * @module loader
- * @see https://nodejs.org/docs/latest-v16.x/api/esm.html#loaders
+ * @see https://nodejs.org/api/esm.html#loaders
  */
 
 import * as mlly from '@flex-development/mlly'
 import pathe from '@flex-development/pathe'
+import * as tscu from '@flex-development/tsconfig-utils'
 import * as esbuild from 'esbuild'
 import { fileURLToPath, pathToFileURL } from 'node:url'
-import tsconfig from './tsconfig.json' assert { type: 'json' }
 
 // add support for extensionless files in "bin" scripts
 // https://github.com/nodejs/modules/issues/488
 mlly.EXTENSION_FORMAT_MAP.set('', mlly.Format.COMMONJS)
 
 /**
- * URL of current working directory.
+ * URL of tsconfig file.
  *
- * @const {URL} cwd
+ * @type {import('node:url').URL}
+ * @const tsconfig
  */
-const cwd = pathToFileURL(tsconfig.compilerOptions.baseUrl)
+const tsconfig = mlly.toURL('tsconfig.json')
 
 /**
- * Determines how `url` should be interpreted, retrieved, and parsed.
+ * TypeScript compiler options.
+ *
+ * @type {tscu.CompilerOptions}
+ * @const compilerOptions
+ */
+const compilerOptions = tscu.loadCompilerOptions(tsconfig)
+
+/**
+ * Determines how the module at the given `url` should be interpreted,
+ * retrieved, and parsed.
  *
  * @see {@linkcode LoadHookContext}
- * @see https://nodejs.org/docs/latest-v16.x/api/esm.html#loadurl-context-nextload
+ * @see https://nodejs.org/api/esm.html#loadurl-context-nextload
  *
  * @async
  *
@@ -43,25 +53,27 @@ export const load = async (url, context) => {
   /**
    * File extension of {@linkcode url}.
    *
-   * @const {string} ext
+   * @type {string}
+   * @const ext
    */
   const ext = pathe.extname(url)
 
   /**
    * Source code.
    *
-   * @var {Uint8Array | string | undefined} source
+   * @type {Uint8Array | string | undefined}
+   * @var source
    */
   let source = await mlly.getSource(url, { format: context.format })
 
   // transform typescript files
   if (/^\.(?:cts|mts|tsx?)$/.test(ext) && !/\.d\.(?:cts|mts|ts)$/.test(url)) {
     // resolve path aliases
-    source = await mlly.resolveAliases(source, {
-      aliases: tsconfig.compilerOptions.paths,
+    source = await tscu.resolvePaths(source, {
       conditions: context.conditions,
-      cwd,
-      parent: url
+      ext: '',
+      parent: url,
+      tsconfig
     })
 
     // resolve modules
@@ -77,7 +89,7 @@ export const load = async (url, context) => {
       minify: false,
       sourcefile: fileURLToPath(url),
       sourcemap: 'inline',
-      tsconfigRaw: { compilerOptions: tsconfig.compilerOptions }
+      tsconfigRaw: { compilerOptions }
     })
 
     // set source code to transpiled source
@@ -96,7 +108,7 @@ export const load = async (url, context) => {
  * - Extensionless file and directory index resolution
  *
  * @see {@linkcode ResolveHookContext}
- * @see https://nodejs.org/docs/latest-v16.x/api/esm.html#resolvespecifier-context-nextresolve
+ * @see https://nodejs.org/api/esm.html#resolvespecifier-context-nextresolve
  *
  * @async
  *
@@ -110,16 +122,17 @@ export const resolve = async (specifier, context) => {
 
   // resolve path alias
   specifier = await mlly.resolveAlias(specifier, {
-    aliases: tsconfig.compilerOptions.paths,
+    aliases: tscu.loadPaths(tsconfig),
     conditions,
-    cwd,
+    cwd: pathToFileURL(compilerOptions.baseUrl),
     parent
   })
 
   /**
    * Resolved module URL.
    *
-   * @const {URL} url
+   * @type {import('node:url').URL}
+   * @const url
    */
   const url = await mlly.resolveModule(specifier, { conditions, parent })
 
