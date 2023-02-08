@@ -18,6 +18,12 @@ describe('unit-d:interfaces/ResolvePathsOptions', () => {
     >()
   })
 
+  it('should match [baseUrl?: mlly.ResolveAliasOptions["cwd"]]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('baseUrl')
+      .toEqualTypeOf<mlly.ResolveAliasOptions['cwd']>()
+  })
+
   it('should match [parent: mlly.ModuleId]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('parent')

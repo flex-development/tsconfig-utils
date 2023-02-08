@@ -25,6 +25,7 @@ const resolvePaths = async (
 ): Promise<string> => {
   const {
     absolute = false,
+    baseUrl,
     condition,
     conditions,
     ext,
@@ -51,7 +52,7 @@ const resolvePaths = async (
     aliases: compilerOptions.paths,
     condition,
     conditions,
-    cwd: compilerOptions.baseUrl,
+    cwd: baseUrl ?? compilerOptions.baseUrl,
     ext,
     extensions,
     parent,

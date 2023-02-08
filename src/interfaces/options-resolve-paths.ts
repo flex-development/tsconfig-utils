@@ -33,6 +33,13 @@ interface ResolvePathsOptions
   absolute?: boolean | undefined
 
   /**
+   * Base directory to resolve non-absolute modules from.
+   *
+   * Overrides `compilerOptions.baseUrl` if set in {@linkcode tsconfig} file.
+   */
+  baseUrl?: mlly.ResolveAliasOptions['cwd']
+
+  /**
    * Id of module to resolve from.
    */
   parent: mlly.ModuleId
