@@ -142,7 +142,7 @@
     "mri": "1.2.0",
     "node-fetch": "3.3.0",
     "node-notifier": "10.0.1",
-    "prettier": "2.8.3",
+    "prettier": "2.8.4",
     "prettier-plugin-sh": "0.12.8",
     "sade": "1.8.1",
     "semver": "7.3.8",
