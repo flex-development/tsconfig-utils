@@ -1,3 +1,17 @@
+## [1.1.0](https://github.com/flex-development/tsconfig-utils/compare/1.0.0...1.1.0) (2023-02-08)
+
+
+### :package: Build
+
+* **deps-dev:** Bump @types/node from 18.11.19 to 18.13.0 ([#13](https://github.com/flex-development/tsconfig-utils/issues/13)) ([53fea0b](https://github.com/flex-development/tsconfig-utils/commit/53fea0b563d558a12020e4807cafdbda6c30bd19))
+* **deps-dev:** Bump lint-staged from 13.1.0 to 13.1.1 ([#14](https://github.com/flex-development/tsconfig-utils/issues/14)) ([cbfc74d](https://github.com/flex-development/tsconfig-utils/commit/cbfc74dd3bb79392713e73c746b6fa0b9c93afe3))
+* **deps-dev:** Bump prettier from 2.8.3 to 2.8.4 ([#15](https://github.com/flex-development/tsconfig-utils/issues/15)) ([55b9c17](https://github.com/flex-development/tsconfig-utils/commit/55b9c17608d7eaf5397309348335f8a98b110109))
+
+
+### :sparkles: Features
+
+* **utils:** [`resolvePaths`] allow `compilerOptions.baseUrl` override ([da40062](https://github.com/flex-development/tsconfig-utils/commit/da400624ba5cf4c8c7591ce0c501f33381463425))
+
 ## 1.0.0 (2023-02-07)
 
 
