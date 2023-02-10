@@ -1,3 +1,12 @@
+## [1.1.1](https://github.com/flex-development/tsconfig-utils/compare/1.1.0...1.1.1) (2023-02-10)
+
+
+### :package: Build
+
+* **deps-dev:** Bump esbuild from 0.17.6 to 0.17.7 ([#19](https://github.com/flex-development/tsconfig-utils/issues/19)) ([7bb7eb8](https://github.com/flex-development/tsconfig-utils/commit/7bb7eb8d05d9f80aa7a2e09420c484e932c2cb40))
+* **deps-dev:** Bump eslint-plugin-yml from 1.4.0 to 1.5.0 ([#20](https://github.com/flex-development/tsconfig-utils/issues/20)) ([9fe01bb](https://github.com/flex-development/tsconfig-utils/commit/9fe01bbdefaa4f16f5382b9653b6ad7b43e3dcc1))
+* **deps:** bump @flex-development/mlly from 1.0.0-alpha.9 to 1.0.0-alpha.10 ([5068a87](https://github.com/flex-development/tsconfig-utils/commit/5068a8736bfed86de34dbd2ff33147fbc204e2b5))
+
 ## [1.1.0](https://github.com/flex-development/tsconfig-utils/compare/1.0.0...1.1.0) (2023-02-08)
 
 
