@@ -21,6 +21,7 @@
         "install",
         "interfaces",
         "internal",
+        "loader",
         "nvm",
         "patches",
         "pkg",
