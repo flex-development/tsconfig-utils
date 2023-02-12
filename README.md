@@ -87,8 +87,9 @@ too :wink:):
  */
 
 import * as mlly from '@flex-development/mlly'
-import pathe from '@flex-development/pathe'
+import * as pathe from '@flex-development/pathe'
 import * as tscu from '@flex-development/tsconfig-utils'
+import * as tutils from '@flex-development/tutils'
 import * as esbuild from 'esbuild'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
@@ -135,7 +136,7 @@ export const load = async (url, context) => {
   /**
    * File extension of {@linkcode url}.
    *
-   * @type {string}
+   * @type {pathe.Ext | tutils.EmptyString}
    * @const ext
    */
   const ext = pathe.extname(url)
@@ -167,7 +168,7 @@ export const load = async (url, context) => {
     // transpile source code
     const { code } = await esbuild.transform(source, {
       format: ext === '.cts' ? 'cjs' : 'esm',
-      loader: /^[cm]/.test(ext) ? 'ts' : ext.slice(1),
+      loader: ext.slice(/^\.[cm]/.test(ext) ? 2 : 1),
       minify: false,
       sourcefile: fileURLToPath(url),
       sourcemap: 'inline',
