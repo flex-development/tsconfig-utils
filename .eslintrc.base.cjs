@@ -47,8 +47,8 @@ const config = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
-      jsx,
-      impliedStrict: true
+      impliedStrict: true,
+      jsx
     },
     emitDecoratorMetadata: tsconfig.compilerOptions.emitDecoratorMetadata,
     extraFileExtensions: [],
@@ -253,7 +253,7 @@ const config = {
         allowShortCircuit: true,
         allowTaggedTemplates: true,
         allowTernary: true,
-        enforceForJSX: jsx
+        enforceForJSX: true
       }
     ],
     '@typescript-eslint/no-unused-vars': [
@@ -339,7 +339,7 @@ const config = {
       1,
       {
         definedTags: ['experimental', 'next', 'visibleName'],
-        jsxTags: jsx
+        jsxTags: false
       }
     ],
     'jsdoc/check-types': [1, { unifyParentAndChildTypeChecks: true }],
@@ -1063,6 +1063,7 @@ const config = {
     {
       files: ['.eslintrc.*'],
       rules: {
+        '@typescript-eslint/no-unsafe-member-access': 0,
         'sort-keys': 0,
         'unicorn/string-content': 0
       }

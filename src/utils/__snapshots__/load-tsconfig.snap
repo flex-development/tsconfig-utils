@@ -3,6 +3,7 @@
 exports[`unit:utils/loadTsconfig > should return TSConfig object if tsconfig file is found 1`] = `
 {
   "compilerOptions": {
+    "allowImportingTsExtensions": true,
     "allowJs": true,
     "allowUnreachableCode": false,
     "alwaysStrict": false,
@@ -15,14 +16,11 @@ exports[`unit:utils/loadTsconfig > should return TSConfig object if tsconfig fil
     "exactOptionalPropertyTypes": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
-    "importsNotUsedAsValues": "error",
-    "isolatedModules": true,
     "lib": [
       "es2020",
     ],
     "module": "esnext",
-    "moduleDetection": "force",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "newLine": "lf",
     "noEmit": true,
     "noEmitOnError": true,
@@ -53,7 +51,10 @@ exports[`unit:utils/loadTsconfig > should return TSConfig object if tsconfig fil
     "preserveSymlinks": true,
     "pretty": true,
     "resolveJsonModule": true,
+    "resolvePackageJsonExports": true,
+    "resolvePackageJsonImports": true,
     "rootDir": "..",
+    "skipDefaultLibCheck": false,
     "skipLibCheck": false,
     "sourceMap": true,
     "strict": true,
@@ -62,6 +63,7 @@ exports[`unit:utils/loadTsconfig > should return TSConfig object if tsconfig fil
     "target": "es2020",
     "useDefineForClassFields": true,
     "useUnknownInCatchVariables": true,
+    "verbatimModuleSyntax": true,
   },
   "exclude": [
     "**/__mocks__/**",
@@ -69,8 +71,8 @@ exports[`unit:utils/loadTsconfig > should return TSConfig object if tsconfig fil
   ],
   "extends": "../tsconfig",
   "include": [
-    "../dist",
-    "../src",
+    "../dist/*",
+    "../src/*",
   ],
   "references": [],
 }

@@ -64,12 +64,6 @@ jobs:
       - id: print-typescript-version
         name: Print TypeScript version
         run: echo $TYPESCRIPT_VERSION
-      - id: tsconfig
-        name: Prepare tsconfig.json
-        if: matrix.typescript-version == 'next'
-        run: echo $(jq '.compilerOptions += {"ignoreDeprecations":"5.0"}' -S $TSCONFIG) > $TSCONFIG
-        env:
-          TSCONFIG: tsconfig.json
       - id: build
         name: Build project
         run: yarn build

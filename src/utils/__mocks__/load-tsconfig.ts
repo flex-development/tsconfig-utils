@@ -1,10 +1,7 @@
 /**
  * @file Mock Utilities - loadTsconfig
  * @module mlly/utils/mocks/loadTsconfig
- * @see https://github.com/microsoft/TypeScript/issues/47663
  */
-
-import type {} from '@flex-development/tutils/dist/types/nullable.mjs'
 
 /**
  * `loadTsconfig` module type.

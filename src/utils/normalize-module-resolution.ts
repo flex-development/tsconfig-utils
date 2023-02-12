@@ -56,7 +56,7 @@ const normalizeModuleResolution = (
       break
     case ModuleResolutionKind.NodeJs:
     case getPropertyValue(ts.ModuleResolutionKind, 'NodeJs'):
-      ret = getPropertyValue(ts.ModuleResolutionKind, 'NodeJs')
+      ret = getPropertyValue(ts.ModuleResolutionKind, 'NodeJs') as typeof ret
       break
     case ModuleResolutionKind.NodeNext:
     case getPropertyValue(ts.ModuleResolutionKind, 'NodeNext'):

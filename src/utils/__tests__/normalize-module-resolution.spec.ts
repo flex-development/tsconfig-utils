@@ -17,6 +17,7 @@ describe('unit:utils/normalizeModuleResolution', () => {
       // @ts-ignore ts(2551)
       ['Bundler', ts.ModuleResolutionKind.Bundler],
       ['Classic', ts.ModuleResolutionKind.Classic],
+      // @ts-ignore ts(2551)
       ['Node', ts.ModuleResolutionKind.NodeJs],
       // @ts-ignore ts(2551)
       ['Node10', ts.ModuleResolutionKind.Node10],
@@ -28,6 +29,7 @@ describe('unit:utils/normalizeModuleResolution', () => {
       // @ts-ignore ts(2551)
       [ModuleResolutionKind.Node10, ts.ModuleResolutionKind.Node10],
       [ModuleResolutionKind.Node16, ts.ModuleResolutionKind.Node16],
+      // @ts-ignore ts(2551)
       [ModuleResolutionKind.NodeJs, ts.ModuleResolutionKind.NodeJs],
       [ModuleResolutionKind.NodeNext, ts.ModuleResolutionKind.NodeNext],
       // @ts-ignore ts(2551)
@@ -36,6 +38,7 @@ describe('unit:utils/normalizeModuleResolution', () => {
       // @ts-ignore ts(2551)
       [ts.ModuleResolutionKind.Node10, ts.ModuleResolutionKind.Node10],
       [ts.ModuleResolutionKind.Node16, ts.ModuleResolutionKind.Node16],
+      // @ts-ignore ts(2551)
       [ts.ModuleResolutionKind.NodeJs, ts.ModuleResolutionKind.NodeJs],
       [ts.ModuleResolutionKind.NodeNext, ts.ModuleResolutionKind.NodeNext]
     ]

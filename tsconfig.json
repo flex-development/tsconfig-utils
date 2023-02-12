@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "allowImportingTsExtensions": true,
     "allowJs": true,
     "allowUnreachableCode": false,
     "alwaysStrict": false,
@@ -12,12 +13,9 @@
     "exactOptionalPropertyTypes": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
-    "importsNotUsedAsValues": "error",
-    "isolatedModules": true,
     "lib": ["dom", "dom.iterable", "es2020"],
     "module": "esnext",
-    "moduleDetection": "force",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "newLine": "lf",
     "noEmit": true,
     "noErrorTruncation": true,
@@ -39,7 +37,10 @@
     "preserveSymlinks": true,
     "pretty": true,
     "resolveJsonModule": true,
+    "resolvePackageJsonExports": true,
+    "resolvePackageJsonImports": true,
     "rootDir": ".",
+    "skipDefaultLibCheck": false,
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
@@ -47,7 +48,8 @@
     "strictPropertyInitialization": true,
     "target": "esnext",
     "useDefineForClassFields": true,
-    "useUnknownInCatchVariables": true
+    "useUnknownInCatchVariables": true,
+    "verbatimModuleSyntax": true
   },
   "exclude": ["**/coverage", "**/dist", "**/node_modules"],
   "include": ["**/**.cjs", "**/**.mjs", "**/**.mts", "**/**.ts", "**/.*.cjs"]
