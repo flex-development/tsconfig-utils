@@ -127,7 +127,7 @@ const config: UserConfigExport = defineConfig((): UserConfig => {
         ignoreSourceErrors: false,
         include: ['**/__tests__/*.spec-d.ts'],
         tsconfig: path.resolve(
-          TYPESCRIPT_V5 ? '' : 'config/ts/v4/',
+          TYPESCRIPT_V5 ? '' : '__tests__/ts/v4/',
           'tsconfig.typecheck.json'
         )
       }
