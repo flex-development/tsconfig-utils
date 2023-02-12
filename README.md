@@ -218,7 +218,10 @@ export const resolve = async (specifier, context) => {
    * @type {import('node:url').URL}
    * @const url
    */
-  const url = await mlly.resolveModule(specifier, { conditions, parent })
+  const url = await mlly.resolveModule(specifier, {
+    conditions,
+    parent: parent?.startsWith('file:') ? parent : specifier
+  })
 
   return {
     format: await mlly.getFormat(url),
