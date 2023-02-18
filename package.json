@@ -173,9 +173,9 @@
   },
   "engines": {
     "node": ">=14.21.2",
-    "yarn": "4.0.0-rc.34"
+    "yarn": "4.0.0-rc.39"
   },
-  "packageManager": "yarn@4.0.0-rc.34",
+  "packageManager": "yarn@4.0.0-rc.39",
   "readme": "README.md",
   "sideEffects": false,
   "tagPrefix": ""
