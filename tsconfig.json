@@ -31,10 +31,11 @@
       "#fixtures/*": ["__fixtures__/*"],
       "#src": ["src/index"],
       "#src/*": ["src/*"],
-      "#tests/*": ["__tests__/*"]
+      "#tests/*": ["__tests__/*"],
+      "@flex-development/tsconfig-utils": ["src/index"]
     },
     "preserveConstEnums": true,
-    "preserveSymlinks": true,
+    "preserveSymlinks": false,
     "pretty": true,
     "resolveJsonModule": true,
     "resolvePackageJsonExports": true,

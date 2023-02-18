@@ -46,9 +46,12 @@ exports[`unit:utils/loadTsconfig > should return TSConfig object if tsconfig fil
       "#tests/*": [
         "__tests__/*",
       ],
+      "@flex-development/tsconfig-utils": [
+        "src/index",
+      ],
     },
     "preserveConstEnums": true,
-    "preserveSymlinks": true,
+    "preserveSymlinks": false,
     "pretty": true,
     "resolveJsonModule": true,
     "resolvePackageJsonExports": true,
