@@ -1160,6 +1160,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@flex-development/decorator-regex@npm:1.0.0":
+  version: 1.0.0
+  resolution: "@flex-development/decorator-regex@npm:1.0.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Fdecorator-regex%2F1.0.0%2Fe485b45a5c66ca688d77188039bb5efa90ca3fb8"
+  checksum: 3200659769897add6af31341c391a58a4edc7920b81042a7117a95c50ae0375da2f62c6869060ce91507a29ac9dbd06a96e440fe30b438536685f7ce36a1daca
+  languageName: node
+  linkType: hard
+
 "@flex-development/errnode@npm:1.2.0":
   version: 1.2.0
   resolution: "@flex-development/errnode@npm:1.2.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Ferrnode%2F1.2.0%2F8e54e66e637d392299cd2d422224da9cf5d16cab"
@@ -1203,6 +1210,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@flex-development/ext-regex@npm:1.0.0":
+  version: 1.0.0
+  resolution: "@flex-development/ext-regex@npm:1.0.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Fext-regex%2F1.0.0%2Fe1729f6d8dfd8e62423acbdf6a7c341e5436568b"
+  dependencies:
+    "@flex-development/errnode": "npm:1.5.0"
+    "@flex-development/pathe": "npm:1.0.3"
+    "@flex-development/tutils": "npm:6.0.0-alpha.10"
+  checksum: 11f53ffc974dd91a5e17ae680393e61e8f43f673f19ea7d029f14bb0dff918051139230d736a6a52bb9dc017da1da00d5868586d8ea3f705920e4e2ae72a8562
+  languageName: node
+  linkType: hard
+
 "@flex-development/import-regex@npm:2.0.1":
   version: 2.0.1
   resolution: "@flex-development/import-regex@npm:2.0.1::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Fimport-regex%2F2.0.1%2Fb3412222fb42257bd8146591e14249aa1941e089"
@@ -1221,10 +1239,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@flex-development/mkbuild@npm:1.0.0-alpha.10":
-  version: 1.0.0-alpha.10
-  resolution: "@flex-development/mkbuild@npm:1.0.0-alpha.10::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Fmkbuild%2F1.0.0-alpha.10%2F96a0ba124bfc72d30a0e60b969889d670d0699eb"
+"@flex-development/mkbuild@npm:1.0.0-alpha.13":
+  version: 1.0.0-alpha.13
+  resolution: "@flex-development/mkbuild@npm:1.0.0-alpha.13::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Fmkbuild%2F1.0.0-alpha.13%2Fb166c2d15fa0e749fbc7738b41257ee0e8040fd3"
   dependencies:
+    "@flex-development/decorator-regex": "npm:1.0.0"
+    "@flex-development/ext-regex": "npm:1.0.0"
     "@flex-development/mlly": "npm:1.0.0-alpha.11"
     "@flex-development/pathe": "npm:1.0.3"
     "@flex-development/pkg-types": "npm:2.0.0"
@@ -1240,11 +1260,11 @@ __metadata:
     radash: "npm:10.7.0"
   peerDependencies:
     "@types/node": ">=14.18.36"
-    esbuild: ">=0.17.7"
+    esbuild: ">=0.17.8"
     typescript: ">=4.8"
   bin:
     mkbuild: dist/cli.mjs
-  checksum: 3083cb530d95eec297f90b4a0ea9096425b2872e378ddca0733ab4eaa76df132500eb60cc25dc674e917f6cd5b1597e0bb2175c0d4635793994fdc0e129f54b2
+  checksum: a577e853e4e575504eb925f64a710d356f3fa2a848bd3ce5b808d2d7044031c97e7b397a7c460f58685730503ce5c25a4cbfe3f03fd5a419847156f45335ad41
   languageName: node
   linkType: hard
 
@@ -1341,7 +1361,7 @@ __metadata:
     "@commitlint/config-conventional": "npm:17.4.2"
     "@faker-js/faker": "npm:8.0.0-alpha.0"
     "@flex-development/errnode": "npm:1.5.0"
-    "@flex-development/mkbuild": "npm:1.0.0-alpha.10"
+    "@flex-development/mkbuild": "npm:1.0.0-alpha.13"
     "@flex-development/mlly": "npm:1.0.0-alpha.11"
     "@flex-development/pathe": "npm:1.0.3"
     "@flex-development/tsconfig-types": "npm:3.2.0"
