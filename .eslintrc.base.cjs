@@ -828,7 +828,7 @@ const config = {
       }
     },
     {
-      files: ['*.d.ts'],
+      files: ['*.d.mts', '*.d.ts'],
       rules: {
         '@typescript-eslint/ban-types': 0,
         '@typescript-eslint/triple-slash-reference': 0,
@@ -993,6 +993,12 @@ const config = {
       }
     },
     {
+      files: ['**/__mocks__/**'],
+      rules: {
+        '@typescript-eslint/require-await': 0
+      }
+    },
+    {
       files: ['**/__tests__/*.spec.ts', '**/__tests__/*.spec-d.ts'],
       globals: {
         afterAll: true,
@@ -1054,7 +1060,7 @@ const config = {
       }
     },
     {
-      files: ['**/typings/**/*.d.ts', '*-env.d.ts'],
+      files: ['**/typings/**/*.d.mts', '**/typings/**/*.d.ts', '*-env.d.ts'],
       rules: {
         'jsdoc/require-file-overview': 0,
         'unicorn/filename-case': 0
