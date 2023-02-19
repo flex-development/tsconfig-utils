@@ -19,6 +19,8 @@ larsgw
 lcov
 lintstagedrc
 micnncim
+mkbuild
+mlly
 nocheck
 npmrc
 nvmrc
@@ -28,5 +30,7 @@ pnpm
 preid
 syncer
 tsconfigs
+tscu
+unstub
 vates
 yarnrc

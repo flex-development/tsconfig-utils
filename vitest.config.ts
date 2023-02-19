@@ -4,9 +4,9 @@
  * @see https://vitest.dev/config/
  */
 
+import pathe from '@flex-development/pathe'
 import { NodeEnv } from '@flex-development/tutils'
 import ci from 'is-ci'
-import path from 'node:path'
 import tsconfigpaths from 'vite-tsconfig-paths'
 import GithubActionsReporter from 'vitest-github-actions-reporter'
 import {
@@ -32,7 +32,7 @@ const config: UserConfigExport = defineConfig((): UserConfig => {
   const LINT_STAGED: boolean = !!Number.parseInt(process.env.LINT_STAGED ?? '0')
 
   /**
-   * Boolean indicating if the currently running version of [`typescript`][1] is
+   * Boolean indicating if the current running version of [`typescript`][1] is
    * at least `5`.
    *
    * @const {boolean} TYPESCRIPT_V5
@@ -44,9 +44,10 @@ const config: UserConfigExport = defineConfig((): UserConfig => {
     define: {
       'import.meta.env.NODE_ENV': JSON.stringify(NodeEnv.TEST)
     },
-    plugins: [tsconfigpaths({ projects: [path.resolve('tsconfig.json')] })],
+    plugins: [tsconfigpaths({ projects: [pathe.resolve('tsconfig.json')] })],
     test: {
       allowOnly: !ci,
+      benchmark: {},
       clearMocks: true,
       coverage: {
         all: !LINT_STAGED,
@@ -60,11 +61,14 @@ const config: UserConfigExport = defineConfig((): UserConfig => {
           'src/types/'
         ],
         extension: ['.ts'],
+        ignoreClassMethods: [],
         include: ['src'],
         reporter: [ci ? 'lcovonly' : 'lcov', 'text'],
         reportsDirectory: './coverage',
         skipFull: false
       },
+      environment: 'node',
+      environmentOptions: {},
       globalSetup: [],
       globals: true,
       hookTimeout: 10 * 1000,
@@ -89,9 +93,9 @@ const config: UserConfigExport = defineConfig((): UserConfig => {
        * @return {string} Custom snapshot path
        */
       resolveSnapshotPath(file: string, extension: string): string {
-        return path.resolve(
-          path.resolve(path.dirname(path.dirname(file)), '__snapshots__'),
-          path.basename(file).replace(/\.spec.tsx?/, '') + extension
+        return pathe.resolve(
+          pathe.resolve(pathe.dirname(pathe.dirname(file)), '__snapshots__'),
+          pathe.basename(file).replace(/\.spec.tsx?/, '') + extension
         )
       },
       restoreMocks: true,
@@ -115,6 +119,7 @@ const config: UserConfigExport = defineConfig((): UserConfig => {
       },
       setupFiles: ['./__tests__/setup/index.ts'],
       silent: false,
+      slowTestThreshold: 300,
       snapshotFormat: {
         callToJSON: true,
         min: false,
@@ -126,11 +131,13 @@ const config: UserConfigExport = defineConfig((): UserConfig => {
         checker: 'tsc',
         ignoreSourceErrors: false,
         include: ['**/__tests__/*.spec-d.ts'],
-        tsconfig: path.resolve(
+        tsconfig: pathe.resolve(
           TYPESCRIPT_V5 ? '' : '__tests__/ts/v4/',
           'tsconfig.typecheck.json'
         )
-      }
+      },
+      unstubEnvs: true,
+      unstubGlobals: true
     }
   }
 })

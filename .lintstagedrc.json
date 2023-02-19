@@ -3,7 +3,7 @@
   "**/*.{cjs,gql,json,jsonc,md,mjs,mts,ts,yml}": [
     "eslint --exit-on-fatal-error"
   ],
-  "**/*.{cjs,mjs,ts}": "vitest typecheck --changed --run",
+  "**/*.{cjs,mjs,mts,ts}": "vitest typecheck --changed --run",
   "**/yarn.lock": "yarn dedupe --check",
   "src/**/*.ts": "vitest --changed --coverage --run"
 }

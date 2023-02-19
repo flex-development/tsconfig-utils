@@ -9,8 +9,8 @@
  * @const config - ESLint configuration object
  */
 const config = {
-  root: true,
-  extends: ['./.eslintrc.base.cjs']
+  extends: ['./.eslintrc.base.cjs'],
+  root: true
 }
 
 module.exports = config
