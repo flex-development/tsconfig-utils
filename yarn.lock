@@ -1411,7 +1411,7 @@ __metadata:
     eslint-config-prettier: "npm:8.6.0"
     eslint-plugin-chai-expect: "npm:3.0.0"
     eslint-plugin-jest-formatting: "npm:3.1.0"
-    eslint-plugin-jsdoc: "npm:39.8.0"
+    eslint-plugin-jsdoc: "npm:40.0.0"
     eslint-plugin-jsonc: "npm:2.6.0"
     eslint-plugin-markdown: "npm:3.0.0"
     eslint-plugin-markdownlint: "npm:0.4.0"
@@ -4381,9 +4381,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsdoc@npm:39.8.0":
-  version: 39.8.0
-  resolution: "eslint-plugin-jsdoc@npm:39.8.0"
+"eslint-plugin-jsdoc@npm:40.0.0":
+  version: 40.0.0
+  resolution: "eslint-plugin-jsdoc@npm:40.0.0"
   dependencies:
     "@es-joy/jsdoccomment": "npm:~0.36.1"
     comment-parser: "npm:1.3.1"
@@ -4394,7 +4394,7 @@ __metadata:
     spdx-expression-parse: "npm:^3.0.1"
   peerDependencies:
     eslint: ^7.0.0 || ^8.0.0
-  checksum: a87745d0421d347d63142906a9d33b8ae16c3eecd0e627b03a0e9dd9e681d9b6d9f622e25f0da0d6867d5b027241d484c2851114a176c5d5860bc94913346084
+  checksum: a5968b3a717f90c91541b7ce0cf3b7cf269f9a3b03f14198cb14a4b664da908000c17e89c2c4ff3f436a5c0993880c70b12b543c5fe81d3d023289e56615dfbd
   languageName: node
   linkType: hard
 
