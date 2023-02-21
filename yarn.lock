@@ -1439,7 +1439,7 @@ __metadata:
     sort-keys: "npm:5.0.0"
     strip-bom: "npm:5.0.0"
     strip-json-comments: "npm:5.0.0"
-    tempfile: "npm:4.0.0"
+    tempfile: "npm:5.0.0"
     trash-cli: "npm:5.0.0"
     ts-dedent: "npm:2.2.0"
     typescript: "npm:5.0.0-dev.20230212"
@@ -8398,20 +8398,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"temp-dir@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "temp-dir@npm:2.0.0"
-  checksum: 0b97706876e9982bb5f2bf8c1e040d087ec48051f7d91fe9f460bd8e5a1c833de89c6039e2e402b7388f4096c896392193082f5d78b8d4c89976edead9a88ce0
+"temp-dir@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "temp-dir@npm:3.0.0"
+  checksum: 9a4639ac5a3964e95b2497e71dbbf40b2808c0d3367509e675314f09078a5cce9381ba1c23c1b47023892816cdea716574e6fd3b4b9124e2dc00f7400b535bfa
   languageName: node
   linkType: hard
 
-"tempfile@npm:4.0.0":
-  version: 4.0.0
-  resolution: "tempfile@npm:4.0.0"
+"tempfile@npm:5.0.0":
+  version: 5.0.0
+  resolution: "tempfile@npm:5.0.0"
   dependencies:
-    temp-dir: "npm:^2.0.0"
-    uuid: "npm:^8.3.2"
-  checksum: 0064ea87faebb10950adb130b043ccf6306d3f10afc041674b67f1b14fbcb799e8962be588ad1eb225781af1427351195f2835181e22f9631766dd71615d971b
+    temp-dir: "npm:^3.0.0"
+  checksum: 5bec775cba3d6f77856a23b2c9928da8c4eeae404f7dccc2df908c28b2c517ae66e1fb9aa937d5d2d6b5b5b99bda606e8e946d04b3c23de07081316ead2c026c
   languageName: node
   linkType: hard
 
