@@ -1,7 +1,7 @@
 {
   "name": "@flex-development/tsconfig-utils",
   "description": "Utilities for working with tsconfig files",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "keywords": [
     "paths",
     "programmatic",
