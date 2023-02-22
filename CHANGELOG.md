@@ -1,3 +1,47 @@
+## [1.1.2](https://github.com/flex-development/tsconfig-utils/compare/1.1.1...1.1.2) (2023-02-22)
+
+
+### :package: Build
+
+* **deps-dev:** Bump @commitlint/cli from 17.4.2 to 17.4.4 ([#33](https://github.com/flex-development/tsconfig-utils/issues/33)) ([8da7bc0](https://github.com/flex-development/tsconfig-utils/commit/8da7bc0754ffafbf01bd5d17d92f1690151963b4))
+* **deps-dev:** bump @flex-development/mkbuild from 1.0.0-alpha.10 to 1.0.0-alpha.13 ([9efabd4](https://github.com/flex-development/tsconfig-utils/commit/9efabd4e083ed9fa940bb3921d1602be4bb767d4))
+* **deps-dev:** bump @flex-development/mkbuild from 1.0.0-alpha.9 to 1.0.0-alpha.10 ([6342c87](https://github.com/flex-development/tsconfig-utils/commit/6342c875623aea7c11fcafcc71b4956cd313f7aa))
+* **deps-dev:** Bump @graphql-eslint/eslint-plugin from 3.15.0 to 3.16.0 ([#25](https://github.com/flex-development/tsconfig-utils/issues/25)) ([40535ca](https://github.com/flex-development/tsconfig-utils/commit/40535ca3035fed82c3033581e714abc8bae55158))
+* **deps-dev:** Bump @typescript-eslint/eslint-plugin from 5.51.0 to 5.52.0 ([#36](https://github.com/flex-development/tsconfig-utils/issues/36)) ([8e43dc8](https://github.com/flex-development/tsconfig-utils/commit/8e43dc89196cb2f8dce474a7cb22497af753de3c))
+* **deps-dev:** Bump @vitest/ui from 0.28.4 to 0.28.5 ([#35](https://github.com/flex-development/tsconfig-utils/issues/35)) ([7953936](https://github.com/flex-development/tsconfig-utils/commit/795393685e0a1726725f0fbfead4db934304d25b))
+* **deps-dev:** Bump cspell from 6.22.0 to 6.26.3 ([#31](https://github.com/flex-development/tsconfig-utils/issues/31)) ([148b37b](https://github.com/flex-development/tsconfig-utils/commit/148b37b51ce92163b00aff4db28dc761b6f7a136))
+* **deps-dev:** Bump esbuild from 0.17.7 to 0.17.10 ([#39](https://github.com/flex-development/tsconfig-utils/issues/39)) ([0e9390b](https://github.com/flex-development/tsconfig-utils/commit/0e9390bbc6cc47f94e787a8b9c64d239a32d4768))
+* **deps-dev:** Bump eslint and @types/eslint ([#32](https://github.com/flex-development/tsconfig-utils/issues/32)) ([72afa6d](https://github.com/flex-development/tsconfig-utils/commit/72afa6dc72d28dcf362eb7b004d911c5e9796683))
+* **deps-dev:** bump typescript from 5.0.0-dev.20221215 to 5.0.0-dev.20230212 ([60a57cf](https://github.com/flex-development/tsconfig-utils/commit/60a57cf10769e0770d2cce169cd561edd9cf63a8))
+* **deps-dev:** Bump vite from 4.1.1 to 4.1.2 ([#34](https://github.com/flex-development/tsconfig-utils/issues/34)) ([09aeee1](https://github.com/flex-development/tsconfig-utils/commit/09aeee17f1d205b0c2181e392ee72e39c9fa7b2f))
+* **deps-dev:** Bump vite from 4.1.2 to 4.1.3 ([#37](https://github.com/flex-development/tsconfig-utils/issues/37)) ([e926435](https://github.com/flex-development/tsconfig-utils/commit/e9264357837854a192344cc75325696d6ada4845))
+* **deps:** bump @flex-development/mlly from 1.0.0-alpha.10 to 1.0.0-alpha.11 ([d3ef25e](https://github.com/flex-development/tsconfig-utils/commit/d3ef25e50534cb67f7eba950f5887bb4fc5bcd2f))
+* **deps:** bump @flex-development/mlly from 1.0.0-alpha.11 to 1.0.0-alpha.13 ([f4c84be](https://github.com/flex-development/tsconfig-utils/commit/f4c84be0ec23aa178a468de232b23e2bf540609f))
+* **yarn:** bump yarn from 4.0.0-rc.34 to 4.0.0-rc.39 ([211c20c](https://github.com/flex-development/tsconfig-utils/commit/211c20c922db5bcf3d677e36309639ba88478d20))
+
+
+### :robot: Continuous Integration
+
+* [[@dependabot](https://github.com/dependabot)] fix private registry updates ([db0db09](https://github.com/flex-development/tsconfig-utils/commit/db0db099003180272ae3771299b30afd7110f266))
+* **deps:** Bump actions/cache from 3.2.4 to 3.2.5 ([#22](https://github.com/flex-development/tsconfig-utils/issues/22)) ([2f90da1](https://github.com/flex-development/tsconfig-utils/commit/2f90da1453f07b70876dc6a6b999d39239feb86e))
+* **deps:** Bump actions/cache from 3.2.5 to 3.2.6 ([#40](https://github.com/flex-development/tsconfig-utils/issues/40)) ([4d7d54e](https://github.com/flex-development/tsconfig-utils/commit/4d7d54ebfe518072d46e0da607d4e1fa0faae927))
+* **workflows:** [`ci`] use `github.event.pull_request.head.sha` for codecov ([91128e7](https://github.com/flex-development/tsconfig-utils/commit/91128e7f27cc5353b1a483441cc90fb6b1d2d4eb))
+* **workflows:** [`dependabot-auto`] remove `enable-auto-merge` job conditional ([ce68e1f](https://github.com/flex-development/tsconfig-utils/commit/ce68e1f03ed99e422ee5f40a29f926cfa26709bf))
+
+
+### :house_with_garden: Housekeeping
+
+* [eslint] update base config ([a9a5758](https://github.com/flex-development/tsconfig-utils/commit/a9a5758b6701e9a899bbe7d39308512f17fe8264))
+* move changelog config to `config` directory ([0cc494c](https://github.com/flex-development/tsconfig-utils/commit/0cc494cd8e0ce87f7982ea8954decc90e2853850))
+* sync updated config files ([100af70](https://github.com/flex-development/tsconfig-utils/commit/100af700baa39a2ad0e86393011d6bef2e6925a5))
+* update config files ([ade42ec](https://github.com/flex-development/tsconfig-utils/commit/ade42ec92638abf59c9ca9b24b7e66d8fb419b69))
+* **github:** add commit scope `loader` ([89ac841](https://github.com/flex-development/tsconfig-utils/commit/89ac841119211e478c14ee111a22370b7dced068))
+* **loader:** [`load`] fix esbuild loader configuration ([0a8701e](https://github.com/flex-development/tsconfig-utils/commit/0a8701eb09c62506d86b82f4fbee3078fa7f6837))
+* **loader:** [`load`] instruct esbuild to target current node version ([1b99d7c](https://github.com/flex-development/tsconfig-utils/commit/1b99d7cbdb25ffb401aeb59917e7cdc1c57380bb))
+* **loader:** [`resolve`] check if `parent` is `file:` URL ([b231dc0](https://github.com/flex-development/tsconfig-utils/commit/b231dc06991bc4993ec370ae51195bf8261d836c))
+* **tests:** move test tsconfigs to `__tests__` directory ([a89b43a](https://github.com/flex-development/tsconfig-utils/commit/a89b43a391d6f86fc15aa13e722a9167e6520781))
+* **ts:** update self-import definition ([bd92f30](https://github.com/flex-development/tsconfig-utils/commit/bd92f30cf008075dffb653ef1246b8006b8adc10))
+
 ## [1.1.1](https://github.com/flex-development/tsconfig-utils/compare/1.1.0...1.1.1) (2023-02-10)
 
 
