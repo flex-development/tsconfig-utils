@@ -28,7 +28,6 @@
     "yarn.lock"
   ],
   "ignoreRegExpList": [
-    "/0x*/",
     "/@flex-development\\/.*/",
     "/from\\s+(['\"]).*\\1/",
     "import\\(.*\\)"
@@ -39,6 +38,5 @@
   "readonly": true,
   "useGitignore": true,
   "usePnP": false,
-  "version": "0.2",
-  "words": []
+  "version": "0.2"
 }

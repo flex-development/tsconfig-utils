@@ -216,9 +216,9 @@ jobs:
         name: Set env.TYPESCRIPT_VERSION
         run: |
           echo "TYPESCRIPT_VERSION=$(jq .devDependencies.typescript package.json -r)" >> $GITHUB_ENV
-      - id: debug
-        name: Print environment variables and event payload
-        uses: hmarr/debug-action@v2.1.0
+      - id: print-typescript-version
+        name: Print TypeScript version
+        run: echo $TYPESCRIPT_VERSION
       - id: typecheck
         name: Run typecheck
         run: yarn typecheck

@@ -5,6 +5,12 @@
  */
 
 /**
+ * @type {typeof import('node:fs')}
+ * @const fs
+ */
+const fs = require('node:fs')
+
+/**
  * @type {typeof import('./tsconfig.json')}
  * @const tsconfig - Tsconfig object
  */
@@ -832,8 +838,9 @@ const config = {
         chai: true,
         describe: true,
         expect: true,
-        faker: true,
+        faker: fs.existsSync('node_modules/@faker-js/faker/package.json'),
         it: true,
+        pf: fs.existsSync('node_modules/pretty-format/package.json'),
         suite: true,
         test: true,
         vi: true,
@@ -898,7 +905,7 @@ const config = {
       }
     },
     {
-      files: '**/*.+(json|jsonc)',
+      files: '**/*.+(json|json5|jsonc)',
       parser: 'jsonc-eslint-parser',
       plugins: ['jsonc'],
       rules: {
@@ -973,7 +980,7 @@ const config = {
       }
     },
     {
-      files: ['**/*.jsonc', 'tsconfig*.json'],
+      files: ['**/*.+(json5|jsonc)', 'tsconfig*.json'],
       rules: {
         'jsonc/no-comments': 0
       }

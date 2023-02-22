@@ -4,7 +4,7 @@
  * @see https://chaijs.com
  */
 
-import chai from 'chai'
+import { chai } from 'vitest'
 
 // configure chai
 chai.config.includeStack = true
