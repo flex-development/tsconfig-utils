@@ -1126,18 +1126,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint-community/eslint-utils@npm:^4.1.2":
-  version: 4.1.2
-  resolution: "@eslint-community/eslint-utils@npm:4.1.2"
-  dependencies:
-    eslint-visitor-keys: "npm:^3.3.0"
-  peerDependencies:
-    eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
-  checksum: 81a68aaada6fbe216c9e757ae6739940792a0d993ba0b2d35beb4406240a91597f88debac01e76c3d982ed7e820b6f2e62b14650c7b9b07a7ac6a8f1b0185ad7
-  languageName: node
-  linkType: hard
-
-"@eslint-community/eslint-utils@npm:^4.2.0":
+"@eslint-community/eslint-utils@npm:^4.1.2, @eslint-community/eslint-utils@npm:^4.2.0":
   version: 4.3.0
   resolution: "@eslint-community/eslint-utils@npm:4.3.0"
   dependencies:
