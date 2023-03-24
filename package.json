@@ -85,7 +85,7 @@
   "devDependencies": {
     "@commitlint/cli": "17.5.0",
     "@commitlint/config-conventional": "17.4.4",
-    "@faker-js/faker": "8.0.0-alpha.0",
+    "@faker-js/faker": "8.0.0-alpha.1",
     "@flex-development/mkbuild": "1.0.0-alpha.16",
     "@graphql-eslint/eslint-plugin": "3.16.2",
     "@types/chai": "4.3.4",
