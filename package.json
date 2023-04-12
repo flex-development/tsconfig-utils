@@ -158,7 +158,7 @@
     "yaml-eslint-parser": "1.2.0"
   },
   "peerDependencies": {
-    "@types/node": ">=14.18.36",
+    "@types/node": ">=16.18.23",
     "typescript": ">=4.7"
   },
   "peerDependenciesMeta": {
@@ -171,7 +171,7 @@
     "@flex-development/tutils": "6.0.0-alpha.10"
   },
   "engines": {
-    "node": ">=14.21.2",
+    "node": ">=16.20.0",
     "yarn": "4.0.0-rc.39"
   },
   "packageManager": "yarn@4.0.0-rc.39",
