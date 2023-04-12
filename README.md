@@ -1,5 +1,6 @@
 # tsconfig-utils
 
+[![github release](https://img.shields.io/github/v/release/flex-development/tsconfig-utils.svg?include_prereleases&sort=semver)](https://github.com/flex-development/tsconfig-utils/releases/latest)
 [![npm](https://img.shields.io/npm/v/@flex-development/tsconfig-utils.svg)](https://npmjs.com/package/@flex-development/tsconfig-utils)
 [![codecov](https://codecov.io/gh/flex-development/tsconfig-utils/branch/main/graph/badge.svg?token=c7gDtTlaw3)](https://codecov.io/gh/flex-development/tsconfig-utils)
 [![module type: esm](https://img.shields.io/badge/module%20type-esm-brightgreen)](https://github.com/voxpelli/badges-cjs-esm)

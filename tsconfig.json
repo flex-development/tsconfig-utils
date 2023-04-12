@@ -6,6 +6,7 @@
     "alwaysStrict": false,
     "baseUrl": ".",
     "checkJs": false,
+    "customConditions": ["import", "node", "default"],
     "declaration": false,
     "declarationMap": false,
     "emitDecoratorMetadata": false,
@@ -53,5 +54,6 @@
     "verbatimModuleSyntax": true
   },
   "exclude": ["**/coverage", "**/dist", "**/node_modules"],
-  "include": ["**/**.cjs", "**/**.mjs", "**/**.mts", "**/**.ts", "**/.*.cjs"]
+  "include": ["**/**.mjs", "**/**.mts", "**/**.ts"],
+  "references": [{ "path": "./tsconfig.cjs.json" }]
 }

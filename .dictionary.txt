@@ -3,11 +3,9 @@ bdougie
 cefc
 codecov
 commitlintrc
-dawidd
 dedupe
 dessant
 dohm
-esbuild
 fbca
 ggshield
 gpgsign
@@ -18,7 +16,6 @@ keyid
 larsgw
 lcov
 lintstagedrc
-micnncim
 mkbuild
 mlly
 nocheck
@@ -26,9 +23,7 @@ npmrc
 nvmrc
 pathe
 pkgs
-pnpm
 preid
-syncer
 tsconfigs
 tscu
 unstub

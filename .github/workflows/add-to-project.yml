@@ -4,8 +4,12 @@
 #
 # References:
 #
+# - https://docs.github.com/actions/learn-github-actions/contexts
+# - https://docs.github.com/actions/learn-github-actions/expressions
 # - https://docs.github.com/actions/using-workflows/events-that-trigger-workflows#issues
 # - https://docs.github.com/actions/using-workflows/events-that-trigger-workflows#pull_request
+# - https://docs.github.com/webhooks-and-events/webhooks/webhook-events-and-payloads#issues
+# - https://docs.github.com/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request
 # - https://github.com/actions/add-to-project
 
 ---
@@ -22,8 +26,8 @@ jobs:
   add-to-project:
     runs-on: ubuntu-latest
     steps:
-      - id: add
-        name: Add ${{ format('#{0}', github.event.number || github.event.issue.number) }} to project
+      - id: add-item
+        name: Add ${{ format('#{0}', github.event.number) }} to project
         uses: actions/add-to-project@v0.5.0
         with:
           github-token: ${{ secrets.PAT_REPO }}
