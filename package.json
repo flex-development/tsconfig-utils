@@ -80,7 +80,7 @@
     "@flex-development/pathe": "1.0.3",
     "@flex-development/tsconfig-types": "3.2.0",
     "@flex-development/tutils": "6.0.0-alpha.10",
-    "merge-anything": "5.1.5",
+    "merge-anything": "5.1.6",
     "sort-keys": "5.0.0",
     "strip-bom": "5.0.0",
     "strip-json-comments": "5.0.0"
