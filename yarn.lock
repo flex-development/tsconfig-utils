@@ -1320,7 +1320,7 @@ __metadata:
     eslint-plugin-prettier: "npm:4.2.1"
     eslint-plugin-promise: "npm:6.1.1"
     eslint-plugin-unicorn: "npm:46.0.0"
-    eslint-plugin-yml: "npm:1.5.0"
+    eslint-plugin-yml: "npm:1.7.0"
     graphql: "npm:16.6.0"
     graphql-config: "npm:4.5.0"
     growl: "npm:1.10.5"
@@ -4387,17 +4387,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-yml@npm:1.5.0":
-  version: 1.5.0
-  resolution: "eslint-plugin-yml@npm:1.5.0"
+"eslint-plugin-yml@npm:1.7.0":
+  version: 1.7.0
+  resolution: "eslint-plugin-yml@npm:1.7.0"
   dependencies:
     debug: "npm:^4.3.2"
     lodash: "npm:^4.17.21"
     natural-compare: "npm:^1.4.0"
-    yaml-eslint-parser: "npm:^1.1.0"
+    yaml-eslint-parser: "npm:^1.2.1"
   peerDependencies:
     eslint: ">=6.0.0"
-  checksum: b2f4ccc05d3fe3ca66a95fa663e932e27bbcf927e12f7ea8df14f068bd6ce90d85d997a63f042dac992f93ab58780e35bfc9349156823be3291fca3d5428bb6c
+  checksum: 8fcfcde833750f252e9847b89c58bca7151318c1921a88a494f7a6b7f8afac7f672ed32063dad406122e9f858eb1ce5f1a8c55c375cbfdf1ba335c53e7f79e4e
   languageName: node
   linkType: hard
 
@@ -9233,7 +9233,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yaml-eslint-parser@npm:1.2.0, yaml-eslint-parser@npm:^1.1.0":
+"yaml-eslint-parser@npm:1.2.0":
   version: 1.2.0
   resolution: "yaml-eslint-parser@npm:1.2.0"
   dependencies:
@@ -9241,6 +9241,17 @@ __metadata:
     lodash: "npm:^4.17.21"
     yaml: "npm:^2.0.0"
   checksum: 9892830884874c4c03d57369e6bd93f4fe6855ad06d590a94dac5a954f137af70f1411a428290bbb34a1ff1ce1074569c497fccd783bca5b274c70f988383f0e
+  languageName: node
+  linkType: hard
+
+"yaml-eslint-parser@npm:^1.2.1":
+  version: 1.2.2
+  resolution: "yaml-eslint-parser@npm:1.2.2"
+  dependencies:
+    eslint-visitor-keys: "npm:^3.0.0"
+    lodash: "npm:^4.17.21"
+    yaml: "npm:^2.0.0"
+  checksum: 1f13ad1a783943f0e277222a48cb3843b83722e6a2f52cec83a815579930c8bf60069d3e0f12bdb8c55ac0d8e29f340804b0b949cc7e6cea9d11076f38bd24cd
   languageName: node
   linkType: hard
 
