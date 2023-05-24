@@ -136,7 +136,7 @@
     "eslint-plugin-unicorn": "46.0.0",
     "eslint-plugin-yml": "1.7.0",
     "graphql": "16.6.0",
-    "graphql-config": "4.5.0",
+    "graphql-config": "5.0.1",
     "growl": "1.10.5",
     "husky": "8.0.3",
     "is-ci": "3.0.1",
