@@ -133,7 +133,7 @@
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-prettier": "4.2.1",
     "eslint-plugin-promise": "6.1.1",
-    "eslint-plugin-unicorn": "46.0.0",
+    "eslint-plugin-unicorn": "47.0.0",
     "eslint-plugin-yml": "1.7.0",
     "graphql": "16.6.0",
     "graphql-config": "4.5.0",
