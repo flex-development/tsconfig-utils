@@ -28,4 +28,5 @@ tsconfigs
 tscu
 unstub
 vates
+vitest
 yarnrc
