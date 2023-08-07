@@ -30,6 +30,6 @@ describe('unit:utils/normalizeNewLine', () => {
   })
 
   it('should return undefined if option cannot be normalized', () => {
-    expect(testSubject(faker.string.sample())).to.be.undefined
+    expect(testSubject(null)).to.be.undefined
   })
 })

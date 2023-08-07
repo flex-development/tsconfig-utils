@@ -4,6 +4,7 @@
  */
 
 import type { TSConfig } from '@flex-development/tsconfig-types'
+import { cast } from '@flex-development/tutils'
 import fs from 'node:fs'
 import type { URL } from 'node:url'
 
@@ -14,7 +15,7 @@ import type { URL } from 'node:url'
  * @return {TSConfig} `TSConfig` object
  */
 const getTsconfigJson = (id: URL | string): TSConfig => {
-  return JSON.parse(fs.readFileSync(id, 'utf8')) as TSConfig
+  return cast(JSON.parse(fs.readFileSync(id, 'utf8')))
 }
 
 export default getTsconfigJson

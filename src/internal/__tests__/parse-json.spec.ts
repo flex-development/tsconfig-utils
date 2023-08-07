@@ -11,6 +11,6 @@ describe('unit:internal/parseJSON', () => {
     const json: string = '{\n\t// Rainbows\n\t"unicorn": "cake"\n}'
 
     // Act + Expect
-    expect(testSubject(json)).to.deep.equal({ unicorn: 'cake' })
+    expect(testSubject(json)).to.eql({ unicorn: 'cake' })
   })
 })

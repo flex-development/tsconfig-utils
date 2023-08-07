@@ -21,7 +21,7 @@ name: typescript-canary
 on:
   schedule:
     # every day, 3 hours after typescript@next release
-    # https://github.com/microsoft/TypeScript/blob/v4.9.5/.github/workflows/nightly.yaml
+    # https://github.com/microsoft/TypeScript/blob/v5.0.4/.github/workflows/nightly.yaml
     - cron: 0 10 * * *
   workflow_dispatch:
 permissions:

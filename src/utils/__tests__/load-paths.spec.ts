@@ -15,8 +15,7 @@ describe('unit:utils/loadPaths', () => {
   let tsconfig: string
 
   beforeAll(() => {
-    loadCompilerOptionsMock =
-      loadCompilerOptions as unknown as typeof loadCompilerOptionsMock
+    loadCompilerOptionsMock = vi.mocked(loadCompilerOptions)
     tsconfig = 'tsconfig.json'
   })
 
@@ -25,7 +24,7 @@ describe('unit:utils/loadPaths', () => {
     const { paths } = getTsconfigJson(tsconfig)!.compilerOptions!
 
     // Act + Expect
-    expect(testSubject(tsconfig)).to.deep.equal(paths)
+    expect(testSubject(tsconfig)).to.eql(paths)
   })
 
   it('should return empty object if compilerOptions.paths is NIL', () => {
@@ -33,6 +32,6 @@ describe('unit:utils/loadPaths', () => {
     loadCompilerOptionsMock.mockReturnValueOnce({})
 
     // Act + Expect
-    expect(testSubject(tsconfig)).to.deep.equal({})
+    expect(testSubject(tsconfig)).to.eql({})
   })
 })

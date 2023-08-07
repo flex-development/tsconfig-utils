@@ -20,7 +20,7 @@ import validateString from './validate-string'
  * @param {string} json - JSON string to parse
  * @return {T} Parsed JSON value
  */
-function parseJSON<T extends JsonValue>(json: string): T {
+const parseJSON = <T extends JsonValue>(json: string): T => {
   validateString(json, 'json')
   return cast(JSON.parse(stripComments(stripBom(json), { whitespace: false })))
 }

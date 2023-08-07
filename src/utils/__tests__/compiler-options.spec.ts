@@ -12,6 +12,6 @@ describe('unit:utils/COMPILER_OPTIONS', () => {
   })
 
   it('should contain compiler option names', () => {
-    expect([...TEST_SUBJECT]).to.deep.equal(BASELINE)
+    expect([...TEST_SUBJECT]).to.eql(BASELINE)
   })
 })

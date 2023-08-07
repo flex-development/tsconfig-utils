@@ -15,8 +15,7 @@ describe('unit:utils/loadPlugins', () => {
   let tsconfig: string
 
   beforeAll(() => {
-    loadCompilerOptionsMock =
-      loadCompilerOptions as unknown as typeof loadCompilerOptionsMock
+    loadCompilerOptionsMock = vi.mocked(loadCompilerOptions)
     tsconfig = 'tsconfig.json'
   })
 
@@ -26,7 +25,7 @@ describe('unit:utils/loadPlugins', () => {
     loadCompilerOptionsMock.mockReturnValueOnce({ plugins })
 
     // Act + Expect
-    expect(testSubject(tsconfig)).to.deep.equal(plugins)
+    expect(testSubject(tsconfig)).to.eql(plugins)
   })
 
   it('should return empty array if compilerOptions.plugins is NIL', () => {
@@ -34,6 +33,6 @@ describe('unit:utils/loadPlugins', () => {
     loadCompilerOptionsMock.mockReturnValueOnce({})
 
     // Act + Expect
-    expect(testSubject(tsconfig)).to.deep.equal([])
+    expect(testSubject(tsconfig)).to.eql([])
   })
 })

@@ -22,13 +22,13 @@ describe('unit:utils/normalizeCompilerOptions', () => {
   it('should return empty object if compilerOptions schema is invalid', () => {
     // Arrange
     const cases: Parameters<typeof testSubject>[] = [
-      [faker.datatype.array()],
-      [faker.string.sample()]
+      [faker.string.sample()],
+      [vi.fn()]
     ]
 
     // Act + Expect
     cases.forEach(([compilerOptions]) => {
-      expect(testSubject(compilerOptions)).to.deep.equal({})
+      expect(testSubject(compilerOptions)).to.eql({})
     })
   })
 
@@ -87,7 +87,7 @@ describe('unit:utils/normalizeCompilerOptions', () => {
     }
 
     // Act + Expect
-    expect(testSubject({ ...compilerOptions, faker })).to.deep.equal({
+    expect(testSubject({ ...compilerOptions, faker })).to.eql({
       ...compilerOptions,
       importsNotUsedAsValues: ts.ImportsNotUsedAsValues.Error,
       jsx: ts.JsxEmit.ReactJSX,

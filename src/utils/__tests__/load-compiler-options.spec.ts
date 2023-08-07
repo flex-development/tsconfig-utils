@@ -15,7 +15,7 @@ describe('unit:utils/loadCompilerOptions', () => {
   let tsconfig: string
 
   beforeAll(() => {
-    loadTsconfigMock = loadTsconfig as unknown as typeof loadTsconfigMock
+    loadTsconfigMock = vi.mocked(loadTsconfig)
     tsconfig = 'tsconfig.json'
   })
 
@@ -24,7 +24,7 @@ describe('unit:utils/loadCompilerOptions', () => {
     const { compilerOptions } = getTsconfigJson(tsconfig)
 
     // Act + Expect
-    expect(testSubject(tsconfig)).to.deep.equal(compilerOptions)
+    expect(testSubject(tsconfig)).to.eql(compilerOptions)
   })
 
   it('should return empty object if compilerOptions is NIL', () => {
@@ -32,14 +32,14 @@ describe('unit:utils/loadCompilerOptions', () => {
     loadTsconfigMock.mockReturnValueOnce({})
 
     // Act + Expect
-    expect(testSubject(tsconfig)).to.deep.equal({})
+    expect(testSubject(tsconfig)).to.eql({})
   })
 
   it('should return empty object if tsconfig file does not exist', () => {
-    expect(testSubject('__fixtures__/tsconfig.dev.json')).to.deep.equal({})
+    expect(testSubject('__fixtures__/tsconfig.dev.json')).to.eql({})
   })
 
   it('should return empty object if tsconfig file is empty', () => {
-    expect(testSubject('__fixtures__/tsconfig.empty.json')).to.deep.equal({})
+    expect(testSubject('__fixtures__/tsconfig.empty.json')).to.eql({})
   })
 })

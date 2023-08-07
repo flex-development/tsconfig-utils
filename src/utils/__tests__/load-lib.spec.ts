@@ -15,8 +15,7 @@ describe('unit:utils/loadLib', () => {
   let tsconfig: string
 
   beforeAll(() => {
-    loadCompilerOptionsMock =
-      loadCompilerOptions as unknown as typeof loadCompilerOptionsMock
+    loadCompilerOptionsMock = vi.mocked(loadCompilerOptions)
     tsconfig = 'tsconfig.json'
   })
 
@@ -25,7 +24,7 @@ describe('unit:utils/loadLib', () => {
     const { lib } = getTsconfigJson(tsconfig)!.compilerOptions!
 
     // Act + Expect
-    expect(testSubject(tsconfig)).to.deep.equal(lib)
+    expect(testSubject(tsconfig)).to.eql(lib)
   })
 
   it('should return empty array if compilerOptions.lib is NIL', () => {
@@ -33,6 +32,6 @@ describe('unit:utils/loadLib', () => {
     loadCompilerOptionsMock.mockReturnValueOnce({})
 
     // Act + Expect
-    expect(testSubject(tsconfig)).to.deep.equal([])
+    expect(testSubject(tsconfig)).to.eql([])
   })
 })

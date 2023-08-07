@@ -7,11 +7,11 @@ import type { Lib, LibFile } from '@flex-development/tsconfig-types'
 import type TEST_SUBJECT from '../lib'
 
 describe('unit-d:utils/LIB', () => {
-  it('should equal type of Map<Lowercase<Lib>, LibFile>', () => {
+  it('should be instance of Map<Lowercase<Lib>, LibFile>', () => {
     // Arrange
-    type Expected = Map<Lowercase<Lib>, LibFile>
+    type Expect = Map<Lowercase<Lib>, LibFile>
 
     // Expect
-    expectTypeOf<typeof TEST_SUBJECT>().toEqualTypeOf<Expected>()
+    expectTypeOf<typeof TEST_SUBJECT>().toEqualTypeOf<Expect>()
   })
 })

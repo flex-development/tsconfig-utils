@@ -12,7 +12,7 @@ describe('unit:utils/LIB', () => {
   })
 
   it('should contain lib names', () => {
-    expect([...TEST_SUBJECT.keys()]).to.deep.equal(BASELINE)
+    expect([...TEST_SUBJECT.keys()]).to.eql(BASELINE)
   })
 
   it('should map lib names to lib filenames', () => {
