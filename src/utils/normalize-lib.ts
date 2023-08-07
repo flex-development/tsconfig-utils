@@ -3,8 +3,16 @@
  * @module tsconfig-utils/utils/normalizeLib
  */
 
-import type { Lib, LibFile } from '@flex-development/tsconfig-types'
-import { isString, isUndefined } from '@flex-development/tutils'
+import type { LibFile } from '@flex-development/tsconfig-types'
+import {
+  cast,
+  isArray,
+  isString,
+  isUndefined,
+  lowercase,
+  select,
+  type Optional
+} from '@flex-development/tutils'
 import LIB from './lib'
 
 /**
@@ -20,10 +28,12 @@ import LIB from './lib'
  * @return {LibFile[]} Lib filename array
  */
 const normalizeLib = (option: unknown): LibFile[] => {
-  return (Array.isArray(option) ? option : [])
-    .filter(item => isString(item))
-    .map((name: string) => LIB.get(name.toLowerCase() as Lowercase<Lib>))
-    .filter(file => !isUndefined(file)) as LibFile[]
+  return select<Optional<string>[], LibFile>(
+    select(isArray<string>(option) ? option : [], isString, (name: string) => {
+      return LIB.get(cast(lowercase(name)))
+    }),
+    file => !isUndefined(file)
+  )
 }
 
 export default normalizeLib

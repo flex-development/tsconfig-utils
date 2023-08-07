@@ -6,6 +6,7 @@
 import type { LoadTsconfigOptions } from '#src/interfaces'
 import type mlly from '@flex-development/mlly'
 import type { Paths } from '@flex-development/tsconfig-types'
+import { get } from '@flex-development/tutils'
 import loadCompilerOptions from './load-compiler-options'
 
 /**
@@ -21,6 +22,6 @@ import loadCompilerOptions from './load-compiler-options'
 const loadPaths = (
   tsconfig: mlly.ModuleId,
   options?: LoadTsconfigOptions
-): Paths => loadCompilerOptions(tsconfig, options).paths ?? {}
+): Paths => get(loadCompilerOptions(tsconfig, options), 'paths', {})
 
 export default loadPaths

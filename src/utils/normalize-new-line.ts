@@ -3,9 +3,13 @@
  * @module tsconfig-utils/utils/normalizeNewLine
  */
 
-import { getPropertyValue } from '#src/internal'
 import { NewLineKind } from '@flex-development/tsconfig-types'
-import { isString } from '@flex-development/tutils'
+import {
+  cast,
+  isString,
+  lowercase,
+  type Optional
+} from '@flex-development/tutils'
 import ts from 'typescript'
 
 /**
@@ -19,28 +23,28 @@ import ts from 'typescript'
  * [1]: https://www.typescriptlang.org/tsconfig#newLine
  *
  * @param {unknown} option - Option to evaluate
- * @return {ts.NewLineKind | undefined} `ts.NewLineKind` value or `undefined`
+ * @return {Optional<ts.NewLineKind>} `ts.NewLineKind` value or `undefined`
  */
-const normalizeNewLine = (option: unknown): ts.NewLineKind | undefined => {
+const normalizeNewLine = (option: unknown): Optional<ts.NewLineKind> => {
   // lowercase user option if it is a string
-  if (isString(option)) option = option.toLowerCase()
+  if (isString(option)) option = lowercase(option)
 
   /**
    * TypeScript program compiler option value, if any.
    *
-   * @var {ts.NewLineKind | undefined} ret
+   * @var {Optional<ts.NewLineKind>} ret
    */
-  let ret: ts.NewLineKind | undefined
+  let ret: Optional<ts.NewLineKind>
 
   // normalize user compiler option
-  switch (option as NewLineKind | ts.NewLineKind) {
+  switch (cast<NewLineKind | ts.NewLineKind>(option)) {
     case NewLineKind.CarriageReturnLineFeed:
-    case getPropertyValue(ts.NewLineKind, 'CarriageReturnLineFeed'):
-      ret = getPropertyValue(ts.NewLineKind, 'CarriageReturnLineFeed')
+    case ts.NewLineKind.CarriageReturnLineFeed:
+      ret = ts.NewLineKind.CarriageReturnLineFeed
       break
     case NewLineKind.LineFeed:
-    case getPropertyValue(ts.NewLineKind, 'LineFeed'):
-      ret = getPropertyValue(ts.NewLineKind, 'LineFeed')
+    case ts.NewLineKind.LineFeed:
+      ret = ts.NewLineKind.LineFeed
       break
     default:
       break

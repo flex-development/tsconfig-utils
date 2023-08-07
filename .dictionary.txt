@@ -3,6 +3,7 @@ bdougie
 cefc
 codecov
 commitlintrc
+customizer
 dedupe
 dessant
 dohm
@@ -13,6 +14,7 @@ hmarr
 iife
 infile
 keyid
+ksort
 larsgw
 lcov
 lintstagedrc

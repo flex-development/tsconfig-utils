@@ -3,8 +3,8 @@
  * @module tsconfig-utils/utils/normalizeJsx
  */
 
-import { getPropertyValue } from '#src/internal'
 import { JsxEmit } from '@flex-development/tsconfig-types'
+import { cast, type Optional } from '@flex-development/tutils'
 import ts from 'typescript'
 
 /**
@@ -18,40 +18,40 @@ import ts from 'typescript'
  * [1]: https://www.typescriptlang.org/tsconfig#jsx
  *
  * @param {unknown} option - Option to evaluate
- * @return {ts.JsxEmit | undefined} `ts.JsxEmit` value or `undefined`
+ * @return {Optional<ts.JsxEmit>} `ts.JsxEmit` value or `undefined`
  */
-const normalizeJsx = (option: unknown): ts.JsxEmit | undefined => {
+const normalizeJsx = (option: unknown): Optional<ts.JsxEmit> => {
   /**
    * TypeScript program compiler option value, if any.
    *
-   * @var {ts.JsxEmit | undefined} ret
+   * @var {Optional<ts.JsxEmit>} ret
    */
-  let ret: ts.JsxEmit | undefined
+  let ret: Optional<ts.JsxEmit>
 
   // normalize user compiler option
-  switch (option as JsxEmit | ts.JsxEmit) {
-    case getPropertyValue(ts.JsxEmit, 'None'):
-      ret = getPropertyValue(ts.JsxEmit, 'None')
+  switch (cast<JsxEmit | ts.JsxEmit>(option)) {
+    case ts.JsxEmit.None:
+      ret = ts.JsxEmit.None
       break
     case JsxEmit.Preserve:
-    case getPropertyValue(ts.JsxEmit, 'Preserve'):
-      ret = getPropertyValue(ts.JsxEmit, 'Preserve')
+    case ts.JsxEmit.Preserve:
+      ret = ts.JsxEmit.Preserve
       break
     case JsxEmit.React:
-    case getPropertyValue(ts.JsxEmit, 'React'):
-      ret = getPropertyValue(ts.JsxEmit, 'React')
+    case ts.JsxEmit.React:
+      ret = ts.JsxEmit.React
       break
     case JsxEmit.ReactJSX:
-    case getPropertyValue(ts.JsxEmit, 'ReactJSX'):
-      ret = getPropertyValue(ts.JsxEmit, 'ReactJSX')
+    case ts.JsxEmit.ReactJSX:
+      ret = ts.JsxEmit.ReactJSX
       break
     case JsxEmit.ReactJSXDev:
-    case getPropertyValue(ts.JsxEmit, 'ReactJSXDev'):
-      ret = getPropertyValue(ts.JsxEmit, 'ReactJSXDev')
+    case ts.JsxEmit.ReactJSXDev:
+      ret = ts.JsxEmit.ReactJSXDev
       break
     case JsxEmit.ReactNative:
-    case getPropertyValue(ts.JsxEmit, 'ReactNative'):
-      ret = getPropertyValue(ts.JsxEmit, 'ReactNative')
+    case ts.JsxEmit.ReactNative:
+      ret = ts.JsxEmit.ReactNative
       break
     default:
       break

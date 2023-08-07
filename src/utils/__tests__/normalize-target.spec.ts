@@ -56,6 +56,6 @@ describe('unit:utils/normalizeTarget', () => {
   })
 
   it('should return undefined if option cannot be normalized', () => {
-    expect(testSubject(faker.string.sample())).to.be.undefined
+    expect(testSubject(Number.NaN)).to.be.undefined
   })
 })

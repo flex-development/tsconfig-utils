@@ -4,6 +4,7 @@
  */
 
 import type mlly from '@flex-development/mlly'
+import type { Omit, Optional } from '@flex-development/tutils'
 import type LoadTsconfigOptions from '../options-load-tsconfig'
 import type TestSubject from '../options-resolve-paths'
 
@@ -13,9 +14,11 @@ describe('unit-d:interfaces/ResolvePathsOptions', () => {
   })
 
   it('should extend Omit<mlly.ResolveAliasOptions, "aliases" | "cwd">', () => {
-    expectTypeOf<TestSubject>().toMatchTypeOf<
-      Omit<mlly.ResolveAliasOptions, 'aliases' | 'cwd'>
-    >()
+    // Arrange
+    type Expect = Omit<mlly.ResolveAliasOptions, 'aliases' | 'cwd'>
+
+    // Expect
+    expectTypeOf<TestSubject>().toMatchTypeOf<Expect>()
   })
 
   it('should match [baseUrl?: mlly.ResolveAliasOptions["cwd"]]', () => {
@@ -30,9 +33,9 @@ describe('unit-d:interfaces/ResolvePathsOptions', () => {
       .toEqualTypeOf<mlly.ModuleId>()
   })
 
-  it('should match [tsconfig?: mlly.ModuleId]', () => {
+  it('should match [tsconfig?: Optional<mlly.ModuleId>]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('tsconfig')
-      .toEqualTypeOf<mlly.ModuleId | undefined>()
+      .toEqualTypeOf<Optional<mlly.ModuleId>>()
   })
 })

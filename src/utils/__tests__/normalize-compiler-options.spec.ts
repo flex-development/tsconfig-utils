@@ -13,6 +13,7 @@ import {
   ScriptTarget,
   type CompilerOptions
 } from '@flex-development/tsconfig-types'
+import { DOT } from '@flex-development/tutils'
 import ts from 'typescript'
 import LIB from '../lib'
 import testSubject from '../normalize-compiler-options'
@@ -37,7 +38,7 @@ describe('unit:utils/normalizeCompilerOptions', () => {
       allowJs: true,
       allowUnreachableCode: false,
       alwaysStrict: false,
-      baseUrl: '.',
+      baseUrl: DOT,
       checkJs: false,
       declaration: true,
       declarationMap: true,

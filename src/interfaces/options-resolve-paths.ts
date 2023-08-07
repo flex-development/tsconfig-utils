@@ -4,6 +4,7 @@
  */
 
 import type mlly from '@flex-development/mlly'
+import type { Omit, Optional } from '@flex-development/tutils'
 import type LoadTsconfigOptions from './options-load-tsconfig'
 
 /**
@@ -30,7 +31,7 @@ interface ResolvePathsOptions
    *
    * @default false
    */
-  absolute?: boolean | undefined
+  absolute?: Optional<boolean>
 
   /**
    * Base directory to resolve non-absolute modules from.
@@ -51,7 +52,7 @@ interface ResolvePathsOptions
    *
    * @default mlly.toURL('tsconfig.json')
    */
-  tsconfig?: mlly.ModuleId | undefined
+  tsconfig?: Optional<mlly.ModuleId>
 }
 
 export type { ResolvePathsOptions as default }

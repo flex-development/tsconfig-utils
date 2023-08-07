@@ -3,9 +3,13 @@
  * @module tsconfig-utils/utils/normalizeImportsNotUsed
  */
 
-import { getPropertyValue } from '#src/internal'
 import { ImportsNotUsedKind } from '@flex-development/tsconfig-types'
-import { isString } from '@flex-development/tutils'
+import {
+  cast,
+  isString,
+  lowercase,
+  type Optional
+} from '@flex-development/tutils'
 import ts from 'typescript'
 
 /**
@@ -20,35 +24,35 @@ import ts from 'typescript'
  * [1]: https://www.typescriptlang.org/tsconfig#importsNotUsedAsValues
  *
  * @param {unknown} option - Option to evaluate
- * @return {ts.ImportsNotUsedAsValues | undefined} `ts.ImportsNotUsedAsValues`
+ * @return {Optional<ts.ImportsNotUsedAsValues>} `ts.ImportsNotUsedAsValues`
  * value or `undefined`
  */
 const normalizeImportsNotUsed = (
   option: unknown
-): ts.ImportsNotUsedAsValues | undefined => {
+): Optional<ts.ImportsNotUsedAsValues> => {
   // lowercase user option if it is a string
-  if (isString(option)) option = option.toLowerCase()
+  if (isString(option)) option = lowercase(option)
 
   /**
    * TypeScript program compiler option value, if any.
    *
-   * @var {ts.ImportsNotUsedAsValues | undefined} ret
+   * @var {Optional<ts.ImportsNotUsedAsValues>} ret
    */
-  let ret: ts.ImportsNotUsedAsValues | undefined
+  let ret: Optional<ts.ImportsNotUsedAsValues>
 
   // normalize user compiler option
-  switch (option as ImportsNotUsedKind | ts.ImportsNotUsedAsValues) {
+  switch (cast<ImportsNotUsedKind | ts.ImportsNotUsedAsValues>(option)) {
     case ImportsNotUsedKind.Error:
-    case getPropertyValue(ts.ImportsNotUsedAsValues, 'Error'):
-      ret = getPropertyValue(ts.ImportsNotUsedAsValues, 'Error')
+    case ts.ImportsNotUsedAsValues.Error:
+      ret = ts.ImportsNotUsedAsValues.Error
       break
     case ImportsNotUsedKind.Preserve:
-    case getPropertyValue(ts.ImportsNotUsedAsValues, 'Preserve'):
-      ret = getPropertyValue(ts.ImportsNotUsedAsValues, 'Preserve')
+    case ts.ImportsNotUsedAsValues.Preserve:
+      ret = ts.ImportsNotUsedAsValues.Preserve
       break
     case ImportsNotUsedKind.Remove:
-    case getPropertyValue(ts.ImportsNotUsedAsValues, 'Remove'):
-      ret = getPropertyValue(ts.ImportsNotUsedAsValues, 'Remove')
+    case ts.ImportsNotUsedAsValues.Remove:
+      ret = ts.ImportsNotUsedAsValues.Remove
       break
     default:
       break

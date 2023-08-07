@@ -1277,7 +1277,7 @@ __metadata:
     "@flex-development/mlly": "npm:1.0.0-alpha.15"
     "@flex-development/pathe": "npm:1.0.3"
     "@flex-development/tsconfig-types": "npm:3.2.0"
-    "@flex-development/tutils": "npm:6.0.0-alpha.10"
+    "@flex-development/tutils": "npm:6.0.0-alpha.16"
     "@graphql-eslint/eslint-plugin": "npm:3.18.0"
     "@types/chai": "npm:4.3.4"
     "@types/conventional-changelog": "npm:3.1.1"
@@ -1328,17 +1328,14 @@ __metadata:
     is-ci: "npm:3.0.1"
     jsonc-eslint-parser: "npm:2.3.0"
     lint-staged: "npm:13.2.2"
-    merge-anything: "npm:5.1.6"
     mri: "npm:1.2.0"
     node-notifier: "npm:10.0.1"
     pkg-size: "npm:2.4.0"
     prettier: "npm:2.8.8"
     prettier-plugin-sh: "npm:0.12.8"
-    radash: "npm:10.8.1"
     sade: "npm:1.8.1"
     semver: "npm:7.5.2"
     serve: "npm:14.2.0"
-    sort-keys: "npm:5.0.0"
     strip-bom: "npm:5.0.0"
     strip-json-comments: "npm:5.0.0"
     tempfile: "npm:5.0.0"
@@ -1366,6 +1363,26 @@ __metadata:
   peerDependencies:
     typescript: ">=4.7"
   checksum: 372d2fd3e36f75cf7f9ea80e3e95cbd99f673dd114301f610a29e7acf12f589342c1e84c0139c8aa7cac1bcae2c7c1db2cb1302bae55da9d2fb33ae32b5c2a1b
+  languageName: node
+  linkType: hard
+
+"@flex-development/tutils@npm:6.0.0-alpha.16":
+  version: 6.0.0-alpha.16
+  resolution: "@flex-development/tutils@npm:6.0.0-alpha.16::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Ftutils%2F6.0.0-alpha.16%2Fab40c9d4e1f739b4cd32a792feb64feea5f57e5d"
+  dependencies:
+    dequal: "npm:2.0.3"
+  peerDependencies:
+    typescript: ">=5.0.4"
+  checksum: 987fcee38b5ac7f457592ea7956c38e55fdfd811a2dd5395ccb192b3a55990d81cc3a65a46d839e20e3546c89a28bea187f3b5c001a5330855865ae162a9bd06
+  languageName: node
+  linkType: hard
+
+"@flex-development/tutils@npm:6.0.0-alpha.7":
+  version: 6.0.0-alpha.7
+  resolution: "@flex-development/tutils@npm:6.0.0-alpha.7::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Ftutils%2F6.0.0-alpha.7%2F786916dcfd30bf076b5ac74cb31ca4031f74e1f0"
+  peerDependencies:
+    typescript: ">=4.7"
+  checksum: 626d2df21cd31cfe0445c94e0946b7ca77a3c95ca93c92b20c512820bad32e7fe34c4c59f870eddcdc449decc0c364614df4fc1c3f4fef1b76592d5ec53c59d3
   languageName: node
   linkType: hard
 
@@ -3978,6 +3995,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dequal@npm:2.0.3":
+  version: 2.0.3
+  resolution: "dequal@npm:2.0.3"
+  checksum: 7a633ec0ba78bc08ba217b762b15157d2ec99edb50a82124df2c341255b1943217215872888981cc6a6ee02406ab1b09783f5b51b7db8d8f8f1284092f379aad
+  languageName: node
+  linkType: hard
+
 "detect-indent@npm:^6.0.0":
   version: 6.1.0
   resolution: "detect-indent@npm:6.1.0"
@@ -6289,15 +6313,6 @@ __metadata:
   dependencies:
     is-what: "npm:^4.1.8"
   checksum: 489fbf11bb7455e397a59bb1ed46e577308d6822b26c81ca204974f251c1e30b0f8586910195a59769c3732b33d6026f254031c05f77d54c99dcc160b35cb9a4
-  languageName: node
-  linkType: hard
-
-"merge-anything@npm:5.1.6":
-  version: 5.1.6
-  resolution: "merge-anything@npm:5.1.6"
-  dependencies:
-    is-what: "npm:^4.1.8"
-  checksum: 3ccff2beef56b55200993400972056ba383f837369f22f359ec87c38106d1b27e135ffb3d736cbf423465d40c9292989178e254bd7f0d5d81a41172e18ea421e
   languageName: node
   linkType: hard
 

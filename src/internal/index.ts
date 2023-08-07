@@ -3,7 +3,6 @@
  * @module tsconfig-utils/internal
  */
 
-export { default as getPropertyValue } from './get-property-value'
 export { default as isDirectory } from './is-directory'
 export { default as isFile } from './is-file'
 export { default as parseJSON } from './parse-json'

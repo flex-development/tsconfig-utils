@@ -18,14 +18,25 @@ import type {
   TSConfig
 } from '@flex-development/tsconfig-types'
 import {
+  cast,
+  flat,
   isNIL,
   isObjectPlain,
   isString,
+  ksort,
+  mergeWith,
+  select,
+  shake,
+  trim,
+  type MergeCustomizer,
   type Nilable,
   type Nullable
 } from '@flex-development/tutils'
-import { mergeAndCompare } from 'merge-anything'
-import sortKeys from 'sort-keys'
+
+/**
+ * Tsconfig object property value type.
+ */
+type TSConfigValue = CompilerOptions | CompilerOptionsValue
 
 /**
  * Reads and parses the [tsconfig][1] file at the given module `id`.
@@ -47,8 +58,7 @@ import sortKeys from 'sort-keys'
  *
  * @param {mlly.ModuleId} id - Module id of tsconfig file
  * @param {LoadTsconfigOptions?} [options] - Load options
- * @return {Nullable<TSConfig>} User configuration object or `null` if tsconfig
- * file is not found
+ * @return {?TSConfig} User configuration object or `null`
  * @throws {NodeError<Error | TypeError>}
  */
 const loadTsconfig = (
@@ -81,12 +91,12 @@ const loadTsconfig = (
   const content: string = read(id)
 
   // exit early if tsconfig file is empty
-  if (!content.trim()) return {}
+  if (!trim(content)) return {}
 
   /**
    * Tsconfig object.
    *
-   * @var {Nullable<TSConfig>} tsconfig
+   * @var {?TSConfig} tsconfig
    */
   let tsconfig: Nullable<TSConfig> = {}
 
@@ -109,7 +119,7 @@ const loadTsconfig = (
    */
   const bases: string[] = isNIL(tsconfig.extends)
     ? []
-    : [tsconfig.extends].flat().filter(extend => !!extend.trim())
+    : select(flat([tsconfig.extends]), extend => !!trim(extend))
 
   // try merging tsconfig and base tsconfigs
   for (const extend of bases) {
@@ -126,28 +136,25 @@ const loadTsconfig = (
     /**
      * Base tsconfig object.
      *
-     * @const {Nullable<TSConfig>} base
+     * @const {?TSConfig} base
      */
     const base: Nullable<TSConfig> = loadTsconfig(basepath, { file, read })
 
     // merge tsconfig objects if base tsconfig object was found
     if (base) {
       /**
-       * Compares values from a base tsconfig file and inheriting tsconfig
-       * file to determine how the values should be merged.
+       * Customizes merged tsconfig values.
        *
-       * @param {Nilable<CompilerOptions | CompilerOptionsValue>} b - Value
-       * from base tsconfig object, {@linkcode base}
-       * @param {Nilable<CompilerOptions | CompilerOptionsValue>} t - Value
-       * from inheriting tsconfig object, {@linkcode tsconfig}
+       * @param {Nilable<TSConfigValue>} b - Base tsconfig object value
+       * @param {Nilable<TSConfigValue>} t - Inheriting tsconfig object value
        * @param {string | symbol} key - Object key being evaluated
-       * @return {Nilable<CompilerOptions | CompilerOptionsValue>} Merge value
+       * @return {Nilable<TSConfigValue>} Merge value
        */
-      const compare = (
-        b: Nilable<CompilerOptions | CompilerOptionsValue>,
-        t: Nilable<CompilerOptions | CompilerOptionsValue>,
+      const customizer: MergeCustomizer = (
+        b: Nilable<TSConfigValue>,
+        t: Nilable<TSConfigValue>,
         key: string | symbol
-      ): Nilable<CompilerOptions | CompilerOptionsValue> => {
+      ): Nilable<TSConfigValue> => {
         /**
          * Merge value.
          *
@@ -162,12 +169,16 @@ const loadTsconfig = (
           case key === 'baseUrl' && isString(b):
           case key === 'outDir' && isString(b):
           case key === 'rootDir' && isString(b):
-            if (b === t) merged = pathe.join(pathe.dirname(extend), b as string)
+            if (b === t) merged = pathe.join(pathe.dirname(extend), cast(b))
             break
           // recursively merge compilerOptions
           case key === 'compilerOptions':
-            merged = mergeAndCompare(compare, b, t) as CompilerOptions
-            merged = sortKeys(merged)
+            if (isObjectPlain(b) && isObjectPlain(t)) {
+              b = cast<CompilerOptions>(b)
+              t = cast<CompilerOptions>(t)
+              merged = ksort(mergeWith(customizer, b, t))
+            }
+
             break
           // exclude, files, and include properties from inheriting tsconfig
           // file should overwrite those from base tsconfig file.
@@ -187,11 +198,11 @@ const loadTsconfig = (
       }
 
       // merge tsconfig objects
-      tsconfig = mergeAndCompare(compare, base, tsconfig)
+      tsconfig = mergeWith(customizer, base, tsconfig)
     }
   }
 
-  return sortKeys(tsconfig)
+  return ksort(shake(tsconfig))
 }
 
 export default loadTsconfig

@@ -4,6 +4,7 @@
  */
 
 import { ErrorCode, type NodeError } from '@flex-development/errnode'
+import { cast } from '@flex-development/tutils'
 import testSubject from '../validate-function'
 
 describe('unit:internal/validateFunction', () => {
@@ -20,17 +21,16 @@ describe('unit:internal/validateFunction', () => {
   it('should throw if value is not a function', () => {
     // Arrange
     const code: ErrorCode = ErrorCode.ERR_INVALID_ARG_TYPE
-    let error: NodeError<TypeError>
+    let error!: NodeError<TypeError>
 
     // Act
     try {
       testSubject(faker.git.commitSha(), name)
     } catch (e: unknown) {
-      error = e as typeof error
+      error = cast(e)
     }
 
     // Expect
-    expect(error!).to.be.instanceof(TypeError)
-    expect(error!).to.have.property('code').equal(code)
+    expect(error).to.be.instanceof(TypeError).and.have.property('code', code)
   })
 })

@@ -6,6 +6,7 @@
 import type { LoadTsconfigOptions } from '#src/interfaces'
 import type mlly from '@flex-development/mlly'
 import type { Lib } from '@flex-development/tsconfig-types'
+import { get } from '@flex-development/tutils'
 import loadCompilerOptions from './load-compiler-options'
 
 /**
@@ -21,6 +22,6 @@ import loadCompilerOptions from './load-compiler-options'
 const loadLib = (
   tsconfig: mlly.ModuleId,
   options?: LoadTsconfigOptions
-): Lib[] => loadCompilerOptions(tsconfig, options).lib ?? []
+): Lib[] => get(loadCompilerOptions(tsconfig, options), 'lib', [])
 
 export default loadLib

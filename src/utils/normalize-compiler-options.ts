@@ -3,12 +3,15 @@
  * @module tsconfig-utils/utils/normalizeCompilerOptions
  */
 
-import type {
-  CompilerOptions,
-  CompilerOptionsValue
-} from '@flex-development/tsconfig-types'
-import { isNIL, isPrimitive, type Nilable } from '@flex-development/tutils'
-import sortKeys from 'sort-keys'
+import type { CompilerOptions } from '@flex-development/tsconfig-types'
+import {
+  cast,
+  entries,
+  isNIL,
+  isObjectCurly,
+  ksort,
+  set
+} from '@flex-development/tutils'
 import type ts from 'typescript'
 import COMPILER_OPTIONS from './compiler-options'
 import normalizeImportsNotUsed from './normalize-imports-not-used'
@@ -36,7 +39,7 @@ const normalizeCompilerOptions = (
   compilerOptions: unknown
 ): ts.CompilerOptions => {
   // exit early if compilerOptions schema is invalid
-  if (Array.isArray(compilerOptions) || isPrimitive(compilerOptions)) return {}
+  if (!isObjectCurly(compilerOptions)) return {}
 
   /**
    * TypeScript program compiler options.
@@ -45,54 +48,40 @@ const normalizeCompilerOptions = (
    */
   const ret: ts.CompilerOptions = {}
 
-  /**
-   * Sets a compiler option on {@linkcode ret}.
-   *
-   * Does nothing if the given `value` is `null` or `undefined`.
-   *
-   * @param {keyof ts.CompilerOptions} option - Compiler option name
-   * @param {Nilable<CompilerOptionsValue>} value - Compiler option value
-   * @return {void} Nothing when complete
-   */
-  const set = (
-    option: keyof ts.CompilerOptions,
-    value: Nilable<CompilerOptionsValue>
-  ): void => void (!isNIL(value) && (ret[option] = value))
-
   // get programmatic options
-  for (const [key, val] of Object.entries(compilerOptions as CompilerOptions)) {
+  for (const [key, val] of entries(cast<CompilerOptions>(compilerOptions))) {
     switch (key) {
       case 'importsNotUsedAsValues':
-        set(key, normalizeImportsNotUsed(val))
+        !isNIL(val) && set(ret, key, normalizeImportsNotUsed(val))
         break
       case 'jsx':
-        set(key, normalizeJsx(val))
+        !isNIL(val) && set(ret, key, normalizeJsx(val))
         break
       case 'lib':
-        set(key, normalizeLib(val))
+        !isNIL(val) && set(ret, key, normalizeLib(val))
         break
       case 'module':
-        set(key, normalizeModule(val))
+        !isNIL(val) && set(ret, key, normalizeModule(val))
         break
       case 'moduleDetection':
-        set(key, normalizeModuleDetection(val))
+        !isNIL(val) && set(ret, key, normalizeModuleDetection(val))
         break
       case 'moduleResolution':
-        set(key, normalizeModuleResolution(val))
+        !isNIL(val) && set(ret, key, normalizeModuleResolution(val))
         break
       case 'newLine':
-        set(key, normalizeNewLine(val))
+        !isNIL(val) && set(ret, key, normalizeNewLine(val))
         break
       case 'target':
-        set(key, normalizeTarget(val))
+        !isNIL(val) && set(ret, key, normalizeTarget(val))
         break
       default:
-        COMPILER_OPTIONS.has(key) && set(key, val)
+        COMPILER_OPTIONS.has(key) && !isNIL(val) && set(ret, key, val)
         break
     }
   }
 
-  return sortKeys(ret, { deep: true })
+  return ksort(ret, { deep: true })
 }
 
 export default normalizeCompilerOptions

@@ -3,7 +3,7 @@
  * @module tsconfig-utils/internal/parseJSON
  */
 
-import type { JsonValue } from '@flex-development/tutils'
+import { cast, type JsonValue } from '@flex-development/tutils'
 import stripBom from 'strip-bom'
 import stripComments from 'strip-json-comments'
 import validateString from './validate-string'
@@ -22,7 +22,7 @@ import validateString from './validate-string'
  */
 function parseJSON<T extends JsonValue>(json: string): T {
   validateString(json, 'json')
-  return JSON.parse(stripComments(stripBom(json), { whitespace: false })) as T
+  return cast(JSON.parse(stripComments(stripBom(json), { whitespace: false })))
 }
 
 export default parseJSON

@@ -3,8 +3,8 @@
  * @module tsconfig-utils/utils/normalizeModuleDetection
  */
 
-import { getPropertyValue } from '#src/internal'
 import { ModuleDetectionKind } from '@flex-development/tsconfig-types'
+import { cast, type Optional } from '@flex-development/tutils'
 import ts from 'typescript'
 
 /**
@@ -19,32 +19,32 @@ import ts from 'typescript'
  * [1]: https://www.typescriptlang.org/tsconfig#moduleDetection
  *
  * @param {unknown} option - Option to evaluate
- * @return {ts.ModuleDetectionKind | undefined} `ts.ModuleDetectionKind` value
+ * @return {Optional<ts.ModuleDetectionKind>} `ts.ModuleDetectionKind` value
  * or `undefined`
  */
 const normalizeModuleDetection = (
   option: unknown
-): ts.ModuleDetectionKind | undefined => {
+): Optional<ts.ModuleDetectionKind> => {
   /**
    * TypeScript program compiler option value, if any.
    *
-   * @var {ts.ModuleDetectionKind | undefined} ret
+   * @var {Optional<ts.ModuleDetectionKind>} ret
    */
-  let ret: ts.ModuleDetectionKind | undefined
+  let ret: Optional<ts.ModuleDetectionKind>
 
   // normalize user compiler option
-  switch (option as ModuleDetectionKind | ts.ModuleDetectionKind) {
+  switch (cast<ModuleDetectionKind | ts.ModuleDetectionKind>(option)) {
     case ModuleDetectionKind.Auto:
-    case getPropertyValue(ts.ModuleDetectionKind, 'Auto'):
-      ret = getPropertyValue(ts.ModuleDetectionKind, 'Auto')
+    case ts.ModuleDetectionKind.Auto:
+      ret = ts.ModuleDetectionKind.Auto
       break
     case ModuleDetectionKind.Force:
-    case getPropertyValue(ts.ModuleDetectionKind, 'Force'):
-      ret = getPropertyValue(ts.ModuleDetectionKind, 'Force')
+    case ts.ModuleDetectionKind.Force:
+      ret = ts.ModuleDetectionKind.Force
       break
     case ModuleDetectionKind.Legacy:
-    case getPropertyValue(ts.ModuleDetectionKind, 'Legacy'):
-      ret = getPropertyValue(ts.ModuleDetectionKind, 'Legacy')
+    case ts.ModuleDetectionKind.Legacy:
+      ret = ts.ModuleDetectionKind.Legacy
       break
     default:
       break
