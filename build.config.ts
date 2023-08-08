@@ -19,7 +19,7 @@ const config: Config = defineBuildConfig({
   charset: 'utf8',
   entries: [
     { dts: 'only' },
-    { dts: false, pattern: ['internal/*'] },
+    { dts: false, pattern: ['**/index.ts', 'internal/*'] },
     {
       dts: false,
       pattern: ['index.ts', 'utils/*'],
