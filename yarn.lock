@@ -1426,7 +1426,7 @@ __metadata:
     "@faker-js/faker": "npm:8.0.2"
     "@flex-development/commitlint-config": "npm:1.0.1"
     "@flex-development/decorator-regex": "npm:1.0.0"
-    "@flex-development/errnode": "npm:1.5.0"
+    "@flex-development/errnode": "npm:2.0.0"
     "@flex-development/esm-types": "npm:1.0.0"
     "@flex-development/mkbuild": "npm:1.0.0-alpha.20"
     "@flex-development/mlly": "npm:1.0.0-alpha.16"
