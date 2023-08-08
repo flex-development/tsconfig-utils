@@ -75,7 +75,7 @@
     "typecheck:watch": "vitest typecheck"
   },
   "dependencies": {
-    "@flex-development/errnode": "1.5.0",
+    "@flex-development/errnode": "2.0.0",
     "@flex-development/mlly": "1.0.0-alpha.16",
     "@flex-development/pathe": "1.0.3",
     "@flex-development/tsconfig-types": "4.0.0",
