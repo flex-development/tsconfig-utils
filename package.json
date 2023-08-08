@@ -81,7 +81,7 @@
     "@flex-development/tsconfig-types": "4.0.0",
     "@flex-development/tutils": "6.0.0-alpha.16",
     "strip-bom": "5.0.0",
-    "strip-json-comments": "5.0.0"
+    "strip-json-comments": "5.0.1"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "0.7.1",
