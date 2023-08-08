@@ -30,7 +30,7 @@ const resolvePaths = async (
     conditions,
     ext,
     extensions,
-    file = internal.isFile,
+    file = mlly.isFile,
     parent,
     preserveSymlinks,
     read = internal.readFile,

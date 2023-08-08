@@ -145,7 +145,7 @@ export const load = async (url, context) => {
   /**
    * Source code.
    *
-   * @type {Uint8Array | string | undefined}
+   * @type {tutils.Optional<esm.Source<Uint8Array | string>>}
    * @var source
    */
   let source = await mlly.getSource(url, { format: context.format })

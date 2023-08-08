@@ -65,7 +65,7 @@ const loadTsconfig = (
   id: mlly.ModuleId,
   options?: LoadTsconfigOptions
 ): Nullable<TSConfig> => {
-  const { file = internal.isFile, read = internal.readFile } = options ?? {}
+  const { file = mlly.isFile, read = internal.readFile } = options ?? {}
 
   // ensure id is an instance of URL or a string
   internal.validateURLString(id, 'id')
@@ -104,7 +104,7 @@ const loadTsconfig = (
   try {
     tsconfig = internal.parseJSON<TSConfig>(content)
   } catch (e: unknown) {
-    throw new ERR_OPERATION_FAILED((e as Error).message)
+    throw new ERR_OPERATION_FAILED(cast<Error>(e).message)
   }
 
   // throw if tsconfig is not plain object

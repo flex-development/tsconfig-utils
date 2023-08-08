@@ -15,7 +15,7 @@ interface LoadTsconfigOptions {
    *
    * @see {@linkcode mlly.ModuleId}
    *
-   * @default internal.isFile
+   * @default mlly.isFile
    *
    * @param {mlly.ModuleId} id - Module id to evaluate
    * @return {boolean} `true` if file exists at `id`, `false` otherwise

@@ -4,6 +4,7 @@
  */
 
 import type { Lib, LibFile } from '@flex-development/tsconfig-types'
+import { cast } from '@flex-development/tutils'
 
 /**
  * Map containing [type definition library names][1] that correspond to files in
@@ -100,7 +101,7 @@ const LIB: Map<Lowercase<Lib>, LibFile> = new Map<Lowercase<Lib>, LibFile>(
     'webworker.importscripts',
     'webworker.iterable',
     'webworker'
-  ].map(name => [name, `lib.${name}.d.ts`] as [Lowercase<Lib>, LibFile])
+  ].map(name => cast([name, `lib.${name}.d.ts`]))
 )
 
 export default LIB
