@@ -1,3 +1,13 @@
+## [2.0.1](https://github.com/flex-development/tsconfig-utils/compare/2.0.0...2.0.1) (2023-08-08)
+
+
+### :package: Build
+
+* ensure resolved source map url is absolute ([da58477](https://github.com/flex-development/tsconfig-utils/commit/da5847752dacecd27d63c7a3b4ca1e01ad0fb439))
+* **deps-dev:** Bump esbuild from 0.18.19 to 0.19.0 ([#225](https://github.com/flex-development/tsconfig-utils/issues/225)) ([c56a13a](https://github.com/flex-development/tsconfig-utils/commit/c56a13a7821247a091741417c1fdcf605f0e5e5a))
+* **deps:** Bump @flex-development/mlly from 1.0.0-alpha.16 to 1.0.0-alpha.17 ([#226](https://github.com/flex-development/tsconfig-utils/issues/226)) ([9687dd0](https://github.com/flex-development/tsconfig-utils/commit/9687dd0c593fc5e2bbc6d02484ea93574a432717))
+* **deps:** Bump @flex-development/tutils from 6.0.0-alpha.16 to 6.0.0-alpha.18 ([#224](https://github.com/flex-development/tsconfig-utils/issues/224)) ([6c9958d](https://github.com/flex-development/tsconfig-utils/commit/6c9958d38e2710c038ace0080590ad3744c9a04f))
+
 ## [2.0.0](https://github.com/flex-development/tsconfig-utils/compare/1.1.2...2.0.0) (2023-08-07)
 
 
