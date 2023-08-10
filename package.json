@@ -90,7 +90,7 @@
     "@flex-development/commitlint-config": "1.0.1",
     "@flex-development/decorator-regex": "2.0.0",
     "@flex-development/esm-types": "2.0.0",
-    "@flex-development/mkbuild": "1.0.0-alpha.20",
+    "@flex-development/mkbuild": "1.0.0-alpha.21",
     "@graphql-eslint/eslint-plugin": "3.20.1",
     "@types/chai": "4.3.5",
     "@types/conventional-changelog": "3.1.1",
