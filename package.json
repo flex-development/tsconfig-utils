@@ -85,7 +85,7 @@
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "0.7.1",
-    "@commitlint/cli": "17.7.0",
+    "@commitlint/cli": "17.7.1",
     "@faker-js/faker": "8.0.2",
     "@flex-development/commitlint-config": "1.0.1",
     "@flex-development/decorator-regex": "2.0.0",
