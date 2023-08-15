@@ -1463,6 +1463,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@flex-development/mlly@npm:1.0.0-alpha.18":
+  version: 1.0.0-alpha.18
+  resolution: "@flex-development/mlly@npm:1.0.0-alpha.18::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Fmlly%2F1.0.0-alpha.18%2Fbb14e3c777770af9cdc4963ebbcce34ba251b120"
+  dependencies:
+    "@flex-development/errnode": "npm:2.0.0"
+    "@flex-development/export-regex": "npm:2.0.0"
+    "@flex-development/import-regex": "npm:3.0.0"
+    "@flex-development/is-builtin": "npm:3.1.0"
+    "@flex-development/pathe": "npm:2.0.0"
+    "@flex-development/pkg-types": "npm:3.0.0"
+    "@flex-development/tutils": "npm:6.0.0-alpha.21"
+  peerDependencies:
+    "@types/node": ">=16.18.23"
+    node-fetch: ">=3.3.0"
+  checksum: f5188f9cafaeaa74c6fe4bbfea3b48f71f2c44925cbc745e234e5c559bfc35246fa5192a8b172fd71e0ccf0dfebdba8a4a9a0cefcfdc3dd6c5e715d24aee22ad
+  languageName: node
+  linkType: hard
+
 "@flex-development/pathe@npm:1.0.3":
   version: 1.0.3
   resolution: "@flex-development/pathe@npm:1.0.3::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Fpathe%2F1.0.3%2F097d5bd49df40304b86645ee9fd50be7711eac56"
@@ -1554,7 +1572,7 @@ __metadata:
     "@flex-development/errnode": "npm:2.0.0"
     "@flex-development/esm-types": "npm:2.0.0"
     "@flex-development/mkbuild": "npm:1.0.0-alpha.21"
-    "@flex-development/mlly": "npm:1.0.0-alpha.17"
+    "@flex-development/mlly": "npm:1.0.0-alpha.18"
     "@flex-development/pathe": "npm:2.0.0"
     "@flex-development/tsconfig-types": "npm:4.0.0"
     "@flex-development/tutils": "npm:6.0.0-alpha.21"
