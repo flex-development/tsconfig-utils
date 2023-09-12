@@ -58,11 +58,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@arethetypeswrong/cli@npm:0.9.0":
-  version: 0.9.0
-  resolution: "@arethetypeswrong/cli@npm:0.9.0"
+"@arethetypeswrong/cli@npm:0.10.1":
+  version: 0.10.1
+  resolution: "@arethetypeswrong/cli@npm:0.10.1"
   dependencies:
-    "@arethetypeswrong/core": "npm:0.9.0"
+    "@arethetypeswrong/core": "npm:0.10.1"
     chalk: "npm:^4.1.2"
     cli-table3: "npm:^0.6.3"
     commander: "npm:^10.0.1"
@@ -71,13 +71,13 @@ __metadata:
     node-fetch: "npm:^2.6.4"
   bin:
     attw: dist/index.js
-  checksum: 99774f9ff9985ec6aa5f3265f05ef9ab19811d5a415b593a63b5ac822a4980b1da604518691d962d2a7464b900fe101c40a78ebc0229a7b6526093f9502994b1
+  checksum: 6d350f3d8b0a84a01b5cca4707b71b6fc1ffe47e053cf90245be1ca41c17f6b5182744dae16981730cde2cdcfdf68cc99be5f1b0e93d480f94db18a867fc37ca
   languageName: node
   linkType: hard
 
-"@arethetypeswrong/core@npm:0.9.0":
-  version: 0.9.0
-  resolution: "@arethetypeswrong/core@npm:0.9.0"
+"@arethetypeswrong/core@npm:0.10.1":
+  version: 0.10.1
+  resolution: "@arethetypeswrong/core@npm:0.10.1"
   dependencies:
     "@andrewbranch/untar.js": "npm:^1.0.0"
     fetch-ponyfill: "npm:^7.1.0"
@@ -85,7 +85,7 @@ __metadata:
     semver: "npm:^7.5.4"
     typescript: "npm:^5.2.2"
     validate-npm-package-name: "npm:^5.0.0"
-  checksum: 9e5843f9ff90b87b1224eee7f2adcc54c4e04172dff6fbf04b2bf12278e458276245ac209c774c8de6ab03209ddceec569742fdd457edb3c96e49509cd82a589
+  checksum: 91b2ee7af755ca37e81ce13eea136010b46241134ab59dcbdf9b7a8172c3f93b81ae2cb88c4ae651547579fc1c1dd332f5b46c6d758a3579187ffe58b76e04c2
   languageName: node
   linkType: hard
 
@@ -1574,7 +1574,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@flex-development/tsconfig-utils@workspace:."
   dependencies:
-    "@arethetypeswrong/cli": "npm:0.9.0"
+    "@arethetypeswrong/cli": "npm:0.10.1"
     "@commitlint/cli": "npm:17.7.1"
     "@faker-js/faker": "npm:8.0.2"
     "@flex-development/commitlint-config": "npm:1.0.1"
