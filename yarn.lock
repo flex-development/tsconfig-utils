@@ -1634,7 +1634,7 @@ __metadata:
     typescript: "npm:5.1.6"
     version-bump-prompt: "npm:6.1.0"
     vite: "npm:4.4.9"
-    vite-tsconfig-paths: "npm:4.2.0"
+    vite-tsconfig-paths: "npm:4.2.1"
     vitest: "npm:0.34.3"
     vitest-github-actions-reporter: "npm:0.10.0"
     yaml-eslint-parser: "npm:1.2.2"
@@ -9956,9 +9956,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-tsconfig-paths@npm:4.2.0":
-  version: 4.2.0
-  resolution: "vite-tsconfig-paths@npm:4.2.0"
+"vite-tsconfig-paths@npm:4.2.1":
+  version: 4.2.1
+  resolution: "vite-tsconfig-paths@npm:4.2.1"
   dependencies:
     debug: "npm:^4.1.1"
     globrex: "npm:^0.1.2"
@@ -9968,7 +9968,7 @@ __metadata:
   peerDependenciesMeta:
     vite:
       optional: true
-  checksum: ff2c44261a108a4296a63a4ded99e674aee8806f160e2d1524b6f3a220abe6b9faf08074d9df1c826331558206f66925ae92a19b367f2302f376f722dd811d73
+  checksum: ebd5842013162bbd7399f727231acc54e655f38771cdb0e979fba710cdf0f8c808d4471129a84e15274bf05f0db2076a98d47c5f52b33891a67cfcc695cfb615
   languageName: node
   linkType: hard
 
