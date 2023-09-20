@@ -1257,10 +1257,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@faker-js/faker@npm:8.0.2":
-  version: 8.0.2
-  resolution: "@faker-js/faker@npm:8.0.2"
-  checksum: 9114ce0ad7fa08935874142ca8121fcaba606743bb39446c7e00638c185a5171d4b1de81b90530cc8bb7faf233f935d50a1dfe7b547982e060ee9404b4b7baa8
+"@faker-js/faker@npm:8.1.0":
+  version: 8.1.0
+  resolution: "@faker-js/faker@npm:8.1.0"
+  checksum: b8f59ff53c3d1abb3f50f1874a4a2affa198b6f80b591f62605483aef08c2f4a8f0a285ce5445092f6aa0fec9d6ba73a9935c7aa695ea13eb81efb3b7d7da2c1
   languageName: node
   linkType: hard
 
@@ -1558,7 +1558,7 @@ __metadata:
   dependencies:
     "@arethetypeswrong/cli": "npm:0.10.2"
     "@commitlint/cli": "npm:17.7.1"
-    "@faker-js/faker": "npm:8.0.2"
+    "@faker-js/faker": "npm:8.1.0"
     "@flex-development/commitlint-config": "npm:1.0.1"
     "@flex-development/decorator-regex": "npm:2.0.0"
     "@flex-development/errnode": "npm:2.0.0"
