@@ -1599,7 +1599,7 @@ __metadata:
     esbuild: "npm:0.19.3"
     eslint: "npm:8.49.0"
     eslint-config-prettier: "npm:9.0.0"
-    eslint-import-resolver-typescript: "npm:3.6.0"
+    eslint-import-resolver-typescript: "npm:3.6.1"
     eslint-plugin-chai-expect: "npm:3.0.0"
     eslint-plugin-import: "npm:2.28.1"
     eslint-plugin-jest-formatting: "npm:3.1.0"
@@ -4959,9 +4959,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-import-resolver-typescript@npm:3.6.0":
-  version: 3.6.0
-  resolution: "eslint-import-resolver-typescript@npm:3.6.0"
+"eslint-import-resolver-typescript@npm:3.6.1":
+  version: 3.6.1
+  resolution: "eslint-import-resolver-typescript@npm:3.6.1"
   dependencies:
     debug: "npm:^4.3.4"
     enhanced-resolve: "npm:^5.12.0"
@@ -4973,7 +4973,7 @@ __metadata:
   peerDependencies:
     eslint: "*"
     eslint-plugin-import: "*"
-  checksum: cd37eab1bdec48d98231776cc97fc8c8b14364dc0451c0e4ae2f84ebeac4ce2c004ebcff31509f3132a776832c037c00a3477a56d6e1c8026498dbabc75ea762
+  checksum: 287d0c400dde4ee6a3414818bc8e2743a1e7ab357f9c61c9e0775218ae13c5bd0387042488a24adb0983ecc07387711b8582d97469a8eecc115e965013480336
   languageName: node
   linkType: hard
 
