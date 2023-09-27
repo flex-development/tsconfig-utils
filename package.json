@@ -84,7 +84,7 @@
     "strip-json-comments": "5.0.1"
   },
   "devDependencies": {
-    "@arethetypeswrong/cli": "0.10.2",
+    "@arethetypeswrong/cli": "0.11.0",
     "@commitlint/cli": "17.7.1",
     "@faker-js/faker": "8.1.0",
     "@flex-development/commitlint-config": "1.0.1",

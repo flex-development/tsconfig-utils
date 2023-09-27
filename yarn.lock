@@ -58,9 +58,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@arethetypeswrong/cli@npm:0.10.2":
-  version: 0.10.2
-  resolution: "@arethetypeswrong/cli@npm:0.10.2"
+"@arethetypeswrong/cli@npm:0.11.0":
+  version: 0.11.0
+  resolution: "@arethetypeswrong/cli@npm:0.11.0"
   dependencies:
     "@arethetypeswrong/core": "npm:0.10.2"
     chalk: "npm:^4.1.2"
@@ -69,9 +69,10 @@ __metadata:
     marked: "npm:^5.1.0"
     marked-terminal: "npm:^5.2.0"
     node-fetch: "npm:^2.6.4"
+    semver: "npm:^7.5.4"
   bin:
     attw: dist/index.js
-  checksum: 462df6b68d60b2e0750c146495568c0dfb1a3529079160b32d35c6f6c2b2ed788af05554d07bb5eb4aa8a2b8c04fd6d7c6ae5e5ac3ef8fccb5c7f1d4ef2f153a
+  checksum: 5d43367a29b93b7fcd8b89ed1d111d228d08b42748a852870feae0d2745e7f709fe5f86d5e2637570da8d14cf9c1c15dd80b14c4f89b6b859f3725f7bbec6419
   languageName: node
   linkType: hard
 
@@ -1556,7 +1557,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@flex-development/tsconfig-utils@workspace:."
   dependencies:
-    "@arethetypeswrong/cli": "npm:0.10.2"
+    "@arethetypeswrong/cli": "npm:0.11.0"
     "@commitlint/cli": "npm:17.7.1"
     "@faker-js/faker": "npm:8.1.0"
     "@flex-development/commitlint-config": "npm:1.0.1"
