@@ -252,13 +252,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/cli@npm:17.7.1":
-  version: 17.7.1
-  resolution: "@commitlint/cli@npm:17.7.1"
+"@commitlint/cli@npm:17.7.2":
+  version: 17.7.2
+  resolution: "@commitlint/cli@npm:17.7.2"
   dependencies:
     "@commitlint/format": "npm:^17.4.4"
     "@commitlint/lint": "npm:^17.7.0"
-    "@commitlint/load": "npm:^17.7.1"
+    "@commitlint/load": "npm:^17.7.2"
     "@commitlint/read": "npm:^17.5.1"
     "@commitlint/types": "npm:^17.4.4"
     execa: "npm:^5.0.0"
@@ -268,7 +268,7 @@ __metadata:
     yargs: "npm:^17.0.0"
   bin:
     commitlint: cli.js
-  checksum: e855228375dea4965940aaab6550ea303d62f2a0ce3277da6e9a20d23e410c3e1b41791790dff2a943c051b4ac15b75f595481ab816af67041789900cbde82d5
+  checksum: cba262ffde8b51afebefed4cf0bbef6d4c91a52927a26efda4a803c8cb4218da3b874e577935ee644ce81960a931557fc24f97b4d73c4b77aac97e3d0e6d107c
   languageName: node
   linkType: hard
 
@@ -335,15 +335,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/load@npm:^17.7.1":
-  version: 17.7.1
-  resolution: "@commitlint/load@npm:17.7.1"
+"@commitlint/load@npm:^17.7.2":
+  version: 17.7.2
+  resolution: "@commitlint/load@npm:17.7.2"
   dependencies:
     "@commitlint/config-validator": "npm:^17.6.7"
     "@commitlint/execute-rule": "npm:^17.4.0"
     "@commitlint/resolve-extends": "npm:^17.6.7"
     "@commitlint/types": "npm:^17.4.4"
-    "@types/node": "npm:20.4.7"
+    "@types/node": "npm:20.5.1"
     chalk: "npm:^4.1.0"
     cosmiconfig: "npm:^8.0.0"
     cosmiconfig-typescript-loader: "npm:^4.0.0"
@@ -353,7 +353,7 @@ __metadata:
     resolve-from: "npm:^5.0.0"
     ts-node: "npm:^10.8.1"
     typescript: "npm:^4.6.4 || ^5.0.0"
-  checksum: 47042bb5927614463aec09189ed450cb5c08dceaef311c662d36112f2cfaf32285ea25ed26774226f0532d0159ef5e8ce38707c58d2347bbe37fa8e52fe89a87
+  checksum: bc781769b6ab6436f4518b671b071269545396ffa95d259033555d8a1a8744f67692c4547aba825d02820ccd6f3f53bb830e67cc91fa5dd7dfd9b8e574ca4d0f
   languageName: node
   linkType: hard
 
@@ -1558,7 +1558,7 @@ __metadata:
   resolution: "@flex-development/tsconfig-utils@workspace:."
   dependencies:
     "@arethetypeswrong/cli": "npm:0.11.0"
-    "@commitlint/cli": "npm:17.7.1"
+    "@commitlint/cli": "npm:17.7.2"
     "@faker-js/faker": "npm:8.1.0"
     "@flex-development/commitlint-config": "npm:1.0.1"
     "@flex-development/decorator-regex": "npm:2.0.0"
@@ -2735,17 +2735,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:20.4.8":
-  version: 20.4.8
-  resolution: "@types/node@npm:20.4.8"
-  checksum: d15d04b86caf48fe2dc49e2c313505827d279cab510556059deebe442c76152553286a323302ad6ec26f9aa7e7a88e5275be75579ae586c04cb5116bbcfb2553
+"@types/node@npm:*, @types/node@npm:20.5.1":
+  version: 20.5.1
+  resolution: "@types/node@npm:20.5.1"
+  checksum: b97840d7967981aea798d36ff0f216b569d7512acaaa86e9c841aaf9471a8597f91104ea5bae8177e2dd707e001b65913e3ee9df89680128b19859dfa6ae1451
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.4.7":
-  version: 20.4.7
-  resolution: "@types/node@npm:20.4.7"
-  checksum: 2b71a26e80d96ce5c7c5d8cde2227adbacc9f50bfc9a60c45f96b2604ff6e60f7ba02cb7b24efd999e0a2ba25097680237b2d16a6f37082ed4136689e7976f12
+"@types/node@npm:20.4.8":
+  version: 20.4.8
+  resolution: "@types/node@npm:20.4.8"
+  checksum: d15d04b86caf48fe2dc49e2c313505827d279cab510556059deebe442c76152553286a323302ad6ec26f9aa7e7a88e5275be75579ae586c04cb5116bbcfb2553
   languageName: node
   linkType: hard
 
