@@ -1605,7 +1605,7 @@ __metadata:
     eslint-plugin-import: "npm:2.28.1"
     eslint-plugin-jest-formatting: "npm:3.1.0"
     eslint-plugin-jsdoc: "npm:44.1.0"
-    eslint-plugin-jsonc: "npm:2.9.0"
+    eslint-plugin-jsonc: "npm:2.10.0"
     eslint-plugin-markdown: "npm:3.0.1"
     eslint-plugin-markdownlint: "npm:0.5.0"
     eslint-plugin-node: "npm:11.1.0"
@@ -4938,6 +4938,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-compat-utils@npm:^0.1.2":
+  version: 0.1.2
+  resolution: "eslint-compat-utils@npm:0.1.2"
+  peerDependencies:
+    eslint: ">=6.0.0"
+  checksum: 27b3cc966583f49e44c84c4e84fa8dc27c917f8ec4487f4871e3a859d92d98975e341f7f716855aeb2c0a2023f1685c90ca605b0a4234c84459938d8945b6e89
+  languageName: node
+  linkType: hard
+
 "eslint-config-prettier@npm:9.0.0":
   version: 9.0.0
   resolution: "eslint-config-prettier@npm:9.0.0"
@@ -5065,16 +5074,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsonc@npm:2.9.0":
-  version: 2.9.0
-  resolution: "eslint-plugin-jsonc@npm:2.9.0"
+"eslint-plugin-jsonc@npm:2.10.0":
+  version: 2.10.0
+  resolution: "eslint-plugin-jsonc@npm:2.10.0"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.2.0"
+    eslint-compat-utils: "npm:^0.1.2"
     jsonc-eslint-parser: "npm:^2.0.4"
     natural-compare: "npm:^1.4.0"
   peerDependencies:
     eslint: ">=6.0.0"
-  checksum: 1e2c92d829597b9073101e750ac6bc45e72a2ca0491cd0b04db9662d53e8e8a6d4a0546d53ff776a9fb55e5930f8a242686677f160b494658459b3c9199962aa
+  checksum: 6ba940b550d3a9b6caf61ae09024941d0d0a588c4de20f8154028f2d82896c070640453f5ca9890966cd097bb3bb603201f0f0078793d60b2441d60ff6ebf083
   languageName: node
   linkType: hard
 
