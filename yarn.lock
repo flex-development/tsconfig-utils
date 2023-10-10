@@ -1612,7 +1612,7 @@ __metadata:
     eslint-plugin-prettier: "npm:5.0.0"
     eslint-plugin-promise: "npm:6.1.1"
     eslint-plugin-unicorn: "npm:48.0.1"
-    eslint-plugin-yml: "npm:1.9.0"
+    eslint-plugin-yml: "npm:1.10.0"
     graphql: "npm:16.8.1"
     graphql-config: "npm:5.0.2"
     growl: "npm:1.10.5"
@@ -4938,7 +4938,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-compat-utils@npm:^0.1.2":
+"eslint-compat-utils@npm:^0.1.0, eslint-compat-utils@npm:^0.1.2":
   version: 0.1.2
   resolution: "eslint-compat-utils@npm:0.1.2"
   peerDependencies:
@@ -5179,17 +5179,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-yml@npm:1.9.0":
-  version: 1.9.0
-  resolution: "eslint-plugin-yml@npm:1.9.0"
+"eslint-plugin-yml@npm:1.10.0":
+  version: 1.10.0
+  resolution: "eslint-plugin-yml@npm:1.10.0"
   dependencies:
     debug: "npm:^4.3.2"
+    eslint-compat-utils: "npm:^0.1.0"
     lodash: "npm:^4.17.21"
     natural-compare: "npm:^1.4.0"
     yaml-eslint-parser: "npm:^1.2.1"
   peerDependencies:
     eslint: ">=6.0.0"
-  checksum: 65f5cb21f9858bc712a742be6797a51546fbbc5751b42f104270edafcd7b33b62273136e1c467445937cb1fb6725f70f2fb942327c4e44259896b763b265a253
+  checksum: 4586f4ee7856ac5b70e61098798782c3fc6bb82dae1110b646581fda3311d087cac358fbaf81e8e090a8752fcfc616fbdc2dea9e5542b72139118e8ef165e22b
   languageName: node
   linkType: hard
 
