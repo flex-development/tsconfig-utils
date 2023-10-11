@@ -1251,10 +1251,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:8.50.0":
-  version: 8.50.0
-  resolution: "@eslint/js@npm:8.50.0"
-  checksum: 54e095254315be66a07d89ea37c31f6d7f55d31a8f8ef6b22b3bcbadeb2a0ec5d3336a8ca98ed43fa63da4624bec9e3b5b8a797a796daed7ec93b4aeed0627fc
+"@eslint/js@npm:8.51.0":
+  version: 8.51.0
+  resolution: "@eslint/js@npm:8.51.0"
+  checksum: 7ab4455286aac5d7170ce05873dab64b9182d2b3adab8fa2252577b797edf624f6a7805b88c8ac79e11857d67d58c2d1237fd788b9eaad788c6eacf499c85cc4
   languageName: node
   linkType: hard
 
@@ -1598,7 +1598,7 @@ __metadata:
     cspell: "npm:7.3.7"
     dateformat: "npm:5.0.3"
     esbuild: "npm:0.19.4"
-    eslint: "npm:8.50.0"
+    eslint: "npm:8.51.0"
     eslint-config-prettier: "npm:9.0.0"
     eslint-import-resolver-typescript: "npm:3.6.1"
     eslint-plugin-chai-expect: "npm:3.0.0"
@@ -5227,14 +5227,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:8.50.0":
-  version: 8.50.0
-  resolution: "eslint@npm:8.50.0"
+"eslint@npm:8.51.0":
+  version: 8.51.0
+  resolution: "eslint@npm:8.51.0"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.2.0"
     "@eslint-community/regexpp": "npm:^4.6.1"
     "@eslint/eslintrc": "npm:^2.1.2"
-    "@eslint/js": "npm:8.50.0"
+    "@eslint/js": "npm:8.51.0"
     "@humanwhocodes/config-array": "npm:^0.11.11"
     "@humanwhocodes/module-importer": "npm:^1.0.1"
     "@nodelib/fs.walk": "npm:^1.2.8"
@@ -5270,7 +5270,7 @@ __metadata:
     text-table: "npm:^0.2.0"
   bin:
     eslint: bin/eslint.js
-  checksum: 8ccaacfb0e095536dc751feb3b0076a8b16308d3d3020655284170908d14c9ac4045cf7b7912219cac0cbee1b43cc6767ddf044712bce5c62e609a5df7f2fb92
+  checksum: 68334b9f345b90f97833a03b345c70af371c3d928c13e0091a70afd583a5236b93447f5fb925d800cc268a35185e3b1dc296e3d8e924f5e54bc255ae2b6fe4f5
   languageName: node
   linkType: hard
 
