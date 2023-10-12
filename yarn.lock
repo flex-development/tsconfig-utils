@@ -1609,7 +1609,7 @@ __metadata:
     eslint-plugin-markdown: "npm:3.0.1"
     eslint-plugin-markdownlint: "npm:0.5.0"
     eslint-plugin-node: "npm:11.1.0"
-    eslint-plugin-prettier: "npm:5.0.0"
+    eslint-plugin-prettier: "npm:5.0.1"
     eslint-plugin-promise: "npm:6.1.1"
     eslint-plugin-unicorn: "npm:48.0.1"
     eslint-plugin-yml: "npm:1.10.0"
@@ -5126,9 +5126,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-prettier@npm:5.0.0":
-  version: 5.0.0
-  resolution: "eslint-plugin-prettier@npm:5.0.0"
+"eslint-plugin-prettier@npm:5.0.1":
+  version: 5.0.1
+  resolution: "eslint-plugin-prettier@npm:5.0.1"
   dependencies:
     prettier-linter-helpers: "npm:^1.0.0"
     synckit: "npm:^0.8.5"
@@ -5141,7 +5141,7 @@ __metadata:
       optional: true
     eslint-config-prettier:
       optional: true
-  checksum: c0bcb4e1699bd19f905cdf6ddac57f12abca351963528b34b8c341f1ea7b3927df7b23ff765b4357633e29045d7b29b6eadb403b8b2e8802bd28425bae43831f
+  checksum: cd2d309951b8e8b4077f23d6233d91822423feb2f56d569ec4f0bd48a05acc05d7931e7f546e2f919ec8ff4f1f5074bc75f319b7f84799969d88451d540e5e4b
   languageName: node
   linkType: hard
 
