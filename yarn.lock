@@ -41,10 +41,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@andrewbranch/untar.js@npm:^1.0.0":
-  version: 1.0.2
-  resolution: "@andrewbranch/untar.js@npm:1.0.2"
-  checksum: 138d4020846d83e841835a24f7ead6d97147d245988fbb1c730bea0e898d7075274966528f5b61403427e84680ce1d1cab880d357810e249ee81a260021c9fab
+"@andrewbranch/untar.js@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "@andrewbranch/untar.js@npm:1.0.3"
+  checksum: 255ab225daa16cbc58a76ffd40bca39207aab781370d19c886e1566d59942d36765c8042ba0a03e4ab4fad5bc2e967fba2bf635679e3a3ca4cd61f5a79908ca6
   languageName: node
   linkType: hard
 
@@ -58,11 +58,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@arethetypeswrong/cli@npm:0.12.1":
-  version: 0.12.1
-  resolution: "@arethetypeswrong/cli@npm:0.12.1"
+"@arethetypeswrong/cli@npm:0.12.2":
+  version: 0.12.2
+  resolution: "@arethetypeswrong/cli@npm:0.12.2"
   dependencies:
-    "@arethetypeswrong/core": "npm:0.12.1"
+    "@arethetypeswrong/core": "npm:0.12.2"
     chalk: "npm:^4.1.2"
     cli-table3: "npm:^0.6.3"
     commander: "npm:^10.0.1"
@@ -72,21 +72,21 @@ __metadata:
     semver: "npm:^7.5.4"
   bin:
     attw: dist/index.js
-  checksum: 1c6917b7b0a68d55612a3629e1be2242d8c4bc4999eb4bc74ccfcddf8ea5dc06f73a762a9553920e676dbd5710fd81d01e58f80e1a122933911b7efa7d389d7c
+  checksum: 36922baf56caebdb88904d5b8c1167288d85e2e5dffc732f4102ebb4bf26e30dfa547fa95b321b4ae7319a5c3f8d30bc356cf8477f25707f824948d9ca295733
   languageName: node
   linkType: hard
 
-"@arethetypeswrong/core@npm:0.12.1":
-  version: 0.12.1
-  resolution: "@arethetypeswrong/core@npm:0.12.1"
+"@arethetypeswrong/core@npm:0.12.2":
+  version: 0.12.2
+  resolution: "@arethetypeswrong/core@npm:0.12.2"
   dependencies:
-    "@andrewbranch/untar.js": "npm:^1.0.0"
+    "@andrewbranch/untar.js": "npm:^1.0.3"
     fetch-ponyfill: "npm:^7.1.0"
     fflate: "npm:^0.7.4"
     semver: "npm:^7.5.4"
     typescript: "npm:^5.2.2"
     validate-npm-package-name: "npm:^5.0.0"
-  checksum: 8f7642277fac6bfe4a2b25919bbf7b8b3ad8c7e87d8ad1d3779bdcc3d8032e3dc3fcb594b25bb89bd123a4bea8cc8da6ebd4a2d85b58ea3d1da74a5fc480e5a7
+  checksum: b3d2bdfbfe4bb5fec400d2dfad4416bf3a8412677c0cb960081b83cd5b3a47f80d1f18b05beaa77fe0831d75aaa3500f099d1cf5a087263b9ade00c166d66c1c
   languageName: node
   linkType: hard
 
@@ -1557,7 +1557,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@flex-development/tsconfig-utils@workspace:."
   dependencies:
-    "@arethetypeswrong/cli": "npm:0.12.1"
+    "@arethetypeswrong/cli": "npm:0.12.2"
     "@commitlint/cli": "npm:17.7.2"
     "@faker-js/faker": "npm:8.2.0"
     "@flex-development/commitlint-config": "npm:1.0.1"
