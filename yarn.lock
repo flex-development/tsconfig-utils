@@ -5597,18 +5597,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"flat-cache@npm:^3.0.4":
-  version: 3.1.0
-  resolution: "flat-cache@npm:3.1.0"
-  dependencies:
-    flatted: "npm:^3.2.7"
-    keyv: "npm:^4.5.3"
-    rimraf: "npm:^3.0.2"
-  checksum: 85adec9c81df93f3cff7a7dc9fdafd6435d5e65a49734a0eabc8aca3b53865d14eac208c09fa38729175b75133c8e4387a99c62fc553032e80c562081ee590d8
-  languageName: node
-  linkType: hard
-
-"flat-cache@npm:^3.1.1":
+"flat-cache@npm:^3.0.4, flat-cache@npm:^3.1.1":
   version: 3.1.1
   resolution: "flat-cache@npm:3.1.1"
   dependencies:
@@ -5616,13 +5605,6 @@ __metadata:
     keyv: "npm:^4.5.3"
     rimraf: "npm:^3.0.2"
   checksum: 0b2b03ee3f62960a4b98d485873d4695d9dd996a8d420b6ce20d4e7536cde4193ffd52b05641a4e45718ddffc0dbfdecd979adffdb657d0ce9221ea769c3a015
-  languageName: node
-  linkType: hard
-
-"flatted@npm:^3.2.7":
-  version: 3.2.7
-  resolution: "flatted@npm:3.2.7"
-  checksum: d57a559a56f8743f48067b992e70f222921bec6656de4617ee60dab5e531c2aeba67ace287965b759cca80fa0d3f0c7ffc39341ccc9bc874594f4b73c0fea48c
   languageName: node
   linkType: hard
 
