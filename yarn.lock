@@ -1619,7 +1619,7 @@ __metadata:
     husky: "npm:8.0.3"
     is-ci: "npm:3.0.1"
     jsonc-eslint-parser: "npm:2.3.0"
-    lint-staged: "npm:15.0.1"
+    lint-staged: "npm:15.0.2"
     mri: "npm:1.2.0"
     node-notifier: "npm:10.0.1"
     pkg-size: "npm:2.4.0"
@@ -7034,29 +7034,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:15.0.1":
-  version: 15.0.1
-  resolution: "lint-staged@npm:15.0.1"
+"lint-staged@npm:15.0.2":
+  version: 15.0.2
+  resolution: "lint-staged@npm:15.0.2"
   dependencies:
     chalk: "npm:5.3.0"
     commander: "npm:11.1.0"
     debug: "npm:4.3.4"
     execa: "npm:8.0.1"
     lilconfig: "npm:2.1.0"
-    listr2: "npm:7.0.1"
+    listr2: "npm:7.0.2"
     micromatch: "npm:4.0.5"
     pidtree: "npm:0.6.0"
     string-argv: "npm:0.3.2"
-    yaml: "npm:2.3.2"
+    yaml: "npm:2.3.3"
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: 403e7293990b69208f430e60a3bc204fbd51d4f9ef393630dc3e1184755406c4d02b46572c153cf0b2fd70a09a9d870df8b7088dc40b09fbffce129d07fe68bf
+  checksum: 752f60abf259d15d938afa9eca312e84a268a965cfb5ee2b5a67a7aaef447849be04c03af0efeea71648db18b2c7504e372847089f2258bd0926c20cf242ee20
   languageName: node
   linkType: hard
 
-"listr2@npm:7.0.1":
-  version: 7.0.1
-  resolution: "listr2@npm:7.0.1"
+"listr2@npm:7.0.2":
+  version: 7.0.2
+  resolution: "listr2@npm:7.0.2"
   dependencies:
     cli-truncate: "npm:^3.1.0"
     colorette: "npm:^2.0.20"
@@ -7064,7 +7064,7 @@ __metadata:
     log-update: "npm:^5.0.1"
     rfdc: "npm:^1.3.0"
     wrap-ansi: "npm:^8.1.0"
-  checksum: b7df564cf192a8c57108394fad22d987f86d613943a319907929c7e10ac32d066c9bdf011a227b4a54006947c448a27e45597529979e30516411990487951376
+  checksum: 94ac07a0ed95f892833881709127e8b51c8f7b1de029b239d21d62f62d9da3e1473c5865ff707809bbae6347b5cc8a3bf473e8bfa7140be8fd4c1ecc013f1f0b
   languageName: node
   linkType: hard
 
@@ -10377,7 +10377,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yaml@npm:2.3.2, yaml@npm:^2.0.0":
+"yaml@npm:2.3.3":
+  version: 2.3.3
+  resolution: "yaml@npm:2.3.3"
+  checksum: a4dbd35a5b2cad28c12e43c0eebd3c51d3cad155900efc8bb4979a7608e19d439b18d9e9cab9c6d2f7e93463d5f0318a44d3e179b416d2833170d109a801964e
+  languageName: node
+  linkType: hard
+
+"yaml@npm:^2.0.0":
   version: 2.3.2
   resolution: "yaml@npm:2.3.2"
   checksum: e75e2ecbcd654a165ab2e5f5d29873fa2db1a3599e005475d42a975207e507c9c62232257dc0ce16c75e146559a30047d9dc961aa9c45291298db66db3906ff1
