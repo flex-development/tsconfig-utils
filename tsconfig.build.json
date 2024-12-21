@@ -1,12 +1,21 @@
 {
   "compilerOptions": {
-    "declaration": true,
+    "allowImportingTsExtensions": false,
+    "allowJs": false,
+    "checkJs": false,
+    "customConditions": ["tsconfig-utils"],
+    "declarationMap": false,
     "noEmitOnError": true,
-    "skipLibCheck": false,
-    "target": "es2022"
+    "outDir": "dist",
+    "rootDir": "src",
+    "sourceMap": false,
+    "target": "es2023"
   },
-  "exclude": ["**/__mocks__", "**/__tests__"],
+  "exclude": ["**/__tests__/**"],
   "extends": "./tsconfig.json",
-  "files": ["./typings/@types/node/http2.d.ts"],
-  "include": ["./dist/*", "./src/*"]
+  "files": [
+    "typings/@flex-development/tsconfig-types/index.d.mts",
+    "typings/typescript/lib.es5.d.ts"
+  ],
+  "include": ["dist/**/*", "src/**/**.mts"]
 }

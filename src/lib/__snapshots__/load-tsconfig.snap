@@ -1,0 +1,73 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`unit:lib/loadTsconfig > should return resolved tsconfig object 1`] = `
+{
+  "tsconfig": {
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "_version": "2.0.0",
+    "compilerOptions": {
+      "allowImportingTsExtensions": true,
+      "allowJs": true,
+      "allowUnreachableCode": false,
+      "allowUnusedLabels": false,
+      "alwaysStrict": true,
+      "checkJs": true,
+      "customConditions": [
+        "tsconfig-utils",
+        "development",
+      ],
+      "declaration": true,
+      "declarationMap": true,
+      "esModuleInterop": true,
+      "exactOptionalPropertyTypes": true,
+      "isolatedModules": true,
+      "lib": [
+        "es2023",
+      ],
+      "module": "esnext",
+      "moduleResolution": "bundler",
+      "newLine": "lf",
+      "noEmit": true,
+      "noErrorTruncation": true,
+      "noFallthroughCasesInSwitch": true,
+      "noImplicitOverride": true,
+      "noImplicitReturns": true,
+      "noPropertyAccessFromIndexSignature": true,
+      "noUncheckedIndexedAccess": true,
+      "noUncheckedSideEffectImports": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": false,
+      "paths": {
+        "https://esm.sh/lodash@4.17.21": [
+          "./node_modules/@types/lodash/index.d.ts",
+        ],
+      },
+      "resolveJsonModule": true,
+      "skipLibCheck": true,
+      "sourceMap": true,
+      "strict": true,
+      "target": "esnext",
+      "verbatimModuleSyntax": true,
+    },
+    "exclude": [
+      "./coverage",
+      "./dist",
+      "./node_modules",
+    ],
+    "include": [
+      "**/**.json",
+      "**/**.mjs",
+      "**/**.mts",
+      "**/**.ts",
+    ],
+    "mdx": {
+      "plugins": [
+        "remark-directive",
+        "remark-frontmatter",
+        "remark-gfm",
+      ],
+    },
+  },
+  "url": file://\${process.cwd()}/__fixtures__/tsconfig.json,
+}
+`;

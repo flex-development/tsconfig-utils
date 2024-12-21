@@ -13,8 +13,9 @@
   "failFast": false,
   "flagWords": [],
   "ignorePaths": [
-    "**/*.log",
+    "**/*.patch",
     "**/*.snap",
+    "**/*.wasm",
     "**/.*ignore",
     "**/.gitconfig",
     "**/CHANGELOG.md",
@@ -26,15 +27,10 @@
     ".husky/_/",
     ".vscode/settings.json",
     ".yarn/",
-    "dist/",
     "patches/",
     "yarn.lock"
   ],
-  "ignoreRegExpList": [
-    "/@flex-development\\/.*/",
-    "/from\\s+(['\"]).*\\1/",
-    "import\\(.*\\)"
-  ],
+  "ignoreRegExpList": [],
   "ignoreWords": [],
   "language": "en-US",
   "patterns": [],

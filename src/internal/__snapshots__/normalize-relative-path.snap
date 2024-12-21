@@ -1,0 +1,57 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`unit:internal/normalizeRelativePaths > should return \`value\` with normalized relative paths (0) 1`] = `
+{
+  "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "allowJs": true,
+    "alwaysStrict": true,
+    "customConditions": [
+      "tsconfig-utils",
+      "development",
+    ],
+    "declaration": true,
+    "declarationMap": true,
+    "lib": [
+      "es2023",
+    ],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "newLine": "lf",
+    "noEmit": true,
+    "noErrorTruncation": true,
+    "noUncheckedSideEffectImports": true,
+    "noUnusedParameters": false,
+    "paths": {
+      "https://esm.sh/lodash@4.17.21": [
+        "../node_modules/@types/lodash/index.d.ts",
+      ],
+    },
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "target": "esnext",
+    "verbatimModuleSyntax": true,
+  },
+  "exclude": [
+    "../coverage",
+    "../dist",
+    "../node_modules",
+  ],
+  "extends": "../tsconfig.json",
+  "include": [
+    "**/**.json",
+    "**/**.mjs",
+    "**/**.mts",
+    "**/**.ts",
+  ],
+  "mdx": {
+    "plugins": [
+      "remark-directive",
+      "remark-frontmatter",
+      "remark-gfm",
+    ],
+  },
+}
+`;
+
+exports[`unit:internal/normalizeRelativePaths > should return \`value\` with normalized relative paths (1) 1`] = `"../dist"`;

@@ -1,14 +1,21 @@
 {
   "compilerOptions": {
-    "target": "es2022"
+    "allowJs": false,
+    "checkJs": false,
+    "customConditions": ["types", "tsconfig-utils"]
   },
+  "exclude": [],
   "extends": "./tsconfig.json",
+  "files": [
+    "typings/@flex-development/tsconfig-types/index.d.mts",
+    "typings/typescript/lib.es5.d.ts",
+    "vitest-env.d.mts"
+  ],
   "include": [
-    "**/**.cts",
-    "**/**.mts",
-    "**/**.ts",
-    "**/.*.cts",
-    "**/.*.mts",
-    "**/.*.ts"
+    "__fixtures__/**/*",
+    "__tests__/**/*",
+    "src/**/**.mts",
+    "typings/**/*",
+    "vitest-env.d.mts"
   ]
 }

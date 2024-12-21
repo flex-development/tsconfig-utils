@@ -1,9 +1,0 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
-
-exports[`unit:utils/resolvePaths > should return code with path aliases resolved 1`] = `
-"import type { ResolvePathsOptions } from '../interfaces'
-import * as internal from '../internal'
-import * as mlly from '@flex-development/mlly'
-import type { CompilerOptions } from '@flex-development/tsconfig-types'
-import loadCompilerOptions from './load-compiler-options'"
-`;

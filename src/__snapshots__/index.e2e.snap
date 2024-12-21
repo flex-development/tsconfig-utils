@@ -1,0 +1,12 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`e2e:tsconfig-utils > should expose public api 1`] = `
+[
+  "isResolvedTsconfig",
+  "isTsconfigHost",
+  "loadTsconfig",
+  "mergeTsconfig",
+  "readTsconfig",
+  "resolvePath",
+]
+`;

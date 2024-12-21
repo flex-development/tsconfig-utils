@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`unit:lib/resolvePath > should return resolved specifier ("#internal/with-trailing-slash") 1`] = `"./src/internal/with-trailing-slash"`;
+
+exports[`unit:lib/resolvePath > should return resolved specifier ("#lib/is-resolved-tsconfig") 1`] = `"./src/lib/is-resolved-tsconfig"`;
+
+exports[`unit:lib/resolvePath > should return resolved specifier ("https://esm.sh/@flex-development/unist-util-builder") 1`] = `"./typings/@flex-development/unist-util-builder/index.d.mts"`;
+
+exports[`unit:lib/resolvePath > should return resolved specifier ("https://esm.sh/lodash@4.17.21") 1`] = `"../node_modules/@types/lodash/index.d.ts"`;

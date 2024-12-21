@@ -1,7 +1,4 @@
 {
-  "[dotenv]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
   "[github-actions-workflow]": {
     "editor.rulers": [
       {
@@ -11,20 +8,6 @@
     ],
     "editor.wordWrapColumn": 100,
     "rewrap.wrappingColumn": 100
-  },
-  "[handlebars]": {
-    "editor.defaultFormatter": "Greenbyte.handlebars-preview",
-    "editor.rulers": [
-      {
-        "color": "var(--vscode-editorRuler-foreground)",
-        "column": 100
-      }
-    ],
-    "editor.wordWrapColumn": 100,
-    "rewrap.wrappingColumn": 100
-  },
-  "[ignore]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
   },
   "[jest-snapshot]": {
     "editor.rulers": [
@@ -37,7 +20,7 @@
     "rewrap.wrappingColumn": 130
   },
   "[markdown]": {
-    "editor.defaultFormatter": "vscode.markdown-language-features",
+    "editor.formatOnSave": true,
     "editor.rulers": [
       {
         "color": "var(--vscode-editorRuler-foreground)",
@@ -47,24 +30,26 @@
     "editor.wordWrapColumn": 120,
     "rewrap.wrappingColumn": 120
   },
-  "[properties]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
+  "[mdx]": {
+    "editor.rulers": [
+      {
+        "color": "var(--vscode-editorRuler-foreground)",
+        "column": 120
+      }
+    ],
+    "editor.wordWrapColumn": 120,
+    "rewrap.wrappingColumn": 120
+  },
+  "[plaintext]": {
+    "files.trimTrailingWhitespace": false
   },
   "[shellscript]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format",
     "editor.rulers": [
       {
         "color": "var(--vscode-editorRuler-foreground)",
         "column": 100
       }
     ],
-    "editor.wordWrap": "wordWrapColumn",
-    "editor.wordWrapColumn": 100,
-    "rewrap.wrappingColumn": 100
-  },
-  "[xml]": {
-    "editor.defaultFormatter": "redhat.vscode-xml",
-    "editor.rulers": [100],
     "editor.wordWrap": "wordWrapColumn",
     "editor.wordWrapColumn": 100,
     "rewrap.wrappingColumn": 100
@@ -79,70 +64,24 @@
     "editor.wordWrapColumn": 100,
     "rewrap.wrappingColumn": 100
   },
-  "better-comments.highlightPlainText": true,
-  "better-comments.tags": [
-    {
-      "backgroundColor": "transparent",
-      "bold": false,
-      "color": "#ff2d00",
-      "italic": false,
-      "strikethrough": false,
-      "tag": "!",
-      "underline": false
-    },
-    {
-      "backgroundColor": "transparent",
-      "bold": false,
-      "color": "#3498db",
-      "italic": false,
-      "strikethrough": false,
-      "tag": "?",
-      "underline": false
-    },
-    {
-      "backgroundColor": "transparent",
-      "bold": false,
-      "color": "#474747",
-      "italic": false,
-      "strikethrough": true,
-      "tag": "//",
-      "underline": false
-    },
-    {
-      "backgroundColor": "transparent",
-      "bold": false,
-      "color": "#ff8c00",
-      "italic": false,
-      "strikethrough": false,
-      "tag": "todo",
-      "underline": false
-    },
-    {
-      "backgroundColor": "transparent",
-      "bold": false,
-      "color": "#98c379",
-      "italic": false,
-      "strikethrough": false,
-      "tag": "*",
-      "underline": false
-    }
-  ],
   "breadcrumbs.enabled": true,
   "cSpell.enabled": true,
   "debug.showBreakpointsInOverviewRuler": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "diffEditor.renderSideBySide": false,
   "dotenv.enableAutocloaking": false,
+  "dprint.path": "node_modules/.bin/dprint",
+  "dprint.verbose": true,
   "editor.acceptSuggestionOnEnter": "smart",
   "editor.autoClosingBrackets": "always",
   "editor.bracketPairColorization.enabled": true,
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll": true,
-    "source.fixAll.sortJSON": false,
-    "source.organizeImports": true
+    "source.fixAll": "always",
+    "source.fixAll.sortJSON": "never",
+    "source.organizeImports": "always"
   },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "dprint.dprint",
   "editor.detectIndentation": false,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
@@ -150,7 +89,7 @@
   "editor.guides.indentation": true,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.overviewRulerBorder": true,
-  "editor.renderFinalNewline": "off",
+  "editor.renderFinalNewline": "on",
   "editor.rulers": [
     {
       // microsoft/vscode#166261
@@ -169,31 +108,22 @@
   "emmet.triggerExpansionOnTab": true,
   "eslint.enable": true,
   "eslint.lintTask.enable": true,
-  "eslint.nodePath": "node_modules/.bin/eslint",
-  "eslint.options": {
-    "extensions": [
-      "cjs",
-      "cts",
-      "gql",
-      "js",
-      "json",
-      "json5",
-      "jsonc",
-      "md",
-      "mjs",
-      "mts",
-      "ts",
-      "yml"
-    ],
-    "overrideConfigFile": ".eslintrc.cjs"
-  },
+  "eslint.nodePath": "node_modules",
+  "eslint.options": {},
+  "eslint.runtime": "node",
+  "eslint.trace.server": "messages",
+  "eslint.useFlatConfig": true,
   "eslint.validate": [
+    "css",
+    "github-actions-workflow",
     "graphql",
+    "html",
     "javascript",
     "json",
     "json5",
     "jsonc",
     "markdown",
+    "mdx",
     "typescript",
     "yaml"
   ],
@@ -201,8 +131,9 @@
     "*.log": "log",
     "*.snap": "jest-snapshot",
     ".env.zsh": "shellscript",
-    ".markdownlintignore": "ignore",
+    "*.map": "json",
     ".npmrc": "ini",
+    ".remarkignore": "ignore",
     "commit-msg": "shellscript",
     "pre-commit": "shellscript",
     "pre-push": "shellscript"
@@ -233,27 +164,11 @@
   "javascript.validate.enable": true,
   "markdown.extension.toc.slugifyMode": "github",
   "markdown.extension.toc.updateOnSave": false,
-  "markdownlint.ignore": ".markdownlintignore",
-  "markdownlint.lintWorkspaceGlobs": [
-    "**/*.md",
-    "!**/node_modules",
-    "!**/.git",
-    "!**/CHANGELOG.md",
-    "!**/LICENSE.md",
-    "!**/RELEASE_NOTES.md"
-  ],
-  "npm-intellisense.scanDevDependencies": true,
-  "prettier.configPath": ".prettierrc.json",
-  "prettier.enable": true,
-  "prettier.ignorePath": ".prettierignore",
-  "prettier.prettierPath": "node_modules/prettier",
-  "prettier.useEditorConfig": true,
+  "mdx.trace.server.verbosity": "verbose",
   "rewrap.autoWrap.enabled": true,
   "rewrap.doubleSentenceSpacing": true,
   "rewrap.reformat": true,
   "rewrap.wrappingColumn": 80,
-  "shellformat.flag": "-ci -fn -i=2 -sr",
-  "shellformat.useEditorConfig": true,
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.scrollback": 10000,
   "todo-tree.filtering.ignoreGitSubmodules": true,
@@ -288,7 +203,7 @@
   "todo-tree.tree.buttons.viewStyle": true,
   "todo-tree.tree.expanded": true,
   "todo-tree.tree.filterCaseSensitive": true,
-  "todo-tree.tree.scanMode": "workspace",
+  "todo-tree.tree.scanMode": "workspace only",
   "todo-tree.tree.showBadges": true,
   "todo-tree.tree.showCountsInTree": true,
   "todo-tree.tree.showCurrentScanMode": true,
@@ -297,7 +212,9 @@
   "typescript.format.insertSpaceAfterTypeAssertion": true,
   "typescript.format.semicolons": "remove",
   "typescript.inlayHints.enumMemberValues.enabled": true,
+  "typescript.preferences.importModuleSpecifier": "non-relative",
   "typescript.preferences.importModuleSpecifierEnding": "minimal",
+  "typescript.preferences.includePackageJsonAutoImports": "on",
   "typescript.preferences.quoteStyle": "single",
   "typescript.preferences.useAliasesForRenames": true,
   "typescript.suggest.completeFunctionCalls": true,
@@ -307,8 +224,6 @@
   "typescript.suggest.jsdoc.generateReturns": true,
   "typescript.suggest.paths": true,
   "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.tsserver.enableTracing": true,
-  "typescript.tsserver.log": "verbose",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "typescript.validate.enable": true,
   "versionlens.npm.dependencyProperties": [
@@ -318,29 +233,7 @@
   ],
   "vsicons.associations.files": [
     {
-      "extensions": [".commitlintrc.cts"],
-      "format": "svg",
-      "icon": "commitlint"
-    },
-    {
-      "extensions": [".eslintrc.base.cjs"],
-      "format": "svg",
-      "icon": "eslint"
-    },
-    {
-      "extensions": [".graphqlrc.yml"],
-      "format": "svg",
-      "icon": "graphql"
-    },
-    {
-      "extensions": [
-        "build.json",
-        "cjs.json",
-        "empty.json",
-        "invalid-json.json",
-        "invalid-schema.json",
-        "typecheck.json"
-      ],
+      "extensions": ["build.json", "empty.json", "typecheck.json"],
       "format": "svg",
       "icon": "tsconfig"
     },
@@ -350,19 +243,14 @@
       "icon": "vitest"
     },
     {
-      "extensions": ["spec-d.ts"],
+      "extensions": ["spec-d.mts"],
       "format": "svg",
       "icon": "testts"
-    },
-    {
-      "extensions": ["yarnrc.yml"],
-      "format": "svg",
-      "icon": "yarn"
     }
   ],
   "vsicons.associations.folders": [
     {
-      "extensions": ["__fixtures__", "__tests__/baselines"],
+      "extensions": ["__fixtures__"],
       "format": "svg",
       "icon": "db"
     },
@@ -387,6 +275,11 @@
       "icon": "config"
     },
     {
+      "extensions": ["testing"],
+      "format": "svg",
+      "icon": "test"
+    },
+    {
       "extensions": ["types"],
       "format": "svg",
       "icon": "typings"
@@ -395,11 +288,6 @@
   "workbench.editor.closeOnFileDelete": true,
   "workbench.editor.enablePreview": false,
   "workbench.iconTheme": "vscode-icons",
-  "xml.format.closingBracketNewLine": true,
-  "xml.format.maxLineWidth": 100,
-  "xml.format.spaceBeforeEmptyCloseTag": false,
-  "xml.format.splitAttributes": "splitNewLine",
-  "xml.format.splitAttributesIndentSize": 0,
   "yaml.schemas": {
     "https://json.schemastore.org/github-issue-config": ".github/ISSUE_TEMPLATE/config.yml",
     "https://json.schemastore.org/github-workflow": ".github/workflows/*.yml"
