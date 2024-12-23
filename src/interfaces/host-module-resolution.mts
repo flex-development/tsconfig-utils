@@ -72,14 +72,14 @@ interface ModuleResolutionHost {
    * @this {void}
    *
    * @param {ModuleId} id
-   *  Module id of file
+   *  The file path or URL to read
    * @return {Buffer | string}
    *  File contents or `undefined` if file does not exist at `id`
    */
   readFile(this: void, id: ModuleId): string | undefined
 
   /**
-   * Get the resolved pathname for `id`.
+   * Get the canonical pathname of `id`.
    *
    * @see {@linkcode ModuleId}
    *
@@ -88,7 +88,7 @@ interface ModuleResolutionHost {
    * @param {ModuleId} id
    *  The path or `file:` URL to handle
    * @return {string}
-   *  Resolved pathname
+   *  Canonical pathname of `id`
    */
   realpath(this: void, id: ModuleId): string
 

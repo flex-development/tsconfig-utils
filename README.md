@@ -81,6 +81,7 @@ import {
 
 This package exports the following identifiers:
 
+- [`createModuleResolutionHost`](./src/lib/create-module-resolution-host.mts)
 - [`isResolvedTsconfig`](./src/lib/is-resolved-tsconfig.mts)
 - [`isTsconfigHost`](./src/lib/is-tsconfig-host.mts)
 - [`loadTsconfig`](./src/lib/load-tsconfig.mts)

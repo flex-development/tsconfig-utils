@@ -12,7 +12,7 @@ import type { FileSystem } from '@flex-development/tsconfig-utils'
  */
 const fs: FileSystem = {
   /**
-   * Get the contents of a file.
+   * Synchronously get the contents of a file.
    *
    * @return {never}
    *  Never; not implemented
@@ -23,7 +23,18 @@ const fs: FileSystem = {
   },
 
   /**
-   * Get the resolved pathname of a file.
+   * Synchronously read the contents of a directory.
+   *
+   * @return {never}
+   *  Never; not implemented
+   * @throws {Error}
+   */
+  readdir(): never {
+    throw new Error('[readdir] not implemented')
+  },
+
+  /**
+   * Get the canonical pathname of a directory or file.
    *
    * @return {never}
    *  Never; not implemented
@@ -34,7 +45,7 @@ const fs: FileSystem = {
   },
 
   /**
-   * Get information about a file.
+   * Synchronously get information about a directory or file.
    *
    * @return {never}
    *  Never; not implemented

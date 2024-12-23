@@ -66,8 +66,11 @@
         "tsconfig-utils": "./src/internal/fs.browser.mts",
         "default": "./dist/internal/fs.browser.mjs"
       },
-      "node": "fs/promises",
-      "default": "fs/promises"
+      "node": {
+        "tsconfig-utils": "./src/internal/fs.node.mts",
+        "default": "./dist/internal/fs.node.mjs"
+      },
+      "default": "./dist/internal/fs.node.mjs"
     },
     "#internal/*": {
       "tsconfig-utils": "./src/internal/*.mts",
