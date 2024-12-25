@@ -12,6 +12,12 @@ export type {
   default as LoadTsconfigOptions
 } from '#interfaces/options-load-tsconfig'
 export type {
+  default as ModuleResolutionHostOptions
+} from '#interfaces/options-module-resolution-host'
+export type {
+  default as ParseConfigHostOptions
+} from '#interfaces/options-parse-config-host'
+export type {
   default as ReadTsconfigOptions
 } from '#interfaces/options-read-tsconfig'
 export type {

@@ -10,9 +10,15 @@ import pathe from '@flex-development/pathe'
 import type {
   FileSystem,
   ModuleResolutionHost,
-  ParseConfigHost
+  ParseConfigHost,
+  ParseConfigHostOptions
 } from '@flex-development/tsconfig-utils'
-import { alphabetize, fork, identity } from '@flex-development/tutils'
+import {
+  alphabetize,
+  fork,
+  identity,
+  lowercase
+} from '@flex-development/tutils'
 import { ok } from 'devlop'
 
 export default createParseConfigHost
@@ -27,38 +33,60 @@ type PathType = 'directory' | 'file'
 /**
  * Create a parse config host.
  *
- * @see {@linkcode FileSystem}
+ * @see {@linkcode ParseConfigHostOptions}
  * @see {@linkcode ParseConfigHost}
  *
  * @this {void}
  *
- * @param {FileSystem | null | undefined} [fs]
- *  File system API
+ * @param {ParseConfigHostOptions | null | undefined} [options]
+ *  Host options
  * @return {ParseConfigHost}
  *  Parse config host object
  */
 function createParseConfigHost(
   this: void,
-  fs?: FileSystem | null | undefined
+  options?: ParseConfigHostOptions | null | undefined
 ): ParseConfigHost {
-  fs ??= dfs
-
   /**
    * Module resolution host object.
    *
    * @const {ModuleResolutionHost} host
    */
-  const host: ModuleResolutionHost = createModuleResolutionHost(fs)
+  const host: ModuleResolutionHost = createModuleResolutionHost(options)
+
+  /**
+   * File system API.
+   *
+   * @var {FileSystem} fs
+   */
+  let fs: FileSystem = dfs
+
+  /**
+   * Treat filenames as case-sensitive?
+   *
+   * @var {boolean} useCaseSensitiveFileNames
+   */
+  let useCaseSensitiveFileNames: boolean = !!host.useCaseSensitiveFileNames
+
+  if (options) {
+    if (options.fs) {
+      fs = options.fs
+    }
+  }
+
+  if (typeof host.useCaseSensitiveFileNames === 'function') {
+    useCaseSensitiveFileNames = host.useCaseSensitiveFileNames()
+  }
 
   return {
     directoryExists: host.directoryExists,
     fileExists: host.fileExists,
-    getCurrentDirectory: pathe.cwd,
+    getCurrentDirectory: host.getCurrentDirectory,
     getDirectories: host.getDirectories,
     readDirectory,
     readFile: host.readFile,
     realpath: host.realpath,
-    useCaseSensitiveFileNames: false
+    useCaseSensitiveFileNames
   }
 
   /**
@@ -213,8 +241,24 @@ function createParseConfigHost(
     ): undefined {
       ok(fs, 'expected `fs`')
 
-      if (host.directoryExists(path) && !visited.has(path)) {
-        visited.add(path)
+      /**
+       * Canonical {@linkcode path}.
+       *
+       * @var {string} path
+       */
+      let canonical: string = path
+
+      // https://github.com/microsoft/TypeScript/blob/v5.7.2/src/compiler/core.ts#L1839-L1879
+      if (!useCaseSensitiveFileNames) {
+        canonical = path.replace(
+          // eslint-disable-next-line unicorn/better-regex
+          /[^\u0130\u0131\u00DFa-z0-9\\/:\-_. ]+/g,
+          lowercase
+        )
+      }
+
+      if (host.directoryExists(path) && !visited.has(canonical)) {
+        visited.add(canonical)
 
         /**
          * List where the first item is a list of files under {@linkcode path},

@@ -34,7 +34,7 @@ const fs: FileSystem = {
   },
 
   /**
-   * Get the canonical pathname of a directory or file.
+   * Get the resolved pathname of a directory or file.
    *
    * @return {never}
    *  Never; not implemented

@@ -45,7 +45,7 @@ interface FileSystem extends mlly.FileSystem {
   readdir(this: void, id: mlly.ModuleId): string[]
 
   /**
-   * Get the canonical pathname of `id`.
+   * Get the resolved pathname of `id`.
    *
    * @see {@linkcode mlly.ModuleId}
    *

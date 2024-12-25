@@ -79,7 +79,7 @@ interface ModuleResolutionHost {
   readFile(this: void, id: ModuleId): string | undefined
 
   /**
-   * Get the canonical pathname of `id`.
+   * Get the resolved pathname of `id`.
    *
    * @see {@linkcode ModuleId}
    *

@@ -7,18 +7,21 @@ import fs from '#internal/fs'
 import testSubject from '#lib/create-parse-config-host'
 import * as mlly from '@flex-development/mlly'
 import type { ParseConfigHost } from '@flex-development/tsconfig-utils'
-import { alphabetize, identity } from '@flex-development/tutils'
+import { alphabetize, constant, identity } from '@flex-development/tutils'
 import ts from 'typescript'
 import tsconfig from '../../../tsconfig.json' with { type: 'json' }
 
 describe('unit:lib/createParseConfigHost', () => {
-  let subject: ParseConfigHost
+  describe.each<Parameters<typeof testSubject>>([
+    [],
+    [{ fs, useCaseSensitiveFileNames: constant(false) }]
+  ])('host (%#)', options => {
+    let subject: ParseConfigHost
 
-  beforeAll(() => {
-    subject = testSubject()
-  })
+    beforeAll(() => {
+      subject = testSubject(options)
+    })
 
-  describe('host', () => {
     describe('readDirectory', () => {
       it.each<Parameters<ParseConfigHost['readDirectory']>>([
         [

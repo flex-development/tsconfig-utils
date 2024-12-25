@@ -100,7 +100,9 @@ This package is fully typed with [TypeScript][].
 
 - [`FileSystem`](./src/interfaces/file-system.mts)
 - [`LoadTsconfigOptions`](./src/interfaces/options-load-tsconfig.mts)
+- [`ModuleResolutionHostOptions`](./src/interfaces/options-module-resolution-host.mts)
 - [`ModuleResolutionHost`](./src/interfaces/host-module-resolution.mts)
+- [`ParseConfigHostOptions`](./src/interfaces/options-parse-config-host.mts)
 - [`ParseConfigHost`](./src/interfaces/host-parse-config.mts)
 - [`ReadTsconfigOptions`](./src/interfaces/options-read-tsconfig.mts)
 - [`ResolvePathOptions`](./src/interfaces/options-resolve-path.mts)

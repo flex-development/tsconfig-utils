@@ -3,6 +3,7 @@
  * @module tsconfig-utils/lib/tests/unit/createModuleResolutionHost
  */
 
+import fs from '#internal/fs'
 import testSubject from '#lib/create-module-resolution-host'
 import * as mlly from '@flex-development/mlly'
 import pathe from '@flex-development/pathe'
@@ -13,7 +14,11 @@ describe('unit:lib/createModuleResolutionHost', () => {
   let subject: ModuleResolutionHost
 
   beforeAll(() => {
-    subject = testSubject()
+    subject = testSubject({
+      fs,
+      root: mlly.cwd(),
+      useCaseSensitiveFileNames: true
+    })
   })
 
   describe('host', () => {

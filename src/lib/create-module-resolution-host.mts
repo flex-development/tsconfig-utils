@@ -4,32 +4,81 @@
  */
 
 import dfs from '#internal/fs'
+import withTrailingSlash from '#internal/with-trailing-slash'
 import type { ModuleId } from '@flex-development/mlly'
 import pathe from '@flex-development/pathe'
 import type {
   FileSystem,
-  ModuleResolutionHost
+  ModuleResolutionHost,
+  ModuleResolutionHostOptions
 } from '@flex-development/tsconfig-utils'
 import { ok } from 'devlop'
+
+export default createModuleResolutionHost
+
+/**
+ * Union of values used to treat filenames as case-sensitive.
+ *
+ * @internal
+ */
+type UseCaseSensitiveFileNames = ((this: void) => boolean) | boolean | undefined
 
 /**
  * Create a module resolution host.
  *
- * @see {@linkcode FileSystem}
+ * @see {@linkcode ModuleResolutionHostOptions}
  * @see {@linkcode ModuleResolutionHost}
  *
  * @this {void}
  *
- * @param {FileSystem | null | undefined} [fs]
- *  File system API
+ * @param {ModuleResolutionHostOptions | null | undefined} [options]
+ *  Host options
  * @return {ModuleResolutionHost}
  *  Module resolution host object
  */
 function createModuleResolutionHost(
   this: void,
-  fs?: FileSystem | null | undefined
+  options?: ModuleResolutionHostOptions | null | undefined
 ): ModuleResolutionHost {
-  fs ??= dfs
+  /**
+   * File system API.
+   *
+   * @var {FileSystem} fs
+   */
+  let fs: FileSystem = dfs
+
+  /**
+   * Path to root directory.
+   *
+   * @var {string} root
+   */
+  let root: string = pathe.cwd()
+
+  /**
+   * Boolean indicating filenames should be treated as case-sensitive, a
+   * function that returns such a boolean, or `undefined` for default treatment
+   * of filename casing.
+   *
+   * @var {UseCaseSensitiveFileNames} useCaseSensitiveFileNames
+   */
+  let useCaseSensitiveFileNames: UseCaseSensitiveFileNames = undefined
+
+  if (options) {
+    if (options.fs) {
+      fs = options.fs
+    }
+
+    if (options.root !== null && options.root !== undefined) {
+      root = pathe.toPath(options.root)
+    }
+
+    if (
+      options.useCaseSensitiveFileNames !== null &&
+      options.useCaseSensitiveFileNames !== undefined
+    ) {
+      useCaseSensitiveFileNames = options.useCaseSensitiveFileNames
+    }
+  }
 
   return {
     directoryExists,
@@ -38,7 +87,7 @@ function createModuleResolutionHost(
     getDirectories,
     readFile,
     realpath,
-    useCaseSensitiveFileNames: undefined
+    useCaseSensitiveFileNames
   }
 
   /**
@@ -88,7 +137,7 @@ function createModuleResolutionHost(
    *  Path to current working directory
    */
   function getCurrentDirectory(): string {
-    return pathe.cwd() + pathe.sep
+    return withTrailingSlash(root)
   }
 
   /**
@@ -151,7 +200,7 @@ function createModuleResolutionHost(
   }
 
   /**
-   * Get the canonical pathname of `id`.
+   * Get the resolved pathname of `id`.
    *
    * @this {void}
    *
@@ -165,5 +214,3 @@ function createModuleResolutionHost(
     return fs.realpath(pathe.toPath(id))
   }
 }
-
-export default createModuleResolutionHost
