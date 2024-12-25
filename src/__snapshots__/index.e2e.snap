@@ -3,6 +3,7 @@
 exports[`e2e:tsconfig-utils > should expose public api 1`] = `
 [
   "createModuleResolutionHost",
+  "createParseConfigHost",
   "isResolvedTsconfig",
   "isTsconfigHost",
   "loadTsconfig",

@@ -57,9 +57,7 @@ async function loadTsconfig(
       'compilerOptions.paths.*',
       'compilerOptions.paths.*.*',
       'compilerOptions.rootDir',
-      'exclude.*',
-      'files.*',
-      'include.*'
+      'files.*'
     ])
 
     if (

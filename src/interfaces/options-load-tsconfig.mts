@@ -23,9 +23,7 @@ interface LoadTsconfigOptions extends ReadTsconfigOptions {
    *    'compilerOptions.paths.*',
    *    'compilerOptions.paths.*.*',
    *    'compilerOptions.rootDir',
-   *    'exclude.*',
-   *    'files.*',
-   *    'include.*'
+   *    'files.*'
    *  ])
    */
   relativePaths?: Set<string> | readonly string[] | null | undefined

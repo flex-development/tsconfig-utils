@@ -50,9 +50,9 @@ exports[`unit:lib/loadTsconfig > should return resolved tsconfig object 1`] = `
       "verbatimModuleSyntax": true,
     },
     "exclude": [
-      "./coverage",
-      "./dist",
-      "./node_modules",
+      "coverage",
+      "dist",
+      "node_modules",
     ],
     "include": [
       "**/**.json",

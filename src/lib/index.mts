@@ -6,6 +6,7 @@
 export {
   default as createModuleResolutionHost
 } from '#lib/create-module-resolution-host'
+export { default as createParseConfigHost } from '#lib/create-parse-config-host'
 export { default as isResolvedTsconfig } from '#lib/is-resolved-tsconfig'
 export { default as isTsconfigHost } from '#lib/is-tsconfig-host'
 export { default as loadTsconfig } from '#lib/load-tsconfig'

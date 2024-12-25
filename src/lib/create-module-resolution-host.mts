@@ -115,7 +115,8 @@ function createModuleResolutionHost(
       id = pathe.toPath(id)
 
       names = fs.readdir(id).filter(x => {
-        return directoryExists(pathe.join(id as string, x))
+        ok(typeof id === 'string', 'expected `id` to be a string')
+        return directoryExists(pathe.join(id, x))
       })
     }
 
