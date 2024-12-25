@@ -118,9 +118,9 @@ function config(env: ConfigEnv): ViteUserConfig {
            * @async
            *
            * @param {TestSpecification[]} specs
-           *  Workspace spec objects
+           *  List of test file specifications
            * @return {Promise<TestSpecification[]>}
-           *  Sorted `specs`
+           *  Sorted test files
            */
           public override async sort(
             specs: TestSpecification[]
