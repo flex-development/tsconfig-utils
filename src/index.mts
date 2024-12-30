@@ -5,4 +5,5 @@
 
 export type * from '#interfaces/index'
 export * from '#lib/index'
+export type * from '#types/index'
 export type * from '@flex-development/tsconfig-types'

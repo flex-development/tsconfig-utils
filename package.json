@@ -80,7 +80,11 @@
       "tsconfig-utils": "./src/lib/*.mts",
       "default": "./dist/lib/*.mjs"
     },
-    "#tests/*": "./__tests__/*.mts"
+    "#tests/*": "./__tests__/*.mts",
+    "#types/*": {
+      "tsconfig-utils": "./src/types/*.mts",
+      "default": "./dist/types/*.d.mts"
+    }
   },
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",

@@ -4,6 +4,9 @@
  */
 
 export {
+  default as createGetCanonicalFileName
+} from '#lib/create-get-canonical-file-name'
+export {
   default as createModuleResolutionHost
 } from '#lib/create-module-resolution-host'
 export { default as createParseConfigHost } from '#lib/create-parse-config-host'

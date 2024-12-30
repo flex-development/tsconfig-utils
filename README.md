@@ -20,8 +20,9 @@ Utilities for working with [`tsconfig`][tsconfig] files
 - [Use](#use)
 - [API](#api)
 - [Types](#types)
-  - [Interfaces](#interfaces)
   - [`tsconfig-types`](#tsconfig-types)
+  - [Interfaces](#interfaces)
+  - [Types](#types)
 - [Related](#related)
 - [Contribute](#contribute)
 
@@ -81,6 +82,7 @@ import {
 
 This package exports the following identifiers:
 
+- [`createGetCanonicalFileName`](./src/lib/create-get-canonical-file-name.mts)
 - [`createModuleResolutionHost`](./src/lib/create-module-resolution-host.mts)
 - [`createParseConfigHost`](./src/lib/create-parse-config-host.mts)
 - [`isResolvedTsconfig`](./src/lib/is-resolved-tsconfig.mts)
@@ -96,6 +98,11 @@ There is no default export.
 
 This package is fully typed with [TypeScript][].
 
+### `tsconfig-types`
+
+This package re-exports TypeScript definitions from [`tsconfig-types`][tsconfig-types]. This is primarily for the
+convenience of TypeScript users who do not hoist packages, but may need to `import` definitions used in this package.
+
 ### Interfaces
 
 - [`FileSystem`](./src/interfaces/file-system.mts)
@@ -109,10 +116,9 @@ This package is fully typed with [TypeScript][].
 - [`ResolvedTsconfig`](./src/interfaces/options-resolve-path.mts)
 - [`TsconfigHost`](./src/interfaces/tsconfig-host.mts)
 
-### `tsconfig-types`
+### Types
 
-This package re-exports TypeScript definitions from [`tsconfig-types`][tsconfig-types]. This is primarily for the
-convenience of TypeScript users who do not hoist packages, but may need to `import` definitions used in this package.
+- [`GetCanonicalFileName`](./src/types/get-canonical-file-name.mts)
 
 ## Related
 
