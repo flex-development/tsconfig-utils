@@ -1603,16 +1603,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@flex-development/mlly@npm:1.0.0-alpha.19":
-  version: 1.0.0-alpha.19
-  resolution: "@flex-development/mlly@npm:1.0.0-alpha.19::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Fmlly%2F1.0.0-alpha.19%2Ff3ce71867357456acdc50fc492e846695e72dbfa"
+"@flex-development/mlly@npm:1.0.0-alpha.20":
+  version: 1.0.0-alpha.20
+  resolution: "@flex-development/mlly@npm:1.0.0-alpha.20::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Fmlly%2F1.0.0-alpha.20%2F15fca71d9818a3c28b519a77f5209307b64d02d6"
   dependencies:
     "@flex-development/errnode": "npm:3.1.1"
     "@flex-development/is-builtin": "npm:3.2.0"
-    "@flex-development/pathe": "npm:4.0.0"
+    "@flex-development/pathe": "npm:4.0.1"
     "@flex-development/pkg-types": "npm:4.1.0"
     devlop: "npm:1.1.0"
-  checksum: 10/655326462c69e57d678201a67a81d2b4956e4b12849b71d5ee93c060b30fe8452011bb0671990cfc9d0cfb6298ab96523380d94f383f5a02aa3005fa2e614485
+  checksum: 10/5593d2e89c049218b68c5b0c29e0f3f33120cafd1641f9a71f4206a01bf18d67e33819745b8a1fa6d36166397cea6e1655c6f032f8cbb679976aa776eff2b6e1
   languageName: node
   linkType: hard
 
@@ -1633,18 +1633,6 @@ __metadata:
     "@flex-development/errnode": "npm:2.0.0"
     "@flex-development/tutils": "npm:6.0.0-alpha.12"
   checksum: 10/c331a5469b96c0941e21ed4506e849b6c17a9eef18f3b31f4aa12c28c8155402e9b11dfa9de8a84745cbbea8263ac66b19a617d2a087cf7a546cdf22b4f0aebd
-  languageName: node
-  linkType: hard
-
-"@flex-development/pathe@npm:4.0.0":
-  version: 4.0.0
-  resolution: "@flex-development/pathe@npm:4.0.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Fpathe%2F4.0.0%2F6c58f274044f4d5a8d2453ed5f3de044a5e94da3"
-  dependencies:
-    "@flex-development/errnode": "npm:3.1.1"
-    "@types/micromatch": "npm:4.0.9"
-    micromatch: "npm:4.0.8"
-    punycode.js: "npm:2.3.1"
-  checksum: 10/33489adc7e4d9f2ab73c98e854d2ed733a28e521fbbc59e6714ffe51dc5b6b68054525ec7ba44cef84c19a6e56313bcccf04a9b7943b67d587b87939825f1ae0
   languageName: node
   linkType: hard
 
@@ -1748,7 +1736,7 @@ __metadata:
     "@flex-development/grease": "npm:3.0.0-alpha.9"
     "@flex-development/is-builtin": "npm:3.2.0"
     "@flex-development/mkbuild": "npm:1.0.0-alpha.23"
-    "@flex-development/mlly": "npm:1.0.0-alpha.19"
+    "@flex-development/mlly": "npm:1.0.0-alpha.20"
     "@flex-development/pathe": "npm:4.0.1"
     "@flex-development/pkg-types": "npm:4.1.0"
     "@flex-development/tsconfig-types": "npm:5.1.0"

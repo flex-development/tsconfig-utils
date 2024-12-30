@@ -66,11 +66,8 @@
         "tsconfig-utils": "./src/internal/fs.browser.mts",
         "default": "./dist/internal/fs.browser.mjs"
       },
-      "node": {
-        "tsconfig-utils": "./src/internal/fs.node.mts",
-        "default": "./dist/internal/fs.node.mjs"
-      },
-      "default": "./dist/internal/fs.node.mjs"
+      "node": "fs",
+      "default": "fs"
     },
     "#internal/*": {
       "tsconfig-utils": "./src/internal/*.mts",
@@ -128,7 +125,7 @@
   },
   "dependencies": {
     "@flex-development/errnode": "3.1.1",
-    "@flex-development/mlly": "1.0.0-alpha.19",
+    "@flex-development/mlly": "1.0.0-alpha.20",
     "@flex-development/pathe": "4.0.1",
     "@flex-development/pkg-types": "4.1.0",
     "@flex-development/tsconfig-types": "5.1.0",

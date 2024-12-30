@@ -17,6 +17,7 @@ kaisugi
 ksort
 lcov
 mkbuild
+nocase
 nvmrc
 pkgs
 preid

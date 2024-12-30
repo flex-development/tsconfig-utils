@@ -53,7 +53,7 @@ describe('unit:lib/createParseConfigHost', () => {
       ) => {
         // Arrange
         const expected: readonly string[] = alphabetize(ts.sys.readDirectory(
-          fs.realpath(id),
+          fs.realpathSync(id),
           extensions ? [...extensions] : undefined,
           exclude ? [...exclude] : undefined,
           include ? [...include] : undefined,

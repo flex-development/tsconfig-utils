@@ -4,8 +4,9 @@
  */
 
 import dfs from '#internal/fs'
+import toPath from '#internal/to-path'
 import withTrailingSlash from '#internal/with-trailing-slash'
-import type { ModuleId } from '@flex-development/mlly'
+import { isDirectory, isFile, type ModuleId } from '@flex-development/mlly'
 import pathe from '@flex-development/pathe'
 import type {
   FileSystem,
@@ -69,7 +70,7 @@ function createModuleResolutionHost(
     }
 
     if (options.root !== null && options.root !== undefined) {
-      root = pathe.toPath(options.root)
+      root = toPath(options.root)
     }
 
     if (
@@ -101,12 +102,8 @@ function createModuleResolutionHost(
    *  `true` if directory exists at `id`, `false` otherwise
    */
   function directoryExists(id: ModuleId): boolean {
-    try {
-      ok(fs, 'expected `fs`')
-      return fs.stat(pathe.toPath(id)).isDirectory()
-    } catch {
-      return false
-    }
+    ok(fs, 'expected `fs`')
+    return isDirectory(id, fs)
   }
 
   /**
@@ -120,12 +117,8 @@ function createModuleResolutionHost(
    *  `true` if file exists at `id`, `false` otherwise
    */
   function fileExists(id: ModuleId): boolean {
-    try {
-      ok(fs, 'expected `fs`')
-      return fs.stat(pathe.toPath(id)).isFile()
-    } catch {
-      return false
-    }
+    ok(fs, 'expected `fs`')
+    return isFile(id, fs)
   }
 
   /**
@@ -161,9 +154,7 @@ function createModuleResolutionHost(
     let names: string[] = []
 
     if (directoryExists(id)) {
-      id = pathe.toPath(id)
-
-      names = fs.readdir(id).filter(x => {
+      names = fs.readdirSync(id = toPath(id)).filter(x => {
         ok(typeof id === 'string', 'expected `id` to be a string')
         return directoryExists(pathe.join(id, x))
       })
@@ -193,7 +184,7 @@ function createModuleResolutionHost(
     let contents: string | undefined
 
     if (fileExists(id)) {
-      contents = String(fs.readFile(pathe.toPath(id)))
+      contents = String(fs.readFileSync(toPath(id)))
     }
 
     return contents
@@ -211,6 +202,6 @@ function createModuleResolutionHost(
    */
   function realpath(this: void, id: ModuleId): string {
     ok(fs, 'expected `fs`')
-    return fs.realpath(pathe.toPath(id))
+    return fs.realpathSync(toPath(id))
   }
 }

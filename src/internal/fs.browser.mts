@@ -12,25 +12,25 @@ import type { FileSystem } from '@flex-development/tsconfig-utils'
  */
 const fs: FileSystem = {
   /**
-   * Synchronously get the contents of a file.
+   * Get the contents of a file.
    *
    * @return {never}
    *  Never; not implemented
    * @throws {Error}
    */
-  readFile(): never {
-    throw new Error('[readFile] not implemented')
+  readFileSync(): never {
+    throw new Error('[readFileSync] not implemented')
   },
 
   /**
-   * Synchronously read the contents of a directory.
+   * Read the contents of a directory.
    *
    * @return {never}
    *  Never; not implemented
    * @throws {Error}
    */
-  readdir(): never {
-    throw new Error('[readdir] not implemented')
+  readdirSync(): never {
+    throw new Error('[readdirSync] not implemented')
   },
 
   /**
@@ -40,19 +40,19 @@ const fs: FileSystem = {
    *  Never; not implemented
    * @throws {Error}
    */
-  realpath(): never {
-    throw new Error('[realpath] not implemented')
+  realpathSync(): never {
+    throw new Error('[realpathSync] not implemented')
   },
 
   /**
-   * Synchronously get information about a directory or file.
+   * Get information about a directory or file.
    *
    * @return {never}
    *  Never; not implemented
    * @throws {Error}
    */
-  stat(): never {
-    throw new Error('[stat] not implemented')
+  statSync(): never {
+    throw new Error('[statSync] not implemented')
   }
 }
 

@@ -119,6 +119,7 @@ convenience of TypeScript users who do not hoist packages, but may need to `impo
 ### Types
 
 - [`GetCanonicalFileName`](./src/types/get-canonical-file-name.mts)
+- [`ReadDirectory`](./src/types/read-directory.mts)
 
 ## Related
 

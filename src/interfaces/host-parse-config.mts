@@ -1,10 +1,12 @@
 /**
- * @file Interfaces - ModuleResolutionHost
- * @module tsconfig-utils/interfaces/ModuleResolutionHost
+ * @file Interfaces - ParseConfigHost
+ * @module tsconfig-utils/interfaces/ParseConfigHost
  */
 
-import type { ModuleId } from '@flex-development/mlly'
-import type { ModuleResolutionHost } from '@flex-development/tsconfig-utils'
+import type {
+  ModuleResolutionHost,
+  ReadDirectory
+} from '@flex-development/tsconfig-utils'
 
 /**
  * Configuration parser host API.
@@ -19,31 +21,9 @@ interface ParseConfigHost extends ModuleResolutionHost {
   /**
    * Get a list of files in a directory.
    *
-   * @see {@linkcode ModuleId}
-   *
-   * @this {void}
-   *
-   * @param {ModuleId} id
-   *  The directory path or URL to read
-   * @param {Set<string> | ReadonlyArray<string> | undefined} [extensions]
-   *  List of file extensions to filter for
-   * @param {Set<string> | ReadonlyArray<string> | undefined} [exclude]
-   *  List of of glob patterns matching files to exclude
-   * @param {Set<string> | ReadonlyArray<string> | undefined} [include]
-   *  List of of glob patterns matching files to include
-   * @param {number | null | undefined} [depth]
-   *  Maximum search depth (inclusive)
-   * @return {ReadonlyArray<string>}
-   *  List of files under directory at `id`
+   * @see {@linkcode ReadDirectory}
    */
-  readDirectory(
-    this: void,
-    id: ModuleId,
-    extensions?: Set<string> | readonly string[] | undefined,
-    exclude?: Set<string> | readonly string[] | undefined,
-    include?: Set<string> | readonly string[] | undefined,
-    depth?: number | null | undefined
-  ): readonly string[]
+  readDirectory: ReadDirectory
 
   /**
    * Treat filenames as case-sensitive?
