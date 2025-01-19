@@ -261,6 +261,6 @@
     "vitest": "3.0.1",
     "yaml-eslint-parser": "1.2.3"
   },
-  "packageManager": "yarn@4.5.1",
+  "packageManager": "yarn@4.6.0",
   "sideEffects": false
 }
