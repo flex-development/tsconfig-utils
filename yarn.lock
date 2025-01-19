@@ -1477,27 +1477,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@flex-development/fst-util-from-fs@flex-development/fst-util-from-fs#commit=e1e2279f829efeaf7357b76852b29d29da40c91e":
+"@flex-development/fst-util-from-fs@npm:1.0.0-alpha.1":
   version: 1.0.0-alpha.1
-  resolution: "@flex-development/fst-util-from-fs@https://github.com/flex-development/fst-util-from-fs.git#commit=e1e2279f829efeaf7357b76852b29d29da40c91e"
+  resolution: "@flex-development/fst-util-from-fs@npm:1.0.0-alpha.1::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Ffst-util-from-fs%2F1.0.0-alpha.1%2F5c60383168bb114fb8629764befa9c386b253c34"
   dependencies:
     "@flex-development/errnode": "npm:3.1.1"
-    "@flex-development/fst": "flex-development/fst#commit=9fae8b6708a1e392bb874a68aa28730fe6cefdf5"
+    "@flex-development/fst": "npm:1.0.0"
     "@flex-development/pathe": "npm:4.0.1"
     "@flex-development/unist-util-builder": "npm:2.0.0"
     "@flex-development/unist-util-types": "npm:1.6.1"
     devlop: "npm:1.1.0"
-  checksum: 10/ad953a2d7b871172c34c2db4193cfe6d3070ee96d225ef04df9aee2ed2ed5cfee30c593c9f364828a278416876331b5858c574d08a58bf088cb6b19324d105e8
-  languageName: node
-  linkType: hard
-
-"@flex-development/fst@flex-development/fst#commit=9fae8b6708a1e392bb874a68aa28730fe6cefdf5":
-  version: 0.0.0
-  resolution: "@flex-development/fst@https://github.com/flex-development/fst.git#commit=9fae8b6708a1e392bb874a68aa28730fe6cefdf5"
-  dependencies:
-    "@flex-development/unist-util-types": "npm:1.6.1"
-    "@types/unist": "npm:3.0.3"
-  checksum: 10/bb1b9737092cff5b6a3d1a7eec8a89ffdab4ebac61d0203f8460dfd5316af2850f5ad30ea6c1518af5fe5da901b40fb6b6c4ca9a9c6a5f92db8530baa0209809
+  checksum: 10/3ad76edc99dab6c2d0764e934fb42513dab828482ea016353b25bacf14a33d3c4c7ab8240970408aed81bf31c72c41fe10588e8f653a228b7ead1df12d68f342
   languageName: node
   linkType: hard
 
@@ -1788,7 +1778,7 @@ __metadata:
     "@flex-development/commitlint-config": "npm:1.0.1"
     "@flex-development/errnode": "npm:3.1.1"
     "@flex-development/fst": "npm:1.0.0"
-    "@flex-development/fst-util-from-fs": "flex-development/fst-util-from-fs#commit=e1e2279f829efeaf7357b76852b29d29da40c91e"
+    "@flex-development/fst-util-from-fs": "npm:1.0.0-alpha.1"
     "@flex-development/grease": "npm:3.0.0-alpha.9"
     "@flex-development/is-builtin": "npm:3.2.0"
     "@flex-development/mkbuild": "npm:1.0.0-alpha.23"

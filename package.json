@@ -123,7 +123,7 @@
   "dependencies": {
     "@flex-development/errnode": "3.1.1",
     "@flex-development/fst": "1.0.0",
-    "@flex-development/fst-util-from-fs": "flex-development/fst-util-from-fs#commit=e1e2279f829efeaf7357b76852b29d29da40c91e",
+    "@flex-development/fst-util-from-fs": "1.0.0-alpha.1",
     "@flex-development/mlly": "1.0.0-alpha.20",
     "@flex-development/pathe": "4.0.1",
     "@flex-development/pkg-types": "4.1.0",
