@@ -134,7 +134,7 @@ class VerboseReporter extends DefaultReporter implements Reporter {
    * @return {undefined}
    */
   public override onTaskUpdate(packs: TaskResultPack[]): undefined {
-    return void (this.isTTY && void super.onTaskUpdate(packs))
+    return void packs
   }
 
   /**

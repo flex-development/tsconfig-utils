@@ -5,6 +5,7 @@
 
 import type TestSubject from '#interfaces/file-system'
 import type * as mlly from '@flex-development/mlly'
+import type { Dirent } from '@flex-development/tsconfig-utils'
 
 describe('unit-d:interfaces/FileSystem', () => {
   it('should extend mlly.FileSystem', () => {
@@ -19,14 +20,16 @@ describe('unit-d:interfaces/FileSystem', () => {
     })
 
     describe('parameters', () => {
-      it('should be callable with [mlly.ModuleId]', () => {
-        expectTypeOf<Subject>().parameters.toEqualTypeOf<[mlly.ModuleId]>()
+      it('should be callable with [mlly.ModuleId, { withFileTypes: true }]', () => {
+        expectTypeOf<Subject>()
+          .parameters
+          .toEqualTypeOf<[mlly.ModuleId, { withFileTypes: true }]>()
       })
     })
 
     describe('returns', () => {
-      it('should return string[]', () => {
-        expectTypeOf<Subject>().returns.toEqualTypeOf<string[]>()
+      it('should return readonly Dirent[]', () => {
+        expectTypeOf<Subject>().returns.toEqualTypeOf<readonly Dirent[]>()
       })
     })
   })

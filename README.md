@@ -105,6 +105,7 @@ convenience of TypeScript users who do not hoist packages, but may need to `impo
 
 ### Interfaces
 
+- [`Dirent`](./src/interfaces/dirent.mts)
 - [`FileSystem`](./src/interfaces/file-system.mts)
 - [`LoadTsconfigOptions`](./src/interfaces/options-load-tsconfig.mts)
 - [`ModuleResolutionHostOptions`](./src/interfaces/options-module-resolution-host.mts)

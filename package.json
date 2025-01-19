@@ -58,10 +58,7 @@
       "default": "./dist/interfaces/*.d.mts"
     },
     "#internal/fs": {
-      "types": {
-        "tsconfig-utils": "./src/internal/fs.d.mts",
-        "default": "./dist/internal/fs.d.mts"
-      },
+      "types": "./src/internal/fs.d.mts",
       "browser": {
         "tsconfig-utils": "./src/internal/fs.browser.mts",
         "default": "./dist/internal/fs.browser.mjs"
@@ -86,7 +83,7 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
   "scripts": {
-    "build": "yarn clean:build; tsc -p tsconfig.build.json --noEmit false",
+    "build": "yarn clean:build; tsc -p tsconfig.build.json --noEmit false; trash ./dist/internal/*.d.mts && trash ./dist/{interfaces,types}/*.mjs",
     "check:ci": "yarn dedupe --check && yarn check:format && yarn check:lint && yarn check:spelling && yarn typecheck && yarn test:cov && yarn pack && yarn check:types:build && attw package.tgz && yarn clean:pack",
     "check:format": "dprint check --incremental=false",
     "check:lint": "eslint --exit-on-fatal-error --max-warnings 0 .",
@@ -125,6 +122,8 @@
   },
   "dependencies": {
     "@flex-development/errnode": "3.1.1",
+    "@flex-development/fst": "flex-development/fst#commit=9fae8b6708a1e392bb874a68aa28730fe6cefdf5",
+    "@flex-development/fst-util-from-fs": "flex-development/fst-util-from-fs#commit=e1e2279f829efeaf7357b76852b29d29da40c91e",
     "@flex-development/mlly": "1.0.0-alpha.20",
     "@flex-development/pathe": "4.0.1",
     "@flex-development/pkg-types": "4.1.0",

@@ -4,6 +4,7 @@
  */
 
 import type * as mlly from '@flex-development/mlly'
+import type { Dirent } from '@flex-development/tsconfig-utils'
 
 /**
  * File system API.
@@ -14,18 +15,27 @@ import type * as mlly from '@flex-development/mlly'
  */
 interface FileSystem extends mlly.FileSystem {
   /**
-   * Read the contents of a directory.
+   * Read the contents of the directory at `id`.
    *
+   * @see {@linkcode Dirent}
    * @see {@linkcode mlly.ModuleId}
    *
    * @this {void}
    *
    * @param {mlly.ModuleId} id
-   *  The path or `file:` URL to handle
-   * @return {string[]}
-   *  List of filenames
+   *  Module id of directory to read
+   * @param {{ withFileTypes: true }} options
+   *  Read options
+   * @param {true} options.withFileTypes
+   *  Return a list of dirent objects instead of strings or `Buffer`s
+   * @return {ReadonlyArray<Dirent>}
+   *  Directory content list
    */
-  readdirSync(this: void, id: mlly.ModuleId): string[]
+  readdirSync(
+    this: void,
+    id: mlly.ModuleId,
+    options: { withFileTypes: true }
+  ): readonly Dirent[]
 }
 
 export type { FileSystem as default }

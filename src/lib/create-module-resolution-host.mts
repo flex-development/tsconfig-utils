@@ -154,10 +154,10 @@ function createModuleResolutionHost(
     let names: string[] = []
 
     if (directoryExists(id)) {
-      names = fs.readdirSync(id = toPath(id)).filter(x => {
-        ok(typeof id === 'string', 'expected `id` to be a string')
-        return directoryExists(pathe.join(id, x))
-      })
+      names = fs
+        .readdirSync(id = toPath(id), { withFileTypes: true })
+        .filter(dirent => dirent.isDirectory())
+        .map(dirent => dirent.name)
     }
 
     return names

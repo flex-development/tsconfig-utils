@@ -7,6 +7,7 @@
   "exclude": [],
   "extends": "./tsconfig.json",
   "files": [
+    "typings/@flex-development/fst-util-from-fs/index.d.mts",
     "typings/@flex-development/tsconfig-types/index.d.mts",
     "typings/typescript/lib.es5.d.ts",
     "vitest-env.d.mts"

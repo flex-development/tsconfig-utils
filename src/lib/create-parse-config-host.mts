@@ -84,7 +84,7 @@ function createParseConfigHost(
     include: Set<string> | readonly string[] | undefined,
     depth?: number | null | undefined
   ): readonly string[] {
-    return Object.freeze(matchFiles(
+    return matchFiles(
       host,
       id,
       extensions,
@@ -93,7 +93,7 @@ function createParseConfigHost(
       useCaseSensitiveFileNames,
       depth,
       options?.fs
-    ))
+    )
   }
 }
 
