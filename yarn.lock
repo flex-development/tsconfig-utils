@@ -2079,7 +2079,7 @@ __metadata:
     remark-lint-table-pipe-alignment: "npm:4.1.1"
     remark-lint-table-pipes: "npm:5.0.1"
     remark-lint-unordered-list-marker-style: "npm:4.0.1"
-    remark-validate-links: "npm:13.0.2"
+    remark-validate-links: "npm:13.1.0"
     sh-syntax: "npm:0.4.2"
     strip-bom: "npm:5.0.0"
     strip-json-comments: "npm:5.0.1"
@@ -10169,9 +10169,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"remark-validate-links@npm:13.0.2":
-  version: 13.0.2
-  resolution: "remark-validate-links@npm:13.0.2"
+"remark-validate-links@npm:13.1.0":
+  version: 13.1.0
+  resolution: "remark-validate-links@npm:13.1.0"
   dependencies:
     "@types/hosted-git-info": "npm:^3.0.0"
     "@types/mdast": "npm:^4.0.0"
@@ -10184,7 +10184,7 @@ __metadata:
     unified-engine: "npm:^11.0.0"
     unist-util-visit: "npm:^5.0.0"
     vfile: "npm:^6.0.0"
-  checksum: 10/a297233a8762049183f5a994cbf2e90f4edcc65cdff7a4d39713fcc5ac27b701dce9f9719a9eb71b66d60661c6312acb597b5996fceeef5f6fc7c530e7207b4a
+  checksum: 10/ba97a03aa7178aab887ad7ab01999006fceec6213dc17676676b06423093815693fc4576f64681d1103ff8b711a20ff999dee2e61e97f6c74f3213315c01a052
   languageName: node
   linkType: hard
 
