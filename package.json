@@ -136,8 +136,8 @@
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "0.17.3",
-    "@commitlint/cli": "19.8.0",
-    "@commitlint/types": "19.8.0",
+    "@commitlint/cli": "20.2.0",
+    "@commitlint/types": "20.2.0",
     "@eslint/js": "9.26.0",
     "@flex-development/commitlint-config": "1.0.1",
     "@flex-development/grease": "3.0.0-alpha.9",
