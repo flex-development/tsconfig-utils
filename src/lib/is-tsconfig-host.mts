@@ -3,7 +3,8 @@
  * @module tsconfig-utils/lib/isTsconfigHost
  */
 
-import type { Tsconfig, TsconfigHost } from '@flex-development/tsconfig-utils'
+import type { Tsconfig } from '@flex-development/tsconfig-types'
+import type { TsconfigHost } from '@flex-development/tsconfig-utils'
 
 /**
  * Check if `value` is an object with a {@linkcode Tsconfig}.

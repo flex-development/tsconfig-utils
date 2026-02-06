@@ -3,74 +3,71 @@
  * @module tsconfig-utils/lib/tests/unit/createParseConfigHost
  */
 
-import fs from '#internal/fs'
+import fsa from '#fixtures/fs/fsa'
+import emptyArray from '#internal/empty-array'
+import dfs from '#internal/fs'
+import isPromise from '#internal/is-promise'
 import testSubject from '#lib/create-parse-config-host'
+import fsCaseType, { type FileSystemCaseType } from '#tests/utils/fs-case-type'
 import * as mlly from '@flex-development/mlly'
-import type { ParseConfigHost } from '@flex-development/tsconfig-utils'
-import { alphabetize, constant, identity } from '@flex-development/tutils'
-import ts from 'typescript'
-import tsconfig from '../../../tsconfig.json' with { type: 'json' }
+import type {
+  FileSystem,
+  ParseConfigHost
+} from '@flex-development/tsconfig-utils'
 
 describe('unit:lib/createParseConfigHost', () => {
-  describe.each<Parameters<typeof testSubject>>([
+  it.each<Parameters<typeof testSubject>>([
     [],
-    [{ fs, useCaseSensitiveFileNames: constant(false) }]
-  ])('host (%#)', options => {
-    let subject: ParseConfigHost
+    [
+      {
+        useCaseSensitiveFileNames: true
+      }
+    ],
+    [
+      {
+        useCaseSensitiveFileNames: vi.fn().mockName('useCaseSensitiveFileNames')
+      }
+    ]
+  ])('should create parse config host (%#)', options => {
+    expect(testSubject(options)).toMatchSnapshot()
+  })
+
+  describe.each<[fst: FileSystemCaseType, fs: FileSystem]>([
+    [fsCaseType.default, dfs],
+    [fsCaseType.onlyAsync, fsa]
+  ])('fs (%s)', (fsType, fs) => {
+    let isAsync: boolean
 
     beforeAll(() => {
-      subject = testSubject(options)
+      isAsync = fs === fsa
     })
 
     describe('readDirectory', () => {
-      it.each<Parameters<ParseConfigHost['readDirectory']>>([
-        [
-          new URL('src', mlly.cwd()),
-          ['.cjs', '.cts', '.js', '.json', '.mjs', '.mts', '.ts'],
-          tsconfig.exclude,
-          tsconfig.include,
-          0
-        ],
-        [
-          mlly.cwd(),
-          ['.cjs', '.cts', '.js', '.json', '.mjs', '.mts', '.ts'],
-          tsconfig.exclude,
-          tsconfig.include
-        ],
-        [
-          mlly.cwd(),
-          ['.mjs', '.mts', '.ts'],
-          tsconfig.exclude,
-          tsconfig.include,
-          1
-        ]
-      ])('should return list of files under directory at `id` (%#)', (
-        id,
-        extensions,
-        exclude,
-        include,
-        depth
-      ) => {
-        // Arrange
-        const expected: readonly string[] = alphabetize(ts.sys.readDirectory(
-          fs.realpathSync(id),
-          extensions ? [...extensions] : undefined,
-          exclude ? [...exclude] : undefined,
-          include ? [...include] : undefined,
-          depth ?? undefined
-        ), identity)
+      let subject: ParseConfigHost
 
+      beforeAll(() => {
+        subject = testSubject({ fs })
+      })
+
+      it('should return list of matched files', async () => {
         // Act
-        const result = subject.readDirectory(
-          id,
-          extensions,
-          exclude,
-          include,
-          depth
+        let result = subject.readDirectory(
+          mlly.cwd(),
+          mlly.defaultExtensions,
+          emptyArray,
+          emptyArray,
+          1
         )
 
-        // Expect
-        expect(result).to.be.an('array').and.be.frozen.and.eql(expected)
+        // Expect (promises)
+        if (isAsync) {
+          expect(result).to.satisfy(isPromise), result = await result
+        } else {
+          expect(result).to.not.satisfy(isPromise)
+        }
+
+        // Expect (result)
+        expect(result).to.be.an('array').and.empty
       })
     })
   })

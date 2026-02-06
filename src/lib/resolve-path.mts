@@ -5,6 +5,7 @@
 
 import withTrailingSlash from '#internal/with-trailing-slash'
 import isResolvedTsconfig from '#lib/is-resolved-tsconfig'
+import type { ModuleId } from '@flex-development/mlly'
 import * as mlly from '@flex-development/mlly'
 import pathe from '@flex-development/pathe'
 import type { Tsconfig } from '@flex-development/tsconfig-types'
@@ -18,11 +19,11 @@ import type { ResolvePathOptions } from '@flex-development/tsconfig-utils'
  * @this {void}
  *
  * @param {string} specifier
- *  The module specifier to resolve
+ *  The specifier using an alias
  * @param {ResolvePathOptions | null | undefined} [options]
  *  Alias resolution options
  * @return {string | null}
- *  Resolved specifier or `null` if path alias match is not found
+ *  The path match or `null` if path alias match is not found
  */
 function resolvePath(
   this: void,
@@ -30,21 +31,21 @@ function resolvePath(
   options?: ResolvePathOptions | null | undefined
 ): string | null {
   /**
-   * URL of directory to resolve non-absolute modules from.
+   * The URL of the directory to resolve non-absolute modules from.
    *
-   * @var {mlly.ModuleId | null | undefined} baseUrl
+   * @var {ModuleId | null | undefined} baseUrl
    */
-  let baseUrl: mlly.ModuleId | null | undefined
+  let baseUrl: ModuleId | null | undefined
 
   /**
-   * URL of parent module.
+   * The URL of the parent module.
    *
-   * @var {mlly.ModuleId | null | undefined} parent
+   * @var {ModuleId | null | undefined} parent
    */
-  let parent: mlly.ModuleId | null | undefined
+  let parent: ModuleId | null | undefined
 
   /**
-   * Tsconfig object.
+   * The tsconfig object.
    *
    * @var {Tsconfig | null | undefined} tsconfig
    */
@@ -63,7 +64,7 @@ function resolvePath(
     baseUrl = tsconfig.compilerOptions.baseUrl
   }
 
-  if (baseUrl !== null && baseUrl !== undefined && baseUrl !== parent) {
+  if (mlly.isModuleId(baseUrl) && baseUrl !== parent) {
     baseUrl = withTrailingSlash(mlly.toUrl(baseUrl))
   }
 

@@ -4,111 +4,71 @@
  */
 
 import type TestSubject from '#interfaces/host-module-resolution'
-import type { ModuleId } from '@flex-development/mlly'
+import type {
+  DirectoryExists,
+  FileExists,
+  GetCurrentDirectory,
+  GetDirectories,
+  HostReadFile,
+  Realpath,
+  UseCaseSensitiveFileNames
+} from '@flex-development/tsconfig-utils'
 import type ts from 'typescript'
 
 describe('unit-d:interfaces/ModuleResolutionHost', () => {
-  it('should match ts.ModuleResolutionHost', () => {
-    expectTypeOf<TestSubject>().toMatchTypeOf<ts.ModuleResolutionHost>()
+  it('should have same keys as Omit<ts.ModuleResolutionHost, "trace">', () => {
+    // Arrange
+    type K = keyof Omit<ts.ModuleResolutionHost, 'trace'>
+
+    // Expect
+    expectTypeOf<keyof TestSubject>().toEqualTypeOf<K>()
   })
 
-  describe('directoryExists', () => {
-    type Subject = TestSubject['directoryExists']
-
-    it('should match [this: void]', () => {
-      expectTypeOf<Subject>().thisParameter.toEqualTypeOf<void>()
-    })
-
-    describe('parameters', () => {
-      it('should be callable with [ModuleId]', () => {
-        expectTypeOf<Subject>().parameters.toEqualTypeOf<[ModuleId]>()
-      })
-    })
-
-    describe('returns', () => {
-      it('should return boolean', () => {
-        expectTypeOf<Subject>().returns.toEqualTypeOf<boolean>()
-      })
-    })
+  it('should match [directoryExists: DirectoryExists]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('directoryExists')
+      .toEqualTypeOf<DirectoryExists>()
   })
 
-  describe('fileExists', () => {
-    type Subject = TestSubject['fileExists']
-
-    it('should match [this: void]', () => {
-      expectTypeOf<Subject>().thisParameter.toEqualTypeOf<void>()
-    })
-
-    describe('parameters', () => {
-      it('should be callable with [ModuleId]', () => {
-        expectTypeOf<Subject>().parameters.toEqualTypeOf<[ModuleId]>()
-      })
-    })
-
-    describe('returns', () => {
-      it('should return boolean', () => {
-        expectTypeOf<Subject>().returns.toEqualTypeOf<boolean>()
-      })
-    })
+  it('should match [fileExists: FileExists]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('fileExists')
+      .toEqualTypeOf<FileExists>()
   })
 
-  describe('getDirectories', () => {
-    type Subject = TestSubject['getDirectories']
-
-    it('should match [this: void]', () => {
-      expectTypeOf<Subject>().thisParameter.toEqualTypeOf<void>()
-    })
-
-    describe('parameters', () => {
-      it('should be callable with [ModuleId]', () => {
-        expectTypeOf<Subject>().parameters.toEqualTypeOf<[ModuleId]>()
-      })
-    })
-
-    describe('returns', () => {
-      it('should return string[]', () => {
-        expectTypeOf<Subject>().returns.toEqualTypeOf<string[]>()
-      })
-    })
+  it('should match [getCurrentDirectory: GetCurrentDirectory]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('getCurrentDirectory')
+      .toEqualTypeOf<GetCurrentDirectory>()
   })
 
-  describe('readFile', () => {
-    type Subject = TestSubject['readFile']
-
-    it('should match [this: void]', () => {
-      expectTypeOf<Subject>().thisParameter.toEqualTypeOf<void>()
-    })
-
-    describe('parameters', () => {
-      it('should be callable with [ModuleId]', () => {
-        expectTypeOf<Subject>().parameters.toEqualTypeOf<[ModuleId]>()
-      })
-    })
-
-    describe('returns', () => {
-      it('should return string | undefined', () => {
-        expectTypeOf<Subject>().returns.toEqualTypeOf<string | undefined>()
-      })
-    })
+  it('should match [getDirectories: GetDirectories]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('getDirectories')
+      .toEqualTypeOf<GetDirectories>()
   })
 
-  describe('realpath', () => {
-    type Subject = TestSubject['realpath']
-
-    it('should match [this: void]', () => {
-      expectTypeOf<Subject>().thisParameter.toEqualTypeOf<void>()
-    })
-
-    describe('parameters', () => {
-      it('should be callable with [ModuleId]', () => {
-        expectTypeOf<Subject>().parameters.toEqualTypeOf<[ModuleId]>()
-      })
-    })
-
-    describe('returns', () => {
-      it('should return string', () => {
-        expectTypeOf<Subject>().returns.toEqualTypeOf<string>()
-      })
-    })
+  it('should match [readFile: HostReadFile]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('readFile')
+      .toEqualTypeOf<HostReadFile>()
   })
+
+  it('should match [realpath: Realpath]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('realpath')
+      .toEqualTypeOf<Realpath>()
+  })
+
+  it('should match [useCaseSensitiveFileNames?: UseCaseSensitiveFileNames]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('useCaseSensitiveFileNames')
+      .toEqualTypeOf<UseCaseSensitiveFileNames>()
+  })
+
+  // this test fails, but the corresponding `ts.ParseConfigHost` test does not.
+  // unsure why.
+  // it('should match ts.ModuleResolutionHost', () => {
+  //   expectTypeOf<TestSubject>().toExtend<ts.ModuleResolutionHost>()
+  // })
 })

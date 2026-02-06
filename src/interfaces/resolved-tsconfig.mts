@@ -6,7 +6,7 @@
 import type { TsconfigHost } from '@flex-development/tsconfig-utils'
 
 /**
- * Resolved TypeScript configuration.
+ * A resolved TypeScript configuration.
  *
  * @see {@linkcode TsconfigHost}
  *
@@ -14,7 +14,7 @@ import type { TsconfigHost } from '@flex-development/tsconfig-utils'
  */
 interface ResolvedTsconfig extends TsconfigHost {
   /**
-   * URL of tsconfig file.
+   * The URL of the tsconfig file.
    */
   url: URL
 }

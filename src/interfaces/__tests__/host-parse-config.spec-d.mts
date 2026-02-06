@@ -12,7 +12,7 @@ import type ts from 'typescript'
 
 describe('unit-d:interfaces/ParseConfigHost', () => {
   it('should extend ModuleResolutionHost', () => {
-    expectTypeOf<TestSubject>().toMatchTypeOf<ModuleResolutionHost>()
+    expectTypeOf<TestSubject>().toExtend<ModuleResolutionHost>()
   })
 
   it('should match [readDirectory: ReadDirectory]', () => {
@@ -27,8 +27,7 @@ describe('unit-d:interfaces/ParseConfigHost', () => {
       .toEqualTypeOf<boolean>
   })
 
-  it('should match Required<Omit<ts.ParseConfigHost, "trace">>', () => {
-    expectTypeOf<TestSubject>()
-      .toMatchTypeOf<Required<Omit<ts.ParseConfigHost, 'trace'>>>()
+  it('should match ts.ParseConfigHost', () => {
+    expectTypeOf<TestSubject>().toExtend<ts.ParseConfigHost>()
   })
 })

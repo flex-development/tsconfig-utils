@@ -8,7 +8,7 @@ import type { TsconfigHost } from '@flex-development/tsconfig-utils'
 
 describe('unit-d:interfaces/ResolvedTsconfig', () => {
   it('should extend TsconfigHost', () => {
-    expectTypeOf<TestSubject>().toMatchTypeOf<TsconfigHost>()
+    expectTypeOf<TestSubject>().toExtend<TsconfigHost>()
   })
 
   it('should match [url: URL]', () => {

@@ -4,18 +4,47 @@
  */
 
 import getTsconfig from '#internal/get-tsconfig'
-import type {
-  JsonValue,
-  Tsconfig,
-  TsconfigHost
-} from '@flex-development/tsconfig-utils'
+import type { Tsconfig } from '@flex-development/tsconfig-types'
+import type { JsonValue, TsconfigHost } from '@flex-development/tsconfig-utils'
 import { isObjectCurly, properties } from '@flex-development/tutils'
+
+export default mergeTsconfig
 
 /**
  * Merge one or more tsconfig objects into a single {@linkcode Tsconfig}.
  *
- * Tsconfig source objects are applied from left to right. Subsequent sources
- * overwrite property assignments of previous sources.
+ * Tsconfig source objects are applied from left to right.
+ * Subsequent sources overwrite property assignments of previous sources.
+ *
+ * > 👉 **Note**: If `target` is a {@linkcode TsconfigHost}, `target.tsconfig`
+ * > will be modified. Otherwise, `target` will be modified.
+ *
+ * @see {@linkcode TsconfigHost}
+ * @see {@linkcode Tsconfig}
+ *
+ * @template {Tsconfig} T
+ *  The merged tsconfig
+ *
+ * @this {void}
+ *
+ * @param {Tsconfig | TsconfigHost | null | undefined} target
+ *  The target tsconfig or tsconfig host
+ * @param {ReadonlyArray<Tsconfig | TsconfigHost | null | undefined>} tsconfigs
+ *  The source tsconfig object(s)
+ * @return {T}
+ *  The merged tsconfig
+ */
+function mergeTsconfig<T extends Tsconfig>(
+  this: void,
+  target: Tsconfig | TsconfigHost | null | undefined,
+  ...tsconfigs: readonly (Tsconfig | TsconfigHost | null | undefined)[]
+): T
+
+/**
+ * Merge one or more tsconfig objects into a single {@linkcode Tsconfig}.
+ *
+ * Tsconfig source objects are applied from left to right.
+ * Subsequent sources overwrite property assignments of previous sources.
  *
  * > 👉 **Note**: If `target` is a {@linkcode TsconfigHost}, `target.tsconfig`
  * > will be modified. Otherwise, `target` will be modified.
@@ -26,11 +55,11 @@ import { isObjectCurly, properties } from '@flex-development/tutils'
  * @this {void}
  *
  * @param {Tsconfig | TsconfigHost | null | undefined} target
- *  Target tsconfig or tsconfig host
+ *  The target tsconfig or tsconfig host
  * @param {ReadonlyArray<Tsconfig | TsconfigHost | null | undefined>} tsconfigs
- *  Source tsconfig object(s)
+ *  The source tsconfig object(s)
  * @return {Tsconfig}
- *  Merged tsconfig
+ *  The merged tsconfig
  */
 function mergeTsconfig(
   this: void,
@@ -38,12 +67,10 @@ function mergeTsconfig(
   ...tsconfigs: readonly (Tsconfig | TsconfigHost | null | undefined)[]
 ): Tsconfig {
   return tsconfigs.reduce<Tsconfig>((acc, tsconfig) => {
-    return properties(tsconfig = getTsconfig(tsconfig)).reduce((
-      target,
-      property
-    ) => {
+    tsconfig = getTsconfig(tsconfig)
+    return properties(tsconfig).reduce((target, property) => {
       /**
-       * Merge value.
+       * The value to merge.
        *
        * @var {JsonValue | undefined} value
        */
@@ -51,14 +78,14 @@ function mergeTsconfig(
 
       if (Object.prototype.hasOwnProperty.call(target, property)) {
         /**
-         * Target object value.
+         * The target object value.
          *
          * @const {JsonValue} targetValue
          */
         const targetValue: JsonValue = target[property] as JsonValue
 
         /**
-         * Source object value.
+         * The source object value.
          *
          * @const {JsonValue} sourceValue
          */
@@ -73,5 +100,3 @@ function mergeTsconfig(
     }, acc)
   }, getTsconfig(target))
 }
-
-export default mergeTsconfig

@@ -4,7 +4,8 @@
  */
 
 import isTsconfigHost from '#lib/is-tsconfig-host'
-import type { Tsconfig, TsconfigHost } from '@flex-development/tsconfig-utils'
+import type { Tsconfig } from '@flex-development/tsconfig-types'
+import type { TsconfigHost } from '@flex-development/tsconfig-utils'
 import { shake } from '@flex-development/tutils'
 
 /**
@@ -15,7 +16,7 @@ import { shake } from '@flex-development/tutils'
  * @this {void}
  *
  * @param {Tsconfig | TsconfigHost | null | undefined} target
- *  Tsconfig or tsconfig host
+ *  The tsconfig or tsconfig host
  * @return {Tsconfig}
  *  TypeScript configuration object
  */

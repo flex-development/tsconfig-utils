@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "customConditions": ["tsconfig-utils", "development", "test"]
+  },
+  "extends": [
+    "@tsconfig/strictest/tsconfig.json",
+    "#fixtures/tsconfigs/tsconfig.json"
+  ]
+}

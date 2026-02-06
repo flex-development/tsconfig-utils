@@ -3,99 +3,77 @@
  * @module tsconfig-utils/interfaces/ModuleResolutionHost
  */
 
-import type { ModuleId } from '@flex-development/mlly'
+import type {
+  DirectoryExists,
+  FileExists,
+  GetCurrentDirectory,
+  GetDirectories,
+  HostReadFile,
+  Realpath,
+  UseCaseSensitiveFileNames
+} from '@flex-development/tsconfig-utils'
 
 /**
- * Module resolution host API.
+ * The module resolution host API.
  *
- * The module resolution host acts a bridge between the TypeScript compiler and
- * the file system.
+ * The module resolution host acts a bridge between the TypeScript compiler
+ * and the file system.
+ *
+ * > 👉 **Note**: The host can have both asynchronous and synchronous methods,
+ * > but when used with the native TypeScript compiler, all methods must return
+ * > synchronous values.
  */
 interface ModuleResolutionHost {
   /**
-   * Check if a directory exists at `id`.
+   * Check if a directory exists.
    *
-   * @see {@linkcode ModuleId}
-   *
-   * @this {void}
-   *
-   * @param {ModuleId} id
-   *  The module id to check
-   * @return {boolean}
-   *  `true` if directory exists at `id`, `false` otherwise
+   * @see {@linkcode DirectoryExists}
    */
-  directoryExists(this: void, id: ModuleId): boolean
+  directoryExists: DirectoryExists
 
   /**
-   * Check if a file exists at `id`.
+   * Check if a file exists.
    *
-   * @see {@linkcode ModuleId}
-   *
-   * @this {void}
-   *
-   * @param {ModuleId} id
-   *  The module id to check
-   * @return {boolean}
-   *  `true` if file exists at `id`, `false` otherwise
+   * @see {@linkcode FileExists}
    */
-  fileExists(this: void, id: ModuleId): boolean
+  fileExists: FileExists
 
   /**
-   * Get the path to current working directory.
+   * Get the path to the current working directory.
    *
-   * @this {void}
-   *
-   * @return {string}
-   *  Path to current working directory
+   * @see {@linkcode GetCurrentDirectory}
    */
-  getCurrentDirectory(this: void): string
+  getCurrentDirectory: GetCurrentDirectory
 
   /**
    * Get a list of subdirectories.
    *
-   * @see {@linkcode ModuleId}
-   *
-   * @this {void}
-   *
-   * @param {ModuleId} id
-   *  The directory path or URL to read
-   * @return {string[]}
-   *  List of subdirectory names
+   * @see {@linkcode GetDirectories}
    */
-  getDirectories(this: void, id: ModuleId): string[]
+  getDirectories: GetDirectories
 
   /**
-   * Get the contents of a file.
+   * Read the entire contents of a file.
    *
-   * @see {@linkcode ModuleId}
-   *
-   * @this {void}
-   *
-   * @param {ModuleId} id
-   *  The file path or URL to read
-   * @return {Buffer | string}
-   *  File contents or `undefined` if file does not exist at `id`
+   * @see {@linkcode HostReadFile}
    */
-  readFile(this: void, id: ModuleId): string | undefined
+  readFile: HostReadFile
 
   /**
-   * Get the resolved pathname of `id`.
+   * Compute a canonical pathname by resolving `.`, `..`, and symbolic links.
    *
-   * @see {@linkcode ModuleId}
+   * @see {@linkcode Realpath}
    *
-   * @this {void}
-   *
-   * @param {ModuleId} id
-   *  The path or `file:` URL to handle
-   * @return {string}
-   *  Canonical pathname of `id`
+   * @override
    */
-  realpath(this: void, id: ModuleId): string
+  realpath: Realpath
 
   /**
-   * Treat filenames as case-sensitive?
+   * Whether to treat filenames as case-sensitive.
+   *
+   * @see {@linkcode UseCaseSensitiveFileNames}
    */
-  useCaseSensitiveFileNames?: ((this: void) => boolean) | boolean | undefined
+  useCaseSensitiveFileNames?: UseCaseSensitiveFileNames
 }
 
 export type { ModuleResolutionHost as default }

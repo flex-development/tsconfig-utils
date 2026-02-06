@@ -233,7 +233,7 @@
   ],
   "vsicons.associations.files": [
     {
-      "extensions": ["build.json", "empty.json", "typecheck.json"],
+      "extensions": ["build.json", "empty.json", "invalid.json", "node10.json"],
       "format": "svg",
       "icon": "tsconfig"
     },
@@ -250,7 +250,7 @@
   ],
   "vsicons.associations.folders": [
     {
-      "extensions": ["__fixtures__"],
+      "extensions": ["__fixtures__", "__tests__/baselines"],
       "format": "svg",
       "icon": "db"
     },

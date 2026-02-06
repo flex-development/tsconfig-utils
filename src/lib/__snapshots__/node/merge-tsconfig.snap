@@ -1,0 +1,124 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`unit:lib/mergeTsconfig > should return merged tsconfig (target:Tsconfig) 1`] = `
+{
+  "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "allowJs": true,
+    "alwaysStrict": true,
+    "customConditions": [
+      "tsconfig-utils",
+      "development",
+    ],
+    "declaration": true,
+    "declarationMap": true,
+    "lib": [
+      "es2023",
+    ],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "newLine": "lf",
+    "noEmit": true,
+    "noErrorTruncation": true,
+    "noUncheckedSideEffectImports": true,
+    "noUnusedParameters": false,
+    "paths": {
+      "https://esm.sh/lodash@4.17.21": [
+        "node_modules/@types/lodash/index.d.ts",
+      ],
+    },
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "target": "esnext",
+    "verbatimModuleSyntax": true,
+  },
+  "exclude": [
+    "coverage",
+    "dist",
+    "node_modules",
+  ],
+  "extends": "../tsconfig.json",
+  "include": [
+    "**/**.json",
+    "**/**.mjs",
+    "**/**.mts",
+    "**/**.ts",
+  ],
+  "mdx": {
+    "plugins": [
+      "remark-directive",
+      "remark-frontmatter",
+      "remark-gfm",
+    ],
+  },
+}
+`;
+
+exports[`unit:lib/mergeTsconfig > should return merged tsconfig (target:TsconfigHost) 1`] = `
+{
+  "$schema": "https://www.schemastore.org/tsconfig",
+  "_version": "2.0.0",
+  "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "allowJs": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "alwaysStrict": true,
+    "customConditions": [
+      "tsconfig-utils",
+      "development",
+    ],
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "exactOptionalPropertyTypes": true,
+    "isolatedModules": true,
+    "lib": [
+      "es2023",
+    ],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "newLine": "lf",
+    "noEmit": true,
+    "noErrorTruncation": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUncheckedSideEffectImports": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": false,
+    "paths": {
+      "https://esm.sh/lodash@4.17.21": [
+        "node_modules/@types/lodash/index.d.ts",
+      ],
+    },
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "esnext",
+    "verbatimModuleSyntax": true,
+  },
+  "exclude": [
+    "coverage",
+    "dist",
+    "node_modules",
+  ],
+  "extends": "@tsconfig/strictest/tsconfig.json",
+  "include": [
+    "**/**.json",
+    "**/**.mjs",
+    "**/**.mts",
+    "**/**.ts",
+  ],
+  "mdx": {
+    "plugins": [
+      "remark-directive",
+      "remark-frontmatter",
+      "remark-gfm",
+    ],
+  },
+}
+`;

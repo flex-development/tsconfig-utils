@@ -6,16 +6,16 @@
 import type { ModuleId } from '@flex-development/mlly'
 
 /**
- * Get a standardized file path for `id`.
+ * Get the canonical file name for a module id.
  *
  * @see {@linkcode ModuleId}
  *
  * @this {void}
  *
  * @param {ModuleId} id
- *  The path or `file:` URL to handle
+ *  The module id
  * @return {string}
- *  Canonical file path for `id`
+ *  The canonical file name
  */
 type GetCanonicalFileName = (this: void, id: ModuleId) => string
 

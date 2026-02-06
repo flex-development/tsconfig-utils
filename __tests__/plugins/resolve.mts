@@ -1,6 +1,6 @@
 /**
  * @file Plugins - resolve
- * @module mkbuild/plugins/resolve
+ * @module tests/plugins/resolve
  */
 
 import { isBuiltin } from '@flex-development/is-builtin'
@@ -25,7 +25,7 @@ const VIRTUAL_MODULE_RE: RegExp = /^\\0|(?:(?:\\0)?virtual:)/
 export default plugin
 
 /**
- * Plugin API.
+ * The plugin API.
  *
  * @internal
  */
@@ -51,7 +51,7 @@ interface Api {
  */
 function plugin(this: void): Plugin<Api> {
   /**
-   * Plugin api.
+   * The plugin api.
    *
    * @const {Api} api
    */
@@ -67,7 +67,7 @@ function plugin(this: void): Plugin<Api> {
    * @this {void}
    *
    * @param {ResolvedConfig} config
-   *  Resolved vite config
+   *  The resolved vite config
    * @return {undefined}
    */
   function configResolved(this: void, config: ResolvedConfig): undefined {
@@ -80,7 +80,7 @@ function plugin(this: void): Plugin<Api> {
   }
 
   /**
-   * Resolve `id`.
+   * Resolve a module id.
    *
    * > 👉 **Note**: Does nothing if `id` follows virtual modules convention.
    *
@@ -91,37 +91,34 @@ function plugin(this: void): Plugin<Api> {
    * @param {string} id
    *  The module specifier to resolve
    * @param {string | undefined} importer
-   *  Parent module path
-   * @return {Promise<PartialResolvedId | string | null>}
-   *  Resolve result
+   *  The parent module path
+   * @return {PartialResolvedId | string | null}
+   *  The resolve result
    */
-  async function resolveId(
+  function resolveId(
     this: PluginContext,
     id: string,
     importer: string | undefined
-  ): Promise<PartialResolvedId | string | null> {
-    if (!VIRTUAL_MODULE_RE.test(id)) {
-      ok(api.options.cwd, 'expected `api.options.cwd`')
+  ): PartialResolvedId | string | null {
+    if (VIRTUAL_MODULE_RE.test(id)) return null
+    ok(api.options.cwd, 'expected `api.options.cwd`')
 
-      /**
-       * URL of parent module.
-       *
-       * @const {URL} parent
-       */
-      const parent: URL = importer
-        ? pathe.pathToFileURL(importer)
-        : new URL('resolve-id.mjs', api.options.cwd)
+    /**
+     * The URL of the parent module.
+     *
+     * @const {URL} parent
+     */
+    const parent: URL = importer
+      ? pathe.pathToFileURL(importer)
+      : new URL('resolve-id.mjs', api.options.cwd)
 
-      if (isBuiltin(id)) {
-        return {
-          external: true,
-          id: String(await resolveModule(id, parent))
-        }
+    if (isBuiltin(id)) {
+      return {
+        external: true,
+        id: String(resolveModule(id, parent))
       }
-
-      return String(await resolveModule(id, parent, api.options))
     }
 
-    return null
+    return String(resolveModule(id, parent, api.options))
   }
 }

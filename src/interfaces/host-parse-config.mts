@@ -9,9 +9,14 @@ import type {
 } from '@flex-development/tsconfig-utils'
 
 /**
- * Configuration parser host API.
+ * The configuration parser host API.
  *
- * Provides methods for accessing the file system and resolving module paths.
+ * The parser host provides methods for accessing the file system
+ * and resolving module paths.
+ *
+ * > 👉 **Note**: The host can have both asynchronous and synchronous methods,
+ * > but when used with the native TypeScript compiler, all methods must return
+ * > synchronous values.
  *
  * @see {@linkcode ModuleResolutionHost}
  *
@@ -19,14 +24,14 @@ import type {
  */
 interface ParseConfigHost extends ModuleResolutionHost {
   /**
-   * Get a list of files in a directory.
+   * Read the contents of a directory.
    *
    * @see {@linkcode ReadDirectory}
    */
   readDirectory: ReadDirectory
 
   /**
-   * Treat filenames as case-sensitive?
+   * Whether to treat filenames as case-sensitive.
    *
    * @override
    */

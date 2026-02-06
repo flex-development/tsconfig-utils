@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`unit:internal/combinePaths > should return combined path (0) 1`] = `"/to/file.ext"`;
+
+exports[`unit:internal/combinePaths > should return combined path (1) 1`] = `"/path/to/file.ext"`;
+
+exports[`unit:internal/combinePaths > should return combined path (2) 1`] = `"c:/to/file.ext"`;
+
+exports[`unit:internal/combinePaths > should return combined path (3) 1`] = `"c:/path/to/file.ext"`;
+
+exports[`unit:internal/combinePaths > should return combined path (4) 1`] = `"file:///to/file.ext"`;
+
+exports[`unit:internal/combinePaths > should return combined path (5) 1`] = `"file:///path/to/file.ext"`;
+
+exports[`unit:internal/combinePaths > should return combined path (6) 1`] = `"path/dir/../to/file.ext"`;
+
+exports[`unit:internal/combinePaths > should return combined path (7) 1`] = `"path/to/file.ext"`;

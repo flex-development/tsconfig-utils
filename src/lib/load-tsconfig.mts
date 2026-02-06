@@ -3,51 +3,83 @@
  * @module tsconfig-utils/lib/loadTsconfig
  */
 
+import chainOrCall from '#internal/chain-or-call'
+import isPromise from '#internal/is-promise'
 import normalizeRelativePaths from '#internal/normalize-relative-paths'
 import mergeTsconfig from '#lib/merge-tsconfig'
 import readTsconfig from '#lib/read-tsconfig'
 import type { ModuleId } from '@flex-development/mlly'
-import * as mlly from '@flex-development/mlly'
+import type { Tsconfig } from '@flex-development/tsconfig-types'
 import type {
+  Awaitable,
   LoadTsconfigOptions,
-  ResolvedTsconfig,
-  Tsconfig
+  ResolvedTsconfig
 } from '@flex-development/tsconfig-utils'
 import { ksort, omit, shake, trim } from '@flex-development/tutils'
+import { ok } from 'devlop'
+
+export default loadTsconfig
 
 /**
  * Load a tsconfig file.
  *
+ * @see {@linkcode Awaitable}
  * @see {@linkcode ModuleId}
  * @see {@linkcode LoadTsconfigOptions}
  * @see {@linkcode ResolvedTsconfig}
  *
- * @async
+ * @template {Awaitable<ResolvedTsconfig | null>} T
+ *  The resolved tsconfig
  *
  * @this {void}
  *
- * @param {ModuleId} id
- *  Module id of tsconfig file, or path to tsconfig file
+ * @param {ModuleId | null | undefined} [id='tsconfig.json']
+ *  The module id or specifier of the tsconfig file
  * @param {LoadTsconfigOptions | null | undefined} [options]
  *  Load options
- * @return {Promise<ResolvedTsconfig | null>}
- *  Resolved tsconfig or `null` if tsconfig file is not found
+ * @return {T}
+ *  The resolved tsconfig, or `null` if tsconfig file is not found
  */
-async function loadTsconfig(
+function loadTsconfig<T extends Awaitable<ResolvedTsconfig | null>>(
   this: void,
-  id: ModuleId,
+  id?: ModuleId | null | undefined,
   options?: LoadTsconfigOptions | null | undefined
-): Promise<ResolvedTsconfig | null> {
-  /**
-   * Resolved tsconfig object.
-   *
-   * @var {ResolvedTsconfig | null} tsconfig
-   */
-  let resolved: ResolvedTsconfig | null = await readTsconfig(id, options)
+): T
 
-  if (resolved !== null) {
+/**
+ * Load a tsconfig file.
+ *
+ * @see {@linkcode Awaitable}
+ * @see {@linkcode ModuleId}
+ * @see {@linkcode LoadTsconfigOptions}
+ * @see {@linkcode ResolvedTsconfig}
+ *
+ * @this {void}
+ *
+ * @param {ModuleId | null | undefined} [id='tsconfig.json']
+ *  The module id or specifier of the tsconfig file
+ * @param {LoadTsconfigOptions | null | undefined} [options]
+ *  Load options
+ * @return {Awaitable<ResolvedTsconfig | null>}
+ *  The resolved tsconfig, or `null` if tsconfig file is not found
+ */
+function loadTsconfig(
+  this: void,
+  id?: ModuleId | null | undefined,
+  options?: LoadTsconfigOptions | null | undefined
+): Awaitable<ResolvedTsconfig | null> {
+  /**
+   * The resolved tsconfig.
+   *
+   * @const {ResolvedTsconfig | null} result
+   */
+  const result: Awaitable<ResolvedTsconfig | null> = readTsconfig(id, options)
+
+  return chainOrCall(result, (resolved = result as ResolvedTsconfig | null) => {
+    if (resolved === null) return resolved
+
     /**
-     * List of property paths where the value may be a relative path.
+     * The list of property paths where the value may be a relative path.
      *
      * @const {Set<string>} relativePaths
      */
@@ -60,70 +92,108 @@ async function loadTsconfig(
       'files.*'
     ])
 
+    // extend configuration files.
     if (
       resolved.tsconfig.extends !== false &&
       resolved.tsconfig.extends !== null &&
       resolved.tsconfig.extends !== undefined
     ) {
       /**
-       * Configuration files to inherit from.
+       * The configuration files to inherit from.
        *
        * @const {string[]} bases
        */
-      const bases: string[] = [resolved.tsconfig.extends]
-        .flat()
-        .map(trim)
-        .filter(extend => extend.length > 0)
+      const bases: string[] = [resolved.tsconfig.extends].flat().map(trim)
 
-      for (const specifier of bases) {
+      /**
+       * The promises to resolve.
+       *
+       * @const {PromiseLike<ResolvedTsconfig | null>[]} promises
+       */
+      const promises: PromiseLike<ResolvedTsconfig | null>[] = []
+
+      // load base tsconfigs.
+      for (const id of bases.filter(Boolean).reverse()) {
         /**
-         * Resolved base tsconfig.
+         * The resolved base tsconfig.
          *
-         * @const {ResolvedTsconfig | null} extend
+         * @var {Awaitable<ResolvedTsconfig | null>} base
          */
-        const extend: ResolvedTsconfig | null = await loadTsconfig(
-          await mlly.resolveModule(specifier, resolved.url, options),
-          options
-        )
+        let base: Awaitable<ResolvedTsconfig | null>
 
-        if (extend) {
-          normalizeRelativePaths(
-            resolved.url,
-            extend.url,
-            extend.tsconfig,
-            null,
-            relativePaths
-          )
+        // load the tsconfig to extend,
+        // applying any comfigurations it may have extended.
+        base = loadTsconfig(id, { ...options, parent: resolved.url })
 
-          /**
-           * Tsconfig to inherit from.
-           *
-           * @const {Tsconfig} base
-           */
-          const base: Tsconfig = omit(extend.tsconfig, ['references'])
-
-          resolved.tsconfig = mergeTsconfig(base, resolved.tsconfig)
-        }
+        // store resolve promise, or extend the base.
+        isPromise(base) ? promises.push(base) : extend(base)
       }
 
       delete resolved.tsconfig.extends
+
+      if (promises.length) {
+        return Promise.all(promises).then(bases => {
+          for (const base of bases) extend(base)
+          return finalize()
+        })
+      }
     }
 
-    normalizeRelativePaths(
-      resolved.url,
-      resolved.url,
-      resolved.tsconfig,
-      null,
-      relativePaths
-    )
+    return finalize()
 
-    return {
-      tsconfig: ksort(shake(resolved.tsconfig), { deep: true }),
-      url: resolved.url
+    /**
+     * @this {void}
+     *
+     * @param {ResolvedTsconfig | null} extend
+     *  The tsconfig to extend
+     * @return {undefined}
+     */
+    function extend(this: void, extend: ResolvedTsconfig | null): undefined {
+      if (extend) {
+        ok(resolved, 'expected `resolved` url')
+
+        normalizeRelativePaths(
+          resolved.url,
+          extend.url,
+          extend.tsconfig,
+          null,
+          relativePaths
+        )
+
+        /**
+         * The tsconfig to inherit from.
+         *
+         * @const {Tsconfig} base
+         */
+        const base: Tsconfig = omit(extend.tsconfig, ['references'])
+
+        resolved.tsconfig = mergeTsconfig(base, resolved.tsconfig)
+      }
+
+      return void extend
     }
-  }
 
-  return null
+    /**
+     * @this {void}
+     *
+     * @return {ResolvedTsconfig}
+     *  The finalized resolved tsconfig
+     */
+    function finalize(this: void): ResolvedTsconfig {
+      ok(resolved, 'expected `resolved` url')
+
+      normalizeRelativePaths(
+        resolved.url,
+        resolved.url,
+        resolved.tsconfig,
+        null,
+        relativePaths
+      )
+
+      return {
+        tsconfig: ksort(shake(resolved.tsconfig), { deep: true }),
+        url: resolved.url
+      }
+    }
+  })
 }
-
-export default loadTsconfig

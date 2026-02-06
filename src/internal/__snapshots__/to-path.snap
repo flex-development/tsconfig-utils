@@ -1,5 +1,0 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
-
-exports[`unit:internal/toPath > should return \`input\` as path ("./tsconfig.json") 1`] = `"./tsconfig.json"`;
-
-exports[`unit:internal/toPath > should return \`input\` as path ("file:///tsconfig.json") 1`] = `"/tsconfig.json"`;

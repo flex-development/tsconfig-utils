@@ -1,32 +1,50 @@
 /**
- * @file ESLint Configuration - Root
+ * @file eslint
  * @module config/eslint
  * @see https://eslint.org/docs/user-guide/configuring
  */
 
+import fldv from '@flex-development/eslint-config'
+
 /**
- * Root eslint configuration object.
+ * eslint configuration.
  *
  * @type {import('eslint').Linter.Config[]}
+ * @const config
  */
-export default [
-  ...(await import('./eslint.base.config.mjs')).default,
+const config = [
+  ...fldv.configs.node,
   {
-    ignores: [
-      '!**/__fixtures__/**/dist/',
-      '!**/__fixtures__/node_modules/',
-      '!**/typings/**/dist/',
-      '**/*config.*.timestamp*',
-      '**/.vitest-reports/',
-      '**/.yarn/',
-      '**/CHANGELOG.md',
-      '**/LICENSE.md',
-      '**/RELEASE_NOTES.md',
-      '**/__fixtures__/**empty.json',
-      '**/__tests__/reports/',
-      '**/coverage/',
-      '**/dist/',
-      '**/tsconfig*temp.json'
-    ]
+    ignores: ['__fixtures__/tsconfigs/tsconfig.empty.json']
+  },
+  {
+    files: ['src/internal/__tests__/is-promise.spec.mts'],
+    rules: {
+      'unicorn/no-thenable': 0
+    }
+  },
+  {
+    files: [
+      'src/internal/chain-or-call.mts',
+      'src/internal/get-file-system-entries.mts',
+      'src/internal/visit-directory.mts',
+      'src/lib/load-tsconfig.mts',
+      'src/lib/read-tsconfig.mts'
+    ],
+    rules: {
+      'promise/prefer-await-to-then': 0
+    }
+  },
+  {
+    files: [
+      'src/internal/get-file-system-entries.mts',
+      'src/internal/match-files.mts',
+      'src/lib/load-tsconfig.mts'
+    ],
+    rules: {
+      '@typescript-eslint/promise-function-async': 0
+    }
   }
 ]
+
+export default config

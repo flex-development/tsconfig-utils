@@ -6,53 +6,53 @@
 import type { FileSystem } from '@flex-development/tsconfig-utils'
 
 /**
- * File system API.
+ * The file system API.
  *
  * @const {FileSystem} fs
  */
 const fs: FileSystem = {
   /**
-   * Get the contents of a file.
+   * Read the entire contents of a file.
    *
    * @return {never}
    *  Never; not implemented
    * @throws {Error}
    */
-  readFileSync(): never {
-    throw new Error('[readFileSync] not implemented')
+  readFile(): never {
+    throw new Error('[readFile] not implemented')
   },
 
   /**
-   * Read the contents of a directory.
+   * Read the entire contents of a directory.
    *
    * @return {never}
    *  Never; not implemented
    * @throws {Error}
    */
-  readdirSync(): never {
-    throw new Error('[readdirSync] not implemented')
+  readdir(): never {
+    throw new Error('[readdir] not implemented')
   },
 
   /**
-   * Get the resolved pathname of a directory or file.
+   * Compute a canonical pathname by resolving `.`, `..`, and symbolic links.
    *
    * @return {never}
    *  Never; not implemented
    * @throws {Error}
    */
-  realpathSync(): never {
-    throw new Error('[realpathSync] not implemented')
+  realpath(): never {
+    throw new Error('[realpath] not implemented')
   },
 
   /**
-   * Get information about a directory or file.
+   * Get information about a file system entry.
    *
    * @return {never}
    *  Never; not implemented
    * @throws {Error}
    */
-  statSync(): never {
-    throw new Error('[statSync] not implemented')
+  stat(): never {
+    throw new Error('[stat] not implemented')
   }
 }
 

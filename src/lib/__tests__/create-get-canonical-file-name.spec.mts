@@ -3,21 +3,29 @@
  * @module tsconfig-utils/lib/tests/unit/createGetCanonicalFileName
  */
 
-import toPath from '#internal/to-path'
+import constant from '#internal/constant'
 import testSubject from '#lib/create-get-canonical-file-name'
 import pathe from '@flex-development/pathe'
-import { lowercase } from '@flex-development/tutils'
+import type { GetCanonicalFileName } from '@flex-development/tsconfig-utils'
 
 describe('unit:lib/createGetCanonicalFileName', () => {
-  it('should return canonical filename of `id`', () => {
-    // Arrange
-    const id: URL = new URL('file:///creatE-geT-canonicaL-filE-namE.mts')
-
-    // Act
-    const result = testSubject()(id)
-
-    // Expect
-    expect(result).to.be.a('string').and.not.satisfy(pathe.isURL)
-    expect(lowercase(result)).to.eql(lowercase(toPath(id)))
+  describe.each<[
+    ...Parameters<typeof testSubject>,
+    ...Parameters<GetCanonicalFileName>
+  ]>([
+    [null, '/lib/components/atoms/Anchor.tsx'],
+    [true, '/lib/components/atoms/Button.tsx'],
+    [
+      vi.fn(constant(false)).mockName('noCaseSensitiveFileNames'),
+      pathe.pathToFileURL('/lib/components/atoms/Header.tsx')
+    ],
+    [
+      vi.fn(constant(true)).mockName('useCaseSensitiveFileNames'),
+      pathe.pathToFileURL('/lib/components/atoms/Footer.tsx')
+    ]
+  ])('%#', (useCaseSensitiveFileNames, id) => {
+    it('should return canonical file name for `id`', () => {
+      expect(testSubject(useCaseSensitiveFileNames)(id)).toMatchSnapshot()
+    })
   })
 })

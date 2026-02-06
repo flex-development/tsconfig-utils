@@ -3,60 +3,70 @@
  * @module tsconfig-utils/lib/createGetCanonicalFileName
  */
 
-import toPath from '#internal/to-path'
 import type { ModuleId } from '@flex-development/mlly'
-import type { GetCanonicalFileName } from '@flex-development/tsconfig-utils'
+import pathe from '@flex-development/pathe'
+import type {
+  GetCanonicalFileName,
+  UseCaseSensitiveFileNames
+} from '@flex-development/tsconfig-utils'
 import { lowercase } from '@flex-development/tutils'
 
 /**
- * Create a canonical file path function.
+ * Create a canonical file name function.
  *
  * @see {@linkcode GetCanonicalFileName}
+ * @see {@linkcode UseCaseSensitiveFileNames}
  *
  * @this {void}
  *
- * @param {boolean | null | undefined} [useCaseSensitiveFileNames]
- *  Treat filenames as case-sensitive?
+ * @param {UseCaseSensitiveFileNames} [useCaseSensitiveFileNames]
+ *  Whether to treat filenames as case-sensitive
  * @return {GetCanonicalFileName}
- *  Function to get the canonical filename of a path or `file:` URL
+ *  A function that returns a canonical file name given a module id
  */
 function createGetCanonicalFileName(
   this: void,
-  useCaseSensitiveFileNames?: boolean | null | undefined
+  useCaseSensitiveFileNames?: UseCaseSensitiveFileNames
 ): GetCanonicalFileName {
   return getCanonicalFileName
 
   /**
-   * Get the canonical filename of `id`.
-   *
    * @see https://github.com/microsoft/TypeScript/blob/v5.7.2/src/compiler/core.ts#L1839-L1879
    *
    * @this {void}
    *
    * @param {ModuleId} id
-   *  The path or `file:` URL to handle
+   *  The module id
    * @return {string}
-   *  Canonical filename of `id`
+   *  The canonical file name
    */
   function getCanonicalFileName(this: void, id: ModuleId): string {
     /**
-     * Canonical path of {@linkcode id}.
+     * The canonical file name.
      *
      * @var {string} canonical
      */
-    let canonical: string = toPath(id)
+    let canonical: string = pathe.toPath(id)
 
-    if (!useCaseSensitiveFileNames) {
-      /**
-       * Regular expression matching characters in {@linkcode canonical} that
-       * should be converted to lowercase.
-       *
-       * @const {RegExp} toLowercase
-       */
-      // eslint-disable-next-line unicorn/better-regex
-      const toLowercase: RegExp = /[^\u0130\u0131\u00DFa-z0-9\\/:\-_. ]+/g
+    /**
+     * Whether to treat file names as case sensitive.
+     *
+     * @var {boolean} caseSensitive
+     */
+    let caseSensitive: boolean = !!useCaseSensitiveFileNames
 
-      canonical = canonical.replaceAll(toLowercase, lowercase)
+    // determine if file names should be treated as case sensitive.
+    if (typeof useCaseSensitiveFileNames === 'function') {
+      caseSensitive = !!useCaseSensitiveFileNames()
+    }
+
+    // convert all characters in `canonical` to lowercase.
+    if (!caseSensitive) {
+      canonical = canonical.replaceAll(
+        // eslint-disable-next-line unicorn/better-regex
+        /[^\u0130\u0131\u00DFa-z0-9\\/:\-_. ]+/g,
+        lowercase
+      )
     }
 
     return canonical
