@@ -1748,19 +1748,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@flex-development/mlly@flex-development/mlly#commit=cc5109cc76949d287f1b53e54e47559ed1a902b3":
-  version: 1.0.0-beta.3
-  resolution: "@flex-development/mlly@https://github.com/flex-development/mlly.git#commit=cc5109cc76949d287f1b53e54e47559ed1a902b3"
-  dependencies:
-    "@flex-development/errnode": "npm:3.1.1"
-    "@flex-development/is-builtin": "npm:3.2.0"
-    "@flex-development/pathe": "npm:4.0.2"
-    "@flex-development/pkg-types": "npm:4.1.0"
-    devlop: "npm:1.1.0"
-  checksum: 10/9e3049b52e63579eb64e157ba62dd410072bb4c8ef027c59b0bd0dd5ba7d07d88a753d2257d54d39bb1d6d78cd05036c94642b84fa56d047b7015435e325b41d
-  languageName: node
-  linkType: hard
-
 "@flex-development/mlly@npm:1.0.0-alpha.15":
   version: 1.0.0-alpha.15
   resolution: "@flex-development/mlly@npm:1.0.0-alpha.15"
@@ -1800,6 +1787,19 @@ __metadata:
     "@types/node":
       optional: true
   checksum: 10/9e5c2f9b8be23e90bc2120a648208f30127602346bdbce5a130710eb8516df954debe4fea7c727f81f9837cb0ca1f778ae4e3174278e22065be2792356c79b7e
+  languageName: node
+  linkType: hard
+
+"@flex-development/mlly@npm:1.0.0-beta.4":
+  version: 1.0.0-beta.4
+  resolution: "@flex-development/mlly@npm:1.0.0-beta.4"
+  dependencies:
+    "@flex-development/errnode": "npm:3.1.1"
+    "@flex-development/is-builtin": "npm:3.2.0"
+    "@flex-development/pathe": "npm:4.0.2"
+    "@flex-development/pkg-types": "npm:4.1.0"
+    devlop: "npm:1.1.0"
+  checksum: 10/c226aac64760b6a8e90dd8cc51de70a4c758752f72110c4d96d7feefd19cf8ec67f99109aa48a060eb435d24afb5a3e1afd4e733c247786c4f2fe5bdadc9d5f4
   languageName: node
   linkType: hard
 
@@ -2015,7 +2015,7 @@ __metadata:
     "@flex-development/fst": "npm:1.0.0"
     "@flex-development/grease": "npm:3.0.0-alpha.9"
     "@flex-development/is-builtin": "npm:3.2.0"
-    "@flex-development/mlly": "flex-development/mlly#commit=cc5109cc76949d287f1b53e54e47559ed1a902b3"
+    "@flex-development/mlly": "npm:1.0.0-beta.4"
     "@flex-development/pathe": "npm:4.0.2"
     "@flex-development/pkg-types": "npm:4.1.0"
     "@flex-development/remark-preset": "npm:1.0.0"

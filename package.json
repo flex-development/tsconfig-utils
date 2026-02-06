@@ -138,7 +138,7 @@
   },
   "dependencies": {
     "@flex-development/fst": "1.0.0",
-    "@flex-development/mlly": "flex-development/mlly#commit=cc5109cc76949d287f1b53e54e47559ed1a902b3",
+    "@flex-development/mlly": "1.0.0-beta.4",
     "@flex-development/pathe": "4.0.2",
     "@flex-development/pkg-types": "4.1.0",
     "@flex-development/tsconfig-types": "5.1.0",
