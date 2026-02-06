@@ -5,32 +5,37 @@
 
 import type TestSubject from '#interfaces/file-system'
 import type * as mlly from '@flex-development/mlly'
-import type { Dirent } from '@flex-development/tsconfig-utils'
+import type {
+  ReadFile,
+  Readdir,
+  Realpath,
+  Stat
+} from '@flex-development/tsconfig-utils'
 
 describe('unit-d:interfaces/FileSystem', () => {
   it('should extend mlly.FileSystem', () => {
-    expectTypeOf<TestSubject>().toMatchTypeOf<mlly.FileSystem>()
+    expectTypeOf<TestSubject>().toExtend<mlly.FileSystem>()
   })
 
-  describe('readdirSync', () => {
-    type Subject = TestSubject['readdirSync']
+  it('should match [readFile: ReadFile]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('readFile')
+      .toEqualTypeOf<ReadFile>()
+  })
 
-    it('should match [this: void]', () => {
-      expectTypeOf<Subject>().thisParameter.toEqualTypeOf<void>()
-    })
+  it('should match [readdir: Readdir]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('readdir')
+      .toEqualTypeOf<Readdir>()
+  })
 
-    describe('parameters', () => {
-      it('should be callable with [mlly.ModuleId, { withFileTypes: true }]', () => {
-        expectTypeOf<Subject>()
-          .parameters
-          .toEqualTypeOf<[mlly.ModuleId, { withFileTypes: true }]>()
-      })
-    })
+  it('should match [realpath: Realpath]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('realpath')
+      .toEqualTypeOf<Realpath>()
+  })
 
-    describe('returns', () => {
-      it('should return readonly Dirent[]', () => {
-        expectTypeOf<Subject>().returns.toEqualTypeOf<readonly Dirent[]>()
-      })
-    })
+  it('should match [stat: Stat]', () => {
+    expectTypeOf<TestSubject>().toHaveProperty('stat').toEqualTypeOf<Stat>()
   })
 })

@@ -3,10 +3,13 @@
  * @module tsconfig-utils/lib/createParseConfigHost
  */
 
+import getFileSystemEntries from '#internal/get-file-system-entries'
 import matchFiles from '#internal/match-files'
 import createModuleResolutionHost from '#lib/create-module-resolution-host'
 import type { ModuleId } from '@flex-development/mlly'
 import type {
+  Awaitable,
+  List,
   ModuleResolutionHost,
   ParseConfigHost,
   ParseConfigHostOptions
@@ -15,83 +18,114 @@ import type {
 /**
  * Create a parse config host.
  *
+ * > 👉 **Note**: The host can have both asynchronous and synchronous methods,
+ * > but when used with the native TypeScript compiler, all methods must return
+ * > synchronous values.
+ *
  * @see {@linkcode ParseConfigHostOptions}
  * @see {@linkcode ParseConfigHost}
  *
  * @this {void}
  *
  * @param {ParseConfigHostOptions | null | undefined} [options]
- *  Host options
+ *  Options for host creation
  * @return {ParseConfigHost}
- *  Parse config host object
+ *  The parse config host
  */
 function createParseConfigHost(
   this: void,
   options?: ParseConfigHostOptions | null | undefined
 ): ParseConfigHost {
   /**
-   * Module resolution host object.
+   * The module resolution host.
    *
    * @const {ModuleResolutionHost} host
    */
   const host: ModuleResolutionHost = createModuleResolutionHost(options)
 
   /**
-   * Treat filenames as case-sensitive?
+   * Whether to treat file names as case sensitive.
    *
    * @var {boolean} useCaseSensitiveFileNames
    */
   let useCaseSensitiveFileNames: boolean = !!host.useCaseSensitiveFileNames
 
+  // determine if file names should be treated as case sensitive.
   if (typeof host.useCaseSensitiveFileNames === 'function') {
-    useCaseSensitiveFileNames = host.useCaseSensitiveFileNames()
+    useCaseSensitiveFileNames = !!host.useCaseSensitiveFileNames()
   }
 
   return {
-    directoryExists: host.directoryExists,
-    fileExists: host.fileExists,
-    getCurrentDirectory: host.getCurrentDirectory,
-    getDirectories: host.getDirectories,
+    directoryExists: host.directoryExists.bind(host),
+    fileExists: host.fileExists.bind(host),
+    getCurrentDirectory: host.getCurrentDirectory.bind(host),
+    getDirectories: host.getDirectories.bind(host),
     readDirectory,
-    readFile: host.readFile,
-    realpath: host.realpath,
+    readFile: host.readFile.bind(host),
+    realpath: host.realpath.bind(host),
     useCaseSensitiveFileNames
   }
 
   /**
-   * Get a list of files in a directory.
+   * @template {Awaitable<ReadonlyArray<string>>} T
+   *  The list of matched files
    *
-   * @this {void}
+   * @this {unknown}
    *
-   * @param {ModuleId} id
-   *  The directory path or URL to read
-   * @param {Set<string> | ReadonlyArray<string> | undefined} [extensions]
-   *  List of file extensions to filter for
-   * @param {Set<string> | ReadonlyArray<string> | undefined} [exclude]
-   *  List of glob patterns matching files to exclude
-   * @param {Set<string> | ReadonlyArray<string> | undefined} [include]
-   *  List of glob patterns matching files to include
+   * @param {ModuleId} parent
+   *  The module id of the parent directory
+   * @param {List<string> | null | undefined} [extensions]
+   *  The list of file extensions to filter for
+   * @param {List<string> | null | undefined} [exclude]
+   *  The list of glob patterns matching files to exclude
+   * @param {List<string> | null | undefined} [include]
+   *  The list of glob patterns matching files to include
    * @param {number | null | undefined} [depth]
-   *  Maximum search depth (inclusive)
-   * @return {ReadonlyArray<string>}
-   *  List of files under directory at `id`
+   *  The maximum search depth (inclusive)
+   * @return {T}
+   *  The listed of matched files
+   */
+  function readDirectory<T extends Awaitable<readonly string[]>>(
+    parent: ModuleId,
+    extensions?: List<string> | null | undefined,
+    exclude?: List<string> | null | undefined,
+    include?: List<string> | null | undefined,
+    depth?: number | null | undefined
+  ): T
+
+  /**
+   * @this {ParseConfigHost}
+   *
+   * @param {ModuleId} parent
+   *  The module id of the parent directory
+   * @param {List<string> | null | undefined} [extensions]
+   *  The list of file extensions to filter for
+   * @param {List<string> | null | undefined} [exclude]
+   *  The list of glob patterns matching files to exclude
+   * @param {List<string> | null | undefined} [include]
+   *  The list of glob patterns matching files to include
+   * @param {number | null | undefined} [depth]
+   *  The maximum search depth (inclusive)
+   * @return {Awaitable<ReadonlyArray<string>>}
+   *  The listed of matched files
    */
   function readDirectory(
-    this: void,
-    id: ModuleId,
-    extensions: Set<string> | readonly string[] | undefined,
-    exclude: Set<string> | readonly string[] | undefined,
-    include: Set<string> | readonly string[] | undefined,
+    this: ParseConfigHost,
+    parent: ModuleId,
+    extensions?: List<string> | null | undefined,
+    exclude?: List<string> | null | undefined,
+    include?: List<string> | null | undefined,
     depth?: number | null | undefined
-  ): readonly string[] {
+  ): Awaitable<readonly string[]> {
     return matchFiles(
-      host,
-      id,
+      this,
+      parent,
       extensions,
       exclude,
       include,
       useCaseSensitiveFileNames,
       depth,
+      getFileSystemEntries,
       options?.fs
     )
   }

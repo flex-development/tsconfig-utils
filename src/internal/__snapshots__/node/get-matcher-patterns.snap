@@ -1,0 +1,71 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`unit:internal/getMatcherPatterns > 0 > should return matchers pattern record 1`] = `
+{
+  "directoryInclude": Set {},
+  "exclude": Set {},
+  "fileInclude": Set {},
+  "matchExtension": [Function matchExtension],
+  "useCaseSensitiveFileNames": false,
+}
+`;
+
+exports[`unit:internal/getMatcherPatterns > 1 > should return matchers pattern record 1`] = `
+{
+  "directoryInclude": Set {
+    "**",
+  },
+  "exclude": Set {
+    "coverage",
+    "dist",
+    "node_modules",
+  },
+  "fileInclude": Set {
+    "**/**.json",
+    "**/**.mjs",
+    "**/**.mts",
+    "**/**.ts",
+  },
+  "matchExtension": [Function matchExtension],
+  "useCaseSensitiveFileNames": false,
+}
+`;
+
+exports[`unit:internal/getMatcherPatterns > 2 > should return matchers pattern record 1`] = `
+{
+  "directoryInclude": Set {
+    "dist/**",
+    "dist",
+    "src/**",
+    "src",
+  },
+  "exclude": Set {
+    "**/__mocks__/**",
+    "**/__tests__/**",
+  },
+  "fileInclude": Set {
+    "dist/**/*",
+    "src/**/**.mts",
+  },
+  "matchExtension": [Function matchExtension],
+  "useCaseSensitiveFileNames": true,
+}
+`;
+
+exports[`unit:internal/getMatcherPatterns > 3 > should return matchers pattern record 1`] = `
+{
+  "directoryInclude": Set {
+    "src",
+    "src/**",
+  },
+  "exclude": Set {
+    "**/__mocks__/**",
+    "**/__tests__/**",
+  },
+  "fileInclude": Set {
+    "src/**",
+  },
+  "matchExtension": [Function matchExtension],
+  "useCaseSensitiveFileNames": true,
+}
+`;

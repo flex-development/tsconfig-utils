@@ -5,7 +5,7 @@
 
 import * as mlly from '@flex-development/mlly'
 import pathe from '@flex-development/pathe'
-import type { JsonValue } from '@flex-development/tsconfig-utils'
+import type { JsonValue } from '@flex-development/tsconfig-types'
 import { ok } from 'devlop'
 
 /**
@@ -16,22 +16,22 @@ import { ok } from 'devlop'
  * @internal
  *
  * @template {JsonValue | undefined} T
- *  Base tsconfig value
+ *  The base tsconfig value
  *
  * @this {void}
  *
  * @param {URL} url
- *  URL of inheriting tsconfig
+ *  The URL of the inheriting tsconfig
  * @param {URL} parent
- *  URL of base tsconfig
+ *  The URL of the base tsconfig
  * @param {T} value
- *  Base tsconfig value
+ *  The base tsconfig value
  * @param {string | null} key
- *  Current property path
+ *  The current property path
  * @param {Set<string>} paths
- *  List of property paths where the value may be a relative path
+ *  The list of property paths where the value may be a relative path
  * @return {T}
- *  `value` with normalized relative paths
+ *  The `value` with normalized relative paths
  */
 function normalizeRelativePaths<T extends JsonValue | undefined>(
   this: void,

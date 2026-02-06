@@ -1,0 +1,89 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`unit:lib/createModuleResolutionHost > fs (default) > getDirectories > should return list of subdirectory names (0) 1`] = `[]`;
+
+exports[`unit:lib/createModuleResolutionHost > fs (default) > getDirectories > should return list of subdirectory names (1) 1`] = `
+[
+  ".git",
+  ".github",
+  ".husky",
+  ".vscode",
+  ".yarn",
+  "__fixtures__",
+  "__tests__",
+  "dprint",
+  "scripts",
+  "src",
+  "typings",
+]
+`;
+
+exports[`unit:lib/createModuleResolutionHost > fs (default) > readFile > should return file contents (0) 1`] = `undefined`;
+
+exports[`unit:lib/createModuleResolutionHost > fs (default) > readFile > should return file contents (1) 1`] = `""`;
+
+exports[`unit:lib/createModuleResolutionHost > fs (default) > realpath > should return canonical pathname (0) 1`] = `\${process.cwd()}`;
+
+exports[`unit:lib/createModuleResolutionHost > fs (default) > realpath > should return canonical pathname (1) 1`] = `\${process.cwd()}/src/index.mts`;
+
+exports[`unit:lib/createModuleResolutionHost > fs (only async) > getDirectories > should return list of subdirectory names (0) 1`] = `[]`;
+
+exports[`unit:lib/createModuleResolutionHost > fs (only async) > getDirectories > should return list of subdirectory names (1) 1`] = `
+[
+  ".git",
+  ".github",
+  ".husky",
+  ".vscode",
+  ".yarn",
+  "__fixtures__",
+  "__tests__",
+  "dprint",
+  "scripts",
+  "src",
+  "typings",
+]
+`;
+
+exports[`unit:lib/createModuleResolutionHost > fs (only async) > readFile > should return file contents (0) 1`] = `undefined`;
+
+exports[`unit:lib/createModuleResolutionHost > fs (only async) > readFile > should return file contents (1) 1`] = `""`;
+
+exports[`unit:lib/createModuleResolutionHost > fs (only async) > realpath > should return canonical pathname (0) 1`] = `\${process.cwd()}`;
+
+exports[`unit:lib/createModuleResolutionHost > fs (only async) > realpath > should return canonical pathname (1) 1`] = `\${process.cwd()}/src/index.mts`;
+
+exports[`unit:lib/createModuleResolutionHost > should create module resolution host (0) 1`] = `
+{
+  "directoryExists": [Function directoryExists],
+  "fileExists": [Function fileExists],
+  "getCurrentDirectory": [Function getCurrentDirectory],
+  "getDirectories": [Function getDirectories],
+  "readFile": [Function readFile],
+  "realpath": [Function realpath],
+  "useCaseSensitiveFileNames": undefined,
+}
+`;
+
+exports[`unit:lib/createModuleResolutionHost > should create module resolution host (1) 1`] = `
+{
+  "directoryExists": [Function directoryExists],
+  "fileExists": [Function fileExists],
+  "getCurrentDirectory": [Function getCurrentDirectory],
+  "getDirectories": [Function getDirectories],
+  "readFile": [Function readFile],
+  "realpath": [Function realpath],
+  "useCaseSensitiveFileNames": true,
+}
+`;
+
+exports[`unit:lib/createModuleResolutionHost > should create module resolution host (2) 1`] = `
+{
+  "directoryExists": [Function directoryExists],
+  "fileExists": [Function fileExists],
+  "getCurrentDirectory": [Function getCurrentDirectory],
+  "getDirectories": [Function getDirectories],
+  "readFile": [Function readFile],
+  "realpath": [Function realpath],
+  "useCaseSensitiveFileNames": [MockFunction],
+}
+`;

@@ -3,8 +3,8 @@
  * @module tsconfig-utils/internal/tests/unit/getTsconfig
  */
 
-import tsconfig from '#fixtures/tsconfig.json' with { type: 'json' }
 import testSubject from '#internal/get-tsconfig'
+import tsconfig from '#tsconfig' with { type: 'json' }
 
 describe('unit:internal/getTsconfig', () => {
   it('should return tsconfig object (Tsconfig)', () => {

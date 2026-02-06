@@ -3,14 +3,14 @@
  * @module tsconfig-utils/interfaces/TsconfigHost
  */
 
-import type { Tsconfig } from '@flex-development/tsconfig-utils'
+import type { Tsconfig } from '@flex-development/tsconfig-types'
 
 /**
  * An object with a TypeScript configuration.
  */
 interface TsconfigHost {
   /**
-   * Tsconfig object.
+   * The tsconfig object.
    *
    * @see {@linkcode Tsconfig}
    */

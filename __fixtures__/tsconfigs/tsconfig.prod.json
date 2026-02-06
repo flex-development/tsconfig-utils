@@ -1,0 +1,6 @@
+{
+  "compilerOptions": {
+    "customConditions": ["tsconfig-utils", "production"]
+  },
+  "extends": "../../tsconfig.build.json"
+}

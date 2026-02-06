@@ -3,9 +3,9 @@
  * @module tsconfig-utils/lib/tests/unit/isResolvedTsconfig
  */
 
-import tsconfig from '#fixtures/tsconfig.json' with { type: 'json' }
 import testSubject from '#lib/is-resolved-tsconfig'
-import { cwd } from '@flex-development/mlly'
+import tsconfig from '#tsconfig' with { type: 'json' }
+import * as mlly from '@flex-development/mlly'
 
 describe('unit:lib/isResolvedTsconfig', () => {
   it.each<Parameters<typeof testSubject>>([
@@ -17,7 +17,7 @@ describe('unit:lib/isResolvedTsconfig', () => {
 
   it('should return `true` if `value` is `ResolvedTsconfig`', () => {
     // Arrange
-    const url: URL = new URL('tsconfig.json', cwd())
+    const url: URL = new URL('tsconfig.json', mlly.cwd())
 
     // Act + Expect
     expect(testSubject({ tsconfig, url })).to.be.true

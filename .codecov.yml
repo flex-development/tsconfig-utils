@@ -4,12 +4,12 @@
 ---
 codecov:
   notify:
-    after_n_builds: 2
+    after_n_builds: 7
     wait_for_ci: true
   require_ci_to_pass: true
 
 comment:
-  after_n_builds: 2
+  after_n_builds: 7
   behavior: default
   layout: header,diff,flags,components,tree,footer
   require_base: false
@@ -24,6 +24,10 @@ component_management:
       - type: project
         target: 100%
   individual_components:
+    - component_id: internal
+      name: internal
+      paths:
+        - src/internal/*.mts
     - component_id: lib
       name: lib
       paths:
@@ -76,11 +80,31 @@ coverage:
         threshold: 0%
 
 flags:
+  bun-canary:
+    carryforward: false
+    paths:
+      - src/
+  bun-latest:
+    carryforward: false
+    paths:
+      - src/
+  node24:
+    carryforward: false
+    paths:
+      - src/
   node23:
     carryforward: false
     paths:
       - src/
   node22:
+    carryforward: false
+    paths:
+      - src/
+  node21:
+    carryforward: false
+    paths:
+      - src/
+  node20:
     carryforward: false
     paths:
       - src/

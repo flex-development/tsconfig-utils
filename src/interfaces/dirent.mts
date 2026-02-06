@@ -3,18 +3,44 @@
  * @module tsconfig-utils/interfaces/Dirent
  */
 
-import type * as fst from '@flex-development/fst-util-from-fs'
+import type {
+  IsDirectory,
+  IsFile,
+  IsSymbolicLink
+} from '@flex-development/tsconfig-utils'
 
 /**
- * Directory content entry.
- *
- * @see {@linkcode fst.Dirent}
- *
- * @extends {fst.Dirent}
+ * An object representing directory content.
  */
-interface Dirent extends fst.Dirent {
+interface Dirent {
   /**
-   * Path to parent directory.
+   * Check if the dirent describes a directory.
+   *
+   * @see {@linkcode IsDirectory}
+   */
+  isDirectory: IsDirectory
+
+  /**
+   * Check if the dirent describes a file.
+   *
+   * @see {@linkcode IsFile}
+   */
+  isFile: IsFile
+
+  /**
+   * Check if the dirent describes a symbolic link.
+   *
+   * @see {@linkcode IsSymbolicLink}
+   */
+  isSymbolicLink: IsSymbolicLink
+
+  /**
+   * The directory content path, relative to the {@linkcode parentPath}.
+   */
+  name: string
+
+  /**
+   * The path to the parent directory.
    */
   parentPath: string
 }

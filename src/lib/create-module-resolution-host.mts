@@ -3,29 +3,38 @@
  * @module tsconfig-utils/lib/createModuleResolutionHost
  */
 
+import chainOrCall from '#internal/chain-or-call'
 import dfs from '#internal/fs'
-import toPath from '#internal/to-path'
 import withTrailingSlash from '#internal/with-trailing-slash'
-import { isDirectory, isFile, type ModuleId } from '@flex-development/mlly'
+import {
+  isDirectory,
+  isFile,
+  isModuleId,
+  type BufferEncoding,
+  type EmptyArray,
+  type ModuleId
+} from '@flex-development/mlly'
 import pathe from '@flex-development/pathe'
 import type {
+  Awaitable,
+  Dirent,
   FileSystem,
   ModuleResolutionHost,
-  ModuleResolutionHostOptions
+  ModuleResolutionHostOptions,
+  UseCaseSensitiveFileNames
 } from '@flex-development/tsconfig-utils'
-import { ok } from 'devlop'
 
 export default createModuleResolutionHost
 
 /**
- * Union of values used to treat filenames as case-sensitive.
- *
- * @internal
- */
-type UseCaseSensitiveFileNames = ((this: void) => boolean) | boolean | undefined
-
-/**
  * Create a module resolution host.
+ *
+ * The module resolution host acts a bridge between the TypeScript compiler
+ * and the file system.
+ *
+ * > 👉 **Note**: The host can have both asynchronous and synchronous methods,
+ * > but when used with the native TypeScript compiler, all methods must return
+ * > synchronous values.
  *
  * @see {@linkcode ModuleResolutionHostOptions}
  * @see {@linkcode ModuleResolutionHost}
@@ -33,45 +42,47 @@ type UseCaseSensitiveFileNames = ((this: void) => boolean) | boolean | undefined
  * @this {void}
  *
  * @param {ModuleResolutionHostOptions | null | undefined} [options]
- *  Host options
+ *  Options for host creation
  * @return {ModuleResolutionHost}
- *  Module resolution host object
+ *  The module resolution host
  */
 function createModuleResolutionHost(
   this: void,
   options?: ModuleResolutionHostOptions | null | undefined
 ): ModuleResolutionHost {
   /**
-   * File system API.
+   * The encoding to use when reading files.
+   *
+   * @var {BufferEncoding} encoding
+   */
+  let encoding: BufferEncoding = 'utf8'
+
+  /**
+   * The file system API.
    *
    * @var {FileSystem} fs
    */
   let fs: FileSystem = dfs
 
   /**
-   * Path to root directory.
+   * The path to the root directory.
    *
    * @var {string} root
    */
   let root: string = pathe.cwd()
 
   /**
-   * Boolean indicating filenames should be treated as case-sensitive, a
-   * function that returns such a boolean, or `undefined` for default treatment
-   * of filename casing.
+   * Boolean indicating filenames should be treated as case-sensitive,
+   * a function that returns such a value, or `undefined`.
    *
    * @var {UseCaseSensitiveFileNames} useCaseSensitiveFileNames
    */
   let useCaseSensitiveFileNames: UseCaseSensitiveFileNames = undefined
 
   if (options) {
-    if (options.fs) {
-      fs = options.fs
-    }
-
-    if (options.root !== null && options.root !== undefined) {
-      root = toPath(options.root)
-    }
+    if (options.encoding) encoding = options.encoding
+    if (options.fs) fs = options.fs
+    if (isModuleId(options.root)) root = pathe.toPath(options.root)
 
     if (
       options.useCaseSensitiveFileNames !== null &&
@@ -92,116 +103,187 @@ function createModuleResolutionHost(
   }
 
   /**
-   * Check if a directory exists at `id`.
+   * @template {Awaitable<boolean>} T
+   *  The result of the check
    *
+   * @this {unknown}
+   *
+   * @param {ModuleId} id
+   *  The module id to check
+   * @return {T}
+   *  `true` if directory exists at `id`, `false` otherwise
+   */
+  function directoryExists<T extends Awaitable<boolean>>(id: ModuleId): T
+
+  /**
    * @this {void}
    *
    * @param {ModuleId} id
    *  The module id to check
-   * @return {boolean}
+   * @return {Awaitable<boolean>}
    *  `true` if directory exists at `id`, `false` otherwise
    */
-  function directoryExists(id: ModuleId): boolean {
-    ok(fs, 'expected `fs`')
+  function directoryExists(this: void, id: ModuleId): Awaitable<boolean> {
     return isDirectory(id, fs)
   }
 
   /**
-   * Check if a file exists at `id`.
+   * @template {Awaitable<boolean>} T
+   *  The result of the check
    *
+   * @this {unknown}
+   *
+   * @param {ModuleId} id
+   *  The module id to check
+   * @return {T}
+   *  `true` if file exists at `id`, `false` otherwise
+   */
+  function fileExists<T extends Awaitable<boolean>>(id: ModuleId): T
+
+  /**
    * @this {void}
    *
    * @param {ModuleId} id
    *  The module id to check
-   * @return {boolean}
+   * @return {Awaitable<boolean>}
    *  `true` if file exists at `id`, `false` otherwise
    */
-  function fileExists(id: ModuleId): boolean {
-    ok(fs, 'expected `fs`')
+  function fileExists(this: void, id: ModuleId): Awaitable<boolean> {
     return isFile(id, fs)
   }
 
   /**
-   * Get the path to current working directory.
+   * @template {Awaitable<string>} T
+   *  The path
    *
+   * @this {unknown}
+   *
+   * @return {T}
+   *  The current working directory path
+   */
+  function getCurrentDirectory<T extends Awaitable<string>>(): T
+
+  /**
    * @this {void}
    *
    * @return {string}
-   *  Path to current working directory
+   *  The current working directory path
    */
-  function getCurrentDirectory(): string {
+  function getCurrentDirectory(this: void): string {
     return withTrailingSlash(root)
   }
 
   /**
-   * Get a list of subdirectories.
+   * @template {Awaitable<string[]>} T
+   *  The list of subdirectory names
    *
-   * @this {void}
+   * @this {unknown}
    *
    * @param {ModuleId} id
-   *  The directory path or URL to read
-   * @return {string[]}
-   *  List of subdirectory names
+   *  The module id of the parent directory
+   * @return {T}
+   *  The list of subdirectory names
    */
-  function getDirectories(id: ModuleId): string[] {
-    ok(fs, 'expected `fs`')
+  function getDirectories<T extends Awaitable<string[]>>(id: ModuleId): T
 
+  /**
+   * @this {ModuleResolutionHost}
+   *
+   * @param {ModuleId} parent
+   *  The module id of the parent directory
+   * @return {Awaitable<EmptyArray | string[]>}
+   *  The list of subdirectory names
+   */
+  function getDirectories(
+    this: ModuleResolutionHost,
+    parent: ModuleId
+  ): Awaitable<EmptyArray | string[]> {
     /**
-     * List of subdirectory names.
+     * Whether the parent directory exists.
      *
-     * @var {string[]} names
+     * @const {Awaitable<boolean>} exists
      */
-    let names: string[] = []
+    const exists: Awaitable<boolean> = this.directoryExists(parent)
 
-    if (directoryExists(id)) {
-      names = fs
-        .readdirSync(id = toPath(id), { withFileTypes: true })
-        .filter(dirent => dirent.isDirectory())
-        .map(dirent => dirent.name)
-    }
+    return chainOrCall(exists, (isDirectory = exists as boolean) => {
+      if (!isDirectory) return []
 
-    return names
+      /**
+       * The directory content.
+       *
+       * @const {Awaitable<ReadonlyArray<Dirent>>} content
+       */
+      const content: Awaitable<readonly Dirent[]> = fs.readdir(String(parent), {
+        withFileTypes: true
+      })
+
+      return chainOrCall(content, (dirents = content as readonly Dirent[]) => {
+        return dirents
+          .filter(dirent => dirent.isDirectory())
+          .map(dirent => dirent.name)
+      })
+    })
   }
 
   /**
-   * Get the contents of a file.
+   * @template {Awaitable<string | undefined>} T
+   *  The file contents
    *
-   * @this {void}
+   * @this {unknown}
    *
    * @param {ModuleId} id
-   *  The file path or URL to read
-   * @return {Buffer | string}
-   *  File contents or `undefined` if file does not exist at `id`
+   *  The module id of the file
+   * @return {T}
+   *  The file contents, or `undefined` if file does not exist at `id`
    */
-  function readFile(id: ModuleId): string | undefined {
-    ok(fs, 'expected `fs`')
+  function readFile<T extends Awaitable<string | undefined>>(id: ModuleId): T
 
+  /**
+   * @this {ModuleResolutionHost}
+   *
+   * @param {ModuleId} id
+   *  The module id of the file
+   * @return {Awaitable<string | undefined>}
+   *  The file contents, or `undefined` if file does not exist at `id`
+   */
+  function readFile(
+    this: ModuleResolutionHost,
+    id: ModuleId
+  ): Awaitable<string | undefined> {
     /**
-     * File contents.
+     * Whether the file exists.
      *
-     * @var {string | undefined} contents
+     * @const {Awaitable<boolean>} exists
      */
-    let contents: string | undefined
+    const exists: Awaitable<boolean> = this.fileExists(id)
 
-    if (fileExists(id)) {
-      contents = String(fs.readFileSync(toPath(id)))
-    }
-
-    return contents
+    return chainOrCall(exists, (isFile = exists as boolean) => {
+      return isFile ? fs.readFile(pathe.toPath(id), encoding) : undefined
+    })
   }
 
   /**
-   * Get the resolved pathname of `id`.
+   * @template {Awaitable<string>} T
+   *  The canonical pathname
    *
+   * @this {unknown}
+   *
+   * @param {ModuleId} id
+   *  The module id
+   * @return {T}
+   *  The canonical pathname
+   */
+  function realpath<T extends Awaitable<string>>(id: ModuleId): T
+
+  /**
    * @this {void}
    *
    * @param {ModuleId} id
-   *  The path or `file:` URL to handle
-   * @return {string}
-   *  Canonical pathname of `id`
+   *  The module id
+   * @return {Awaitable<string>}
+   *  The canonical pathname
    */
-  function realpath(this: void, id: ModuleId): string {
-    ok(fs, 'expected `fs`')
-    return fs.realpathSync(toPath(id))
+  function realpath(this: void, id: ModuleId): Awaitable<string> {
+    return fs.realpath(pathe.toPath(id))
   }
 }

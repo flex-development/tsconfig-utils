@@ -4,7 +4,7 @@
  */
 
 import type TestSubject from '#interfaces/tsconfig-host'
-import type { Tsconfig } from '@flex-development/tsconfig-utils'
+import type { Tsconfig } from '@flex-development/tsconfig-types'
 
 describe('unit-d:interfaces/TsconfigHost', () => {
   it('should match [tsconfig: Tsconfig]', () => {

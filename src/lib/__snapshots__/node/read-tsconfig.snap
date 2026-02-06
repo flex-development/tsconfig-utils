@@ -1,0 +1,233 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`unit:lib/readTsconfig > fs (default) > should return resolved tsconfig ("#fixtures/tsconfigs/tsconfig.json") 1`] = `
+{
+  "tsconfig": {
+    "compilerOptions": {
+      "allowImportingTsExtensions": true,
+      "allowJs": true,
+      "alwaysStrict": true,
+      "customConditions": [
+        "tsconfig-utils",
+        "development",
+      ],
+      "declaration": true,
+      "declarationMap": true,
+      "lib": [
+        "es2024",
+      ],
+      "module": "esnext",
+      "moduleResolution": "bundler",
+      "newLine": "lf",
+      "noEmit": true,
+      "noErrorTruncation": true,
+      "noUncheckedSideEffectImports": true,
+      "noUnusedParameters": false,
+      "paths": {
+        "https://esm.sh/lodash@4.17.21": [
+          "node_modules/@types/lodash/index.d.ts",
+        ],
+      },
+      "resolveJsonModule": true,
+      "sourceMap": true,
+      "target": "esnext",
+      "verbatimModuleSyntax": true,
+    },
+    "exclude": [
+      "coverage",
+      "dist",
+      "node_modules",
+    ],
+    "extends": "@tsconfig/strictest/tsconfig.json",
+    "include": [
+      "**/**.json",
+      "**/**.mjs",
+      "**/**.mts",
+      "**/**.ts",
+    ],
+    "mdx": {
+      "plugins": [
+        "remark-directive",
+        "remark-frontmatter",
+        "remark-gfm",
+      ],
+    },
+  },
+  "url": file://\${process.cwd()}/__fixtures__/tsconfigs/tsconfig.json,
+}
+`;
+
+exports[`unit:lib/readTsconfig > fs (default) > should return resolved tsconfig ("#fixtures/tsconfigs/tsconfig.test.json") 1`] = `
+{
+  "tsconfig": {
+    "compilerOptions": {
+      "customConditions": [
+        "tsconfig-utils",
+        "development",
+        "test",
+      ],
+    },
+    "extends": [
+      "#fixtures/tsconfigs/tsconfig.json",
+      "#tsconfig-strictest",
+    ],
+  },
+  "url": file://\${process.cwd()}/__fixtures__/tsconfigs/tsconfig.test.json,
+}
+`;
+
+exports[`unit:lib/readTsconfig > fs (default) > should return resolved tsconfig ("@tsconfig/strictest/tsconfig") 1`] = `
+{
+  "tsconfig": {
+    "$schema": "https://www.schemastore.org/tsconfig",
+    "_version": "2.0.0",
+    "compilerOptions": {
+      "allowUnreachableCode": false,
+      "allowUnusedLabels": false,
+      "esModuleInterop": true,
+      "exactOptionalPropertyTypes": true,
+      "isolatedModules": true,
+      "noFallthroughCasesInSwitch": true,
+      "noImplicitOverride": true,
+      "noImplicitReturns": true,
+      "noPropertyAccessFromIndexSignature": true,
+      "noUncheckedIndexedAccess": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "skipLibCheck": true,
+      "strict": true,
+    },
+  },
+  "url": file://\${process.cwd()}/node_modules/@tsconfig/strictest/tsconfig.json,
+}
+`;
+
+exports[`unit:lib/readTsconfig > fs (default) > should return resolved tsconfig ("__fixtures__/tsconfigs/tsconfig.empty.json") 1`] = `
+{
+  "tsconfig": {},
+  "url": file://\${process.cwd()}/__fixtures__/tsconfigs/tsconfig.empty.json,
+}
+`;
+
+exports[`unit:lib/readTsconfig > fs (default) > should return resolved tsconfig ("__fixtures__/tsconfigs/tsconfig.invalid.json") 1`] = `
+{
+  "tsconfig": {},
+  "url": file://\${process.cwd()}/__fixtures__/tsconfigs/tsconfig.invalid.json,
+}
+`;
+
+exports[`unit:lib/readTsconfig > fs (only async) > should return resolved tsconfig ("#fixtures/tsconfigs/tsconfig.json") 1`] = `
+{
+  "tsconfig": {
+    "compilerOptions": {
+      "allowImportingTsExtensions": true,
+      "allowJs": true,
+      "alwaysStrict": true,
+      "customConditions": [
+        "tsconfig-utils",
+        "development",
+      ],
+      "declaration": true,
+      "declarationMap": true,
+      "lib": [
+        "es2024",
+      ],
+      "module": "esnext",
+      "moduleResolution": "bundler",
+      "newLine": "lf",
+      "noEmit": true,
+      "noErrorTruncation": true,
+      "noUncheckedSideEffectImports": true,
+      "noUnusedParameters": false,
+      "paths": {
+        "https://esm.sh/lodash@4.17.21": [
+          "node_modules/@types/lodash/index.d.ts",
+        ],
+      },
+      "resolveJsonModule": true,
+      "sourceMap": true,
+      "target": "esnext",
+      "verbatimModuleSyntax": true,
+    },
+    "exclude": [
+      "coverage",
+      "dist",
+      "node_modules",
+    ],
+    "extends": "@tsconfig/strictest/tsconfig.json",
+    "include": [
+      "**/**.json",
+      "**/**.mjs",
+      "**/**.mts",
+      "**/**.ts",
+    ],
+    "mdx": {
+      "plugins": [
+        "remark-directive",
+        "remark-frontmatter",
+        "remark-gfm",
+      ],
+    },
+  },
+  "url": file://\${process.cwd()}/__fixtures__/tsconfigs/tsconfig.json,
+}
+`;
+
+exports[`unit:lib/readTsconfig > fs (only async) > should return resolved tsconfig ("#fixtures/tsconfigs/tsconfig.test.json") 1`] = `
+{
+  "tsconfig": {
+    "compilerOptions": {
+      "customConditions": [
+        "tsconfig-utils",
+        "development",
+        "test",
+      ],
+    },
+    "extends": [
+      "#fixtures/tsconfigs/tsconfig.json",
+      "#tsconfig-strictest",
+    ],
+  },
+  "url": file://\${process.cwd()}/__fixtures__/tsconfigs/tsconfig.test.json,
+}
+`;
+
+exports[`unit:lib/readTsconfig > fs (only async) > should return resolved tsconfig ("@tsconfig/strictest/tsconfig") 1`] = `
+{
+  "tsconfig": {
+    "$schema": "https://www.schemastore.org/tsconfig",
+    "_version": "2.0.0",
+    "compilerOptions": {
+      "allowUnreachableCode": false,
+      "allowUnusedLabels": false,
+      "esModuleInterop": true,
+      "exactOptionalPropertyTypes": true,
+      "isolatedModules": true,
+      "noFallthroughCasesInSwitch": true,
+      "noImplicitOverride": true,
+      "noImplicitReturns": true,
+      "noPropertyAccessFromIndexSignature": true,
+      "noUncheckedIndexedAccess": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "skipLibCheck": true,
+      "strict": true,
+    },
+  },
+  "url": file://\${process.cwd()}/node_modules/@tsconfig/strictest/tsconfig.json,
+}
+`;
+
+exports[`unit:lib/readTsconfig > fs (only async) > should return resolved tsconfig ("__fixtures__/tsconfigs/tsconfig.empty.json") 1`] = `
+{
+  "tsconfig": {},
+  "url": file://\${process.cwd()}/__fixtures__/tsconfigs/tsconfig.empty.json,
+}
+`;
+
+exports[`unit:lib/readTsconfig > fs (only async) > should return resolved tsconfig ("__fixtures__/tsconfigs/tsconfig.invalid.json") 1`] = `
+{
+  "tsconfig": {},
+  "url": file://\${process.cwd()}/__fixtures__/tsconfigs/tsconfig.invalid.json,
+}
+`;

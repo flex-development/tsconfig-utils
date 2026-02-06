@@ -3,8 +3,8 @@
  * @module tsconfig-utils/lib/tests/unit/isTsconfigHost
  */
 
-import tsconfig from '#fixtures/tsconfig.json' with { type: 'json' }
 import testSubject from '#lib/is-tsconfig-host'
+import tsconfig from '#tsconfig' with { type: 'json' }
 
 describe('unit:lib/isTsconfigHost', () => {
   it.each<Parameters<typeof testSubject>>([

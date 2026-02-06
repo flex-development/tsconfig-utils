@@ -2,6 +2,8 @@
 
 [![github release](https://img.shields.io/github/v/release/flex-development/tsconfig-utils.svg?include_prereleases\&sort=semver)](https://github.com/flex-development/tsconfig-utils/releases/latest)
 [![npm](https://img.shields.io/npm/v/@flex-development/tsconfig-utils.svg)](https://npmjs.com/package/@flex-development/tsconfig-utils)
+[![npm downloads](https://img.shields.io/npm/dm/@flex-development/tsconfig-utils.svg)](https://www.npmcharts.com/compare/@flex-development/tsconfig-utils?interval=30)
+[![install size](https://packagephobia.now.sh/badge?p=@flex-development/tsconfig-utils)](https://packagephobia.now.sh/result?p=@flex-development/tsconfig-utils)
 [![codecov](https://codecov.io/gh/flex-development/tsconfig-utils/branch/main/graph/badge.svg?token=c7gDtTlaw3)](https://codecov.io/gh/flex-development/tsconfig-utils)
 [![module type: esm](https://img.shields.io/badge/module%20type-esm-brightgreen)](https://github.com/voxpelli/badges-cjs-esm)
 [![license](https://img.shields.io/github/license/flex-development/tsconfig-utils.svg)](LICENSE.md)
@@ -21,8 +23,6 @@ Utilities for working with [`tsconfig`][tsconfig] files
 - [API](#api)
 - [Types](#types)
   - [`tsconfig-types`](#tsconfig-types)
-  - [Interfaces](#interfaces)
-  - [Types](#types)
 - [Related](#related)
 - [Contribute](#contribute)
 
@@ -38,7 +38,7 @@ This package can be used to merge and load tsconfig files, as well resolve path 
 
 This package is [ESM only][esm].
 
-In Node.js (version 18+) with [yarn][]:
+In Node.js (version 20+) with [yarn][]:
 
 ```sh
 yarn add @flex-development/tsconfig-utils
@@ -67,32 +67,15 @@ In browsers with [`esm.sh`][esmsh]:
 
 ## Use
 
-```js
-import {
-  isResolvedTsconfig,
-  isTsconfigHost,
-  loadTsconfig,
-  mergeTsconfig,
-  readTsconfig,
-  resolvePath
-} from '@flex-development/tsconfig-utils'
-```
+**TODO**: use
 
 ## API
 
-This package exports the following identifiers:
-
-- [`createGetCanonicalFileName`](./src/lib/create-get-canonical-file-name.mts)
-- [`createModuleResolutionHost`](./src/lib/create-module-resolution-host.mts)
-- [`createParseConfigHost`](./src/lib/create-parse-config-host.mts)
-- [`isResolvedTsconfig`](./src/lib/is-resolved-tsconfig.mts)
-- [`isTsconfigHost`](./src/lib/is-tsconfig-host.mts)
-- [`loadTsconfig`](./src/lib/load-tsconfig.mts)
-- [`mergeTsconfig`](./src/lib/merge-tsconfig.mts)
-- [`readTsconfig`](./src/lib/read-tsconfig.mts)
-- [`resolvePath`](./src/lib/resolve-path.mts)
+This package exports the following identifiers listed below.
 
 There is no default export.
+
+**TODO**: api
 
 ## Types
 
@@ -100,32 +83,18 @@ This package is fully typed with [TypeScript][].
 
 ### `tsconfig-types`
 
-This package re-exports TypeScript definitions from [`tsconfig-types`][tsconfig-types]. This is primarily for the
-convenience of TypeScript users who do not hoist packages, but may need to `import` definitions used in this package.
+This package re-exports TypeScript definitions from [`tsconfig-types`][tsconfig-types].
+This is primarily for the convenience of TypeScript users who do not hoist packages,
+but may need to `import` definitions used in this package.
 
-### Interfaces
-
-- [`Dirent`](./src/interfaces/dirent.mts)
-- [`FileSystem`](./src/interfaces/file-system.mts)
-- [`LoadTsconfigOptions`](./src/interfaces/options-load-tsconfig.mts)
-- [`ModuleResolutionHostOptions`](./src/interfaces/options-module-resolution-host.mts)
-- [`ModuleResolutionHost`](./src/interfaces/host-module-resolution.mts)
-- [`ParseConfigHostOptions`](./src/interfaces/options-parse-config-host.mts)
-- [`ParseConfigHost`](./src/interfaces/host-parse-config.mts)
-- [`ReadTsconfigOptions`](./src/interfaces/options-read-tsconfig.mts)
-- [`ResolvePathOptions`](./src/interfaces/options-resolve-path.mts)
-- [`ResolvedTsconfig`](./src/interfaces/options-resolve-path.mts)
-- [`TsconfigHost`](./src/interfaces/tsconfig-host.mts)
-
-### Types
-
-- [`GetCanonicalFileName`](./src/types/get-canonical-file-name.mts)
-- [`ReadDirectory`](./src/types/read-directory.mts)
+**TODO**: types
 
 ## Related
 
-- [`mlly`][mlly] — [ECMAScript module][node-esm] utilities
-- [`tsconfig-types`][tsconfig-types] — [TypeScript][] definitions for `tsconfig.json`
+- [`@flex-development/mlly`][mlly]
+  — [ECMAScript module][node-esm] utilities
+- [`@flex-development/tsconfig-types`][tsconfig-types]
+  — [TypeScript][] definitions for `tsconfig.json`
 
 ## Contribute
 

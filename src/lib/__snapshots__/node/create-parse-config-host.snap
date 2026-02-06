@@ -1,0 +1,40 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`unit:lib/createParseConfigHost > should create parse config host (0) 1`] = `
+{
+  "directoryExists": [Function bound directoryExists],
+  "fileExists": [Function bound fileExists],
+  "getCurrentDirectory": [Function bound getCurrentDirectory],
+  "getDirectories": [Function bound getDirectories],
+  "readDirectory": [Function readDirectory],
+  "readFile": [Function bound readFile],
+  "realpath": [Function bound realpath],
+  "useCaseSensitiveFileNames": false,
+}
+`;
+
+exports[`unit:lib/createParseConfigHost > should create parse config host (1) 1`] = `
+{
+  "directoryExists": [Function bound directoryExists],
+  "fileExists": [Function bound fileExists],
+  "getCurrentDirectory": [Function bound getCurrentDirectory],
+  "getDirectories": [Function bound getDirectories],
+  "readDirectory": [Function readDirectory],
+  "readFile": [Function bound readFile],
+  "realpath": [Function bound realpath],
+  "useCaseSensitiveFileNames": true,
+}
+`;
+
+exports[`unit:lib/createParseConfigHost > should create parse config host (2) 1`] = `
+{
+  "directoryExists": [Function bound directoryExists],
+  "fileExists": [Function bound fileExists],
+  "getCurrentDirectory": [Function bound getCurrentDirectory],
+  "getDirectories": [Function bound getDirectories],
+  "readDirectory": [Function readDirectory],
+  "readFile": [Function bound readFile],
+  "realpath": [Function bound realpath],
+  "useCaseSensitiveFileNames": false,
+}
+`;

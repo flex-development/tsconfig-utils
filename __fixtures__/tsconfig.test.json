@@ -1,6 +1,0 @@
-{
-  "compilerOptions": {
-    "customConditions": ["tsconfig-utils", "development", "test"]
-  },
-  "extends": ["./tsconfig.json"]
-}

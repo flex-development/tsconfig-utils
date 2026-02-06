@@ -4,10 +4,15 @@
  */
 
 import type * as mlly from '@flex-development/mlly'
-import type { Dirent } from '@flex-development/tsconfig-utils'
+import type {
+  Readdir,
+  ReadFile,
+  Realpath,
+  Stat
+} from '@flex-development/tsconfig-utils'
 
 /**
- * File system API.
+ * The file system API.
  *
  * @see {@linkcode mlly.FileSystem}
  *
@@ -15,27 +20,38 @@ import type { Dirent } from '@flex-development/tsconfig-utils'
  */
 interface FileSystem extends mlly.FileSystem {
   /**
-   * Read the contents of the directory at `id`.
+   * Read the entire contents of a file.
    *
-   * @see {@linkcode Dirent}
-   * @see {@linkcode mlly.ModuleId}
+   * @see {@linkcode ReadFile}
    *
-   * @this {void}
-   *
-   * @param {mlly.ModuleId} id
-   *  Module id of directory to read
-   * @param {{ withFileTypes: true }} options
-   *  Read options
-   * @param {true} options.withFileTypes
-   *  Return a list of dirent objects instead of strings or `Buffer`s
-   * @return {ReadonlyArray<Dirent>}
-   *  Directory content list
+   * @override
    */
-  readdirSync(
-    this: void,
-    id: mlly.ModuleId,
-    options: { withFileTypes: true }
-  ): readonly Dirent[]
+  readFile: ReadFile
+
+  /**
+   * Read the entire contents of a directory.
+   *
+   * @see {@linkcode Readdir}
+   */
+  readdir: Readdir
+
+  /**
+   * Compute a canonical pathname by resolving `.`, `..`, and symbolic links.
+   *
+   * @see {@linkcode Realpath}
+   *
+   * @override
+   */
+  realpath: Realpath
+
+  /**
+   * Get information about a file system entry.
+   *
+   * @see {@linkcode Stat}
+   *
+   * @override
+   */
+  stat: Stat
 }
 
 export type { FileSystem as default }

@@ -1,0 +1,723 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`unit:lib/loadTsconfig > fs (default) > should return resolved tsconfig ("#fixtures/tsconfigs/tsconfig.build.json") 1`] = `
+{
+  "tsconfig": {
+    "$schema": "https://www.schemastore.org/tsconfig",
+    "_version": "2.0.0",
+    "compilerOptions": {
+      "allowImportingTsExtensions": false,
+      "allowJs": false,
+      "allowUnreachableCode": false,
+      "allowUnusedLabels": false,
+      "alwaysStrict": true,
+      "checkJs": false,
+      "customConditions": [
+        "tsconfig-utils",
+      ],
+      "declaration": true,
+      "declarationMap": false,
+      "esModuleInterop": true,
+      "exactOptionalPropertyTypes": true,
+      "isolatedModules": true,
+      "lib": [
+        "es2024",
+      ],
+      "module": "esnext",
+      "moduleResolution": "bundler",
+      "newLine": "lf",
+      "noEmit": true,
+      "noEmitOnError": true,
+      "noErrorTruncation": true,
+      "noFallthroughCasesInSwitch": true,
+      "noImplicitOverride": true,
+      "noImplicitReturns": true,
+      "noPropertyAccessFromIndexSignature": true,
+      "noUncheckedIndexedAccess": true,
+      "noUncheckedSideEffectImports": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": false,
+      "outDir": "./dist",
+      "paths": {
+        "https://esm.sh/lodash@4.17.21": [
+          "./node_modules/@types/lodash/index.d.ts",
+        ],
+      },
+      "resolveJsonModule": true,
+      "rootDir": "./src",
+      "skipLibCheck": true,
+      "sourceMap": false,
+      "strict": true,
+      "target": "es2024",
+      "verbatimModuleSyntax": true,
+    },
+    "exclude": [
+      "**/__mocks__/**",
+      "**/__tests__/**",
+    ],
+    "files": [
+      "./typings/@flex-development/tsconfig-types/index.d.mts",
+      "./typings/typescript/lib.es5.d.ts",
+    ],
+    "include": [
+      "dist/**/*",
+      "src/**/**.mts",
+    ],
+    "mdx": {
+      "plugins": [
+        "remark-directive",
+        "remark-frontmatter",
+        "remark-gfm",
+      ],
+    },
+  },
+  "url": file://\${process.cwd()}/__fixtures__/tsconfigs/tsconfig.build.json,
+}
+`;
+
+exports[`unit:lib/loadTsconfig > fs (default) > should return resolved tsconfig ("#fixtures/tsconfigs/tsconfig.json") 1`] = `
+{
+  "tsconfig": {
+    "$schema": "https://www.schemastore.org/tsconfig",
+    "_version": "2.0.0",
+    "compilerOptions": {
+      "allowImportingTsExtensions": true,
+      "allowJs": true,
+      "allowUnreachableCode": false,
+      "allowUnusedLabels": false,
+      "alwaysStrict": true,
+      "customConditions": [
+        "tsconfig-utils",
+        "development",
+      ],
+      "declaration": true,
+      "declarationMap": true,
+      "esModuleInterop": true,
+      "exactOptionalPropertyTypes": true,
+      "isolatedModules": true,
+      "lib": [
+        "es2024",
+      ],
+      "module": "esnext",
+      "moduleResolution": "bundler",
+      "newLine": "lf",
+      "noEmit": true,
+      "noErrorTruncation": true,
+      "noFallthroughCasesInSwitch": true,
+      "noImplicitOverride": true,
+      "noImplicitReturns": true,
+      "noPropertyAccessFromIndexSignature": true,
+      "noUncheckedIndexedAccess": true,
+      "noUncheckedSideEffectImports": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": false,
+      "paths": {
+        "https://esm.sh/lodash@4.17.21": [
+          "./node_modules/@types/lodash/index.d.ts",
+        ],
+      },
+      "resolveJsonModule": true,
+      "skipLibCheck": true,
+      "sourceMap": true,
+      "strict": true,
+      "target": "esnext",
+      "verbatimModuleSyntax": true,
+    },
+    "exclude": [
+      "coverage",
+      "dist",
+      "node_modules",
+    ],
+    "include": [
+      "**/**.json",
+      "**/**.mjs",
+      "**/**.mts",
+      "**/**.ts",
+    ],
+    "mdx": {
+      "plugins": [
+        "remark-directive",
+        "remark-frontmatter",
+        "remark-gfm",
+      ],
+    },
+  },
+  "url": file://\${process.cwd()}/__fixtures__/tsconfigs/tsconfig.json,
+}
+`;
+
+exports[`unit:lib/loadTsconfig > fs (default) > should return resolved tsconfig ("./__fixtures__/tsconfigs/tsconfig.node10.json") 1`] = `
+{
+  "tsconfig": {},
+  "url": file://\${process.cwd()}/__fixtures__/tsconfigs/tsconfig.node10.json,
+}
+`;
+
+exports[`unit:lib/loadTsconfig > fs (default) > should return resolved tsconfig ("./__fixtures__/tsconfigs/tsconfig.spec.json") 1`] = `
+{
+  "tsconfig": {
+    "$schema": "https://www.schemastore.org/tsconfig",
+    "_version": "2.0.0",
+    "compilerOptions": {
+      "allowImportingTsExtensions": true,
+      "allowJs": true,
+      "allowUnreachableCode": false,
+      "allowUnusedLabels": false,
+      "alwaysStrict": true,
+      "customConditions": [
+        "tsconfig-utils",
+        "development",
+        "test",
+      ],
+      "declaration": true,
+      "declarationMap": true,
+      "esModuleInterop": true,
+      "exactOptionalPropertyTypes": true,
+      "isolatedModules": true,
+      "lib": [
+        "es2024",
+      ],
+      "module": "esnext",
+      "moduleResolution": "bundler",
+      "newLine": "lf",
+      "noEmit": true,
+      "noErrorTruncation": true,
+      "noFallthroughCasesInSwitch": true,
+      "noImplicitOverride": true,
+      "noImplicitReturns": true,
+      "noPropertyAccessFromIndexSignature": true,
+      "noUncheckedIndexedAccess": true,
+      "noUncheckedSideEffectImports": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": false,
+      "paths": {
+        "https://esm.sh/lodash@4.17.21": [
+          "./node_modules/@types/lodash/index.d.ts",
+        ],
+      },
+      "resolveJsonModule": true,
+      "skipLibCheck": true,
+      "sourceMap": true,
+      "strict": true,
+      "target": "esnext",
+      "verbatimModuleSyntax": true,
+    },
+    "exclude": [
+      "coverage",
+      "dist",
+      "node_modules",
+    ],
+    "include": [
+      "**/**.json",
+      "**/**.mjs",
+      "**/**.mts",
+      "**/**.ts",
+    ],
+    "mdx": {
+      "plugins": [
+        "remark-directive",
+        "remark-frontmatter",
+        "remark-gfm",
+      ],
+    },
+  },
+  "url": file://\${process.cwd()}/__fixtures__/tsconfigs/tsconfig.spec.json,
+}
+`;
+
+exports[`unit:lib/loadTsconfig > fs (default) > should return resolved tsconfig ("__fixtures__/tsconfigs/tsconfig.prod.json") 1`] = `
+{
+  "tsconfig": {
+    "$schema": "https://www.schemastore.org/tsconfig",
+    "_version": "2.0.0",
+    "compilerOptions": {
+      "allowImportingTsExtensions": false,
+      "allowJs": false,
+      "allowUnreachableCode": false,
+      "allowUnusedLabels": false,
+      "alwaysStrict": true,
+      "checkJs": false,
+      "customConditions": [
+        "tsconfig-utils",
+        "production",
+      ],
+      "declaration": true,
+      "declarationMap": false,
+      "esModuleInterop": true,
+      "exactOptionalPropertyTypes": true,
+      "isolatedModules": true,
+      "lib": [
+        "es2024",
+      ],
+      "module": "esnext",
+      "moduleResolution": "bundler",
+      "newLine": "lf",
+      "noEmit": true,
+      "noEmitOnError": true,
+      "noErrorTruncation": true,
+      "noFallthroughCasesInSwitch": true,
+      "noImplicitOverride": true,
+      "noImplicitReturns": true,
+      "noPropertyAccessFromIndexSignature": true,
+      "noUncheckedIndexedAccess": true,
+      "noUncheckedSideEffectImports": true,
+      "noUnusedLocals": false,
+      "noUnusedParameters": false,
+      "outDir": "../../dist",
+      "resolveJsonModule": true,
+      "rootDir": "../../src",
+      "skipLibCheck": true,
+      "sourceMap": false,
+      "strict": true,
+      "target": "es2024",
+      "verbatimModuleSyntax": true,
+    },
+    "exclude": [
+      "**/__mocks__/**",
+      "**/__tests__/**",
+    ],
+    "files": [
+      "../../typings/@flex-development/tsconfig-types/index.d.mts",
+      "../../typings/typescript/lib.es5.d.ts",
+    ],
+    "include": [
+      "dist/**/*",
+      "src/**/**.mts",
+    ],
+  },
+  "url": file://\${process.cwd()}/__fixtures__/tsconfigs/tsconfig.prod.json,
+}
+`;
+
+exports[`unit:lib/loadTsconfig > fs (default) > should return resolved tsconfig ("__fixtures__/tsconfigs/tsconfig.test.json") 1`] = `
+{
+  "tsconfig": {
+    "$schema": "https://www.schemastore.org/tsconfig",
+    "_version": "2.0.0",
+    "compilerOptions": {
+      "allowImportingTsExtensions": true,
+      "allowJs": true,
+      "allowUnreachableCode": false,
+      "allowUnusedLabels": false,
+      "alwaysStrict": true,
+      "customConditions": [
+        "tsconfig-utils",
+        "development",
+        "test",
+      ],
+      "declaration": true,
+      "declarationMap": true,
+      "esModuleInterop": true,
+      "exactOptionalPropertyTypes": true,
+      "isolatedModules": true,
+      "lib": [
+        "es2024",
+      ],
+      "module": "esnext",
+      "moduleResolution": "bundler",
+      "newLine": "lf",
+      "noEmit": true,
+      "noErrorTruncation": true,
+      "noFallthroughCasesInSwitch": true,
+      "noImplicitOverride": true,
+      "noImplicitReturns": true,
+      "noPropertyAccessFromIndexSignature": true,
+      "noUncheckedIndexedAccess": true,
+      "noUncheckedSideEffectImports": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "paths": {
+        "https://esm.sh/lodash@4.17.21": [
+          "./node_modules/@types/lodash/index.d.ts",
+        ],
+      },
+      "resolveJsonModule": true,
+      "skipLibCheck": true,
+      "sourceMap": true,
+      "strict": true,
+      "target": "esnext",
+      "verbatimModuleSyntax": true,
+    },
+    "exclude": [
+      "coverage",
+      "dist",
+      "node_modules",
+    ],
+    "include": [
+      "**/**.json",
+      "**/**.mjs",
+      "**/**.mts",
+      "**/**.ts",
+    ],
+    "mdx": {
+      "plugins": [
+        "remark-directive",
+        "remark-frontmatter",
+        "remark-gfm",
+      ],
+    },
+  },
+  "url": file://\${process.cwd()}/__fixtures__/tsconfigs/tsconfig.test.json,
+}
+`;
+
+exports[`unit:lib/loadTsconfig > fs (only async) > should return resolved tsconfig ("#fixtures/tsconfigs/tsconfig.build.json") 1`] = `
+{
+  "tsconfig": {
+    "$schema": "https://www.schemastore.org/tsconfig",
+    "_version": "2.0.0",
+    "compilerOptions": {
+      "allowImportingTsExtensions": false,
+      "allowJs": false,
+      "allowUnreachableCode": false,
+      "allowUnusedLabels": false,
+      "alwaysStrict": true,
+      "checkJs": false,
+      "customConditions": [
+        "tsconfig-utils",
+      ],
+      "declaration": true,
+      "declarationMap": false,
+      "esModuleInterop": true,
+      "exactOptionalPropertyTypes": true,
+      "isolatedModules": true,
+      "lib": [
+        "es2024",
+      ],
+      "module": "esnext",
+      "moduleResolution": "bundler",
+      "newLine": "lf",
+      "noEmit": true,
+      "noEmitOnError": true,
+      "noErrorTruncation": true,
+      "noFallthroughCasesInSwitch": true,
+      "noImplicitOverride": true,
+      "noImplicitReturns": true,
+      "noPropertyAccessFromIndexSignature": true,
+      "noUncheckedIndexedAccess": true,
+      "noUncheckedSideEffectImports": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": false,
+      "outDir": "./dist",
+      "paths": {
+        "https://esm.sh/lodash@4.17.21": [
+          "./node_modules/@types/lodash/index.d.ts",
+        ],
+      },
+      "resolveJsonModule": true,
+      "rootDir": "./src",
+      "skipLibCheck": true,
+      "sourceMap": false,
+      "strict": true,
+      "target": "es2024",
+      "verbatimModuleSyntax": true,
+    },
+    "exclude": [
+      "**/__mocks__/**",
+      "**/__tests__/**",
+    ],
+    "files": [
+      "./typings/@flex-development/tsconfig-types/index.d.mts",
+      "./typings/typescript/lib.es5.d.ts",
+    ],
+    "include": [
+      "dist/**/*",
+      "src/**/**.mts",
+    ],
+    "mdx": {
+      "plugins": [
+        "remark-directive",
+        "remark-frontmatter",
+        "remark-gfm",
+      ],
+    },
+  },
+  "url": file://\${process.cwd()}/__fixtures__/tsconfigs/tsconfig.build.json,
+}
+`;
+
+exports[`unit:lib/loadTsconfig > fs (only async) > should return resolved tsconfig ("#fixtures/tsconfigs/tsconfig.json") 1`] = `
+{
+  "tsconfig": {
+    "$schema": "https://www.schemastore.org/tsconfig",
+    "_version": "2.0.0",
+    "compilerOptions": {
+      "allowImportingTsExtensions": true,
+      "allowJs": true,
+      "allowUnreachableCode": false,
+      "allowUnusedLabels": false,
+      "alwaysStrict": true,
+      "customConditions": [
+        "tsconfig-utils",
+        "development",
+      ],
+      "declaration": true,
+      "declarationMap": true,
+      "esModuleInterop": true,
+      "exactOptionalPropertyTypes": true,
+      "isolatedModules": true,
+      "lib": [
+        "es2024",
+      ],
+      "module": "esnext",
+      "moduleResolution": "bundler",
+      "newLine": "lf",
+      "noEmit": true,
+      "noErrorTruncation": true,
+      "noFallthroughCasesInSwitch": true,
+      "noImplicitOverride": true,
+      "noImplicitReturns": true,
+      "noPropertyAccessFromIndexSignature": true,
+      "noUncheckedIndexedAccess": true,
+      "noUncheckedSideEffectImports": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": false,
+      "paths": {
+        "https://esm.sh/lodash@4.17.21": [
+          "./node_modules/@types/lodash/index.d.ts",
+        ],
+      },
+      "resolveJsonModule": true,
+      "skipLibCheck": true,
+      "sourceMap": true,
+      "strict": true,
+      "target": "esnext",
+      "verbatimModuleSyntax": true,
+    },
+    "exclude": [
+      "coverage",
+      "dist",
+      "node_modules",
+    ],
+    "include": [
+      "**/**.json",
+      "**/**.mjs",
+      "**/**.mts",
+      "**/**.ts",
+    ],
+    "mdx": {
+      "plugins": [
+        "remark-directive",
+        "remark-frontmatter",
+        "remark-gfm",
+      ],
+    },
+  },
+  "url": file://\${process.cwd()}/__fixtures__/tsconfigs/tsconfig.json,
+}
+`;
+
+exports[`unit:lib/loadTsconfig > fs (only async) > should return resolved tsconfig ("./__fixtures__/tsconfigs/tsconfig.node10.json") 1`] = `
+{
+  "tsconfig": {},
+  "url": file://\${process.cwd()}/__fixtures__/tsconfigs/tsconfig.node10.json,
+}
+`;
+
+exports[`unit:lib/loadTsconfig > fs (only async) > should return resolved tsconfig ("./__fixtures__/tsconfigs/tsconfig.spec.json") 1`] = `
+{
+  "tsconfig": {
+    "$schema": "https://www.schemastore.org/tsconfig",
+    "_version": "2.0.0",
+    "compilerOptions": {
+      "allowImportingTsExtensions": true,
+      "allowJs": true,
+      "allowUnreachableCode": false,
+      "allowUnusedLabels": false,
+      "alwaysStrict": true,
+      "customConditions": [
+        "tsconfig-utils",
+        "development",
+        "test",
+      ],
+      "declaration": true,
+      "declarationMap": true,
+      "esModuleInterop": true,
+      "exactOptionalPropertyTypes": true,
+      "isolatedModules": true,
+      "lib": [
+        "es2024",
+      ],
+      "module": "esnext",
+      "moduleResolution": "bundler",
+      "newLine": "lf",
+      "noEmit": true,
+      "noErrorTruncation": true,
+      "noFallthroughCasesInSwitch": true,
+      "noImplicitOverride": true,
+      "noImplicitReturns": true,
+      "noPropertyAccessFromIndexSignature": true,
+      "noUncheckedIndexedAccess": true,
+      "noUncheckedSideEffectImports": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": false,
+      "paths": {
+        "https://esm.sh/lodash@4.17.21": [
+          "./node_modules/@types/lodash/index.d.ts",
+        ],
+      },
+      "resolveJsonModule": true,
+      "skipLibCheck": true,
+      "sourceMap": true,
+      "strict": true,
+      "target": "esnext",
+      "verbatimModuleSyntax": true,
+    },
+    "exclude": [
+      "coverage",
+      "dist",
+      "node_modules",
+    ],
+    "include": [
+      "**/**.json",
+      "**/**.mjs",
+      "**/**.mts",
+      "**/**.ts",
+    ],
+    "mdx": {
+      "plugins": [
+        "remark-directive",
+        "remark-frontmatter",
+        "remark-gfm",
+      ],
+    },
+  },
+  "url": file://\${process.cwd()}/__fixtures__/tsconfigs/tsconfig.spec.json,
+}
+`;
+
+exports[`unit:lib/loadTsconfig > fs (only async) > should return resolved tsconfig ("__fixtures__/tsconfigs/tsconfig.prod.json") 1`] = `
+{
+  "tsconfig": {
+    "$schema": "https://www.schemastore.org/tsconfig",
+    "_version": "2.0.0",
+    "compilerOptions": {
+      "allowImportingTsExtensions": false,
+      "allowJs": false,
+      "allowUnreachableCode": false,
+      "allowUnusedLabels": false,
+      "alwaysStrict": true,
+      "checkJs": false,
+      "customConditions": [
+        "tsconfig-utils",
+        "production",
+      ],
+      "declaration": true,
+      "declarationMap": false,
+      "esModuleInterop": true,
+      "exactOptionalPropertyTypes": true,
+      "isolatedModules": true,
+      "lib": [
+        "es2024",
+      ],
+      "module": "esnext",
+      "moduleResolution": "bundler",
+      "newLine": "lf",
+      "noEmit": true,
+      "noEmitOnError": true,
+      "noErrorTruncation": true,
+      "noFallthroughCasesInSwitch": true,
+      "noImplicitOverride": true,
+      "noImplicitReturns": true,
+      "noPropertyAccessFromIndexSignature": true,
+      "noUncheckedIndexedAccess": true,
+      "noUncheckedSideEffectImports": true,
+      "noUnusedLocals": false,
+      "noUnusedParameters": false,
+      "outDir": "../../dist",
+      "resolveJsonModule": true,
+      "rootDir": "../../src",
+      "skipLibCheck": true,
+      "sourceMap": false,
+      "strict": true,
+      "target": "es2024",
+      "verbatimModuleSyntax": true,
+    },
+    "exclude": [
+      "**/__mocks__/**",
+      "**/__tests__/**",
+    ],
+    "files": [
+      "../../typings/@flex-development/tsconfig-types/index.d.mts",
+      "../../typings/typescript/lib.es5.d.ts",
+    ],
+    "include": [
+      "dist/**/*",
+      "src/**/**.mts",
+    ],
+  },
+  "url": file://\${process.cwd()}/__fixtures__/tsconfigs/tsconfig.prod.json,
+}
+`;
+
+exports[`unit:lib/loadTsconfig > fs (only async) > should return resolved tsconfig ("__fixtures__/tsconfigs/tsconfig.test.json") 1`] = `
+{
+  "tsconfig": {
+    "$schema": "https://www.schemastore.org/tsconfig",
+    "_version": "2.0.0",
+    "compilerOptions": {
+      "allowImportingTsExtensions": true,
+      "allowJs": true,
+      "allowUnreachableCode": false,
+      "allowUnusedLabels": false,
+      "alwaysStrict": true,
+      "customConditions": [
+        "tsconfig-utils",
+        "development",
+        "test",
+      ],
+      "declaration": true,
+      "declarationMap": true,
+      "esModuleInterop": true,
+      "exactOptionalPropertyTypes": true,
+      "isolatedModules": true,
+      "lib": [
+        "es2024",
+      ],
+      "module": "esnext",
+      "moduleResolution": "bundler",
+      "newLine": "lf",
+      "noEmit": true,
+      "noErrorTruncation": true,
+      "noFallthroughCasesInSwitch": true,
+      "noImplicitOverride": true,
+      "noImplicitReturns": true,
+      "noPropertyAccessFromIndexSignature": true,
+      "noUncheckedIndexedAccess": true,
+      "noUncheckedSideEffectImports": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "paths": {
+        "https://esm.sh/lodash@4.17.21": [
+          "./node_modules/@types/lodash/index.d.ts",
+        ],
+      },
+      "resolveJsonModule": true,
+      "skipLibCheck": true,
+      "sourceMap": true,
+      "strict": true,
+      "target": "esnext",
+      "verbatimModuleSyntax": true,
+    },
+    "exclude": [
+      "coverage",
+      "dist",
+      "node_modules",
+    ],
+    "include": [
+      "**/**.json",
+      "**/**.mjs",
+      "**/**.mts",
+      "**/**.ts",
+    ],
+    "mdx": {
+      "plugins": [
+        "remark-directive",
+        "remark-frontmatter",
+        "remark-gfm",
+      ],
+    },
+  },
+  "url": file://\${process.cwd()}/__fixtures__/tsconfigs/tsconfig.test.json,
+}
+`;
