@@ -9,7 +9,7 @@ import type {
 
 /**
  * Union of values used to determine if file names should be
- * treated as case-sensitive.
+ * treated as case sensitive.
  *
  * @see {@linkcode UseCaseSensitiveFileNamesFn}
  */

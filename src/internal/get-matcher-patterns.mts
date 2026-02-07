@@ -34,7 +34,7 @@ type MatcherType = 'directory' | 'file'
  * @param {List<string> | null | undefined} include
  *  The list of patterns matching files to include
  * @param {boolean | null | undefined} [useCaseSensitiveFileNames]
- *  Whether to treat filenames as case-sensitive
+ *  Whether to treat filenames as case sensitive
  * @return {MatcherPatterns}
  *  The matcher patterns dictionary
  */

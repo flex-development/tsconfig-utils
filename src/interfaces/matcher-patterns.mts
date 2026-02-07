@@ -41,7 +41,7 @@ interface MatcherPatterns {
   matchExtension(this: MatcherPatterns, target: ModuleId): boolean
 
   /**
-   * Whether to treat filenames as case-sensitive.
+   * Whether to treat filenames as case sensitive.
    */
   useCaseSensitiveFileNames: boolean
 }

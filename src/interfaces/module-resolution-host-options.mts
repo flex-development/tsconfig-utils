@@ -30,7 +30,7 @@ interface ModuleResolutionHostOptions {
   fs?: FileSystem | null | undefined
 
   /**
-   * The module id of the root directory.
+   * The module id of the current working directory.
    *
    * @see {@linkcode ModuleId}
    *
@@ -39,7 +39,7 @@ interface ModuleResolutionHostOptions {
   root?: ModuleId | null | undefined
 
   /**
-   * Boolean indicating whether filenames should be treated as case-sensitive,
+   * Boolean indicating whether filenames should be treated as case sensitive,
    * or a function that returns such a value.
    *
    * @see {@linkcode UseCaseSensitiveFileNames}

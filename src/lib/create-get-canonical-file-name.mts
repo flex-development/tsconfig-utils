@@ -20,7 +20,7 @@ import { lowercase } from '@flex-development/tutils'
  * @this {void}
  *
  * @param {UseCaseSensitiveFileNames} [useCaseSensitiveFileNames]
- *  Whether to treat filenames as case-sensitive
+ *  Whether to treat filenames as case sensitive
  * @return {GetCanonicalFileName}
  *  A function that returns a canonical file name given a module id
  */

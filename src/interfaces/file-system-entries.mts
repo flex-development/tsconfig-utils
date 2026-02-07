@@ -5,6 +5,8 @@
 
 /**
  * An object containing directory and file names.
+ *
+ * @internal
  */
 interface FileSystemEntries {
   /**

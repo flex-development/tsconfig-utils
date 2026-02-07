@@ -53,7 +53,7 @@ export default matchFiles
  * @param {List<string> | null | undefined} include
  *  The list of patterns matching files to include
  * @param {boolean | null | undefined} useCaseSensitiveFileNames
- *  Whether to treat filenames as case-sensitive
+ *  Whether to treat filenames as case sensitive
  * @param {number | null | undefined} depth
  *  The maximum search depth (inclusive),
  *  with `-1`, `null`, or `undefined` used to search all directories
@@ -106,7 +106,7 @@ function matchFiles<
  * @param {List<string> | null | undefined} include
  *  The list of patterns matching files to include
  * @param {boolean | null | undefined} useCaseSensitiveFileNames
- *  Whether to treat filenames as case-sensitive
+ *  Whether to treat filenames as case sensitive
  * @param {number | null | undefined} depth
  *  The maximum search depth (inclusive)
  * @param {GetFileSystemEntries} getFileSystemEntries

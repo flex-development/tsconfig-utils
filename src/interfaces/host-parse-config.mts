@@ -31,7 +31,7 @@ interface ParseConfigHost extends ModuleResolutionHost {
   readDirectory: ReadDirectory
 
   /**
-   * Whether to treat filenames as case-sensitive.
+   * Whether to treat filenames as case sensitive.
    *
    * @override
    */

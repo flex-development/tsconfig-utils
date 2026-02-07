@@ -4,13 +4,11 @@
  */
 
 import type { ResolveAliasOptions } from '@flex-development/mlly'
-import type {
-  ResolvedTsconfig,
-  Tsconfig
-} from '@flex-development/tsconfig-utils'
+import type { Tsconfig } from '@flex-development/tsconfig-types'
+import type { ResolvedTsconfig } from '@flex-development/tsconfig-utils'
 
 /**
- * Path alias resolution options.
+ * Options for path alias resolution.
  *
  * @see {@linkcode ResolveAliasOptions}
  *
@@ -19,6 +17,8 @@ import type {
 interface ResolvePathOptions extends ResolveAliasOptions {
   /**
    * The path mappings dictionary.
+   *
+   * > 👉 **Note**: Path aliases are read from the {@linkcode tsconfig}.
    *
    * @override
    */

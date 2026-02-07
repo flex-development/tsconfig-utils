@@ -4,14 +4,14 @@
  */
 
 /**
- * Check if a dirent or stats object describes a symbolic link.
+ * Check if a file system entry is a symbolic link.
  */
 interface IsSymbolicLink {
   /**
    * @this {unknown}
    *
    * @return {boolean}
-   *  `true` if object describes symbolic link, `false` otherwise
+   *  `true` if entry is symbolic link, `false` otherwise
    */
   (): boolean
 }

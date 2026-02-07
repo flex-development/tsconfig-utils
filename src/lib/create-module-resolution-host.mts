@@ -72,7 +72,7 @@ function createModuleResolutionHost(
   let root: string = pathe.cwd()
 
   /**
-   * Boolean indicating filenames should be treated as case-sensitive,
+   * Boolean indicating filenames should be treated as case sensitive,
    * a function that returns such a value, or `undefined`.
    *
    * @var {UseCaseSensitiveFileNames} useCaseSensitiveFileNames

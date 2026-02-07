@@ -4,12 +4,12 @@
  */
 
 /**
- * Determine if file names should be treated as case-sensitive.
+ * Determine if file names should be treated as case sensitive.
  *
  * @this {void}
  *
  * @return {boolean | null | undefined}
- *  `true` if file names should be treated as case-sensitive
+ *  `true` if file names should be treated as case sensitive
  */
 type UseCaseSensitiveFileNamesFn = (this: void) => boolean | null | undefined
 

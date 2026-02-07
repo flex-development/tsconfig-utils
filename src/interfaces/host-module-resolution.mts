@@ -69,7 +69,7 @@ interface ModuleResolutionHost {
   realpath: Realpath
 
   /**
-   * Whether to treat filenames as case-sensitive.
+   * Whether to treat filenames as case sensitive.
    *
    * @see {@linkcode UseCaseSensitiveFileNames}
    */

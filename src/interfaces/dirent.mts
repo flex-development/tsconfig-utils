@@ -10,32 +10,32 @@ import type {
 } from '@flex-development/tsconfig-utils'
 
 /**
- * An object representing directory content.
+ * Information about a directory entry.
  */
 interface Dirent {
   /**
-   * Check if the dirent describes a directory.
+   * Check if the entry is a directory.
    *
    * @see {@linkcode IsDirectory}
    */
   isDirectory: IsDirectory
 
   /**
-   * Check if the dirent describes a file.
+   * Check if the entry is a file.
    *
    * @see {@linkcode IsFile}
    */
   isFile: IsFile
 
   /**
-   * Check if the dirent describes a symbolic link.
+   * Check if the entry is a symbolic link.
    *
    * @see {@linkcode IsSymbolicLink}
    */
   isSymbolicLink: IsSymbolicLink
 
   /**
-   * The directory content path, relative to the {@linkcode parentPath}.
+   * The path to the entry, relative to the {@linkcode parentPath}.
    */
   name: string
 

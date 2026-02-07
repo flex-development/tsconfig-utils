@@ -13,7 +13,7 @@ interface GetCurrentDirectory {
    * @see {@linkcode Awaitable}
    *
    * @template {Awaitable<string>} T
-   *  The path
+   *  The directory path
    *
    * @this {unknown}
    *

@@ -6,7 +6,7 @@
 import type * as mlly from '@flex-development/mlly'
 
 /**
- * Check if a dirent or stats object describes a file.
+ * Check if a file system entry is a file.
  *
  * @see {@linkcode mlly.IsFile}
  *

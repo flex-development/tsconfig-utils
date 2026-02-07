@@ -7,7 +7,7 @@ import type * as mlly from '@flex-development/mlly'
 import type { IsDirectory, IsFile } from '@flex-development/tsconfig-utils'
 
 /**
- * An object containing information about a file system entry.
+ * Information about a file system entry.
  *
  * @see {@linkcode mlly.Stats}
  *

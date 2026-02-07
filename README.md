@@ -23,6 +23,38 @@ Utilities for working with [`tsconfig`][tsconfig] files
 - [API](#api)
 - [Types](#types)
   - [`tsconfig-types`](#tsconfig-types)
+  - [`Awaitable<T>`](#awaitablet)
+  - [`DirectoryExists`](#directoryexists)
+  - [`Dirent`](#dirent)
+  - [`FileExists`](#fileexists)
+  - [`FileSystem`](#filesystem)
+  - [`GetCanonicalFileName`](#getcanonicalfilename)
+  - [`GetCurrentDirectory`](#getcurrentdirectory)
+  - [`GetDirectories`](#getdirectories)
+  - [`HostReadFile`](#hostreadfile)
+  - [`IsDirectory`](#isdirectory)
+  - [`IsFile`](#isfile)
+  - [`IsSymbolicLink`](#issymboliclink)
+  - [`List<[T]>`](#listt)
+  - [`LoadTsconfigOptions`](#loadtsconfigoptions)
+  - [`ModuleResolutionHostOptions`](#moduleresolutionhostoptions)
+  - [`ModuleResolutionHost`](#moduleresolutionhost)
+  - [`ParseConfigHostOptions`](#parseconfighostoptions)
+  - [`ParseConfigHost`](#parseconfighost)
+  - [`ReadDirectory`](#readdirectory)
+  - [`ReadFile`](#readfile)
+  - [`ReadTsconfigOptions`](#readtsconfigoptions)
+  - [`ReaddirDirentOptions`](#readdirdirentoptions)
+  - [`ReaddirOptions`](#readdiroptions)
+  - [`Readdir`](#readdir)
+  - [`Realpath`](#realpath)
+  - [`ResolvePathOptions`](#resolvepathoptions)
+  - [`ResolvedTsconfig`](#resolvedtsconfig)
+  - [`Stat`](#stat)
+  - [`Stats`](#stats)
+  - [`TsconfigHost`](#tsconfighost)
+  - [`UseCaseSensitiveFileNamesFn`](#usecasesensitivefilenamesfn)
+  - [`UseCaseSensitiveFileNames`](#usecasesensitivefilenames)
 - [Related](#related)
 - [Contribute](#contribute)
 
@@ -87,7 +119,537 @@ This package re-exports TypeScript definitions from [`tsconfig-types`][tsconfig-
 This is primarily for the convenience of TypeScript users who do not hoist packages,
 but may need to `import` definitions used in this package.
 
-**TODO**: types
+### `Awaitable<T>`
+
+Create a union of `T` and `T` as a promise-like object (`type`).
+
+```ts
+type Awaitable<T> = PromiseLike<T> | T
+```
+
+#### Type Parameters
+
+- `T` (`any`)
+  — the value
+
+### `DirectoryExists`
+
+Check if a directory exists (`interface`).
+
+#### Signatures
+
+```ts
+<T extends Awaitable<boolean>>(id: ModuleId): T
+```
+
+#### Type Parameters
+
+- `T` ([`Awaitable<boolean>`](#awaitablet))
+  — the result of the check
+
+#### Parameters
+
+- `id` ([`ModuleId`][mlly-moduleid])
+  — the module id to check
+
+#### Returns
+
+(`T`) `true` if directory exists at `id`, `false` otherwise
+
+### `Dirent`
+
+Information about a directory entry (`interface`).
+
+#### Properties
+
+- `isDirectory` ([`IsDirectory`](#isdirectory))
+  — check if the entry is a directory
+- `isFile` ([`IsFile`](#isfile))
+  — check if the entry is a file
+- `isSymbolicLink` ([`IsSymbolicLink`](#issymboliclink))
+  — check if the entry is a symbolic link
+- `name` (`string`)
+  — the path to the entry, relative to the `parentPath`
+- `parentPath` (`string`)
+  — the path to the parent directory
+
+### `FileExists`
+
+Check if a file exists (`interface`).
+
+#### Signatures
+
+```ts
+<T extends Awaitable<boolean>>(id: ModuleId): T
+```
+
+#### Type Parameters
+
+- `T` ([`Awaitable<boolean>`](#awaitablet))
+  — the result of the check
+
+#### Parameters
+
+- `id` ([`ModuleId`][mlly-moduleid])
+  — the module id to check
+
+#### Returns
+
+(`T`) `true` if file exists at `id`, `false` otherwise
+
+### `FileSystem`
+
+The file system API (`interface`).
+
+#### Properties
+
+- `readFile` ([`ReadFile`](#readfile))
+  — read the entire contents of a file
+- `readdir` ([`Readdir`](#readdir))
+  — read the entire contents of a directory
+- `realpath` ([`Realpath`](#realpath))
+  — compute a canonical pathname by resolving `.`, `..`, and symbolic links
+- `stat` ([`Stat`](#stat))
+  — get information about a file system entry
+
+### `GetCanonicalFileName`
+
+Get the canonical file name for a module id (`type`).
+
+```ts
+type GetCanonicalFileName = (this: void, id: ModuleId) => string
+```
+
+#### Parameters
+
+- `id` ([`ModuleId`][mlly-moduleid])
+  — the module id
+
+#### Returns
+
+(`string`) The canonical file name
+
+### `GetCurrentDirectory`
+
+Get the path to the current working directory (`interface`).
+
+#### Signatures
+
+```ts
+<T extends Awaitable<string>>(): T
+```
+
+#### Type Parameters
+
+- `T` ([`Awaitable<string>`](#awaitablet))
+  — the directory path
+
+#### Parameters
+
+- `id` ([`ModuleId`][mlly-moduleid])
+  — the module id to check
+
+#### Returns
+
+(`T`) The current working directory path
+
+### `GetDirectories`
+
+Get a list of subdirectories (`interface`).
+
+#### Signatures
+
+```ts
+<T extends Awaitable<string[]>>(parent: ModuleId): T
+```
+
+#### Type Parameters
+
+- `T` ([`Awaitable<string[]>`](#awaitablet))
+  — the list of subdirectory names
+
+#### Parameters
+
+- `id` ([`ModuleId`][mlly-moduleid])
+  — the module id of the parent directory
+
+#### Returns
+
+(`T`) The list of subdirectory names
+
+### `HostReadFile`
+
+Read the entire contents of a file (`interface`).
+
+#### Signatures
+
+```ts
+<T extends Awaitable<string | undefined>>(id: ModuleId): T
+```
+
+#### Type Parameters
+
+- `T` ([`Awaitable<string | undefined>`](#awaitablet))
+  — the file contents
+
+#### Parameters
+
+- `id` ([`ModuleId`][mlly-moduleid])
+  — the module id of the file
+
+#### Returns
+
+(`T`) The file contents, or `undefined` if file does not exist at `id`
+
+### `IsDirectory`
+
+Check if a file system entry is a directory (`interface`).
+
+#### Extends
+
+- [`mlly.IsDirectory`][mlly-isdirectory]
+
+### `IsFile`
+
+Check if a file system entry is a file (`interface`).
+
+#### Extends
+
+- [`mlly.IsFile`][mlly-isfile]
+
+### `IsSymbolicLink`
+
+Check if a file system entry is a symbolic link (`interface`).
+
+#### Signatures
+
+```ts
+(): boolean
+```
+
+#### Returns
+
+(`boolean`) `true` if entry is symbolic link, `false` otherwise
+
+### `List<[T]>`
+
+A list (`type`).
+
+```ts
+type List<T = unknown> = ReadonlySet<T> | readonly T[]
+```
+
+#### Type Parameters
+
+- `T` (`any`, optional)
+  — the list item type
+
+### `LoadTsconfigOptions`
+
+Options for loading tsconfig files (`interface`).
+
+#### Extends
+
+- [`ReadTsconfigOptions`](#readtsconfigoptions)
+
+#### Properties
+
+- `relativePaths` ([`List<string>`](#listt) | `null` | `undefined`)
+  — the list of property paths where the value may be a relative path
+
+### `ModuleResolutionHostOptions`
+
+Options for creating module resolution hosts (`interface`).
+
+#### Properties
+
+- `encoding?` ([`BufferEncoding`][mlly-bufferencoding])
+  — the encoding to use when reading files
+  - **default**: `'utf8'`
+- `fs?` ([`FileSystem`](#filesystem) | `null` | `undefined`)
+  — the file system api
+- `root?` ([`ModuleId`][mlly-moduleid] | `null` | `undefined`)
+  — the module id of the current working directory
+- `useCaseSensitiveFileNames?` ([`UseCaseSensitiveFileNames`](#usecasesensitivefilenames))
+  — boolean indicating whether filenames should be treated as case sensitive, or a function that returns such a value
+
+### `ModuleResolutionHost`
+
+The module resolution host API (`interface`).
+
+The module resolution host acts a bridge between the TypeScript compiler and the file system.
+
+> 👉 **Note**: The host can have both asynchronous and synchronous methods,
+> but when used with the native TypeScript compiler, all methods must return synchronous values.
+
+#### Properties
+
+- `directoryExists` ([`DirectoryExists`](#directoryexists))
+  — check if a directory exists
+- `fileExists` ([`FileExists`](#fileexists))
+  — check if a file exists
+- `getCurrentDirectory` ([`GetCurrentDirectory`](#getcurrentdirectory))
+  — get the path to the current working directory
+- `getDirectories` ([`GetDirectories`](#getdirectories))
+  — get a list of subdirectories
+- `readFile` ([`HostReadFile`](#hostreadfile))
+  — read the entire contents of a file
+- `realpath` ([`Realpath`](#realpath))
+  — compute a canonical pathname by resolving `.`, `..`, and symbolic links
+- `useCaseSensitiveFileNames?` ([`UseCaseSensitiveFileNames`](#usecasesensitivefilenames))
+  — whether to treat filenames as case sensitive
+
+### `ParseConfigHostOptions`
+
+Options for creating parse config hosts (`interface`).
+
+#### Extends
+
+- [`ModuleResolutionHostOptions`](#moduleresolutionhostoptions)
+
+### `ParseConfigHost`
+
+The configuration parser host API (`interface`).
+
+The parser host provides methods for accessing the file system and resolving module paths.
+
+> 👉 **Note**: The host can have both asynchronous and synchronous methods,
+> but when used with the native TypeScript compiler, all methods must return synchronous values.
+
+#### Extends
+
+- [`ModuleResolutionHost`](#moduleresolutionhost)
+
+#### Properties
+
+- `readDirectory` ([`ReadDirectory`](#readdirectory))
+  — read the contents of a directory
+- `useCaseSensitiveFileNames` (`boolean`)
+  — whether to treat filenames as case sensitive
+
+### `ReadDirectory`
+
+Read the contents of a directory (`interface`).
+
+#### Signatures
+
+```ts
+<T extends Awaitable<readonly string[]>>(
+  parent: ModuleId,
+  extensions?: List<string> | null | undefined,
+  exclude?: List<string> | null | undefined,
+  include?: List<string> | null | undefined,
+  depth?: number | null | undefined
+): T
+```
+
+#### Type Parameters
+
+- `T` ([`Awaitable<readonly string[]>`](#awaitablet))
+  — the list of matched files
+
+#### Parameters
+
+- `parent` ([`ModuleId`][mlly-moduleid])
+  — the module id of the parent directory
+- `extensions` ([`List<string>`](#listt) | `null` | `undefined`)
+  — the list of file extensions to filter for
+- `exclude` ([`List<string>`](#listt) | `null` | `undefined`)
+  — the list of glob patterns matching files to exclude
+- `include` ([`List<string>`](#listt) | `null` | `undefined`)
+  — the list of glob patterns matching files to include
+- `depth` (`number` | `null` | `undefined`)
+  — the maximum search depth (inclusive)
+
+#### Returns
+
+(`T`) The list of matched files
+
+### `ReadFile`
+
+Read the entire contents of a file (`interface`).
+
+#### Extends
+
+- [`mlly.ReadFile`][mlly-readfile]
+
+### `ReadTsconfigOptions`
+
+Options for reading tsconfig files (`interface`).
+
+#### Extends
+
+- [`GetSourceOptions`][mlly-getsourceoptions]
+
+#### Properties
+
+- `conditions` ([`List<Condition>`][mlly-condition] | `null` | `undefined`)
+  — the list of export/import conditions
+  - **default**: [`mlly.defaultConditions`][mlly-defaultconditions]
+  > 👉 **note**: should be sorted by priority
+- `cwd` ([`ModuleId`][mlly-moduleid] | `null` | `undefined`)
+  — the url of the current working directory
+  - **default**: [`mlly.cwd()`][mlly-cwd]
+- `mainFields` ([`List<MainField>`][mlly-mainfield] | `null` | `undefined`)
+  — the list of legacy `main` fields
+  - **default**: [`mlly.defaultMainFields`][mlly-defaultmainfields]
+  > 👉 **note**: should be sorted by priority
+- `parent` ([`ModuleId`][mlly-moduleid] | `null` | `undefined`)
+  — the parent module id
+  - **default**: `cwd` | [`mlly.cwd()`][mlly-cwd]
+- `preserveSymlinks` (`boolean` | `null` | `undefined`)
+  — whether to keep symlinks instead of resolving them
+
+### `ReaddirDirentOptions`
+
+Options for reading the contents of a directory (`interface`).
+
+#### Extends
+
+- [`ReaddirOptions`](#readdiroptions)
+
+#### Properties
+
+- `withFileTypes` (`true`)
+  — whether the result should be a content object list instead of just strings.\
+  if `true`, the result will be a list of [`Direct`](#dirent) objects, which provide methods
+  like [`isDirectory()`](#isdirectory) and [`isFile()`](#isfile) to get more information about
+  a file system entry without additional [`fs.stat()`](#stat) calls
+
+### `ReaddirOptions`
+
+Options for reading the contents of a directory (`interface`).
+
+#### Extends
+
+- [`ReaddirOptions`](#readdiroptions)
+
+#### Properties
+
+- `withFileTypes?` (`boolean` | `null` | `undefined`)
+  — whether the result should be a content object list instead of just strings.\
+  if `true`, the result will be a list of [`Direct`](#dirent) objects, which provide methods
+  like [`isDirectory()`](#isdirectory) and [`isFile()`](#isfile) to get more information about
+  a file system entry without additional [`fs.stat()`](#stat) calls
+
+### `Readdir`
+
+Read the entire contents of a directory (`interface`).
+
+#### Signatures
+
+```ts
+<T extends Awaitable<readonly Dirent[]>>(id: ModuleId, options: ReaddirDirentOptions): T
+```
+
+#### Type Parameters
+
+- `T` ([`Awaitable<readonly Dirent[]>`](#dirent))
+  — the directory contents
+
+#### Parameters
+
+- `id` ([`ModuleId`][mlly-moduleid])
+  — the module id of the file
+- `options` ([`ReaddirDirentOptions`](#readdirdirentoptions))
+  — read options
+
+#### Returns
+
+(`T`) The directory contents
+
+### `Realpath`
+
+Compute a canonical pathname by resolving `.`, `..`, and symbolic links (`interface`).
+
+#### Extends
+
+- [`mlly.Realpath`][mlly-realpath]
+
+### `ResolvePathOptions`
+
+Options for path alias resolution (`interface`).
+
+#### Extends
+
+- [`ResolveAliasOptions`][mlly-resolvealiasoptions]
+
+#### Properties
+
+- `aliases?` (`null` | `undefined`)
+  — the url of the tsconfig file
+  > 👉 **note**: path aliases are read from the `tsconfig`
+- `tsconfig?` ([`ResolvedTsconfig`](#resolvedtsconfig) | [`Tsconfig`][tt-tsconfig] `null` | `undefined`)
+  — the tsconfig object, or the resolved tsconfig
+
+### `ResolvedTsconfig`
+
+A resolved TypeScript configuration (`interface`).
+
+#### Extends
+
+- [`TsconfigHost`](#tsconfighost)
+
+#### Properties
+
+- `url` (`URL`)
+  — the url of the tsconfig file
+
+### `Stat`
+
+Get information about a file system entry (`interface`).
+
+#### Extends
+
+- [`mlly.Stat`][mlly-stat]
+
+### `Stats`
+
+Information about a file system entry (`interface`).
+
+#### Properties
+
+- `isDirectory` ([`IsDirectory`](#isdirectory))
+  — check if the entry is a directory
+- `isFile` ([`IsFile`](#isfile))
+  — check if the entry is a file
+
+### `TsconfigHost`
+
+An object with a TypeScript configuration (`interface`).
+
+#### Properties
+
+- `tsconfig` ([`Tsconfig`][tt-tsconfig])
+  — the tsconfig object
+
+### `UseCaseSensitiveFileNamesFn`
+
+Determine if file names should be treated as case sensitive (`type`).
+
+```ts
+type UseCaseSensitiveFileNamesFn = (this: void) => boolean | null | undefined
+```
+
+#### Returns
+
+(`boolean` | `null` | `undefined`) `true` if file names should be treated as case sensitive
+
+### `UseCaseSensitiveFileNames`
+
+Union of values used to determine if file names should be treated as case sensitive (`type`).
+
+```ts
+type UseCaseSensitiveFileNames =
+  | UseCaseSensitiveFileNamesFn
+  | boolean
+  | null
+  | undefined
+```
+
+#### Returns
+
+(`boolean` | `null` | `undefined`) `true` if file names should be treated as case sensitive
 
 ## Related
 
@@ -109,11 +671,41 @@ community you agree to abide by its terms.
 
 [mlly]: https://github.com/flex-development/mlly
 
+[mlly-bufferencoding]: https://github.com/flex-development/mlly#bufferencoding
+
+[mlly-condition]: https://github.com/flex-development/mlly#condition
+
+[mlly-cwd]: https://github.com/flex-development/mlly#cwd
+
+[mlly-defaultconditions]: https://github.com/flex-development/mlly#defaultconditions
+
+[mlly-defaultmainfields]: https://github.com/flex-development/mlly#defaultmainfields
+
+[mlly-getsourceoptions]: https://github.com/flex-development/mlly#getsourceoptions
+
+[mlly-isdirectory]: https://github.com/flex-development/mlly#isdirectory
+
+[mlly-isfile]: https://github.com/flex-development/mlly#isfile
+
+[mlly-mainfield]: https://github.com/flex-development/mlly#mainfield
+
+[mlly-moduleid]: https://github.com/flex-development/mlly#moduleid
+
+[mlly-readfile]: https://github.com/flex-development/mlly#readfile
+
+[mlly-realpath]: https://github.com/flex-development/mlly#realpath
+
+[mlly-resolvealiasoptions]: https://github.com/flex-development/mlly#resolvealiasoptions
+
+[mlly-stat]: https://github.com/flex-development/mlly#stat
+
 [node-esm]: https://nodejs.org/api/esm.html
 
 [tsconfig-types]: https://github.com/flex-development/tsconfig-types
 
 [tsconfig]: https://www.typescriptlang.org/tsconfig
+
+[tt-tsconfig]: https://github.com/flex-development/tsconfig-types/blob/main/src/tsconfig.mts
 
 [typescript]: https://www.typescriptlang.org
 
