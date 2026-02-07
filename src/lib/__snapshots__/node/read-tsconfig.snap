@@ -116,6 +116,52 @@ exports[`unit:lib/readTsconfig > fs (default) > should return resolved tsconfig 
 }
 `;
 
+exports[`unit:lib/readTsconfig > fs (default) > should return resolved tsconfig (null) 1`] = `
+{
+  "tsconfig": {
+    "compilerOptions": {
+      "allowImportingTsExtensions": true,
+      "allowJs": true,
+      "alwaysStrict": true,
+      "customConditions": [
+        "tsconfig-utils",
+        "development",
+      ],
+      "declaration": true,
+      "declarationMap": true,
+      "lib": [
+        "es2024",
+      ],
+      "module": "esnext",
+      "moduleResolution": "bundler",
+      "newLine": "lf",
+      "noEmit": true,
+      "noErrorTruncation": true,
+      "noUncheckedSideEffectImports": true,
+      "noUnusedLocals": false,
+      "noUnusedParameters": false,
+      "resolveJsonModule": true,
+      "sourceMap": true,
+      "target": "esnext",
+      "verbatimModuleSyntax": true,
+    },
+    "exclude": [
+      "coverage",
+      "dist",
+      "node_modules",
+    ],
+    "extends": "@tsconfig/strictest/tsconfig",
+    "include": [
+      "**/**.json",
+      "**/**.mjs",
+      "**/**.mts",
+      "**/**.ts",
+    ],
+  },
+  "url": file://\${process.cwd()}/tsconfig.json,
+}
+`;
+
 exports[`unit:lib/readTsconfig > fs (only async) > should return resolved tsconfig ("#fixtures/tsconfigs/tsconfig.json") 1`] = `
 {
   "tsconfig": {
@@ -229,5 +275,51 @@ exports[`unit:lib/readTsconfig > fs (only async) > should return resolved tsconf
 {
   "tsconfig": {},
   "url": file://\${process.cwd()}/__fixtures__/tsconfigs/tsconfig.invalid.json,
+}
+`;
+
+exports[`unit:lib/readTsconfig > fs (only async) > should return resolved tsconfig (null) 1`] = `
+{
+  "tsconfig": {
+    "compilerOptions": {
+      "allowImportingTsExtensions": true,
+      "allowJs": true,
+      "alwaysStrict": true,
+      "customConditions": [
+        "tsconfig-utils",
+        "development",
+      ],
+      "declaration": true,
+      "declarationMap": true,
+      "lib": [
+        "es2024",
+      ],
+      "module": "esnext",
+      "moduleResolution": "bundler",
+      "newLine": "lf",
+      "noEmit": true,
+      "noErrorTruncation": true,
+      "noUncheckedSideEffectImports": true,
+      "noUnusedLocals": false,
+      "noUnusedParameters": false,
+      "resolveJsonModule": true,
+      "sourceMap": true,
+      "target": "esnext",
+      "verbatimModuleSyntax": true,
+    },
+    "exclude": [
+      "coverage",
+      "dist",
+      "node_modules",
+    ],
+    "extends": "@tsconfig/strictest/tsconfig",
+    "include": [
+      "**/**.json",
+      "**/**.mjs",
+      "**/**.mts",
+      "**/**.ts",
+    ],
+  },
+  "url": file://\${process.cwd()}/tsconfig.json,
 }
 `;

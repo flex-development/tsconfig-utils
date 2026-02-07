@@ -21,6 +21,15 @@ Utilities for working with [`tsconfig`][tsconfig] files
 - [Install](#install)
 - [Use](#use)
 - [API](#api)
+  - [`createGetCanonicalFileName([useCaseSensitiveFileNames])`](#creategetcanonicalfilenameusecasesensitivefilenames)
+  - [`createModuleResolutionHost([options])`](#createmoduleresolutionhostoptions)
+  - [`createParseConfigHost([options])`](#createparseconfighostoptions)
+  - [`isResolvedTsconfig(value)`](#isresolvedtsconfigvalue)
+  - [`isTsconfigHost(value)`](#istsconfighostvalue)
+  - [`loadTsconfig<T>([id][, options])`](#loadtsconfigtid-options)
+  - [`mergeTsconfig<T>(target[, ...tsconfigs])`](#mergetsconfigttarget-tsconfigs)
+  - [`readTsconfig<T>([id][, options])`](#readtsconfigtid-options)
+  - [`resolvePath(specifier[, options])`](#resolvepathspecifier-options)
 - [Types](#types)
   - [`tsconfig-types`](#tsconfig-types)
   - [`Awaitable<T>`](#awaitablet)
@@ -86,14 +95,22 @@ yarn add @flex-development/tsconfig-utils
 In Deno with [`esm.sh`][esmsh]:
 
 ```ts
-import { loadTsconfig, resolvePath } from 'https://esm.sh/@flex-development/tsconfig-utils'
+import {
+  createModuleResolutionHost,
+  loadTsconfig,
+  resolvePath
+} from 'https://esm.sh/@flex-development/tsconfig-utils'
 ```
 
 In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import { loadTsconfig, resolvePath } from 'https://esm.sh/@flex-development/tsconfig-utils'
+  import {
+    createModuleResolutionHost,
+    loadTsconfig,
+    resolvePath
+  } from 'https://esm.sh/@flex-development/tsconfig-utils'
 </script>
 ```
 
@@ -107,7 +124,166 @@ This package exports the following identifiers listed below.
 
 There is no default export.
 
-**TODO**: api
+### `createGetCanonicalFileName([useCaseSensitiveFileNames])`
+
+Create a canonical file name function.
+
+#### Parameters
+
+- `useCaseSensitiveFileNames` ([`UseCaseSensitiveFileNames`](#usecasesensitivefilenames))
+  — whether to treat filenames as case sensitive
+
+#### Returns
+
+([`GetCanonicalFileName`](#getcanonicalfilename)) A function that returns a canonical file name given a module id
+
+### `createModuleResolutionHost([options])`
+
+Create a module resolution host.
+
+The module resolution host acts a bridge between the TypeScript compiler and the file system.
+
+> 👉 **Note**: The host can have both asynchronous and synchronous methods,
+> but when used with the native TypeScript compiler, all methods must return synchronous values.
+
+#### Parameters
+
+- `options` ([`ModuleResolutionHostOptions`](#moduleresolutionhostoptions) | `null` | `undefined`)
+  — options for host creation
+
+#### Returns
+
+([`ModuleResolutionHost`](#moduleresolutionhost)) The module resolution host
+
+### `createParseConfigHost([options])`
+
+Create a configuration parser host.
+
+The parser host provides methods for accessing the file system and resolving module paths.
+
+> 👉 **Note**: The host can have both asynchronous and synchronous methods,
+> but when used with the native TypeScript compiler, all methods must return synchronous values.
+
+#### Parameters
+
+- `options` ([`ParseConfigHostOptions`](#parseconfighostoptions) | `null` | `undefined`)
+  — options for host creation
+
+#### Returns
+
+([`ParseConfigHost`](#parseconfighost)) The parse config host
+
+### `isResolvedTsconfig(value)`
+
+Check if `value` is a resolved configuration object.
+
+#### Parameters
+
+- `value` (`unknown`)
+  — the value to check
+
+#### Returns
+
+([`value is ResolvedTsconfig`](#resolvedtsconfig)) `true` if `value` is resolved tsconfig object, `false` otherwise
+
+### `isTsconfigHost(value)`
+
+Check if `value` is an object with a [`Tsconfig`][tt-tsconfig].
+
+#### Parameters
+
+- `value` (`unknown`)
+  — the value to check
+
+#### Returns
+
+([`value is TsconfigHost`](#tsconfighost)) `true` if `value` is tsconfig host object, `false` otherwise
+
+### `loadTsconfig<T>([id][, options])`
+
+Load a tsconfig file.
+
+#### Type Parameters
+
+- `T` ([`Awaitable<ResolvedTsconfig | null>`](#resolvedtsconfig))
+  — the resolved tsconfig
+
+#### Parameters
+
+- `id` ([`ModuleId`][mlly-moduleid] | `null` | `undefined`)
+  — the module id or specifier of the tsconfig file
+  - **default**: `'tsconfig.json'`
+- `options` ([`LoadTsconfigOptions`](#loadtsconfigoptions) | `null` | `undefined`)
+  — load options
+
+#### Returns
+
+(`T`) The resolved tsconfig, or `null` if tsconfig file is not found
+
+### `mergeTsconfig<T>(target[, ...tsconfigs])`
+
+Merge one or more tsconfig objects into a single [`Tsconfig`][tt-tsconfig].
+
+Tsconfig source objects are applied from left to right.
+Subsequent sources overwrite property assignments of previous sources.
+
+> 👉 **Note**: If `target` is a [`TsconfigHost`](#tsconfighost), `target.tsconfig` will be modified.
+> Otherwise, `target` will be modified.
+
+#### Type Parameters
+
+- `T` ([`Tsconfig`][tt-tsconfig])
+  — the merged tsconfig
+
+#### Parameters
+
+- `target` ([`Tsconfig`][tt-tsconfig] | [`TsconfigHost`](#tsconfighost) | `null` | `undefined`)
+  — the target tsconfig or tsconfig host
+- `...tsconfigs` (`readonly (Tsconfig | TsconfigHost | null | undefined)[]`)
+  — the source tsconfig object(s)
+
+#### Returns
+
+(`T`) The merged tsconfig
+
+### `readTsconfig<T>([id][, options])`
+
+Read a tsconfig file.
+
+> 👉 **Note**: Returns a promise if [`getSource`][mlly-getsource]
+> or [`resolveModule`][mlly-resolvemodule] returns a promise.
+
+#### Type Parameters
+
+- `T` ([`Awaitable<ResolvedTsconfig | null>`](#resolvedtsconfig))
+  — the resolved tsconfig
+
+#### Parameters
+
+- `id` ([`ModuleId`][mlly-moduleid] | `null` | `undefined`)
+  — the module id or specifier of the tsconfig file
+  - **default**: `'tsconfig.json'`
+- `options` ([`ReadTsconfigOptions`](#readtsconfigoptions) | `null` | `undefined`)
+  — read options
+
+#### Returns
+
+(`T`) The resolved tsconfig, or `null` if tsconfig file is not found
+
+### `resolvePath(specifier[, options])`
+
+Resolve an aliased `specifier`.
+
+#### Parameters
+
+- `specifier` (`string`)
+  — the specifier using an alias
+- `options` ([`ResolvePathOptions`](#resolvepathoptions) | `null` | `undefined`)
+  — alias resolution options
+
+#### Returns
+
+(`string` | `null`) The path alias match or `null` if match is not found
 
 ## Types
 
@@ -683,6 +859,8 @@ community you agree to abide by its terms.
 
 [mlly-getsourceoptions]: https://github.com/flex-development/mlly#getsourceoptions
 
+[mlly-getsource]: https://github.com/flex-development/mlly#getsourcetid-options
+
 [mlly-isdirectory]: https://github.com/flex-development/mlly#isdirectory
 
 [mlly-isfile]: https://github.com/flex-development/mlly#isfile
@@ -696,6 +874,8 @@ community you agree to abide by its terms.
 [mlly-realpath]: https://github.com/flex-development/mlly#realpath
 
 [mlly-resolvealiasoptions]: https://github.com/flex-development/mlly#resolvealiasoptions
+
+[mlly-resolvemodule]: https://github.com/flex-development/mlly#resolvemoduletspecifier-parent-options
 
 [mlly-stat]: https://github.com/flex-development/mlly#stat
 

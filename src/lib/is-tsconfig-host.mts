@@ -14,7 +14,7 @@ import type { TsconfigHost } from '@flex-development/tsconfig-utils'
  * @this {void}
  *
  * @param {unknown} value
- *  The thing to check
+ *  The value to check
  * @return {value is TsconfigHost}
  *  `true` if `value` is tsconfig host object, `false` otherwise
  */

@@ -44,6 +44,7 @@ describe('unit:lib/readTsconfig', () => {
     })
 
     it.each<Case>([
+      [null],
       ['#fixtures/tsconfigs/tsconfig.json'],
       ['#fixtures/tsconfigs/tsconfig.test.json', { parent: import.meta.url }],
       ['@tsconfig/strictest/tsconfig', { cwd: mlly.cwd(), encoding: 'utf8' }],

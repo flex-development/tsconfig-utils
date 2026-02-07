@@ -15,7 +15,7 @@ import type { ResolvedTsconfig } from '@flex-development/tsconfig-utils'
  * @this {void}
  *
  * @param {unknown} value
- *  The thing to check
+ *  The value to check
  * @return {value is ResolvedTsconfig}
  *  `true` if `value` is resolved tsconfig object, `false` otherwise
  */

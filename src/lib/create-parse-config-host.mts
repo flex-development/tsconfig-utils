@@ -16,7 +16,10 @@ import type {
 } from '@flex-development/tsconfig-utils'
 
 /**
- * Create a parse config host.
+ * Create a configuration parser host.
+ *
+ * The parser host provides methods for accessing the file system
+ * and resolving module paths.
  *
  * > 👉 **Note**: The host can have both asynchronous and synchronous methods,
  * > but when used with the native TypeScript compiler, all methods must return

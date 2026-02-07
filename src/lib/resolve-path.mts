@@ -23,7 +23,7 @@ import type { ResolvePathOptions } from '@flex-development/tsconfig-utils'
  * @param {ResolvePathOptions | null | undefined} [options]
  *  Alias resolution options
  * @return {string | null}
- *  The path match or `null` if path alias match is not found
+ *  The path alias match or `null` if match is not found
  */
 function resolvePath(
   this: void,
