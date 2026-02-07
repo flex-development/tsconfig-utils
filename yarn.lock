@@ -1617,16 +1617,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@flex-development/fst@npm:1.0.0":
-  version: 1.0.0
-  resolution: "@flex-development/fst@npm:1.0.0"
-  dependencies:
-    "@flex-development/unist-util-types": "npm:1.6.1"
-    "@types/unist": "npm:3.0.3"
-  checksum: 10/84423d56e50065208d854eea323993c1f80a22d01a2b2da90fd599581a5088b8efa8e0d44106238fb9f5ddcb909ad7ae5a5ed2570232e53a7b93873c6aae2a9b
-  languageName: node
-  linkType: hard
-
 "@flex-development/grease@npm:3.0.0-alpha.9":
   version: 3.0.0-alpha.9
   resolution: "@flex-development/grease@npm:3.0.0-alpha.9"
@@ -2011,7 +2001,6 @@ __metadata:
     "@commitlint/types": "npm:20.4.0"
     "@flex-development/commitlint-config": "npm:1.0.1"
     "@flex-development/eslint-config": "npm:1.1.1"
-    "@flex-development/fst": "npm:1.0.0"
     "@flex-development/grease": "npm:3.0.0-alpha.9"
     "@flex-development/is-builtin": "npm:3.2.0"
     "@flex-development/mlly": "npm:1.0.0-beta.4"
@@ -2138,15 +2127,6 @@ __metadata:
     typescript:
       optional: true
   checksum: 10/161901c611f0049464cc53e128b8285f12a9dc6ef551a8c8a4bd47d9e2d73afcc53c25fbcd18189dcda28a460ea64e8801398159b6daaaff63d0552d140f1f02
-  languageName: node
-  linkType: hard
-
-"@flex-development/unist-util-types@npm:1.6.1":
-  version: 1.6.1
-  resolution: "@flex-development/unist-util-types@npm:1.6.1"
-  dependencies:
-    "@types/unist": "npm:3.0.2"
-  checksum: 10/fd308bb9673987b588d54afc56821fefaad9233fecf8d76f352a055c339716979f3c2e1b2d145628ffa0d9ac033fbe28d942294a029d98b52334dd9703471f99
   languageName: node
   linkType: hard
 
@@ -2941,17 +2921,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/unist@npm:*, @types/unist@npm:3.0.3, @types/unist@npm:^3.0.0":
+"@types/unist@npm:*, @types/unist@npm:^3.0.0":
   version: 3.0.3
   resolution: "@types/unist@npm:3.0.3"
   checksum: 10/96e6453da9e075aaef1dc22482463898198acdc1eeb99b465e65e34303e2ec1e3b1ed4469a9118275ec284dc98019f63c3f5d49422f0e4ac707e5ab90fb3b71a
-  languageName: node
-  linkType: hard
-
-"@types/unist@npm:3.0.2":
-  version: 3.0.2
-  resolution: "@types/unist@npm:3.0.2"
-  checksum: 10/3d04d0be69316e5f14599a0d993a208606c12818cf631fd399243d1dc7a9bd8a3917d6066baa6abc290814afbd744621484756803c80cba892c39cd4b4a85616
   languageName: node
   linkType: hard
 

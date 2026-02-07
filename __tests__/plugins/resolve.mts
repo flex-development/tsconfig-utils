@@ -6,11 +6,11 @@
 import { isBuiltin } from '@flex-development/is-builtin'
 import {
   resolveModule,
+  type Condition,
   type MainField,
   type ResolveModuleOptions
 } from '@flex-development/mlly'
 import pathe from '@flex-development/pathe'
-import type { Condition } from '@flex-development/pkg-types'
 import { ok } from 'devlop'
 import type { PartialResolvedId, PluginContext } from 'rollup'
 import type { Plugin, ResolvedConfig } from 'vite'

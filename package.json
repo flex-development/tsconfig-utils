@@ -137,10 +137,8 @@
     "typecheck:ui": "yarn test:ui --typecheck --mode=typecheck"
   },
   "dependencies": {
-    "@flex-development/fst": "1.0.0",
     "@flex-development/mlly": "1.0.0-beta.4",
     "@flex-development/pathe": "4.0.2",
-    "@flex-development/pkg-types": "4.1.0",
     "@flex-development/tsconfig-types": "5.1.0",
     "@flex-development/tutils": "6.0.0-alpha.25",
     "devlop": "1.1.0",
@@ -156,6 +154,7 @@
     "@flex-development/eslint-config": "1.1.1",
     "@flex-development/grease": "3.0.0-alpha.9",
     "@flex-development/is-builtin": "3.2.0",
+    "@flex-development/pkg-types": "4.1.0",
     "@flex-development/remark-preset": "1.0.0",
     "@tsconfig/strictest": "2.0.8",
     "@types/chai": "5.2.3",
