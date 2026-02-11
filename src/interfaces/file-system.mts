@@ -3,7 +3,6 @@
  * @module tsconfig-utils/interfaces/FileSystem
  */
 
-import type * as mlly from '@flex-development/mlly'
 import type {
   Readdir,
   ReadFile,
@@ -13,12 +12,8 @@ import type {
 
 /**
  * The file system API.
- *
- * @see {@linkcode mlly.FileSystem}
- *
- * @extends {mlly.FileSystem}
  */
-interface FileSystem extends mlly.FileSystem {
+interface FileSystem {
   /**
    * Read the entire contents of a file.
    *

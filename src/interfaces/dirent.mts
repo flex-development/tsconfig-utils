@@ -35,14 +35,9 @@ interface Dirent {
   isSymbolicLink: IsSymbolicLink
 
   /**
-   * The path to the entry, relative to the {@linkcode parentPath}.
+   * The path to the entry, relative to its parent directory.
    */
   name: string
-
-  /**
-   * The path to the parent directory.
-   */
-  parentPath: string
 }
 
 export type { Dirent as default }

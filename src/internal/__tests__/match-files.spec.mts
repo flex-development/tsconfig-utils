@@ -3,9 +3,8 @@
  * @module tsconfig-utils/internal/tests/unit/matchFiles
  */
 
-import fsa from '#fixtures/fs/fsa'
+import fsa from '#fixtures/fsa'
 import emptyArray from '#internal/empty-array'
-import getFileSystemEntries from '#internal/get-file-system-entries'
 import isPromise from '#internal/is-promise'
 import testSubject from '#internal/match-files'
 import createModuleResolutionHost from '#lib/create-module-resolution-host'
@@ -134,7 +133,6 @@ describe('unit:internal/matchFiles', () => {
         include,
         useCaseSensitiveFileNames,
         depth,
-        getFileSystemEntries,
         fs
       )
 

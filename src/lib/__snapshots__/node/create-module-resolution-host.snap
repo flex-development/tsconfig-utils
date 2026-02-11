@@ -4,17 +4,11 @@ exports[`unit:lib/createModuleResolutionHost > fs (default) > getDirectories > s
 
 exports[`unit:lib/createModuleResolutionHost > fs (default) > getDirectories > should return list of subdirectory names (1) 1`] = `
 [
-  ".git",
-  ".github",
-  ".husky",
-  ".vscode",
-  ".yarn",
-  "__fixtures__",
-  "__tests__",
-  "dprint",
-  "scripts",
-  "src",
-  "typings",
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
 ]
 `;
 
@@ -30,17 +24,11 @@ exports[`unit:lib/createModuleResolutionHost > fs (only async) > getDirectories 
 
 exports[`unit:lib/createModuleResolutionHost > fs (only async) > getDirectories > should return list of subdirectory names (1) 1`] = `
 [
-  ".git",
-  ".github",
-  ".husky",
-  ".vscode",
-  ".yarn",
-  "__fixtures__",
-  "__tests__",
-  "dprint",
-  "scripts",
-  "src",
-  "typings",
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
 ]
 `;
 

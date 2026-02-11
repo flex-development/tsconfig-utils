@@ -3,7 +3,7 @@
  * @module tsconfig-utils/lib/tests/unit/readTsconfig
  */
 
-import fsa from '#fixtures/fs/fsa'
+import fsa from '#fixtures/fsa'
 import dfs from '#internal/fs'
 import isResolvedTsconfig from '#lib/is-resolved-tsconfig'
 import testSubject from '#lib/read-tsconfig'

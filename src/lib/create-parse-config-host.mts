@@ -3,7 +3,6 @@
  * @module tsconfig-utils/lib/createParseConfigHost
  */
 
-import getFileSystemEntries from '#internal/get-file-system-entries'
 import matchFiles from '#internal/match-files'
 import createModuleResolutionHost from '#lib/create-module-resolution-host'
 import type { ModuleId } from '@flex-development/mlly'
@@ -128,7 +127,6 @@ function createParseConfigHost(
       include,
       useCaseSensitiveFileNames,
       depth,
-      getFileSystemEntries,
       options?.fs
     )
   }

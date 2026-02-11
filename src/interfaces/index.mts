@@ -8,9 +8,6 @@ export type { default as Dirent } from '#interfaces/dirent'
 export type { default as FileExists } from '#interfaces/file-exists'
 export type { default as FileSystem } from '#interfaces/file-system'
 export type {
-  default as FileSystemEntries
-} from '#interfaces/file-system-entries'
-export type {
   default as GetCurrentDirectory
 } from '#interfaces/get-current-directory'
 export type { default as GetDirectories } from '#interfaces/get-directories'

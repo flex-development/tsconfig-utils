@@ -5,20 +5,28 @@
 
 import type MatcherPatterns from '#interfaces/matcher-patterns'
 import chainOrCall from '#internal/chain-or-call'
+import combinePaths from '#internal/combine-paths'
 import emptyArray from '#internal/empty-array'
-import dfs from '#internal/fs'
-import getMatcherPatterns from '#internal/get-matcher-patterns'
-import visitDirectory from '#internal/visit-directory'
+import getMatcherPatterns, {
+  type MatcherType
+} from '#internal/get-matcher-patterns'
 import createGetCanonicalFileName from '#lib/create-get-canonical-file-name'
-import type GetFileSystemEntries from '#types/get-file-system-entries'
+import type {
+  File,
+  AnyParent as Parent,
+  Root
+} from '@flex-development/fst'
+import { fromFileSystem } from '@flex-development/fst-util-from-fs'
 import type { ModuleId } from '@flex-development/mlly'
 import pathe from '@flex-development/pathe'
 import type {
   Awaitable,
+  Dirent,
   FileSystem,
   List,
   ModuleResolutionHost
 } from '@flex-development/tsconfig-utils'
+import { ok } from 'devlop'
 
 export default matchFiles
 
@@ -27,7 +35,6 @@ export default matchFiles
  *
  * @see {@linkcode Awaitable}
  * @see {@linkcode FileSystem}
- * @see {@linkcode GetFileSystemEntries}
  * @see {@linkcode List}
  * @see {@linkcode ModuleId}
  * @see {@linkcode ModuleResolutionHost}
@@ -57,8 +64,6 @@ export default matchFiles
  * @param {number | null | undefined} depth
  *  The maximum search depth (inclusive),
  *  with `-1`, `null`, or `undefined` used to search all directories
- * @param {GetFileSystemEntries} getFileSystemEntries
- *  A function that returns a file system entries record
  * @param {FileSystem | null | undefined} [fs]
  *  The file system API
  * @return {T}
@@ -76,7 +81,6 @@ function matchFiles<
   include: List<string> | null | undefined,
   useCaseSensitiveFileNames: boolean | null | undefined,
   depth: number | null | undefined,
-  getFileSystemEntries: GetFileSystemEntries,
   fs?: FileSystem | null | undefined
 ): T
 
@@ -85,7 +89,6 @@ function matchFiles<
  *
  * @see {@linkcode Awaitable}
  * @see {@linkcode FileSystem}
- * @see {@linkcode GetFileSystemEntries}
  * @see {@linkcode List}
  * @see {@linkcode ModuleId}
  * @see {@linkcode ModuleResolutionHost}
@@ -109,8 +112,6 @@ function matchFiles<
  *  Whether to treat filenames as case sensitive
  * @param {number | null | undefined} depth
  *  The maximum search depth (inclusive)
- * @param {GetFileSystemEntries} getFileSystemEntries
- *  A function that returns a file system entries record
  * @param {FileSystem | null | undefined} [fs]
  *  The file system API
  * @return {Awaitable<ReadonlyArray<string>>}
@@ -125,7 +126,6 @@ function matchFiles(
   include: List<string> | null | undefined,
   useCaseSensitiveFileNames: boolean | null | undefined,
   depth: number | null | undefined,
-  getFileSystemEntries: GetFileSystemEntries,
   fs?: FileSystem | null | undefined
 ): Awaitable<readonly string[]> {
   /**
@@ -162,17 +162,86 @@ function matchFiles(
     patterns.exclude.add('node_modules')
     patterns.exclude.add('jspm_packages')
 
-    return chainOrCall(visitDirectory(
-      files,
-      null,
-      pathe.toPath(parent),
-      new Map(),
-      depth,
-      patterns,
-      createGetCanonicalFileName(patterns.useCaseSensitiveFileNames),
-      getFileSystemEntries,
-      fs ?? dfs
-    ), (): readonly string[] => {
+    /**
+     * The file system tree.
+     *
+     * @const {Awaitable<Root>} tree
+     */
+    const tree: Awaitable<Root> = fromFileSystem({
+      depth: typeof depth === 'number' && depth <= 0 ? null : depth,
+      filters: {
+        /**
+         * Determine if a directory should be searched.
+         *
+         * @this {void}
+         *
+         * @param {string} path
+         *  The path to the directory, relative to its parent directory
+         * @return {boolean}
+         *  `true` if directory should be searched, `false` otherwise
+         */
+        directory(this: void, path: string): boolean {
+          return match('directory', path, patterns)
+        },
+        /**
+         * Match a file.
+         *
+         * @this {void}
+         *
+         * @param {string} path
+         *  The path to the file, relative to its parent directory
+         * @return {boolean}
+         *  `true` if file is matched, `false` otherwise
+         */
+        file(this: void, path: string): boolean {
+          return match('file', path, patterns)
+        }
+      },
+      fs,
+      handles: {
+        /**
+         * Store a file path.
+         *
+         * @this {void}
+         *
+         * @param {File} node
+         *  The node representing the file
+         * @param {Dirent} dirent
+         *  The dirent representing the file
+         * @param {Parent} parent
+         *  The parent of `node`
+         * @param {Root} tree
+         *  The current file system tree
+         * @param {Parent[]} ancestors
+         *  The ancestors of `node`, with the last node being `parent`
+         * @return {undefined}
+         */
+        file(
+          this: void,
+          node: File,
+          dirent: Dirent,
+          parent: Parent,
+          tree: Root,
+          ancestors: Parent[]
+        ): undefined {
+          /**
+           * The list of relative ancestor paths.
+           *
+           * @const {string[]} paths
+           */
+          const paths: string[] = [...ancestors.slice(1), node].map(node => {
+            ok(node.type !== 'root', 'did not expect `tree`')
+            return node.name
+          })
+
+          return void files.push(combinePaths(tree.path, ...paths))
+        }
+      },
+      root: parent,
+      visitKey: createGetCanonicalFileName(patterns.useCaseSensitiveFileNames)
+    })
+
+    return chainOrCall(tree, () => {
       return Object.freeze(files.sort((a, b) => {
         return a.localeCompare(b, undefined, {
           caseFirst: patterns.useCaseSensitiveFileNames ? 'upper' : 'false'
@@ -180,4 +249,60 @@ function matchFiles(
       }))
     })
   })
+}
+
+/**
+ * Check if `path` is a matched directory or file.
+ *
+ * > 👉 **Note**: Directories are matched by include pattern only.
+ * > Files are matched by include pattern and extension.
+ *
+ * @internal
+ *
+ * @this {void}
+ *
+ * @param {MatcherType} type
+ *  The matcher type
+ * @param {string} path
+ *  The path to match
+ * @param {MatcherPatterns} patterns
+ *  The matcher patterns record
+ * @return {boolean}
+ *  `true` if `path` is matched
+ */
+function match(
+  this: void,
+  type: MatcherType,
+  path: string,
+  patterns: MatcherPatterns
+): boolean {
+  ok(!pathe.isAbsolute(path), 'expected `path` not to be absolute')
+
+  /**
+   * Whether a file path is being filtered.
+   *
+   * @const {boolean} file
+   */
+  const file: boolean = type === 'file'
+
+  /**
+   * The list of patterns matching directories to search or files to include.
+   *
+   * @const {string[]} pattern
+   */
+  const pattern: string[] = [...patterns[`${type}Include`]]
+
+  /**
+   * Whether {@linkcode path} is a glob match.
+   *
+   * @const {boolean} globbed
+   */
+  const globbed: boolean = pathe.matchesGlob(path, pattern, {
+    dot: file,
+    ignore: [...patterns.exclude],
+    nocase: !patterns.useCaseSensitiveFileNames,
+    noglobstar: false
+  })
+
+  return globbed && file ? patterns.matchExtension(path) : globbed
 }

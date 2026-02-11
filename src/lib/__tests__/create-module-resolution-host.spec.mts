@@ -3,8 +3,8 @@
  * @module tsconfig-utils/lib/tests/unit/createModuleResolutionHost
  */
 
-import content from '#fixtures/fs/content'
-import fsa from '#fixtures/fs/fsa'
+import fsa from '#fixtures/fsa'
+import constant from '#internal/constant'
 import dfs from '#internal/fs'
 import isPromise from '#internal/is-promise'
 import withTrailingSlash from '#internal/with-trailing-slash'
@@ -143,10 +143,34 @@ describe('unit:lib/createModuleResolutionHost', () => {
     })
 
     describe('getDirectories', () => {
+      let content: Dirent[]
+      let directories: readonly string[]
+      let files: readonly string[]
       let subject: ModuleResolutionHost
 
       beforeAll(() => {
+        content = []
+        directories = Object.freeze(['A', 'B', 'C', 'D', 'E'])
+        files = Object.freeze(['a', 'b', 'c', 'd', 'e', 'f', 's'])
         subject = testSubject({ fs })
+
+        for (const name of directories) {
+          content.push({
+            isDirectory: constant(true),
+            isFile: constant(false),
+            isSymbolicLink: constant(false),
+            name
+          })
+        }
+
+        for (const name of files) {
+          content.push({
+            isDirectory: constant(false),
+            isFile: constant(true),
+            isSymbolicLink: constant(name === files.at(-1)),
+            name
+          })
+        }
       })
 
       beforeEach(() => {

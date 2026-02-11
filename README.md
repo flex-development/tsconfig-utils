@@ -366,9 +366,7 @@ Information about a directory entry (`interface`).
 - `isSymbolicLink` ([`IsSymbolicLink`](#issymboliclink))
   — check if the entry is a symbolic link
 - `name` (`string`)
-  — the path to the entry, relative to the `parentPath`
-- `parentPath` (`string`)
-  — the path to the parent directory
+  — the path to the entry, relative to its parent directory
 
 ### `FileExists`
 

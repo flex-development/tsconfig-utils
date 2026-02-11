@@ -3,7 +3,7 @@
  * @module tsconfig-utils/lib/tests/unit/createParseConfigHost
  */
 
-import fsa from '#fixtures/fs/fsa'
+import fsa from '#fixtures/fsa'
 import emptyArray from '#internal/empty-array'
 import dfs from '#internal/fs'
 import isPromise from '#internal/is-promise'

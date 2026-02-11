@@ -4,7 +4,6 @@
  */
 
 import type TestSubject from '#interfaces/file-system'
-import type * as mlly from '@flex-development/mlly'
 import type {
   ReadFile,
   Readdir,
@@ -13,10 +12,6 @@ import type {
 } from '@flex-development/tsconfig-utils'
 
 describe('unit-d:interfaces/FileSystem', () => {
-  it('should extend mlly.FileSystem', () => {
-    expectTypeOf<TestSubject>().toExtend<mlly.FileSystem>()
-  })
-
   it('should match [readFile: ReadFile]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('readFile')

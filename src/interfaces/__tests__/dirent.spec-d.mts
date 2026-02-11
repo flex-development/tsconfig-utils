@@ -30,10 +30,4 @@ describe('unit-d:interfaces/Dirent', () => {
   it('should match [name: string]', () => {
     expectTypeOf<TestSubject>().toHaveProperty('name').toEqualTypeOf<string>()
   })
-
-  it('should match [parentPath: string]', () => {
-    expectTypeOf<TestSubject>()
-      .toHaveProperty('parentPath')
-      .toEqualTypeOf<string>()
-  })
 })

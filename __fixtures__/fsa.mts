@@ -1,6 +1,6 @@
 /**
  * @file Fixtures - fsa
- * @module fixtures/fs/fsa
+ * @module fixtures/fsa
  */
 
 import type { FileSystem } from '@flex-development/tsconfig-utils'
