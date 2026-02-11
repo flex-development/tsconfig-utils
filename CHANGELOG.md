@@ -1,3 +1,9 @@
+## [3.0.0-beta.2](https://github.com/flex-development/tsconfig-utils/compare/3.0.0-beta.1...3.0.0-beta.2) (2026-02-11)
+
+### :package: Build
+
+- [[`c45b446`](https://github.com/flex-development/tsconfig-utils/commit/c45b44696a4cc845cfa6421c2741a11b5a54922c)] **deps:** @flex-development/fst-util-from-fs integration
+
 ## [3.0.0-beta.1](https://github.com/flex-development/tsconfig-utils/compare/2.0.2...3.0.0-beta.1) (2026-02-06)
 
 ### ⚠ BREAKING CHANGES
@@ -556,4 +562,5 @@
 * **utils:** `loadLibConfig` -> `loadLib` ([87c800d](https://github.com/flex-development/tsconfig-utils/commit/87c800df2d2eef525b0edcad571a01527be15e06))
 * **utils:** `loadPathAliases` -> `loadPaths` ([f4da989](https://github.com/flex-development/tsconfig-utils/commit/f4da989e173d212039f980bf98469684e0ab9a65))
 * **utils:** `loadPluginConfigs` -> `loadPlugins` ([2e839e5](https://github.com/flex-development/tsconfig-utils/commit/2e839e5c67edc6f725dfe70bffbea14fe8e6aa8e))
+
 
