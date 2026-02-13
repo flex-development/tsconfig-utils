@@ -138,7 +138,7 @@
   },
   "dependencies": {
     "@flex-development/fst-util-from-fs": "1.0.0-beta.1",
-    "@flex-development/mlly": "1.0.0-beta.4",
+    "@flex-development/mlly": "1.0.0-beta.6",
     "@flex-development/pathe": "4.0.2",
     "@flex-development/tsconfig-types": "5.1.0",
     "@flex-development/tutils": "6.0.0-alpha.25",
