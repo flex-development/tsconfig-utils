@@ -3,8 +3,6 @@
  * @module tsconfig-utils/lib/loadTsconfig
  */
 
-import chainOrCall from '#internal/chain-or-call'
-import isPromise from '#internal/is-promise'
 import normalizeRelativePaths from '#internal/normalize-relative-paths'
 import mergeTsconfig from '#lib/merge-tsconfig'
 import readTsconfig from '#lib/read-tsconfig'
@@ -16,6 +14,7 @@ import type {
   ResolvedTsconfig
 } from '@flex-development/tsconfig-utils'
 import { ksort, omit, shake, trim } from '@flex-development/tutils'
+import { isThenable, when } from '@flex-development/when'
 import { ok } from 'devlop'
 
 export default loadTsconfig
@@ -68,14 +67,7 @@ function loadTsconfig(
   id?: ModuleId | null | undefined,
   options?: LoadTsconfigOptions | null | undefined
 ): Awaitable<ResolvedTsconfig | null> {
-  /**
-   * The resolved tsconfig.
-   *
-   * @const {ResolvedTsconfig | null} result
-   */
-  const result: Awaitable<ResolvedTsconfig | null> = readTsconfig(id, options)
-
-  return chainOrCall(result, (resolved = result as ResolvedTsconfig | null) => {
+  return when(readTsconfig(id, options), resolved => {
     if (resolved === null) return resolved
 
     /**
@@ -126,7 +118,7 @@ function loadTsconfig(
         base = loadTsconfig(id, { ...options, parent: resolved.url })
 
         // store resolve promise, or extend the base.
-        isPromise(base) ? promises.push(base) : extend(base)
+        isThenable(base) ? promises.push(base) : extend(base)
       }
 
       delete resolved.tsconfig.extends

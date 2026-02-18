@@ -5,7 +5,6 @@
 
 import fsa from '#fixtures/fsa'
 import emptyArray from '#internal/empty-array'
-import isPromise from '#internal/is-promise'
 import testSubject from '#internal/match-files'
 import createModuleResolutionHost from '#lib/create-module-resolution-host'
 import fsCaseType, { type FileSystemCaseType } from '#tests/utils/fs-case-type'
@@ -17,6 +16,7 @@ import type {
   List,
   ModuleResolutionHost
 } from '@flex-development/tsconfig-utils'
+import { isThenable } from '@flex-development/when'
 import ts from 'typescript'
 import tsconfigBuild from '../../../tsconfig.build.json' with { type: 'json' }
 
@@ -138,9 +138,9 @@ describe('unit:internal/matchFiles', () => {
 
       // Expect (promises)
       if (isAsync) {
-        expect(result).to.satisfy(isPromise), result = await result
+        expect(result).to.satisfy(isThenable), result = await result
       } else {
-        expect(result).to.not.satisfy(isPromise)
+        expect(result).to.not.satisfy(isThenable)
       }
 
       // Expect (result)

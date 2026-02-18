@@ -4,7 +4,6 @@
  */
 
 import type MatcherPatterns from '#interfaces/matcher-patterns'
-import chainOrCall from '#internal/chain-or-call'
 import combinePaths from '#internal/combine-paths'
 import emptyArray from '#internal/empty-array'
 import getMatcherPatterns, {
@@ -26,6 +25,7 @@ import type {
   List,
   ModuleResolutionHost
 } from '@flex-development/tsconfig-utils'
+import when from '@flex-development/when'
 import { ok } from 'devlop'
 
 export default matchFiles
@@ -128,14 +128,7 @@ function matchFiles(
   depth: number | null | undefined,
   fs?: FileSystem | null | undefined
 ): Awaitable<readonly string[]> {
-  /**
-   * Whether the parent directory exists.
-   *
-   * @const {Awaitable<boolean>} exists
-   */
-  const exists: Awaitable<boolean> = host.directoryExists(parent)
-
-  return chainOrCall(exists, (isDirectory = exists as boolean) => {
+  return when(host.directoryExists(parent), isDirectory => {
     if (!isDirectory) return emptyArray
 
     /**
@@ -241,7 +234,7 @@ function matchFiles(
       visitKey: createGetCanonicalFileName(patterns.useCaseSensitiveFileNames)
     })
 
-    return chainOrCall(tree, () => {
+    return when(tree, () => {
       return Object.freeze(files.sort((a, b) => {
         return a.localeCompare(b, undefined, {
           caseFirst: patterns.useCaseSensitiveFileNames ? 'upper' : 'false'

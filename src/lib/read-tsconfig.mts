@@ -3,10 +3,8 @@
  * @module tsconfig-utils/lib/readTsconfig
  */
 
-import chainOrCall from '#internal/chain-or-call'
 import constant from '#internal/constant'
 import identity from '#internal/identity'
-import isPromise from '#internal/is-promise'
 import withTrailingSlash from '#internal/with-trailing-slash'
 import {
   canParseUrl,
@@ -16,7 +14,6 @@ import {
   isImportsSubpath,
   resolveModule,
   toUrl,
-  type FileContent,
   type ModuleId
 } from '@flex-development/mlly'
 import pathe from '@flex-development/pathe'
@@ -26,6 +23,7 @@ import type {
   ReadTsconfigOptions,
   ResolvedTsconfig
 } from '@flex-development/tsconfig-utils'
+import { isThenable, when } from '@flex-development/when'
 import { ok } from 'devlop'
 import JSON from 'json5'
 import stripBom from 'strip-bom'
@@ -112,40 +110,30 @@ function readTsconfig(
   // retrying as relative specifier if the first resolution attempt fails.
   try {
     result = resolveModule(id, parent, { ...options, extensions })
-    if (isPromise(result)) result = result.then(identity, retry)
+    if (isThenable(result)) result = result.then(identity, retry)
   } catch {
     result = retry()
-    if (!isPromise(result) && !result) return result
+    if (!isThenable(result) && !result) return result
   }
 
-  return chainOrCall(result, read, /* swallow resolve error */ constant(null))
+  return when(result, read, /* swallow resolve error */ constant(null))
 
   /**
    * @this {void}
    *
-   * @param {URL | null | undefined} [url]
+   * @param {URL | null} url
    *  The URL of the tsconfig file
    * @return {Awaitable<ResolvedTsconfig | null>}
    *  The resolved tsconfig
    */
   function read(
     this: void,
-    url: URL | null | undefined = result as URL
+    url: URL | null
   ): Awaitable<ResolvedTsconfig | null> {
     ok(url, 'expected `url`')
     if (!extensions.has(pathe.extname(url))) return null
 
-    /**
-     * The contents of the tsconfig file.
-     *
-     * @const {Awaitable<FileContent | null | undefined>} source
-     */
-    const source: Awaitable<FileContent | null | undefined> = getSource(
-      url,
-      options
-    )
-
-    return chainOrCall(source, (contents = source as string) => {
+    return when(getSource(url, options), contents => {
       /**
        * The resolved tsconfig.
        *

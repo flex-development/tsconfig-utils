@@ -6,7 +6,6 @@
 import fsa from '#fixtures/fsa'
 import constant from '#internal/constant'
 import dfs from '#internal/fs'
-import isPromise from '#internal/is-promise'
 import withTrailingSlash from '#internal/with-trailing-slash'
 import testSubject from '#lib/create-module-resolution-host'
 import fsCaseType, { type FileSystemCaseType } from '#tests/utils/fs-case-type'
@@ -18,6 +17,7 @@ import type {
   FileSystem,
   ModuleResolutionHost
 } from '@flex-development/tsconfig-utils'
+import { isThenable } from '@flex-development/when'
 
 describe('unit:lib/createModuleResolutionHost', () => {
   it.each<Parameters<typeof testSubject>>([
@@ -61,9 +61,9 @@ describe('unit:lib/createModuleResolutionHost', () => {
 
         // Expect (promises)
         if (isAsync) {
-          expect(result).to.satisfy(isPromise), result = await result
+          expect(result).to.satisfy(isThenable), result = await result
         } else {
-          expect(result).to.not.satisfy(isPromise)
+          expect(result).to.not.satisfy(isThenable)
         }
 
         // Expect (result)
@@ -76,9 +76,9 @@ describe('unit:lib/createModuleResolutionHost', () => {
 
         // Expect (promises)
         if (isAsync) {
-          expect(result).to.satisfy(isPromise), result = await result
+          expect(result).to.satisfy(isThenable), result = await result
         } else {
-          expect(result).to.not.satisfy(isPromise)
+          expect(result).to.not.satisfy(isThenable)
         }
 
         // Expect (result)
@@ -99,9 +99,9 @@ describe('unit:lib/createModuleResolutionHost', () => {
 
         // Expect (promises)
         if (isAsync) {
-          expect(result).to.satisfy(isPromise), result = await result
+          expect(result).to.satisfy(isThenable), result = await result
         } else {
-          expect(result).to.not.satisfy(isPromise)
+          expect(result).to.not.satisfy(isThenable)
         }
 
         // Expect (result)
@@ -114,9 +114,9 @@ describe('unit:lib/createModuleResolutionHost', () => {
 
         // Expect (promises)
         if (isAsync) {
-          expect(result).to.satisfy(isPromise), result = await result
+          expect(result).to.satisfy(isThenable), result = await result
         } else {
-          expect(result).to.not.satisfy(isPromise)
+          expect(result).to.not.satisfy(isThenable)
         }
 
         // Expect (result)
@@ -188,9 +188,9 @@ describe('unit:lib/createModuleResolutionHost', () => {
 
         // Expect (promises)
         if (isAsync) {
-          expect(result).to.satisfy(isPromise), result = await result
+          expect(result).to.satisfy(isThenable), result = await result
         } else {
-          expect(result).to.not.satisfy(isPromise)
+          expect(result).to.not.satisfy(isThenable)
         }
 
         // Expect (result)
@@ -215,9 +215,9 @@ describe('unit:lib/createModuleResolutionHost', () => {
 
         // Expect (promises)
         if (isAsync) {
-          expect(result).to.satisfy(isPromise), result = await result
+          expect(result).to.satisfy(isThenable), result = await result
         } else {
-          expect(result).to.not.satisfy(isPromise)
+          expect(result).to.not.satisfy(isThenable)
         }
 
         // Expect (snapshot)
@@ -241,9 +241,9 @@ describe('unit:lib/createModuleResolutionHost', () => {
 
         // Expect (promises)
         if (isAsync) {
-          expect(result).to.satisfy(isPromise), result = await result
+          expect(result).to.satisfy(isThenable), result = await result
         } else {
-          expect(result).to.not.satisfy(isPromise)
+          expect(result).to.not.satisfy(isThenable)
         }
 
         // Expect (result)

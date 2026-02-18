@@ -18,14 +18,7 @@ const config = [
     ignores: ['__fixtures__/tsconfigs/tsconfig.empty.json']
   },
   {
-    files: ['src/internal/__tests__/is-promise.spec.mts'],
-    rules: {
-      'unicorn/no-thenable': 0
-    }
-  },
-  {
     files: [
-      'src/internal/chain-or-call.mts',
       'src/internal/get-file-system-entries.mts',
       'src/internal/visit-directory.mts',
       'src/lib/load-tsconfig.mts',

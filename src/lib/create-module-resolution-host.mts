@@ -3,7 +3,6 @@
  * @module tsconfig-utils/lib/createModuleResolutionHost
  */
 
-import chainOrCall from '#internal/chain-or-call'
 import dfs from '#internal/fs'
 import withTrailingSlash from '#internal/with-trailing-slash'
 import {
@@ -23,6 +22,7 @@ import type {
   ModuleResolutionHostOptions,
   UseCaseSensitiveFileNames
 } from '@flex-development/tsconfig-utils'
+import when from '@flex-development/when'
 
 export default createModuleResolutionHost
 
@@ -198,15 +198,8 @@ function createModuleResolutionHost(
     this: ModuleResolutionHost,
     parent: ModuleId
   ): Awaitable<EmptyArray | string[]> {
-    /**
-     * Whether the parent directory exists.
-     *
-     * @const {Awaitable<boolean>} exists
-     */
-    const exists: Awaitable<boolean> = this.directoryExists(parent)
-
-    return chainOrCall(exists, (isDirectory = exists as boolean) => {
-      if (!isDirectory) return []
+    return when(this.directoryExists(parent), exists => {
+      if (!exists) return []
 
       /**
        * The directory content.
@@ -217,10 +210,10 @@ function createModuleResolutionHost(
         withFileTypes: true
       })
 
-      return chainOrCall(content, (dirents = content as readonly Dirent[]) => {
-        return dirents
-          .filter(dirent => dirent.isDirectory())
-          .map(dirent => dirent.name)
+      return when(content, dirents => {
+        return dirents.filter(dirent => dirent.isDirectory()).map(dirent => {
+          return dirent.name
+        })
       })
     })
   }
@@ -250,15 +243,8 @@ function createModuleResolutionHost(
     this: ModuleResolutionHost,
     id: ModuleId
   ): Awaitable<string | undefined> {
-    /**
-     * Whether the file exists.
-     *
-     * @const {Awaitable<boolean>} exists
-     */
-    const exists: Awaitable<boolean> = this.fileExists(id)
-
-    return chainOrCall(exists, (isFile = exists as boolean) => {
-      return isFile ? fs.readFile(pathe.toPath(id), encoding) : undefined
+    return when(this.fileExists(id), exists => {
+      return exists ? fs.readFile(pathe.toPath(id), encoding) : undefined
     })
   }
 

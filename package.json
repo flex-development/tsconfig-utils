@@ -142,6 +142,7 @@
     "@flex-development/pathe": "4.0.2",
     "@flex-development/tsconfig-types": "5.1.0",
     "@flex-development/tutils": "6.0.0-alpha.25",
+    "@flex-development/when": "1.0.0",
     "devlop": "1.1.0",
     "json5": "2.2.3",
     "strip-bom": "5.0.0",

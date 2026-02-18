@@ -6,7 +6,6 @@
 import fsa from '#fixtures/fsa'
 import emptyArray from '#internal/empty-array'
 import dfs from '#internal/fs'
-import isPromise from '#internal/is-promise'
 import testSubject from '#lib/create-parse-config-host'
 import fsCaseType, { type FileSystemCaseType } from '#tests/utils/fs-case-type'
 import * as mlly from '@flex-development/mlly'
@@ -14,6 +13,7 @@ import type {
   FileSystem,
   ParseConfigHost
 } from '@flex-development/tsconfig-utils'
+import { isThenable } from '@flex-development/when'
 
 describe('unit:lib/createParseConfigHost', () => {
   it.each<Parameters<typeof testSubject>>([
@@ -61,9 +61,9 @@ describe('unit:lib/createParseConfigHost', () => {
 
         // Expect (promises)
         if (isAsync) {
-          expect(result).to.satisfy(isPromise), result = await result
+          expect(result).to.satisfy(isThenable), result = await result
         } else {
-          expect(result).to.not.satisfy(isPromise)
+          expect(result).to.not.satisfy(isThenable)
         }
 
         // Expect (result)
