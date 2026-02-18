@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`unit:lib/createGetCanonicalFileName > 0 > should return canonical file name for \`id\` 1`] = `"/lib/components/atoms/anchor.tsx"`;
+
+exports[`unit:lib/createGetCanonicalFileName > 1 > should return canonical file name for \`id\` 1`] = `"/lib/components/atoms/Button.tsx"`;
+
+exports[`unit:lib/createGetCanonicalFileName > 2 > should return canonical file name for \`id\` 1`] = `"/lib/components/atoms/header.tsx"`;
+
+exports[`unit:lib/createGetCanonicalFileName > 3 > should return canonical file name for \`id\` 1`] = `"/lib/components/atoms/Footer.tsx"`;

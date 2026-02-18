@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`unit:internal/withTrailingSlash > should return \`value\` with one trailing slash 1`] = `
+{
+  "href": file://\${process.cwd()}/,
+  "pathname": \${process.cwd()}/,
+}
+`;
