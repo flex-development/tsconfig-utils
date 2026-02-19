@@ -1633,17 +1633,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@flex-development/fst-util-from-fs@npm:1.0.0-beta.1":
-  version: 1.0.0-beta.1
-  resolution: "@flex-development/fst-util-from-fs@npm:1.0.0-beta.1"
+"@flex-development/fst-util-from-fs@npm:1.0.0-beta.2":
+  version: 1.0.0-beta.2
+  resolution: "@flex-development/fst-util-from-fs@npm:1.0.0-beta.2"
   dependencies:
     "@flex-development/errnode": "npm:3.1.1"
     "@flex-development/fst": "npm:1.0.0"
     "@flex-development/pathe": "npm:4.0.2"
     "@flex-development/unist-util-builder": "npm:2.0.0"
     "@flex-development/unist-util-types": "npm:1.6.1"
+    "@flex-development/when": "npm:1.0.0"
     devlop: "npm:1.1.0"
-  checksum: 10/9cf08d21c76b27c06e58c699077aac60e7746c2c4544b40eb8b8ab76bde12184c11a52fa57d8f5567a06618bb014a38ef3d77d7f5614692b7221e72c14717503
+  checksum: 10/a109e0df43b6075e15caddd2833aa91949f6bb321a24008fe02ec4ef55099588a8da92c1bf4c38ce4d8a423f2c63e37975cf9cd339f52a69ed1afffc7fa3f5fe
   languageName: node
   linkType: hard
 
@@ -2044,7 +2045,7 @@ __metadata:
     "@flex-development/commitlint-config": "npm:1.0.1"
     "@flex-development/eslint-config": "npm:1.1.1"
     "@flex-development/fst": "npm:1.0.0"
-    "@flex-development/fst-util-from-fs": "npm:1.0.0-beta.1"
+    "@flex-development/fst-util-from-fs": "npm:1.0.0-beta.2"
     "@flex-development/grease": "npm:3.0.0-alpha.9"
     "@flex-development/is-builtin": "npm:3.2.0"
     "@flex-development/mlly": "npm:1.0.0-beta.7"
