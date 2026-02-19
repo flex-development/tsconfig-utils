@@ -82,7 +82,7 @@ function readTsconfig(
   id?: ModuleId | null | undefined,
   options?: ReadTsconfigOptions | null | undefined
 ): Awaitable<ResolvedTsconfig | null> {
-  id = String(id || 'tsconfig.json')
+  id ||= 'tsconfig.json'
 
   /**
    * The module extensions to probe for.
@@ -169,10 +169,9 @@ function readTsconfig(
    *  The resolved URL
    */
   function retry(this: void): Awaitable<URL | null> {
-    ok(typeof id === 'string', 'expected `id` to be a string')
-
     // try resolving `id` as relative specifier.
     if (
+      typeof id === 'string' &&
       isBareSpecifier(id) &&
       !isImportsSubpath(id) &&
       !id.startsWith('@') &&

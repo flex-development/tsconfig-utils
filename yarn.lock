@@ -1820,16 +1820,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@flex-development/mlly@npm:1.0.0-beta.6":
-  version: 1.0.0-beta.6
-  resolution: "@flex-development/mlly@npm:1.0.0-beta.6"
+"@flex-development/mlly@npm:1.0.0-beta.7":
+  version: 1.0.0-beta.7
+  resolution: "@flex-development/mlly@npm:1.0.0-beta.7"
   dependencies:
     "@flex-development/errnode": "npm:3.1.1"
     "@flex-development/is-builtin": "npm:3.2.0"
     "@flex-development/pathe": "npm:4.0.2"
     "@flex-development/pkg-types": "npm:4.1.0"
+    "@flex-development/when": "npm:1.0.0"
     devlop: "npm:1.1.0"
-  checksum: 10/ecd9298269007adbfc012944a9448dd89007cbf318100737beeb00b08b1db0d4fe31dbb7336fe90f0ef92e5147712d48f06835e1cfbe171795a1ad9bbcd1b845
+  checksum: 10/47db6af2758948fdf7b4b610bb8fd287566dacbd82bb719a8f21bcd6445e878d47ed1ed20dbcdf0c30601efa9ed9b666e7cb11f5e4d336dafb2833cd40d36e94
   languageName: node
   linkType: hard
 
@@ -2046,7 +2047,7 @@ __metadata:
     "@flex-development/fst-util-from-fs": "npm:1.0.0-beta.1"
     "@flex-development/grease": "npm:3.0.0-alpha.9"
     "@flex-development/is-builtin": "npm:3.2.0"
-    "@flex-development/mlly": "npm:1.0.0-beta.6"
+    "@flex-development/mlly": "npm:1.0.0-beta.7"
     "@flex-development/pathe": "npm:4.0.2"
     "@flex-development/pkg-types": "npm:4.1.0"
     "@flex-development/remark-preset": "npm:1.0.0"
