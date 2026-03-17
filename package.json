@@ -171,7 +171,7 @@
     "concat-stream": "2.0.0",
     "cross-env": "10.1.0",
     "cspell": "9.7.0",
-    "dprint": "0.52.0",
+    "dprint": "0.53.0",
     "editorconfig": "3.0.2",
     "eslint": "9.39.2",
     "growl": "1.10.5",
