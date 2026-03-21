@@ -173,7 +173,7 @@
     "cspell": "9.7.0",
     "dprint": "0.53.0",
     "editorconfig": "3.0.2",
-    "eslint": "9.39.2",
+    "eslint": "10.1.0",
     "growl": "1.10.5",
     "husky": "9.1.7",
     "is-ci": "4.1.0",
